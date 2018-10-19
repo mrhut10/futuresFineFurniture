@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Futures Fine Furniture and Bedding',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
