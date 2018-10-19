@@ -1,12 +1,12 @@
 backend:
-  name: git-gateway
-  accept_roles: #optional will accept all roles if left out
-    - admin
-    - editor
+  name: github
+  repo: mrhut10/futuresFineFurniture
 
 publish_mode: editorial_workflow
 media_folder: "static/images/uploads"
 public_folder: assets
+
+display_url: https://futuresfinefurniture.netlify.com
 
 slug:
   encoding: "ascii"
@@ -15,7 +15,7 @@ slug:
 collections:
   - name : blog
     label : Blog
-    folder : blog
+    folder : collections/blog
     create : true
     slug: "{{year}}-{{slug}}"
     fields :
