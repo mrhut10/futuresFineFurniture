@@ -7,8 +7,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'Futures Fine Furniture', //gatsby-starter-default',
+        short_name: 'FuturesFineFuniture',
         start_url: '/',
         background_color: '#663399',
         theme_color: '#663399',
@@ -18,5 +18,13 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     'gatsby-plugin-netlify-cms',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `blog`,
+        path: `${__dirname}/collections/blog`,
+      }
+    }
+
   ],
 }
