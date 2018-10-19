@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  accept_roles: #optional will accept all roles if left out
+    - admin
+    - editor
+
+publish_mode: editorial_workflow
+media_folder: "static/images/uploads"
+public_folder: assets
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+
+collections:
+  - name : blog
+    label : Blog
+    folder : blog
+    create : true
+    slug: "{{year}}-{{slug}}"
+    fields :
+      - { name: "title", label: "Title", }
+      - { name: "thumbnail", label: "Featured Image", widget: "image", required: false, }
+      - { name: "body", label: "Body", widget: "markdown", }
