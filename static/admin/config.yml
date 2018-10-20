@@ -1,6 +1,8 @@
 backend:
-  name: github
-  repo: mrhut10/futuresFineFurniture
+  name: git-gateway
+  accept_roles: #optional - accepts all users if left out
+    - admin
+    - editor
 
 publish_mode: editorial_workflow
 media_folder: "static/images/uploads"
@@ -22,3 +24,48 @@ collections:
       - { name: "title", label: "Title", }
       - { name: "thumbnail", label: "Featured Image", widget: "image", required: false, }
       - { name: "body", label: "Body", widget: "markdown", }
+  - name : productCategories
+    label : Product Categories
+    folder : collections/productCats
+    create : true
+    fields : 
+      - { name: "title", label: "Title", }
+      - { name: "body", label: "Body", widget: "markdown"}
+      - { name: "images", label: "Featured Images", widget: "list", field:  { label: Image, name: image, widget: image}}
+      - { name: "enabled", label: "enabled", widget: "bolean", default: true, hint: "this will disable all products within this category"}
+  - name : productRange
+    label: Product Range
+    folder : collections/productRange
+    create: true
+    fields : 
+      - { name: "title", label: "Title", }
+      - { name: "body", label: "Body", widget: "markdown"}
+      - { name: "enabled", label: "Enabled", widget: "boolean", default: true, hint: "this will enable all products within the range"}
+  - name : productVariantProperties
+    label: Product Variant Property
+    folder: collections/productVariantProperty
+    create: true
+    fields:
+      - { name: "title", label: "Title", widget: "string", }
+      - { name: "name", label: "Name", widget: "string", }
+      - { name: "key", label: "Key", widget: "string", }
+      - { name: "value", label: "Value", widget: "string", }
+  - name : product
+    label: Product
+    folder : collections/product
+    create: true
+    fields : 
+      - { name: "title", label: "Title"}
+      - { name: "body", label: "Body", widget: "markdown"}
+      - { name: "enabled", label: "Enabled", widget: "boolean", default: true, hint: "this will enabled the product"}
+      - name: "variants"
+        label: "Variant"
+        widget: "list"
+        fields:
+          - { name: "price", label: "Price" }
+          - name: "properties"
+            label: "Properties"
+            widget: "object"
+            fields:
+              - { name: key, label: "Property Type", widget: "relation", collection: "productVariantProperties", valueField: "name", displayFields: ["key","value"], searchFields: ["key, value"] }
+              - { name: misc, label: Misc, widget: string }
