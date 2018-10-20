@@ -32,7 +32,7 @@ collections:
       - { name: "title", label: "Title", }
       - { name: "body", label: "Body", widget: "markdown"}
       - { name: "images", label: "Featured Images", widget: "list", field:  { label: Image, name: image, widget: image}}
-      - { name: "enabled", label: "enabled", widget: "bolean", default: true, hint: "this will disable all products within this category"}
+      - { name: "enabled", label: "enabled", widget: "boolean", default: true, hint: "this will disable all products within this category"}
   - name : productRange
     label: Product Range
     folder : collections/productRange
