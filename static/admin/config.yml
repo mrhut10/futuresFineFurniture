@@ -41,31 +41,24 @@ collections:
       - { name: "title", label: "Title", }
       - { name: "body", label: "Body", widget: "markdown"}
       - { name: "enabled", label: "Enabled", widget: "boolean", default: true, hint: "this will enable all products within the range"}
-  - name : productVariantProperties
-    label: Product Variant Property
-    folder: collections/productVariantProperty
-    create: true
-    fields:
-      - { name: "title", label: "Title", widget: "string", }
-      - { name: "name", label: "Name", widget: "string", }
-      - { name: "key", label: "Key", widget: "string", }
-      - { name: "value", label: "Value", widget: "string", }
   - name : product
     label: Product
     folder : collections/product
     create: true
-    fields : 
+    fields :
       - { name: "title", label: "Title"}
       - { name: "body", label: "Body", widget: "markdown"}
       - { name: "enabled", label: "Enabled", widget: "boolean", default: true, hint: "this will enabled the product"}
+      - { name: Category, label: "Category", widget: "relation", collection: "productCategories", searchFields:["title"], valueField: "title", displayFields: ["title", "enabled"]}
       - name: "variants"
         label: "Variant"
         widget: "list"
         fields:
           - { name: "price", label: "Price" }
+          - { name: "varientName", label: "variantName"}
           - name: "properties"
             label: "Properties"
-            widget: "object"
+            widget: "list"
             fields:
-              - { name: key, label: "Property Type", widget: "relation", collection: "productVariantProperties", valueField: "name", displayFields: ["key","value"], searchFields: ["key, value"] }
-              - { name: misc, label: Misc, widget: string }
+              - { label: propertyType, name: propertyType, widget: "select", options: ['size', 'material','colour','dimentions','weight']}
+              - { label: propertyValue, name: propertyValue, widget: "string"}
