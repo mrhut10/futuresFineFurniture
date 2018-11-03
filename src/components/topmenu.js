@@ -16,7 +16,9 @@ const TopMenu = () => (
     style={{
       display: 'grid',
       gridTemplateColumns: `repeat(${listings.length}, 1fr)`,
-      textDecoration: 'none'
+      textDecoration: 'none',
+      background: 'gray',
+      borderRadius: '5px',
     }}
   >
     {listings.map(item => <ListItem item={item} />)}
@@ -24,7 +26,13 @@ const TopMenu = () => (
 )
 
 const ListItem = ({ item }) => (
-  <ul>{item.name}</ul>
+  <ul style={{
+    margin: '5px',
+    background: 'white',
+    borderRadius: '10px',
+    padding: '5px 15px',
+    textAlign: 'center'
+  }}>{item.name}</ul>
 )
 
 export default TopMenu
