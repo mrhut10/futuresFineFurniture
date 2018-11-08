@@ -3,7 +3,7 @@ const path = require(`path`)
 module.exports = {
   siteMetadata: {
     title: 'Futures Fine Furniture and Bedding',
-    col_background: '#595b61',
+    col_background: '#595b61', // gray background
     col_header: '',
     col_logoText: '',
   },
