@@ -6,7 +6,6 @@ import TopMenu from '../components/topmenu';
 
 const IndexPage = () => (
   <Layout showHero>
-    <TopMenu />
     <h1>Welcome</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
