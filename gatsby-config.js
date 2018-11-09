@@ -38,8 +38,8 @@ module.exports = {
       }
     },
     'gatsby-transformer-json', // can get json data
-    //'gatsby-transformer-sharp',
-    //'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     /*
     {
       resolve: 'gatsby-plugin-snipcart',
