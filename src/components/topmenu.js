@@ -3,7 +3,8 @@ import { Link } from 'gatsby'
 
 
 const listings = [
-  { name: 'Dinning Room', link: '/range/dinning' },
+  { name: 'Home', link: '/' },
+  { name: 'Dinning Room', link: '/range/Dinning' },
   { name: 'Living Room' },
   { name: 'Bedroom' },
   { name: 'Outdoor Furniture' },
@@ -14,11 +15,15 @@ const listings = [
 const TopMenu = () => (
   <ul
     style={{
-      display: 'grid',
-      gridTemplateColumns: `repeat(${listings.length}, 1fr)`,
+      display: 'flex',
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      //justifyContent: 'flex-start',//'center',
+      //gridTemplateColumns: `repeat(${listings.length}, 1fr)`,
       textDecoration: 'none',
       background: 'gray',
       borderRadius: '5px',
+      overflow: 'hidden'
     }}
   >
     {listings.map(item => <ListItem item={item} />)}
@@ -31,7 +36,9 @@ const ListItem = ({ item }) => (
     background: 'white',
     borderRadius: '10px',
     padding: '5px 15px',
-    textAlign: 'center'
+    textAlign: 'center',
+    flexBasis: 'auto',
+    margin: '5px'
   }}>
     <Link to={item.link || '/'}>
       {item.name}
