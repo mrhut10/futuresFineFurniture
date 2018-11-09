@@ -2,4 +2,4 @@
 title: Living
 enabled: true
 ---
-\##Living Room Furniture
+Living Room Furniture
