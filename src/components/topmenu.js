@@ -8,8 +8,8 @@ const listings = [
   { name: 'Living Room', link: '/range/Living' },
   { name: 'Bedroom', link: '/range/Bedroom' },
   { name: 'Outdoor Furniture', link: '/range/Outdoor' },
-  { name: 'Local Delivery', link: '/Delivery' },
-  { name: 'Contact Us', link: '/Contact' },
+  { name: 'Local Delivery', link: '/delivery' },
+  { name: 'Contact Us', link: '/contact' },
 ]
 
 const TopMenu = () => (
