@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { HoverSensor } from 'libreact/lib/HoverSensor'
 
 
 const listings = [
-  { name: 'Home', link: '/' },
   { name: 'Dinning Room', link: '/range/Dinning' },
   { name: 'Living Room' },
   { name: 'Bedroom' },
@@ -13,37 +13,42 @@ const listings = [
 ]
 
 const TopMenu = () => (
-  <ul
+  <div
     style={{
-      display: 'flex',
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      //justifyContent: 'flex-start',//'center',
-      //gridTemplateColumns: `repeat(${listings.length}, 1fr)`,
-      textDecoration: 'none',
-      background: 'gray',
-      borderRadius: '5px',
-      overflow: 'hidden'
+      backgroundColor: '#333',
+      overflow: 'hidden',
+      //display: 'flex',
+      //flexDirection: 'row',
+      //flexWrap: 'wrap',
+      //justifyContent: 'center',
+      //textDecoration: 'none',
+      //borderRadius: '5px',
     }}
   >
     {listings.map(item => <ListItem item={item} />)}
-  </ul>
+  </div>
 )
 
 const ListItem = ({ item }) => (
-  <ul style={{
-    margin: '5px',
-    background: 'white',
-    borderRadius: '10px',
-    padding: '5px 15px',
-    textAlign: 'center',
-    flexBasis: 'auto',
-    margin: '5px'
-  }}>
-    <Link to={item.link || '/'}>
-      {item.name}
-    </Link>
-  </ul>
+  <>
+    <HoverSensor>{({ isHover }) =>
+      <Link
+        style={{
+          float: 'left',
+          display: 'block',
+          backgroundColor: isHover ? '#ddd' : 'inherit',
+          color: isHover ? 'black' : '#f2f2f2',
+          textAlign: 'center',
+          padding: '14px 16px',
+          textDecoration: 'none',
+        }}
+        to={item.link || '/'}
+      >
+        {item.name}
+      </Link>
+    }
+    </HoverSensor>
+  </>
 )
 
 export default TopMenu
