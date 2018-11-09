@@ -1,9 +1,9 @@
 import React from 'react'
-//import { Link } from 'gatsby'
+import { Link } from 'gatsby'
 
 
 const listings = [
-  { name: 'Dinning Room' },
+  { name: 'Dinning Room', link: '/range/dinning' },
   { name: 'Living Room' },
   { name: 'Bedroom' },
   { name: 'Outdoor Furniture' },
@@ -32,7 +32,11 @@ const ListItem = ({ item }) => (
     borderRadius: '10px',
     padding: '5px 15px',
     textAlign: 'center'
-  }}>{item.name}</ul>
+  }}>
+    <Link to={item.link || '/'}>
+      {item.name}
+    </Link>
+  </ul>
 )
 
 export default TopMenu
