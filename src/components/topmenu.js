@@ -5,11 +5,11 @@ import { HoverSensor } from 'libreact/lib/HoverSensor'
 
 const listings = [
   { name: 'Dinning Room', link: '/range/Dinning' },
-  { name: 'Living Room' },
-  { name: 'Bedroom' },
-  { name: 'Outdoor Furniture' },
-  { name: 'Local Delivery' },
-  { name: 'Somthing else' },
+  { name: 'Living Room', link: '/range/Living' },
+  { name: 'Bedroom', link: '/range/Bedroom' },
+  { name: 'Outdoor Furniture', link: '/range/Outdoor' },
+  { name: 'Local Delivery', link: '/Delivery' },
+  { name: 'Contact Us', link: '/Contact' },
 ]
 
 const TopMenu = () => (
