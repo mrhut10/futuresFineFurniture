@@ -8,7 +8,7 @@ const Header = ({ siteTitle, showHero, heroImage }) => (
     style={{
       margin: "10px auto",
       background: '#611821',
-      marginBottom: '.6rem',
+      marginBottom: '.2rem',
       borderRadius: '20px',
       maxWidth: 960,
     }}

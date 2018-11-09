@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import TopMenu from '../components/topmenu';
 
 
 import Header from './header'
@@ -35,6 +36,7 @@ const Layout = ({ children, showHero }) => (
           paddingTop: ".3rem"
         }}>
           <Header siteTitle={data.site.siteMetadata.title} showHero={showHero} />
+
           <div
             style={{
               margin: '0 auto',
@@ -45,6 +47,7 @@ const Layout = ({ children, showHero }) => (
               borderRadius: '10px',
             }}
           >
+            <TopMenu />
             {children}
           </div>
         </div>
