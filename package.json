@@ -14,6 +14,7 @@
     "gatsby-plugin-snipcart": "^1.0.6",
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-json": "^2.1.5",
+    "gatsby-transformer-remark": "^2.1.12",
     "gatsby-transformer-sharp": "^2.1.8",
     "immutable": "^3.8.2",
     "moment-timezone": "^0.5.23",
@@ -25,7 +26,8 @@
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-helmet": "^5.2.0",
-    "slate": "^0.42.6"
+    "slate": "^0.42.6",
+    "slugify": "^1.3.2"
   },
   "keywords": [
     "gatsby"

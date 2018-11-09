@@ -37,9 +37,17 @@ module.exports = {
         path: `${__dirname}/collections/blog`,
       }
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `productCategory`,
+        path: `${__dirname}/collections/productCats`,
+      }
+    },
     'gatsby-transformer-json', // can get json data
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-transformer-remark',
     /*
     {
       resolve: 'gatsby-plugin-snipcart',
