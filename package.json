@@ -5,6 +5,7 @@
   "author": "mrhut10 <mrhut10@users.noreply.github.com>",
   "dependencies": {
     "gatsby": "^2.0.43",
+    "gatsby-image": "^2.0.20",
     "gatsby-plugin-manifest": "^2.0.8",
     "gatsby-plugin-netlify-cms": "^3.0.7",
     "gatsby-plugin-offline": "^2.0.13",
