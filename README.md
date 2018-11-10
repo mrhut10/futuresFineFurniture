@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.futuresfinefurniture.netlify.com">
-    <img alt="Gatsby" src="src\images\icon.png" width="60" />
+    <img alt="Futures Fine Furniture Hero Image" src="src\images\heroLogo.svg" width="300px"/>
   </a>
 </p>
 <h1 align="center">
