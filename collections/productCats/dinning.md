@@ -4,4 +4,5 @@ images:
   - /assets/capture.png
 enabled: true
 ---
-Dinning Room Furniture
+
+Dinning Settings, Tables, Chairs, sideboards
