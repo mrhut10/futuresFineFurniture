@@ -1,15 +1,14 @@
 <p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
+  <a href="https://www.futuresfinefurniture.netlify.com">
+    <img alt="Gatsby" src="src\images\icon.png" width="60" />
   </a>
 </p>
 <h1 align="center">
-  Gatsby's default starter
+  Futures Fine Furniture & Bedding Frontend Website
 </h1>
 
-Kick off your project with this default boilerplate. This barebones starter ships with the main Gatsby configuration files you might need. 
+build from the gatsbyjs default start template 
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
 
 ## 🚀 Quick start
 
@@ -22,13 +21,14 @@ _Have another more specific idea? You may want to check out our vibrant collecti
     npm install -g gatsby-cli
     ```
 
-2.  **Create a Gatsby site.**
+2.  **Clone this repo.**
 
     Use the Gatsby CLI to create a new site, specifying the default starter.
 
     ```sh
     # create a new Gatsby site using the default starter
-    gatsby new my-default-starter
+    git clone https://github.com/mrhut10/futuresFineFurniture
+    
     ```
 
 3.  **Start developing.**
@@ -36,17 +36,17 @@ _Have another more specific idea? You may want to check out our vibrant collecti
     Navigate into your new site’s directory and start it up.
 
     ```sh
-    cd my-default-starter/
+    cd futuresFineFurniture/
     gatsby develop
     ```
 
 4.  **Open the source code and start editing!**
 
-    Your site is now running at `http://localhost:8000`!
+    You've now got a local copy of site running at `http://localhost:8000`!
     
     *Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).*
     
-    Open the the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+    Open the the `futuresFineFurniture` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
     
 ## 🧐 What's inside?
 
