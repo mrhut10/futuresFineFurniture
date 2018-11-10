@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://www.futuresfinefurniture.netlify.com">
+  <a href="https://futuresfinefurniture.netlify.com">
     <img alt="Futures Fine Furniture Hero Image" src="src\images\heroLogo.svg" width="300px"/>
   </a>
 </p>
