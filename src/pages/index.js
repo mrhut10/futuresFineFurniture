@@ -24,7 +24,7 @@ const IndexPage = () => (
       <ListofLove love="Quality">
         Find widest range of Quality Furniture in the Macleay
       </ListofLove>
-      <ListofLove love="Style">
+      <ListofLove love="Beauty">
         Be inspirered by the beauty, function and form
       </ListofLove>
       <ListofLove love="Accessibillity">
@@ -34,7 +34,6 @@ const IndexPage = () => (
       </ListofLove>
 
     </ul>
-    <Link to="/delivery/">Delivered To Your Door</Link>
   </Layout>
 )
 
