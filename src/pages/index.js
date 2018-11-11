@@ -18,7 +18,7 @@ const IndexPage = () => (
     <h2>Welcome</h2>
     <p>
       You'll find the widest range of new and end of line furniture, everything you'll need to fill a home.
-      We've been providing quality furniture <RedHeart /> to the Macleay and surrounding areas for over 30 years.
+      We've been providing quality furniture to the Macleay and surrounding areas for over 30 years.
     </p>
     <ul style={{ maxWidth: "40rem", fontSize: '1.1rem' }} >
       <ListofLove love="Quality">
