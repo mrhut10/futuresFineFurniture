@@ -2,7 +2,6 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 
 import CategoryTitle from './categoryTile'
-import RangeDisplay from '../components/range'
 
 const Categories = ({ data }) => (
   <StaticQuery
@@ -13,7 +12,7 @@ const Categories = ({ data }) => (
         fields{slug}
       }}}}
     `}
-    render={data => <div style={{ display: 'flex', flexwrap: 'wrap' }}>
+    render={data => <div style={{ border: '1px solid blue', display: 'flex', flexwrap: 'wrap', alignItems: 'center', }}>
       {data.allMarkdownRemark.edges.map(edge => (
         <CategoryTitle name={edge.node.frontmatter.title} slug={edge.node.fields.slug} />
       ))}
