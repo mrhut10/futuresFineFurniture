@@ -8,6 +8,7 @@ const CategoryTitle = ({ name, Img, hoverText, slug }) => (
     style={{
       border: '1px solid black',
       width: '200px',
+      margin: '5px',
       height: '200px',
       position: 'relative',
       textDecoration: 'none'
