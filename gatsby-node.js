@@ -42,11 +42,14 @@ const querys = {
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const productCategories = graphql(querys.productCategory).then(result => {
+  //run query
+  const productCategoryQuery = graphql(querys.productCategory)
+  //generate pages for each Category
+  const productCategoriesPages = productCategoryQuery.then(result => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
         path: node.fields.slug,
-        component: path.resolve(`./src/templates/mainCatListing.js`),
+        component: path.resolve(`./src/templates/CatigoryRoute.js`),
         context: {
           slug: node.fields.slug,
         }
@@ -54,12 +57,9 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([productCategories])
+  return Promise.all([productCategoriesPages,])
 
 }
-
-
-
 
 /*
 exports.createPages = ({ graphql, actions }) => {
