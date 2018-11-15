@@ -1,12 +1,17 @@
 import React from "react"
+import { Link } from 'gatsby'
 
-const CategoryTitle = ({ name, Img, hoverText }) => (
-  <div title={hoverText} style={{
-    border: '1px solid black',
-    width: '200px',
-    height: '200px',
-    position: 'relative'
-  }}>
+const CategoryTitle = ({ name, Img, hoverText, slug }) => (
+  <Link
+    to={slug || "/"}
+    title={hoverText}
+    style={{
+      border: '1px solid black',
+      width: '200px',
+      height: '200px',
+      position: 'relative',
+      textDecoration: 'none'
+    }}>
     <h4 style={{
       width: '200px',
       position: 'absolute',
@@ -18,7 +23,7 @@ const CategoryTitle = ({ name, Img, hoverText }) => (
     <div style={{ width: '200px', height: '200px' }}>
       {Img ? <Img /> : ''}
     </div>
-  </div>
+  </Link>
 )
 
 export default CategoryTitle
