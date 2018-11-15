@@ -3,6 +3,9 @@ import { StaticQuery, graphql } from "gatsby"
 
 import CategoryTitle from './categoryTile'
 
+
+const edgeToCategoryTile = edge => <CategoryTitle name={edge.node.frontmatter.title} slug={edge.node.fields.slug} />
+
 const Categories = ({ data }) => (
   <StaticQuery
     query={graphql`
@@ -12,10 +15,8 @@ const Categories = ({ data }) => (
         fields{slug}
       }}}}
     `}
-    render={data => <div style={{ display: 'flex', flexwrap: 'wrap', alignItems: 'center', }}>
-      {data.allMarkdownRemark.edges.map(edge => (
-        <CategoryTitle name={edge.node.frontmatter.title} slug={edge.node.fields.slug} />
-      ))}
+    render={data => <div style={{ display: 'flex', flexflow: 'row wrap', alignItems: 'center' }}>
+      {data.allMarkdownRemark.edges.map(edgeToCategoryTile)}
     </div>
     }
   />
