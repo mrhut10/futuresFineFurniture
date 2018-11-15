@@ -12,7 +12,7 @@ const Categories = ({ data }) => (
         fields{slug}
       }}}}
     `}
-    render={data => <div style={{ border: '1px solid blue', display: 'flex', flexwrap: 'wrap', alignItems: 'center', }}>
+    render={data => <div style={{ display: 'flex', flexwrap: 'wrap', alignItems: 'center', }}>
       {data.allMarkdownRemark.edges.map(edge => (
         <CategoryTitle name={edge.node.frontmatter.title} slug={edge.node.fields.slug} />
       ))}
