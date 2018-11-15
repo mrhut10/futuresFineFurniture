@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import RedHeart from '../components/redHeart'
 import Layout from '../components/layout'
+import RangeDisplay from '../components/range'
+
 //import icon_heart from '../images/icon_heart.svg'
 
 const ListofLove = ({ love, children }) => (
@@ -34,6 +36,10 @@ const IndexPage = () => (
       </ListofLove>
 
     </ul>
+    <div>
+      <h2>Be Inspired </h2>
+      <RangeDisplay.Categories />
+    </div>
   </Layout>
 )
 
