@@ -116,12 +116,13 @@ exports.createPages = ({ graphql, actions }) => {
   const queryToProductPages = result => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       //create main page from category
+      console.log(node);
       createPage({
         path: `/category/${node.frontmatter.Category}/${node.frontmatter.title}`,
         component: path.resolve(`./src/templates/productRoute.js`),
         context: {
           //slug: `/category/${node.frontmatter.Category}/${node.frontmatter.title}`,
-          productName: node.fields.productName
+          productName: slugify(node.frontmatter.title)
         }
       })
     })
@@ -132,9 +133,9 @@ exports.createPages = ({ graphql, actions }) => {
   //Do work in promise
   const productCategoriesPages = query_ProductCategory.then(queryToCategoryPage)
   const productRangePages = query_ProductRange.then(queryToRangePage)
-  //const productPages = query_product.then(queryToProductPages)
+  const productPages = query_product.then(queryToProductPages)
 
-  return Promise.all([productCategoriesPages, productRangePages, /*productPages*/])
+  return Promise.all([productCategoriesPages, productRangePages, productPages])
 
 }
 
