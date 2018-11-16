@@ -120,7 +120,6 @@ exports.createPages = ({ graphql, actions }) => {
   const queryToProductPages = result => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       //create main page from category
-      console.log(node);
       createPage({
         path: `/category/${node.frontmatter.Category}/${slugify(node.frontmatter.title)}`,
         component: path.resolve(`./src/templates/productRoute.js`),
