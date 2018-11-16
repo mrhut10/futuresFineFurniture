@@ -11,7 +11,7 @@ export default ({ data, pageContext }) => {
       <div>
         <h1>{post.frontmatter.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <div style={{ display: 'flex' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', width: '100%' }}>
           {products ? products.edges.map(
             ({ node }) => <CategoryTitle name={node.frontmatter.title} slug={`${pageContext.slug}/${node.fields.productName}`} />
           ) : ''}
