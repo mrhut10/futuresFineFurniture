@@ -15,6 +15,8 @@ exports.onCreateNode = ({ node, actions }) => {
       // if a productCatigory
       actions.createNodeField({ node, name: 'type', value: `productCats` })
       actions.createNodeField({ node, name: 'slug', value: `/category/${slugify(node.frontmatter.title)}` })
+      actions.createNodeField({ node, name: 'catName', value: node.frontmatter.title })
+
     } else if (node.fileAbsolutePath.includes('collections/productRange')) {
       // if a productRange
       actions.createNodeField({ node, name: 'type', value: `productRange` })
@@ -23,6 +25,7 @@ exports.onCreateNode = ({ node, actions }) => {
       // if a product
       actions.createNodeField({ node, name: 'type', value: `product` })
       actions.createNodeField({ node, name: 'productName', value: `${slugify(node.frontmatter.title)}` })
+      actions.createNodeField({ node, name: 'catigory', value: node.frontmatter.Category })
     }
   }
 }
@@ -98,6 +101,7 @@ exports.createPages = ({ graphql, actions }) => {
         component: path.resolve(`./src/templates/CatigoryRoute.js`),
         context: {
           slug: node.fields.slug,
+          catName: node.frontmatter.title
         }
       })
     })
