@@ -4,8 +4,6 @@ import RedHeart from '../components/redHeart'
 import Layout from '../components/layout'
 import RangeDisplay from '../components/range'
 
-//import icon_heart from '../images/icon_heart.svg'
-
 const ListofLove = ({ love, children }) => (
   <li style={{ padding: '10px', listStyle: `none` }}>
     <h4 style={{ marginBottom: '0.1rem' }}>We <RedHeart /> {love}</h4>
@@ -14,6 +12,7 @@ const ListofLove = ({ love, children }) => (
     </div>
   </li>
 )
+
 
 const IndexPage = () => (
   <Layout showHero>
@@ -40,6 +39,10 @@ const IndexPage = () => (
       <h2>Be Inspired </h2>
       <RangeDisplay.Categories />
     </div>
+    <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
+
+    </div>
+
   </Layout>
 )
 
