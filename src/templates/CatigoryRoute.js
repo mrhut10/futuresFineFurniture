@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import CategoryTitle from '../components/categoryTile'
 
-export default ({ data }) => {
+export default ({ data, pageContext }) => {
   const post = data.cat
   const products = data.products
   return (
@@ -13,7 +13,7 @@ export default ({ data }) => {
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <div style={{ display: 'flex' }}>
           {products ? products.edges.map(
-            ({ node }) => <CategoryTitle name={node.frontmatter.title} />
+            ({ node }) => <CategoryTitle name={node.frontmatter.title} slug={`${pageContext.slug}/${node.fields.productName}`} />
           ) : ''}
         </div>
       </div>
@@ -35,6 +35,7 @@ query ($slug: String $catName: String) {
       node {
         id
         frontmatter{title}
+        fields{productName}
       }
     }
   }

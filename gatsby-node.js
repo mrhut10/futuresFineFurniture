@@ -122,7 +122,7 @@ exports.createPages = ({ graphql, actions }) => {
       //create main page from category
       console.log(node);
       createPage({
-        path: `/category/${node.frontmatter.Category}/${node.frontmatter.title}`,
+        path: `/category/${node.frontmatter.Category}/${slugify(node.frontmatter.title)}`,
         component: path.resolve(`./src/templates/productRoute.js`),
         context: {
           //slug: `/category/${node.frontmatter.Category}/${node.frontmatter.title}`,
