@@ -12,12 +12,20 @@ const slugify = require('slugify')
 exports.onCreateNode = ({ node, actions }) => {
   if (node.internal.type === "MarkdownRemark") {
     if (node.fileAbsolutePath.includes('/collections/productCats/')) {
+      // if a productCatigory
       actions.createNodeField({ node, name: 'type', value: `productCats` })
-      actions.createNodeField({ node, name: 'slug', value: `/range/${slugify(node.frontmatter.title)}` })
+      actions.createNodeField({ node, name: 'slug', value: `/category/${slugify(node.frontmatter.title)}` })
+    } else if (node.fileAbsolutePath.includes('collections/productRange')) {
+      // if a productRange
+      actions.createNodeField({ node, name: 'type', value: `productRange` })
+      actions.createNodeField({ node, name: 'slug', value: `/collections/${slugify(node.frontmatter.title)}` })
+    } else if (node.fileAbsolutePath.includes('collections/product/')) {
+      // if a product
+      actions.createNodeField({ node, name: 'type', value: `product` })
+      actions.createNodeField({ node, name: 'productName', value: `${slugify(node.frontmatter.title)}` })
     }
   }
 }
-
 
 const querys = {
   productCategory: `
@@ -36,16 +44,54 @@ const querys = {
       }
     }
   }`,
-
+  productRange: `
+  {
+    allMarkdownRemark(filter: {fields: {type: {eq: "productRange"}}}) {
+      edges {
+        node {
+          fields {
+            slug
+            type
+          }
+          frontmatter {
+            title
+          }
+        }
+      }
+    }
+  }  
+  `,
+  product: `
+  {
+    allMarkdownRemark(filter: {fields: {type: {eq: "product"}}}) {
+      edges {
+        node {
+          frontmatter {
+            title
+            Category
+            range
+            variants {
+              price
+              varientName
+            }
+          }
+        }
+      }
+    }
+  }  
+  `
 }
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   //run query
-  const productCategoryQuery = graphql(querys.productCategory)
-  //generate pages for each Category
-  const productCategoriesPages = productCategoryQuery.then(result => {
+  const query_ProductCategory = graphql(querys.productCategory)
+  const query_ProductRange = graphql(querys.productRange)
+  const query_product = graphql(querys.product)
+
+  // page generator functions
+  const queryToCategoryPage = result => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
         path: node.fields.slug,
@@ -55,9 +101,40 @@ exports.createPages = ({ graphql, actions }) => {
         }
       })
     })
-  })
+  }
+  const queryToRangePage = result => {
+    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      createPage({
+        path: node.fields.slug,
+        component: path.resolve(`./src/templates/RangeRoute.js`),
+        context: {
+          slug: node.fields.slug
+        }
+      })
+    })
+  }
+  const queryToProductPages = result => {
+    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      //create main page from category
+      createPage({
+        path: `/category/${node.frontmatter.Category}/${node.frontmatter.title}`,
+        component: path.resolve(`./src/templates/productRoute.js`),
+        context: {
+          //slug: `/category/${node.frontmatter.Category}/${node.frontmatter.title}`,
+          productName: node.fields.productName
+        }
+      })
+    })
+  }
 
-  return Promise.all([productCategoriesPages,])
+
+
+  //Do work in promise
+  const productCategoriesPages = query_ProductCategory.then(queryToCategoryPage)
+  const productRangePages = query_ProductRange.then(queryToRangePage)
+  //const productPages = query_product.then(queryToProductPages)
+
+  return Promise.all([productCategoriesPages, productRangePages, /*productPages*/])
 
 }
 

@@ -44,6 +44,20 @@ module.exports = {
         path: `${__dirname}/collections/productCats`,
       }
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `productRange`,
+        path: `${__dirname}/collections/productRange`,
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `product`,
+        path: `${__dirname}/collections/product`,
+      }
+    },
     'gatsby-transformer-json', // can get json data
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
