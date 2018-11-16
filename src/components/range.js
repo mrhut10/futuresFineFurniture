@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from "gatsby"
 import CategoryTitle from './categoryTile'
 
 
-const edgeToCategoryTile = edge => <CategoryTitle name={edge.node.frontmatter.title} slug={edge.node.fields.slug} />
+const edgeToCategoryTile = edge => <CategoryTitle name={edge.node.frontmatter.title} slug={edge.node.fields.slug} hoverText={edge.node.excerpt} />
 
 const Categories = ({ data }) => (
   <StaticQuery
@@ -15,20 +15,14 @@ const Categories = ({ data }) => (
         fields{slug}
       }}}}
     `}
-    render={data => <div style={{ display: 'flex', flexflow: 'row wrap', alignItems: 'center' }}>
-      {data.allMarkdownRemark.edges.map(edgeToCategoryTile)}
-    </div>
-    }
+    render={data => (
+      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', width: '100%' }}>
+        {data.allMarkdownRemark.edges.map(edgeToCategoryTile)}
+      </div>
+    )}
   />
 )
 
 export default {
   Categories
 }
-
-/*export default {
-  Categories
-}
-
-
-*/

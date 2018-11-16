@@ -6,16 +6,19 @@ const CategoryTitle = ({ name, Img, hoverText, slug }) => (
     to={slug || "/"}
     title={hoverText}
     style={{
-      border: '1px solid black',
-      width: '200px',
-      margin: '5px',
-      height: '200px',
+      display: 'block',
       position: 'relative',
-      textDecoration: 'none'
-    }}>
-    <h4 style={{
       width: '200px',
+      height: '200px',
+      margin: '5px',
+      border: '1.5px solid black',
+      textDecoration: 'none',
+      overflow: 'hidden',
+    }}
+  >
+    <h4 style={{
       position: 'absolute',
+      width: '100%',
       top: 'calc(100px - 1em)',
       textAlign: 'center'
     }}>
