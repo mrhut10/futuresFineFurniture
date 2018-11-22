@@ -51,6 +51,11 @@ collections:
       - { name: "enabled", label: "Enabled", widget: "boolean", default: true, hint: "this will enabled the product"}
       - { name: "Category", label: "Category", widget: "relation", collection: "productCategories", searchFields:["title"], valueField: "title", displayFields: ["title", "enabled"]}
       - { name: "range", label: "Range", required: False, widget: "relation", collection: "productRange", searchFields: ["title","enabled"], valueField: "title", displayFields: ["title", "enabled"]}
+      - name: "images"
+        label: "images",
+        required: False,
+        widget: "list"
+        field: {label: Image, name: image, widget: image}
       - name: "variants"
         label: "Variant"
         widget: "list"
