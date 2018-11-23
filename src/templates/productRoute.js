@@ -36,25 +36,31 @@ export default ({ data, location }) => {
                 : ''
         }
         <table>
-          <th>Option</th>
-          <th>Price</th>
-          {
-            variants.map(vari => <tr>
-              <td>{variants.length > 1 ? vari.varientName : title}</td>
-              <td>
-                <BuyButton
-                  name={`${title}--${vari.varientName}`}
-                  id={`${title}--${vari.varientName}`}
-                  image={null}
-                  url={location.href}
-                  price={vari.price}
-                  description={null}
-                >
-                  Buy it now for ${vari.price}
-                </BuyButton>
-              </td>
-            </tr>)
-          }
+          <thead>
+            <tr>
+              <th>Option</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              variants.map(vari => <tr>
+                <td>{variants.length > 1 ? vari.varientName : title}</td>
+                <td>
+                  <BuyButton
+                    name={`${title}--${vari.varientName}`}
+                    id={`${title}--${vari.varientName}`}
+                    image={null}
+                    url={location.href}
+                    price={vari.price}
+                    description={null}
+                  >
+                    Buy it now for ${vari.price}
+                  </BuyButton>
+                </td>
+              </tr>)
+            }
+          </tbody>
         </table>
       </div>
     </Layout>
