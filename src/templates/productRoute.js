@@ -54,10 +54,10 @@ export default ({ data, location }) => {
                     id={`${title}--${vari.varientName}`}
                     image={null}
                     url={location.href}
-                    price={vari.price.toString(10)}
+                    price={vari.price}
                     description={null}
                   >
-                    Buy it now for ${vari.price}
+                    Buy it now for ${vari.price.toString(10)}
                   </BuyButton>
                 </td>
               </tr>)
