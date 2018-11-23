@@ -4,7 +4,7 @@ enabled: true
 Category: Bedroom
 range: Hunt Collection
 variants:
-  - price: '649'
+  - price: 64900
     varientName: main
 ---
 Dimentions (WxDxH mm) : 900x420x950

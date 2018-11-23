@@ -61,7 +61,7 @@ collections:
         widget: "list"
         fields:
           - { name: "sku", label: "sku" }
-          - { name: "price", label: "Price" }
+          - { name: "price", label: "Price", widget: number, valueType: 'int' }
           - { name: "Name", label: "Name"}
           - name: "properties"
             label: "Properties"

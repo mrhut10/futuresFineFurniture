@@ -6,7 +6,7 @@ range: Hunt Collection
 images:
   - /assets/hunt_dresser.png
 variants:
-  - price: '749'
+  - price: 74900
     varientName: main 
 ---
 Dimentions (WxDxH mm) : 100x50x850
