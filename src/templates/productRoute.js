@@ -3,6 +3,8 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import styles from './product.module.css'
 
+const last = input => input[input.length - 1]
+const imgAddressToFilename = imageRelAddress => last(imageRelAddress.split('/'))
 
 const formatter = new Intl.NumberFormat('en-AU', {
   style: 'currency',
@@ -33,7 +35,6 @@ export default ({ data, location }) => {
   return (
     <Layout>
       <button className="snipcart-checkout">Click here to checkout</button>
-
       <div>
         <h1>{title}</h1>
         {
@@ -45,6 +46,12 @@ export default ({ data, location }) => {
                 ? `From the ${range} range`
                 : ''
         }
+        <div>
+          {
+            //data.markdownRemark.frontmatter.images.map(image => <img src={imgAddressToFilename(image)} />)
+
+          }
+        </div>
         <table>
           <thead>
             <tr>
@@ -89,6 +96,7 @@ query($productName: String!)	{
     html
     frontmatter {
       title
+      images
       enabled
       Category
       range
