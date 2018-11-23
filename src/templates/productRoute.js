@@ -4,6 +4,14 @@ import Layout from "../components/layout"
 import styles from './product.module.css'
 
 
+const formatter = new Intl.NumberFormat('en-AU', {
+  style: 'currency',
+  currency: 'AUD',
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+  useGrouping: true,
+})
+
 const BuyButton = ({ name, id, image, url, price, description, children }) => <button
   type="button"
   className={`${styles.buyButton} snipcart-add-item`}
@@ -11,7 +19,7 @@ const BuyButton = ({ name, id, image, url, price, description, children }) => <b
   data-item-id={id}
   data-item-image={image}
   data-item-url={url}
-  price={price}
+  data-item-price={`{"AUD":${price / 100}}`}
   description={description}
 >
   {children}
@@ -37,30 +45,38 @@ export default ({ data, location }) => {
                 ? `From the ${range} range`
                 : ''
         }
+        <br />
+        {location.href}
+
         <table>
           <thead>
             <tr>
               <th>Option</th>
               <th>Price</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             {
-              variants.map(vari => <tr key={vari.varientName}>
-                <td>{variants.length > 1 ? vari.varientName : title}</td>
-                <td>
-                  <BuyButton
-                    name={`${title}--${vari.varientName}`}
-                    id={`${title}--${vari.varientName}`}
-                    image={null}
-                    url={location.href}
-                    price={vari.price}
-                    description={null}
-                  >
-                    Buy it now for ${vari.price.toString(10)}
-                  </BuyButton>
-                </td>
-              </tr>)
+              variants.map(vari => (
+                <tr key={vari.varientName}>
+                  <td>{variants.length > 1 ? vari.varientName : title}</td>
+                  <td>{formatter.format(vari.price / 100)}
+                  </td>
+                  <td>
+                    <BuyButton
+                      name={`${title}_${vari.varientName}`}
+                      id={`${title}_${vari.varientName}`}
+                      image={null}
+                      url={location.href}
+                      price={vari.price}
+                      description={null}
+                    >
+                      Add to Shopping Cart
+                    </BuyButton>
+                  </td>
+                </tr>
+              ))
             }
           </tbody>
         </table>
