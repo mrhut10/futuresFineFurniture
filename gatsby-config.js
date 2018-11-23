@@ -6,6 +6,7 @@ module.exports = {
     col_background: '#595b61', // gray background
     col_header: '',
     col_logoText: '',
+    snipCartApiKey: process.env.snipCartApiKey || "YzUxMzk5NTItOThmOC00NzM3LWE5NmUtNGViMGVmNDNhNTdkNjM2NzY2ODMyMDY2NzQzNzg2",
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -62,18 +63,5 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-transformer-remark',
-    /*
-    {
-      resolve: 'gatsby-plugin-snipcart',
-      //https://www.gatsbyjs.org/packages/gatsby-plugin-snipcart/
-      options: {
-        apiKey: process.env.SNIPCART_APIKEY || "YzUxMzk5NTItOThmOC00NzM3LWE5NmUtNGViMGVmNDNhNTdkNjM2NzY2ODMyMDY2NzQzNzg2",
-        //autopop: Whether or not the cart will open once a product is added. (Defaults to false)
-        //js: A Snipcart JavaScript file. (Defaults to https://cdn.snipcart.com/scripts/2.0/snipcart.js)
-        //jquery: A jQuery file to link to. Set to false for none. (Defaults to https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js)
-        //styles: A stylesheet file to link to. Set to false for none. (Defaults to https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css)
-      }
-    }
-    */
   ],
 }
