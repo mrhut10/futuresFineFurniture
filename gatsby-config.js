@@ -6,7 +6,7 @@ module.exports = {
     col_background: '#595b61', // gray background
     col_header: '',
     col_logoText: '',
-    snipCartApiKey: process.env.snipCartApiKey || "YzUxMzk5NTItOThmOC00NzM3LWE5NmUtNGViMGVmNDNhNTdkNjM2NzY2ODMyMDY2NzQzNzg2",
+    snipCartApiKey: "YzUxMzk5NTItOThmOC00NzM3LWE5NmUtNGViMGVmNDNhNTdkNjM2NzY2ODMyMDY2NzQzNzg2", //process.env.snipCartApiKey || 
   },
   plugins: [
     'gatsby-plugin-react-helmet',
