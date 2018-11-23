@@ -60,8 +60,9 @@ collections:
         label: "Variant"
         widget: "list"
         fields:
+          - { name: "sku", label: "sku" }
           - { name: "price", label: "Price" }
-          - { name: "varientName", label: "variantName"}
+          - { name: "Name", label: "Name"}
           - name: "properties"
             label: "Properties"
             widget: "list"
