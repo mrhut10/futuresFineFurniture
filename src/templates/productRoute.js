@@ -24,6 +24,8 @@ export default ({ data, location }) => {
 
   return (
     <Layout>
+      <button className="snipcart-checkout">Click here to checkout</button>
+
       <div>
         <h1>{title}</h1>
         {
