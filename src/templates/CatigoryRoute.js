@@ -13,7 +13,7 @@ export default ({ data, pageContext }) => {
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', width: '100%' }}>
           {products ? products.edges.map(
-            ({ node }) => <CategoryTitle name={node.frontmatter.title} slug={`${pageContext.slug}/${node.fields.productName}`} />
+            ({ node }) => <CategoryTitle key={node.frontmatter.title} name={node.frontmatter.title} slug={`${pageContext.slug}/${node.fields.productName}`} />
           ) : ''}
         </div>
       </div>

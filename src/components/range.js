@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from "gatsby"
 import CategoryTitle from './categoryTile'
 
 
-const edgeToCategoryTile = edge => <CategoryTitle name={edge.node.frontmatter.title} slug={edge.node.fields.slug} hoverText={edge.node.excerpt} />
+const edgeToCategoryTile = edge => <CategoryTitle key={edge.node.frontmatter.title} name={edge.node.frontmatter.title} slug={edge.node.fields.slug} hoverText={edge.node.excerpt} />
 
 const Categories = ({ data }) => (
   <StaticQuery
