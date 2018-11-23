@@ -25,7 +25,7 @@ const TopMenu = () => (
       //borderRadius: '5px',
     }}
   >
-    {listings.map(item => <ListItem item={item} />)}
+    {listings.map(item => <ListItem key={item.name} item={item} />)}
   </div>
 )
 

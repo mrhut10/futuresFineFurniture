@@ -44,7 +44,7 @@ export default ({ data, location }) => {
           </thead>
           <tbody>
             {
-              variants.map(vari => <tr>
+              variants.map(vari => <tr key={vari.varientName}>
                 <td>{variants.length > 1 ? vari.varientName : title}</td>
                 <td>
                   <BuyButton
@@ -52,7 +52,7 @@ export default ({ data, location }) => {
                     id={`${title}--${vari.varientName}`}
                     image={null}
                     url={location.href}
-                    price={vari.price}
+                    price={vari.price.toString(10)}
                     description={null}
                   >
                     Buy it now for ${vari.price}
