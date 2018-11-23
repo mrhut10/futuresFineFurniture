@@ -45,9 +45,6 @@ export default ({ data, location }) => {
                 ? `From the ${range} range`
                 : ''
         }
-        <br />
-        {location.href}
-
         <table>
           <thead>
             <tr>
