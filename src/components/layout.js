@@ -4,9 +4,13 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import TopMenu from '../components/topmenu';
 import Header from './header'
+import '../../node_modules/normalize.css'
 import './layout.css'
+import '../../node_modules/@blueprintjs/core/lib/css/blueprint.css'
+import '../../node_modules/@blueprintjs/icons/lib/css/blueprint-icons.css'
 
-const Layout = ({ children, showHero }) => (
+
+const Layout = ({ children, showHero, crumbs }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
