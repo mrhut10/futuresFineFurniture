@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import styles from './product.module.css'
+import BuyButton from '../components/snipcart'
 
 const last = input => input[input.length - 1]
 const imgAddressToFilename = imageRelAddress => last(imageRelAddress.split('/'))
@@ -14,18 +14,7 @@ const formatter = new Intl.NumberFormat('en-AU', {
   useGrouping: true,
 })
 
-const BuyButton = ({ name, id, image, url, price, description, children }) => <button
-  type="button"
-  className={`${styles.buyButton} snipcart-add-item`}
-  data-item-name={name}
-  data-item-id={id}
-  data-item-image={image}
-  data-item-url={url}
-  data-item-price={`{"AUD":${price / 100}}`}
-  description={description}
->
-  {children}
-</button>
+
 
 export default ({ data, location }) => {
   //const post = data.markdownRemark.frontmatter
@@ -49,7 +38,6 @@ export default ({ data, location }) => {
         <div>
           {
             //data.markdownRemark.frontmatter.images.map(image => <img src={imgAddressToFilename(image)} />)
-
           }
         </div>
         <table>
