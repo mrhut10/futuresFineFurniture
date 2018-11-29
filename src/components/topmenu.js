@@ -20,7 +20,7 @@ import {
 } from '@blueprintjs/core'
 import { IconNames } from "@blueprintjs/icons";
 
-const SizeSafeMenu = () => <ResizeSensor><NewMenu size /></ResizeSensor>
+const SizeSafeMenu = () => <div style={{ maxWidth: 960, margin: "0 auto" }}><NewMenu /></div>
 
 
 const NewMenu = ({ size }) => <Navbar className="bp3-dark">
