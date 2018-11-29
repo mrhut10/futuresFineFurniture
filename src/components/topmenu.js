@@ -14,38 +14,24 @@ import {
   Position,
   MenuItem,
   ResizeSensor,
-  IResizeEntry
+  IResizeEntry,
+  Icon
 
 } from '@blueprintjs/core'
 import { IconNames } from "@blueprintjs/icons";
 
-
-const listings = [
-  { name: 'Bedroom', link: '/category/Bedroom' },
-  { name: 'Dinning Room', link: '/category/Dinning' },
-  { name: 'Living Room', link: '/category/Living' },
-  { name: 'Outdoor', link: '/category/Outdoor' },
-]
-
 const SizeSafeMenu = () => <ResizeSensor><NewMenu size /></ResizeSensor>
 
 
-const NewMenu = ({ size }) => <Navbar>
-  <div>{size}</div>
+const NewMenu = ({ size }) => <Navbar className="bp3-dark">
   <NavbarGroup align={Alignment.LEFT}>
     <NavbarHeading><Link to="/"><Button large className={Classes.MINIMAL} icon={IconNames.HOME} /></Link></NavbarHeading>
-    <NavbarDivider />
-  </NavbarGroup>
-  <NavbarGroup >
-    {listings.map(item => <NewItem item={item} />)}
-  </NavbarGroup>
-  <NavbarGroup align={Alignment.RIGHT}>
-    <NavbarDivider />
-    <Link to="/contact"><Button large className={Classes.MINIMAL} text="About Us" icon={IconNames.FOLDER_CLOSE} /></Link>
+    <NewItem item={{ link: '/range/', name: "Categories", icon: IconNames.FOLDER_NEW }} />
+    <Link align={Alignment.CENTER} to="/contact"><Button large className={Classes.MINIMAL} text="About" icon={IconNames.FOLDER_CLOSE} /></Link>
   </NavbarGroup>
 </Navbar>
 
-const NewItem = ({ item }) => <Link to={item.link}><Button large className={Classes.MINIMAL} text={item.name} /></Link>
+const NewItem = ({ item }) => <Link to={item.link}><Button large className={Classes.MINIMAL} text={item.name} icon={IconNames.SHOP} /></Link>
 
 
 /*
