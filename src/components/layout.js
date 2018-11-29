@@ -50,7 +50,6 @@ const Layout = ({ children, showHero, crumbs }) => (
               padding: '0px 1.0875rem 1.45rem',
               paddingTop: 0,
               background: 'white',
-              borderRadius: '10px',
             }}
           >
 
