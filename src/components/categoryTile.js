@@ -1,5 +1,21 @@
 import React from "react"
 import { Link } from 'gatsby'
+import { Button, Card, Elevation } from "@blueprintjs/core";
+
+const NewTitle = ({ name, Img, hoverText, slug }) => (
+  <Link style={{ padding: 0 }} to={slug || "/"}>
+    <Card
+      style={{
+
+      }}
+      interactive={true}
+      elevation={Elevation.TWO}
+    >
+      <CategoryTitle name={name} Img={Img} hoverText={hoverText} slug={slug} />
+    </Card>
+  </Link>
+)
+
 
 const CategoryTitle = ({ name, Img, hoverText, slug }) => (
   <Link
@@ -8,12 +24,12 @@ const CategoryTitle = ({ name, Img, hoverText, slug }) => (
     style={{
       display: 'block',
       position: 'relative',
-      width: '200px',
-      height: '200px',
+      width: '150px',
+      height: '150px',
       margin: '5px',
-      border: '1.5px solid black',
       textDecoration: 'none',
       overflow: 'hidden',
+      border: '1px solid blue'
     }}
   >
     <h4 style={{
@@ -30,4 +46,4 @@ const CategoryTitle = ({ name, Img, hoverText, slug }) => (
   </Link>
 )
 
-export default CategoryTitle
+export default NewTitle //CategoryTitle
