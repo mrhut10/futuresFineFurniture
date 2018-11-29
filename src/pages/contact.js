@@ -5,7 +5,7 @@ import { WindowSizeSensor } from 'libreact/lib/WindowSizeSensor';
 import Layout from '../components/layout'
 
 
-const map = `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3417.0768809607753!2d152.8386913141883!3d-31.07978838715898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b9ddf8643294fa9%3A0x4fb64c39e261278a!2sFUTURES+FINE+FURNITURE+%26+BEDDING+Pty+Ltd!5e0!3m2!1sen!2sau!4v1542370777195" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>`
+const map = (size = 200) => `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3417.0768809607753!2d152.8386913141883!3d-31.07978838715898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b9ddf8643294fa9%3A0x4fb64c39e261278a!2sFUTURES+FINE+FURNITURE+%26+BEDDING+Pty+Ltd!5e0!3m2!1sen!2sau!4v1542370777195" width="${size}" height="${size}" frameborder="0" style="border:0" allowfullscreen></iframe>`
 
 const singleColumSize = 600
 
@@ -28,7 +28,7 @@ const SecondPage = () => (
             <li><a href="tel:+61265626675">Phone: 65626675</a></li>
             <li>
               Address: Centerpoint Arcade, 14 Smith Street, Kempsey, NSW 2440
-              <div style={{ textAlign: 'center', size: '100%' }} dangerouslySetInnerHTML={{ __html: map }} />
+              <div style={{ textAlign: 'center' }} dangerouslySetInnerHTML={{ __html: map(250) }} />
             </li>
           </ul>
         </div>
