@@ -42,7 +42,7 @@ const Layout = ({ children, showHero, crumbs }) => (
           paddingTop: ".3rem"
         }}>
           <Header siteTitle={data.site.siteMetadata.title} showHero={showHero} />
-
+          <TopMenu />
           <div
             style={{
               margin: '0 auto',
@@ -53,7 +53,7 @@ const Layout = ({ children, showHero, crumbs }) => (
               borderRadius: '10px',
             }}
           >
-            <TopMenu />
+
             {children}
           </div>
         </div>
