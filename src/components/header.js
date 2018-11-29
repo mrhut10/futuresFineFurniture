@@ -9,7 +9,7 @@ const Header = ({ siteTitle, showHero, heroImage }) => (
       margin: "10px auto",
       background: '#611821',
       marginBottom: '.2rem',
-      borderRadius: '20px',
+      borderRadius: '20px 20px 0px 0px',
       maxWidth: 960,
     }}
   >
