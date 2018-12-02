@@ -8,6 +8,8 @@
 
 const path = require('path')
 const slugify = require('slugify')
+const { compose, last, lift, pathOr, split, } = require('ramda')
+
 
 exports.onCreateNode = ({ node, actions }) => {
   if (node.internal.type === "MarkdownRemark") {
@@ -73,6 +75,7 @@ const querys = {
             title
             Category
             range
+            images
             variants {
               price
               varientName
@@ -117,15 +120,24 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
   }
+
+
   const queryToProductPages = result => {
+    const nodeToImageList = compose(
+      lift(compose(
+        last, split('/'),
+      )),
+      pathOr([], ['frontmatter', 'images'])
+    )
+
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       //create main page from category
       createPage({
         path: `/category/${node.frontmatter.Category}/${slugify(node.frontmatter.title)}`,
         component: path.resolve(`./src/templates/productRoute.js`),
         context: {
-          //slug: `/category/${node.frontmatter.Category}/${node.frontmatter.title}`,
-          productName: slugify(node.frontmatter.title)
+          productName: slugify(node.frontmatter.title),
+          images: nodeToImageList(node)
         }
       })
     })

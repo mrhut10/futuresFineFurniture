@@ -34,6 +34,13 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        name: 'contentImages',
+        path: path.join(__dirname, 'static', 'images', 'uploads'),
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         name: `blog`,
         path: `${__dirname}/collections/blog`,
       }
