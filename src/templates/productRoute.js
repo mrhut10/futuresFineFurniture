@@ -2,9 +2,11 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import BuyButton from '../components/snipcart'
+import * as R from 'ramda'
+//import { string } from "prop-types";
+import { stringify } from "querystring";
 
-const last = input => input[input.length - 1]
-const imgAddressToFilename = imageRelAddress => last(imageRelAddress.split('/'))
+
 
 const formatter = new Intl.NumberFormat('en-AU', {
   style: 'currency',
@@ -14,6 +16,22 @@ const formatter = new Intl.NumberFormat('en-AU', {
   useGrouping: true,
 })
 
+const spy = (input) => {
+  console.log(input)
+  return input
+}
+
+const ImageComponent = input => input ? <img src={input} /> : null
+
+const images = R.compose(
+  R.lift(R.compose(
+    ImageComponent,
+    R.pathOr(null, ['node', 'childImageSharp', 'fixed', 'src']),
+  )),
+  R.pathOr([], ['allFile', 'edges']), // Object -> array
+)
+
+//const getSafePath = (p, o) => p.reduce((xs, x) => (xs && xs[x]) ? xs[x] : null, o)
 
 
 export default ({ data, location }) => {
@@ -37,7 +55,7 @@ export default ({ data, location }) => {
         }
         <div>
           {
-            //data.markdownRemark.frontmatter.images.map(image => <img src={imgAddressToFilename(image)} />)
+            images(data)
           }
         </div>
         <table>
@@ -79,12 +97,18 @@ export default ({ data, location }) => {
 
 //markdownRemark(frontmatter: {title: {eq: $slug}}) {
 export const query = graphql`
-query($productName: String!)	{
+query($productName: String!, $images: [String])	{
+  allFile(filter:{relativePath:{in: $images} sourceInstanceName:{eq:"contentImages"}}){
+    edges{
+      node{
+        childImageSharp{fixed(width:200){src}}
+      }
+    }
+  }
   markdownRemark(fields:{type: {eq:"product"} productName:{eq:$productName}}) {
     html
     frontmatter {
       title
-      images
       enabled
       Category
       range
