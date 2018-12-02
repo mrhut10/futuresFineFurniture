@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from 'gatsby'
-import { Button, Card, Elevation } from "@blueprintjs/core";
+import { Card, Elevation } from "@blueprintjs/core";
 
 const NewTitle = ({ name, Img, hoverText, slug }) => (
   <Link style={{ padding: 0 }} to={slug || "/"}>

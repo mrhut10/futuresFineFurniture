@@ -3,11 +3,8 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import BuyButton from '../components/snipcart'
 import * as R from 'ramda'
-//import { string } from "prop-types";
-import { stringify } from "querystring";
 
-
-
+//const average = R.converge(R.divide, [R.sum, R.length])
 const formatter = new Intl.NumberFormat('en-AU', {
   style: 'currency',
   currency: 'AUD',
@@ -21,7 +18,8 @@ const spy = (input) => {
   return input
 }
 
-const ImageComponent = input => input ? <img src={input} /> : null
+const ImageComponent = input => input ? <img alt="product" src={input} /> : null
+
 
 const images = R.compose(
   R.lift(R.compose(

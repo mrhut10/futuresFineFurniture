@@ -5,17 +5,17 @@ import {
   Alignment,
   Button,
   Classes,
-  Menu,
+//  Menu,
   Navbar,
-  NavbarDivider,
+//  NavbarDivider,
   NavbarGroup,
   NavbarHeading,
-  Popover,
-  Position,
-  MenuItem,
-  ResizeSensor,
-  IResizeEntry,
-  Icon
+//  Popover,
+//  Position,
+//  MenuItem,
+//  ResizeSensor,
+//  IResizeEntry,
+//  Icon
 
 } from '@blueprintjs/core'
 import { IconNames } from "@blueprintjs/icons";
