@@ -1,6 +1,22 @@
-import React from 'react'
-
+import React, { Children } from 'react'
 import Layout from '../components/layout'
+
+import {
+  //  Button,
+  Card,
+  Elevation
+} from "@blueprintjs/core"
+
+import afterpayLogo from '../images/afterpay/afterpay_AP-RGB-sm.svg'
+import afterpaySocial from '../images/afterpay/social-1080x1080-blue.png'
+import visacard from '../images/paymentMethods/Dark Color/1.png'
+import mastercard from '../images/paymentMethods/Dark Color/2.png'
+import amexcard from '../images/paymentMethods/Dark Color/22.png'
+import wallet from '../images/paymentMethods/australian-money-8746289.jpg'
+
+const PaymentCard = ({ children }) => <Card interactive={true} elevation={Elevation.TWO} style={{ margin: '10px', maxWidth: '300px' }}>
+  {children}
+</Card>
 
 const PaymentPage = () => (
   <Layout>
@@ -8,16 +24,25 @@ const PaymentPage = () => (
     <p>
       Helpful and Flexible payment options to help you get your Quality Furniture quicker
     </p>
-    <h3>Standard Payments Methods ( Instore & Online )</h3>
-    <ul>
-      <li>Cards (Visa, master, Amex and most others)</li>
-      <li>Cash</li>
-    </ul>
-    <h3>Flexible Payment Options ( Instore )</h3>
-    <ul>
-      <li>Layby's ( over max 3 months, with a non-refundable 20% deposit )</li>
-      <li>Further Flexiable Finance Options Comming</li>
-    </ul>
+    <div style={{ display: 'flex', flexDirection: 'row' }}>
+      <PaymentCard>
+        <img src={afterpayLogo} height="50rem" alt="Afterpay" />
+        <img src={afterpaySocial} alt="SHOP NOW, ENJOY NOW, PAY LATER" />
+        <br />*instore
+      </PaymentCard>
+      <PaymentCard>
+        <h3>Cards </h3>
+        <img src={visacard} alt="VISA Card" />
+        <img src={mastercard} alt="master Card" />
+        <img src={amexcard} alt="amex card" />
+        <br /> *instore and online
+      </PaymentCard>
+      <PaymentCard>
+        <h3>Cash</h3>
+        <img src={wallet} alt="cash in wallet" />
+        <br /> *instore
+      </PaymentCard>
+    </div>
   </Layout>
 )
 
