@@ -1,4 +1,8 @@
 const path = require(`path`)
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 
 module.exports = {
   siteMetadata: {
@@ -6,7 +10,7 @@ module.exports = {
     col_background: '#595b61', // gray background
     col_header: '',
     col_logoText: '',
-    snipCartApiKey: "ZWQ5YjMwNmEtMjE1OS00MmMyLWEzOWUtNDJjY2M4NTgyNTgzNjM2NzY2ODMyMDY2NzQzNzg2", //process.env.snipCartApiKey || 
+    snipCartApiKey: process.env.snipcart_api,
   },
   plugins: [
     {
