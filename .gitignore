@@ -9,3 +9,4 @@ yarn-error.log
 
 # devTest Stuff
 test.html
+.env.*
