@@ -4,6 +4,13 @@ require("dotenv").config({
 })
 
 
+var netlifyCmsPaths = {
+  resolve: `gatsby-plugin-netlify-cms-paths`,
+  options: {
+    cmsConfig: `/static/admin/config.yml`,
+  },
+}
+
 module.exports = {
   siteMetadata: {
     title: 'Futures Fine Furniture and Bedding',
@@ -80,6 +87,18 @@ module.exports = {
     'gatsby-transformer-json', // can get json data
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    'gatsby-transformer-remark',
+    {
+      resolve:'gatsby-transformer-remark',
+      options:{
+        plugins:[
+          netlifyCmsPaths,
+          {
+            resolve:'gatsby-remark-images',
+            options:{maxWidth: 930,backgroundColor: 'transparent'}
+          }
+        ]
+      },
+    },
+    
   ],
 }

@@ -29,6 +29,10 @@ exports.onCreateNode = ({ node, actions }) => {
       actions.createNodeField({ node, name: 'productName', value: `${slugify(node.frontmatter.title)}` })
       actions.createNodeField({ node, name: 'catigory', value: node.frontmatter.Category })
     }
+  } else if (node.internal.type === "gatsby-source-filesystem") {
+    if (node.fileAbsolutePath.includes('/images/uploads')){
+      // do something here
+    }
   }
 }
 
@@ -41,6 +45,7 @@ const querys = {
           fields {
             slug
             type
+            images
           }
           frontmatter{
             title
