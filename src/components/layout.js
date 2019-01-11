@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from "classnames";
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
@@ -8,7 +9,8 @@ import '../../node_modules/normalize.css'
 import './layout.css'
 import '../../node_modules/@blueprintjs/core/lib/css/blueprint.css'
 import '../../node_modules/@blueprintjs/icons/lib/css/blueprint-icons.css'
-
+import { Button, Classes, Code, H3, H5, Intent, Overlay, Switch } from "@blueprintjs/core";
+import { Card, Elevation } from "@blueprintjs/core";
 
 const Layout = ({ children, showHero, crumbs }) => (
   <StaticQuery
@@ -56,6 +58,23 @@ const Layout = ({ children, showHero, crumbs }) => (
             {children}
           </div>
         </div>
+        <div>
+          
+    </div>        
+            <Overlay isOpen={true} usePortal={true} style={{margin:'0 auto'}}>
+            <Card className={classNames(Classes.CARD, Classes.elevation_4)}
+              style={{ width: '300px', height:'300px',padding: 15, margin:'-150px -150px', width: '150', height:'150px', left: '50%', top:'50%', overflow:'none'}}
+              interactive={true}
+              elevation={Elevation.TWO}
+            >
+              <h1>Site Under Construction</h1>
+              <span style={{fontSize:'1.23em'}}>
+                We are very excited to be launching this site soon
+                <br/>
+                in the mean while, please visit us in store
+              </span>
+            </Card>
+          </Overlay>
       </>
     )}
   />

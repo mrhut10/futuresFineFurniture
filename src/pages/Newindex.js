@@ -16,30 +16,21 @@ const ListofLove = ({ love, children }) => (
 
 
 const IndexPage = () => (
-  <>
-
   <Layout showHero>
-    <h2 style={{margin: '30px'}}>Welcome</h2>
-
-    <p style={{fontSize: '1.3em'}}>
-      We are building a site for your enjoyment.
-      <br style={{margin:'10px'}}/>
-      In Store you'll find the widest range of new and end of line furniture, <br/>
-      everything you'll need to fill a home.<br/>
-      <span>
-
-      Soon we will have this site where you will be able to order online and browse a range of our products
-      </span>
+    <h2>Welcome</h2>
+    <p>
+      You'll find the widest range of new and end of line furniture, everything you'll need to fill a home.
+      We've been providing quality furniture to the Macleay and surrounding areas for over 15 years.
     </p>
     <ul style={{ maxWidth: "40rem", fontSize: '1.1rem' }} >
       <ListofLove love="Quality">
-        widest range of Quality Furniture in the Macleay
+        Find the widest range of Quality Furniture in the Macleay
       </ListofLove>
       <ListofLove love="Beauty">
-        inspirering beauty, function and form
+        Be inspirered by the beauty, function and form
       </ListofLove>
       <ListofLove love="Accessibillity">
-        Best Value Quality Furniture,
+        Find the Best Value Quality Furniture,
         <br /> with Inovative and flexible <Link to="/payment">payment options</Link>
         <br /> and we do <Link to="/delivery">delivery</Link>
       </ListofLove>
@@ -52,10 +43,8 @@ const IndexPage = () => (
     <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
 
     </div>
+
   </Layout>
-  
-  </>
-  
 )
 
 export default IndexPage
