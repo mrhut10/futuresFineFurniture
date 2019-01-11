@@ -45,7 +45,6 @@ const querys = {
           fields {
             slug
             type
-            images
           }
           frontmatter{
             title
