@@ -12,6 +12,9 @@ import '../../node_modules/@blueprintjs/icons/lib/css/blueprint-icons.css'
 import { Button, Classes, Code, H3, H5, Intent, Overlay, Switch } from "@blueprintjs/core";
 import { Card, Elevation } from "@blueprintjs/core";
 
+
+const map = (width=200, height = 200) => `<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3417.0768809607753!2d152.8386913141883!3d-31.07978838715898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b9ddf8643294fa9%3A0x4fb64c39e261278a!2sFUTURES+FINE+FURNITURE+%26+BEDDING+Pty+Ltd!5e0!3m2!1sen!2sau!4v1542370777195" width="${width}" height="${height}" frameborder="0" style="border:0" allowfullscreen></iframe>`
+
 const Layout = ({ children, showHero, crumbs }) => (
   <StaticQuery
     query={graphql`
@@ -63,22 +66,34 @@ const Layout = ({ children, showHero, crumbs }) => (
     </div>        
             <Overlay isOpen={true} usePortal={true} style={{margin:'0 auto'}}>
             <Card className={classNames(Classes.CARD, Classes.elevation_4)}
-              style={{ width: '300px', height:'300px',padding: 15, margin:'-150px -150px', width: '150', height:'150px', left: '50%', top:'50%', overflow:'none'}}
+              style={{padding: '10px', margin:'-90px -25%', width: '50%', height:'calc(30em + 200px)', left: '50%', top:'30%', overflow:'none'}}
               interactive={true}
               elevation={Elevation.TWO}
             >
-              <h1>Site Under Construction</h1>
-              <span style={{fontSize:'1.23em'}}>
-                We are very excited to be launching this site soon
-                <br/>
-                in the mean while, please visit us in store
+              <h2>Construction Zone</h2>
+              <span style={{fontSize:'1.23em', padding: '10px', margin:'10px'}}>
+                We are launching this site soon in the mean while visit us in store<br/>
+                <ul>
+                  <li>Phone : 65626675</li>
+                  <li>Address: Centerpoint Arcade, 14 Smith Street, Kempsey, NSW 2440</li>
+                </ul>
+                
+                
+              
+              <div style={{height: '100px', width: '150px', margin:'10px'}} dangerouslySetInnerHTML={{__html:map(230,180)}}/>
+              
+              
               </span>
+              <br/>
+              
             </Card>
           </Overlay>
       </>
     )}
   />
 )
+
+
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
