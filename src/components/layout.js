@@ -63,31 +63,7 @@ const Layout = ({ children, showHero, crumbs }) => (
         </div>
         <div>
           
-    </div>        
-            <Overlay isOpen={true} usePortal={true} style={{margin:'0 auto'}}>
-            <Card className={classNames(Classes.CARD, Classes.elevation_4)}
-              style={{padding: '10px', margin:'-90px -25%', width: '50%', height:'calc(30em + 200px)', left: '50%', top:'30%', overflow:'none'}}
-              interactive={true}
-              elevation={Elevation.TWO}
-            >
-              <h2>Construction Zone</h2>
-              <span style={{fontSize:'1.23em', padding: '10px', margin:'10px'}}>
-                We are launching this site soon in the mean while visit us in store<br/>
-                <ul>
-                  <li>Phone : 65626675</li>
-                  <li>Address: Centerpoint Arcade, 14 Smith Street, Kempsey, NSW 2440</li>
-                </ul>
-                
-                
-              
-              <div style={{height: '100px', width: '150px', margin:'10px'}} dangerouslySetInnerHTML={{__html:map(230,180)}}/>
-              
-              
-              </span>
-              <br/>
-              
-            </Card>
-          </Overlay>
+    </div>
       </>
     )}
   />
