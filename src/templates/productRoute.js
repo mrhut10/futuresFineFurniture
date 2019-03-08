@@ -13,12 +13,12 @@ const formatter = new Intl.NumberFormat('en-AU', {
   useGrouping: true,
 })
 
-const spy = (input) => {
-  console.log(input)
-  return input
-}
+//const spy = (input) => {
+//  console.log(input)
+//  return input
+//}
 
-const ImageComponent = input => input ? <img alt="product image" src={input} /> : null
+const ImageComponent = input => input ? <img alt="product" src={input} /> : null
 
 
 const images = R.compose(
