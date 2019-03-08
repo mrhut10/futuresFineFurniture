@@ -1,5 +1,5 @@
-/*
 import React from 'react'
+/*
 import { Link } from 'gatsby'
 import RedHeart from '../components/redHeart'
 import Layout from '../components/layout'
@@ -47,6 +47,7 @@ const IndexPage = () => (
 
   </Layout>
 )
-
-export default IndexPage
 */
+
+const temp = () => <p></p>
+export default temp
