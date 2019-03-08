@@ -1,6 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import { Card, Elevation } from "@blueprintjs/core";
+import { Card, Elevation } from "@blueprintjs/core"
+import { propOr } from "ramda"
 
 import CategoryTitle from './categoryTile'
 
@@ -10,7 +11,7 @@ const Categories = ({ data }) => (
   <StaticQuery
     query={graphql`
       {allMarkdownRemark(filter:{fields:{type:{eq:"productCats"}}}){edges{node{
-        frontmatter{title, images}
+        frontmatter{title, images,order}
         excerpt(pruneLength:50)
         fields{slug}
       }}}
