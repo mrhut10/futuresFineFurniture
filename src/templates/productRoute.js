@@ -18,7 +18,7 @@ const spy = (input) => {
   return input
 }
 
-const ImageComponent = input => input ? <img alt="product" src={input} /> : null
+const ImageComponent = input => input ? <img alt="product image" src={input} /> : null
 
 
 const images = R.compose(
@@ -99,7 +99,7 @@ query($productName: String!, $images: [String])	{
   allFile(filter:{relativePath:{in: $images} sourceInstanceName:{eq:"contentImages"}}){
     edges{
       node{
-        childImageSharp{fixed(width:200){src}}
+        childImageSharp{fixed(width:500){src}}
       }
     }
   }
