@@ -4,7 +4,6 @@ import { Card, Elevation } from "@blueprintjs/core";
 
 import CategoryTitle from './categoryTile'
 
-
 const edgeToCategoryTile = edge => <CategoryTitle key={edge.node.frontmatter.title} name={edge.node.frontmatter.title} slug={edge.node.fields.slug} hoverText={edge.node.excerpt} images={edge.node.fields.images} />
 
 const Categories = ({ data }) => (
@@ -27,7 +26,7 @@ const Categories = ({ data }) => (
     render={data => (
       <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', width: '100%' }}>
         {
-          ///data.allMarkdownRemark.edges.map(edgeToCategoryTile)
+          data.allMarkdownRemark.edges.map(edgeToCategoryTile)
         }
       </div>
     )}
@@ -35,5 +34,5 @@ const Categories = ({ data }) => (
 )
 
 export default {
-  Categories
+ Categories
 }

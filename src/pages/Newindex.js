@@ -1,3 +1,4 @@
+/*
 import React from 'react'
 import { Link } from 'gatsby'
 import RedHeart from '../components/redHeart'
@@ -48,3 +49,4 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+*/
