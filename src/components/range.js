@@ -1,7 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-import { Card, Elevation } from "@blueprintjs/core"
-import { propOr } from "ramda"
+//import { Card, Elevation } from "@blueprintjs/core"
+//import { propOr } from "ramda"
 
 import CategoryTitle from './categoryTile'
 
@@ -17,7 +17,7 @@ const Categories = ({ data }) => (
       }}}
       allFile(filter: {sourceInstanceName: {eq: "contentImages"}}) {edges{node{
         childImageSharp {
-          fixed(width: 200) {
+          fixed(width: 400) {
             src
           }
         }

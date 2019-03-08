@@ -17,8 +17,8 @@ import './layout.css'
 import '../../node_modules/@blueprintjs/core/lib/css/blueprint.css'
 import '../../node_modules/@blueprintjs/icons/lib/css/blueprint-icons.css'
 
-import { Button, Classes, Code, H3, H5, Intent, Overlay, Switch } from "@blueprintjs/core";
-import { Card, Elevation } from "@blueprintjs/core";
+//import { Button, Classes, Code, H3, H5, Intent, Overlay, Switch } from "@blueprintjs/core";
+//import { Card, Elevation } from "@blueprintjs/core";
 
 
 const Layout = ({ children, showHero }) => (
