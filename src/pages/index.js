@@ -21,7 +21,7 @@ const IndexPage = () => (
   <Layout showHero>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <h1>Welcome</h1>
-    <p>
+    <p style={{fontSize:'1.01rem'}}>
     In Store you'll find the widest range of new and end of line furniture, <br/>
       everything you'll need to fill a home.<br/>
     </p>
@@ -33,9 +33,8 @@ const IndexPage = () => (
         inspirering beauty, function and form
       </ListofLove>
       <ListofLove love="Accessibillity">
-        Best Value Quality Furniture,
-        <br /> with Inovative and flexible <Link to="/payment">payment options</Link>
-        <br /> and for Month of March Free Delivery to the Macleay Vally
+        Best Value Quality Furniture, flexible <Link to="/payment">payment options</Link>
+        <br /> <span style={{fontsize:'1.5rem',color:'red'}}>Free Delivery </span> (within Macleay Vally for March 2019 Only)
       </ListofLove>
 
     </ul>
