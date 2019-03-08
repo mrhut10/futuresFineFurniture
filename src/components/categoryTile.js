@@ -1,3 +1,4 @@
+
 import React from "react"
 import { Link } from 'gatsby'
 import { Card, Elevation } from "@blueprintjs/core";
@@ -76,4 +77,4 @@ const oldCategoryTitle = ({ name, Img, hoverText, slug }) => (
   </Link>
 )
 
-export default CategoryTitle //CategoryTitle
+export default CategoryTitle

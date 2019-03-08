@@ -22,6 +22,7 @@ export default ({ data, pageContext }) => {
 }
 
 //markdownRemark(frontmatter: {title: {eq: $slug}}) {
+
 export const query = graphql`
 query ($slug: String $catName: String) {
   cat: markdownRemark(fields: {slug: {eq: $slug}}) {

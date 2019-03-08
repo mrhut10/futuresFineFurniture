@@ -1,9 +1,11 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import RedHeart from '../components/redHeart'
-import Layout from '../components/layout'
+import React from "react"
+import { Link } from "gatsby"
+
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 import RangeDisplay from '../components/range'
 
+import RedHeart from '../components/redHeart'
 
 const ListofLove = ({ love, children }) => (
   <li style={{ padding: '10px', listStyle: `none` }}>
@@ -16,20 +18,12 @@ const ListofLove = ({ love, children }) => (
 
 
 const IndexPage = () => (
-  <>
-
   <Layout showHero>
-    <h2 style={{margin: '30px'}}>Welcome</h2>
-
-    <p style={{fontSize: '1.3em'}}>
-      We are building a site for your enjoyment.
-      <br style={{margin:'10px'}}/>
-      In Store you'll find the widest range of new and end of line furniture, <br/>
+    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <h1>Welcome</h1>
+    <p>
+    In Store you'll find the widest range of new and end of line furniture, <br/>
       everything you'll need to fill a home.<br/>
-      <span>
-
-      Soon we will have this site where you will be able to order online and browse a range of our products
-      </span>
     </p>
     <ul style={{ maxWidth: "40rem", fontSize: '1.1rem' }} >
       <ListofLove love="Quality">
@@ -47,15 +41,12 @@ const IndexPage = () => (
     </ul>
     <div>
       <h2>Be Inspired </h2>
-      <RangeDisplay.Categories />
+      <RangeDisplay.Categories/>
     </div>
     <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
 
     </div>
   </Layout>
-  
-  </>
-  
 )
 
 export default IndexPage
