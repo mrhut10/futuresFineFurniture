@@ -35,7 +35,7 @@ const IndexPage = () => (
       <ListofLove love="Accessibillity">
         Best Value Quality Furniture,
         <br /> with Inovative and flexible <Link to="/payment">payment options</Link>
-        <br /> and we do <Link to="/delivery">delivery</Link>
+        <br /> and for Month of March Free Delivery to the Macleay Vally
       </ListofLove>
 
     </ul>
