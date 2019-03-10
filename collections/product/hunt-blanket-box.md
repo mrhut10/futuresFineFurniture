@@ -1,7 +1,7 @@
 ---
 title: Hunt Blanket Box
 enabled: true
-Category: bedroom
+Category: Bedroom
 range: hunt
 variants:
   - price: 26500

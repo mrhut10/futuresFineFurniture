@@ -2,8 +2,9 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import CategoryTitle from '../components/categoryTile'
-//import { stringify } from "querystring";
+import CommingSoon from '../components/CommingSoon'
 const R = require("ramda")
+
 
 
 const GetsourceImages = R.compose(
@@ -36,29 +37,24 @@ export default ({ data, pageContext }) => {
         <h1>{post.frontmatter.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', width: '100%' }}>
-          {products ? products.edges.map(
-            ({ node }) => <>
-              <CategoryTitle
-                key={node.frontmatter.title}
-                name={node.frontmatter.title}
-                slug={`${pageContext.slug}/${node.fields.productName}`}
-                images={
-                  R.compose(
-                    R.pathOr('',['source']),
-                    R.find(R.compose(
-                      R.equals(findImage(node)),
-                      R.pathOr('',['relativePath'])
-                    )),
-                  )(sourceImages)
-                }
-              />
-              <p>{
-                //sourceImages.map(input=>input.source)
-                //sourceImages.map((input)=>ImageComponent(input.source))
-                //ImageComponent()
-              }</p>
-            </>
-          ) : ''}
+          {
+            products 
+            ? products.edges.map(
+              ({ node }) => <CategoryTitle
+                  key={node.frontmatter.title}
+                  name={node.frontmatter.title}
+                  slug={`${pageContext.slug}/${node.fields.productName}`}
+                  images={
+                    R.compose(
+                      R.pathOr('',['source']),
+                      R.find(R.compose(
+                        R.equals(findImage(node)),
+                        R.pathOr('',['relativePath'])
+                      )),
+                    )(sourceImages)
+                  }
+                />
+          ) : <CommingSoon />}
         </div>
       </div>
     </Layout>
