@@ -3,11 +3,12 @@ import React from "react"
 import { Link } from 'gatsby'
 import { Card, Elevation } from "@blueprintjs/core";
 import { StaticQuery, graphql } from "gatsby"
+import CommingSoon from "./CommingSoon";
 const { compose, last, lift, pathOr, split, } = require('ramda')
 
 const ImageComponent = input => input ? <img alt="product" src={input} /> : null
 
-const CategoryTitle = ({ name, hoverText, slug, images, overlay }) => (
+const CategoryTitle = ({ name, hoverText, slug, images, commingSoon }) => (
   <StaticQuery 
     query={graphql`{
       allFile(filter: {sourceInstanceName: {eq: "contentImages"}}) {
@@ -36,6 +37,7 @@ const CategoryTitle = ({ name, hoverText, slug, images, overlay }) => (
         elevation={Elevation.TWO}
         >
           <h5>{name}</h5>
+          { commingSoon?<CommingSoon/>:''}
           {
             images
             ? ImageComponent(images)
