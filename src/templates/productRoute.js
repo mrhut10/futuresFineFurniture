@@ -14,11 +14,13 @@ const formatter = new Intl.NumberFormat('en-AU', {
 })
 
 const details = R.compose(
-  dangHtml => <div style={{flex:'0 1 auto',order:2,width:'100%'}} dangerouslySetInnerHTML={{__html:dangHtml}}/>,
+  dangHtml => <div style={{flex:'0 1 auto',order:2,maxWidth:'250px'}} >
+    <p dangerouslySetInnerHTML={{__html:dangHtml}}/>
+  </div>,
   R.pathOr('',['markdownRemark','html']),
 )
 
-const ImageComponent = input => input ? <img style={{width:"100%"}} alt="product" src={input} /> : null
+const ImageComponent = input => input ? <img alt="product" src={input} /> : null
 
 const images = R.compose(
   input => <div style={{flex:'0 1 auto',order:0}}>{input}</div>,
@@ -47,7 +49,7 @@ export default ({ data, location }) => {
                 ? `From the ${range} range`
                 : ''
         }
-        <div style={{margin:'15px', display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center',alignContent:'center'}}>
+        <div style={{margin:'15px', display:'flex',flexWrap:'wrap',flexDirection:'row',justifyContent:'center',alignItems:'center',alignContent:'center'}}>
           {
             images(data)
           }
