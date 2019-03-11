@@ -53,6 +53,8 @@ export default ({ data, pageContext }) => {
                       )),
                     )(sourceImages)
                   }
+                  width={200}
+                  height={300}
                 />
           ) : <CommingSoon />}
         </div>

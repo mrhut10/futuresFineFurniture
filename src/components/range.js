@@ -4,10 +4,7 @@ import { StaticQuery, graphql } from "gatsby"
 //import { propOr } from "ramda"
 
 import CategoryTitle from './categoryTile'
-import CommingSoon from "./CommingSoon";
 import { Card } from "@blueprintjs/core";
-import { object } from "prop-types";
-import { type } from "os";
 const R = require('ramda')
 
 const CatigoryCounts = R.compose(
@@ -15,10 +12,25 @@ const CatigoryCounts = R.compose(
   R.pathOr([],['proCount','group'])
 )
 
-/*const edgeToCategoryTile = data => edge => countOfProductsByCatigory(data)(edge.node.frontmatter.title) > 0
-  ? <CategoryTitle key={edge.node.frontmatter.title} name={edge.node.frontmatter.title} slug={edge.node.fields.slug} hoverText={edge.node.excerpt} images={edge.node.fields.images} />
-  : <CommingSoon />
-*/
+const GetsourceImages = R.compose(
+  R.map(
+    (input)=>{ 
+      return {
+        relativePath:R.pathOr('',['node','relativePath'])(input),
+        source:R.pathOr('',['node','childImageSharp','fixed','src'])(input)
+      }
+    },
+  ),
+  R.pathOr([],['allFile','edges'])
+)
+
+const findImage = R.compose(
+  R.last,
+  R.split('/'),
+  input=>String(input),
+  R.prop('images')
+)
+
 const Categories = ({ data }) => (
   <StaticQuery
     query={graphql`
@@ -47,6 +59,7 @@ const Categories = ({ data }) => (
       allFile(filter: {sourceInstanceName: {eq: "contentImages"}}) {
         edges {
           node {
+            relativePath
             childImageSharp {
               fixed(width: 400) {
                 src
@@ -57,22 +70,29 @@ const Categories = ({ data }) => (
       }
     }
     `}
-    render={data => (
-      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', width: '100%' }}>
+    render={data => {
+      return <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', width: '100%' }}>
         {
-          //data.allMarkdownRemark.edges.map(edgeToCategoryTile(data))
-          //prodCatsToCard(data)
           R.compose(
             R.map(
               input => <CategoryTitle
                 key={input.title}
-                name={input.title}
+                name={
+                  input.title
+                }
                 slug={input.slug}
                 hoverText={input.excerpt}
-                images={input.images} 
-                commingSoon={
-                  input.count && input.count > 0 ? false : true
-                }
+                images={
+                  R.compose(
+                    R.prop('source'),
+                    R.find(
+                      R.propEq('relativePath',findImage(input))
+                    ),
+                    GetsourceImages
+                  )(data)
+                } 
+                commingSoon={! (input.count && input.count > 0)}
+                height={300}
               />
             ),
             R.sort((a,b)=>b.count-a.count),
@@ -82,7 +102,7 @@ const Categories = ({ data }) => (
                   title:R.pathOr('',['frontmatter','title'],input),
                   slug:R.pathOr('/404',['fields','slug'],input),
                   excerpt:R.pathOr('',['excerpt'],input),
-                  images:R.pathOr([],['frontmatter','images']),
+                  images:R.pathOr([],['frontmatter','images'],input),
                   count:R.compose(
                     R.propOr(0,'totalCount'),
                     R.find(R.propEq(
@@ -99,39 +119,10 @@ const Categories = ({ data }) => (
           )(data)
         }
       </div>
-    )}
+    }}
   />
-)
-const prodCatsToCard = R.compose(
-  R.map(
-    //input => <h5>{input.fieldValue}<br/>{input.totalCount}</h5>
-    R.ifElse(
-      R.propSatisfies(R.gt(0),'totalCount'),
-      input => <Card><h5>false<br/>{input.fieldValue} {input.totalCount}</h5></Card>,
-      input => <Card><h5>true<br/>{input.fieldValue} {input.totalCount}</h5></Card>,
-    )
-  ),
-  CatigoryCounts
 )
 
 export default {
  Categories
-}
-
-function divObject(O){
-  return <ul>
-    {
-      Object.keys(O).map(
-        k=><li>
-          {
-            R.type(O[k])=="Object" || R.type(O[k])=="Array"
-            ? `{
-              ${divObject(O[k])}
-            }`
-            : String(O[k])
-          }
-        </li>
-      )
-    }
-  </ul>
 }
