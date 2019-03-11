@@ -108,7 +108,8 @@ exports.createPages = ({ graphql, actions }) => {
         component: path.resolve(`./src/templates/CatigoryRoute.js`),
         context: {
           slug: node.fields.slug,
-          catName: node.frontmatter.title
+          catName: node.frontmatter.title,
+          images: node.frontmatter.images
         }
       })
     })

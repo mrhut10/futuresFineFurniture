@@ -1,19 +1,19 @@
 
-import React from "react"
+import React, { Children } from "react"
 import { Link } from 'gatsby'
 import { Card, Elevation } from "@blueprintjs/core";
 import CommingSoon from "./CommingSoon";
 
-const ImageComponent = input => input ? <img alt="product" src={input} /> : null
+const ImageComponent = (input,maxheight='350px') => input ? <img style={{maxheight:maxheight}} alt="product" src={input} /> : null
 
-const CategoryTitle = ({ name, hoverText, slug, images, commingSoon }) => (
+const CategoryTitle = ({Children, name, hoverText, slug, images, commingSoon, height=250, width=250 }) => (
       <Link 
           to={slug || "/"} 
           title={hoverText}
           style={{}}
         >
         <Card 
-          style={{ padding: 15, margin:'10px', height:'400px', width: '250px'}}
+          style={{ padding: '15px', margin:'10px', height:`${height}px`, width:`${width}px`}}
           interactive={true}
         elevation={Elevation.TWO}
         >
@@ -21,11 +21,11 @@ const CategoryTitle = ({ name, hoverText, slug, images, commingSoon }) => (
           { commingSoon?<CommingSoon/>:''}
           {
             images
-            ? ImageComponent(images)
+            ? ImageComponent(images,`calc(${height}-30px)`)
             : ''
             //images
           }
-          <br/>... more
+          {Children}
         </Card>
       </Link>
 )
