@@ -14,28 +14,25 @@ const formatter = new Intl.NumberFormat('en-AU', {
 })
 
 const details = R.compose(
-  dangHtml => <div style={{flex:'0 1 auto'}} dangerouslySetInnerHTML={{__html:dangHtml}}/>,
+  dangHtml => <div style={{flex:'0 1 auto',order:2,width:'100%'}} dangerouslySetInnerHTML={{__html:dangHtml}}/>,
   R.pathOr('',['markdownRemark','html']),
 )
 
-const ImageComponent = input => input ? <img alt="product" src={input} /> : null
+const ImageComponent = input => input ? <img style={{width:"100%"}} alt="product" src={input} /> : null
 
 const images = R.compose(
-  input => <div style={{flex:'0 1 auto'}}>{input}</div>,
+  input => <div style={{flex:'0 1 auto',order:0}}>{input}</div>,
   R.lift(R.compose(
     ImageComponent,
     R.pathOr(null, ['node', 'childImageSharp', 'fixed', 'src']),
   )),
-  R.pathOr([], ['allFile', 'edges']), // Object -> array
+  R.pathOr([], ['allFile', 'edges']),
 )
 
 //const getSafePath = (p, o) => p.reduce((xs, x) => (xs && xs[x]) ? xs[x] : null, o)
 
 export default ({ data, location }) => {
-  //const post = data.markdownRemark.frontmatter
   const { title, Category, range, variants } = data.markdownRemark.frontmatter
-  //{<div dangerouslySetInnerHTML={{ __html: post.html }} />
-
   return (
     <Layout>
       <button className="snipcart-checkout">Click here to checkout</button>
@@ -50,7 +47,7 @@ export default ({ data, location }) => {
                 ? `From the ${range} range`
                 : ''
         }
-        <div style={{margin:'15px', display:'flex',flexDirection:'row',flexWrap:'wrap',justifyContent:'center',alignItems:'center',alignContent:'center'}}>
+        <div style={{margin:'15px', display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center',alignContent:'center'}}>
           {
             images(data)
           }
@@ -101,7 +98,7 @@ query($productName: String!, $images: [String])	{
   allFile(filter:{relativePath:{in: $images} sourceInstanceName:{eq:"contentImages"}}){
     edges{
       node{
-        childImageSharp{fixed(width:500){src}}
+        childImageSharp{fixed(width:400){src}}
       }
     }
   }
