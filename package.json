@@ -3,7 +3,7 @@
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "@mrhut10",
   "dependencies": {
     "@blueprintjs/core": "^3.14.1",
     "gatsby": "^2.1.24",
