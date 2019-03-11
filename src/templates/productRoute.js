@@ -13,15 +13,15 @@ const formatter = new Intl.NumberFormat('en-AU', {
   useGrouping: true,
 })
 
-//const spy = (input) => {
-//  console.log(input)
-//  return input
-//}
+const details = R.compose(
+  dangHtml => <div style={{flex:'0 1 auto'}} dangerouslySetInnerHTML={{__html:dangHtml}}/>,
+  R.pathOr('',['markdownRemark','html']),
+)
 
 const ImageComponent = input => input ? <img alt="product" src={input} /> : null
 
-
 const images = R.compose(
+  input => <div style={{flex:'0 1 auto'}}>{input}</div>,
   R.lift(R.compose(
     ImageComponent,
     R.pathOr(null, ['node', 'childImageSharp', 'fixed', 'src']),
@@ -30,7 +30,6 @@ const images = R.compose(
 )
 
 //const getSafePath = (p, o) => p.reduce((xs, x) => (xs && xs[x]) ? xs[x] : null, o)
-
 
 export default ({ data, location }) => {
   //const post = data.markdownRemark.frontmatter
@@ -51,9 +50,12 @@ export default ({ data, location }) => {
                 ? `From the ${range} range`
                 : ''
         }
-        <div>
+        <div style={{margin:'15px', display:'flex',flexDirection:'row',flexWrap:'wrap',justifyContent:'center',alignItems:'center',alignContent:'center'}}>
           {
             images(data)
+          }
+          {
+            details(data)
           }
         </div>
         <table>
