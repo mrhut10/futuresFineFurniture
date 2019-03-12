@@ -1,7 +1,7 @@
 ---
 title: SmartFlex 3
 enabled: true
-Category: Mobility
+Category: Adjustable Beds
 range: MODERN LIVING RANGE
 images:
   - /assets/SmartFlex3.png

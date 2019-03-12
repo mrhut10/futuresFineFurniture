@@ -1,7 +1,7 @@
 ---
 title: Lo Lo Flex
 enabled: true
-Category: Mobility
+Category: Adjustable Beds
 range: INDEPENDENT LIVING RANGE
 images:
   - /assets/Lo Lo.png
