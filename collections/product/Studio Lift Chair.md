@@ -1,7 +1,7 @@
 ---
 title: Studio Lift Chair
 enabled: true
-Category: Mobility
+Category: Lift Chairs
 range: Promotion
 images:
   - /assets/Avante-Studio-Chair-1.jpg
