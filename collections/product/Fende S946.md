@@ -19,7 +19,7 @@ The new Agility mid-sized mobility scooter will delight & surpass your expectati
 
 **Technical Data**
 * Max Speed 10km/h
-* Range upto 30km
+* Range up-to 30km
 * Wheel size of 10 inches
 * Ground Clearance of 10cm
 * Max Load 136kg
