@@ -18,12 +18,12 @@ const CategoryTitle = ({Children, name, hoverText, slug, images, commingSoon, he
         elevation={Elevation.TWO}
         >
           <h5>{name}</h5>
-          { commingSoon?<CommingSoon/>:''}
           {
-            images
-            ? ImageComponent(images,`calc(${height}-30px)`)
-            : ''
-            //images
+            commingSoon
+            ?<CommingSoon/>
+            : images
+              ? ImageComponent(images,`calc(${height}-30px)`)
+              : ''
           }
           {Children}
         </Card>
