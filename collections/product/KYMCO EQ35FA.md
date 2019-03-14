@@ -6,7 +6,7 @@ range: Promotion
 images:
   - /assets/KYMCO E135FA.jpg
 variants:
-  - price: 245000
+  - price: 590000
 ---
 The new Agility mid-sized mobility scooter will delight & surpass your expectations designed to provide the ultimate in performance, luxury, comfort & manoeuvrability. 
 * Waterproof backlit display.
