@@ -6,9 +6,9 @@ range: MODERN LIVING RANGE
 images:
   - /assets/SmartFlex3.png
 variants:
-  - price: 349500
-    varientName: Long Single
   - price: 335000
+    varientName: Long Single
+  - price: 349500
     varientName: King Single
 ---
 
