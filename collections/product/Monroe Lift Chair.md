@@ -1,14 +1,14 @@
 ---
-title: Harlow Lift Chair
+title: Monroe Lift Chair
 enabled: true
 Category: Mobility
 range: Promotion
 images:
-  - /assets/harlow-lift-chair.jpg
+  - /assets/monroe lift chair.png
 variants:
-  - price: 79500
+  - price: 94900
     varientName: Navy
-  - price: 79500
+  - price: 94900
     varientName: Grey
 ---
 
