@@ -69,7 +69,7 @@ export default ({ data, location }) => {
             {
               variants.map(vari => (
                 <tr key={vari.varientName}>
-                  <td>{variants.length > 1 ? vari.varientName : `${title} - ${vari.varientName}` }</td>
+                  <td>{variants.length > 1 ? vari.varientName : `${title} ${vari.varientName? `- ${vari.varientName}` : ""}` }</td>
                   <td>{formatter.format(vari.price / 100)}
                   </td>
                   <td>

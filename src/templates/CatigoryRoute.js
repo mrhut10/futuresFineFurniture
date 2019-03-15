@@ -6,6 +6,15 @@ import CommingSoon from '../components/CommingSoon'
 const R = require("ramda")
 
 
+const formatter = new Intl.NumberFormat('en-AU', {
+  style: 'currency',
+  currency: 'AUD',
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+  useGrouping: true,
+})
+
+
 
 const GetsourceImages = R.compose(
   R.lift(
@@ -53,8 +62,24 @@ export default ({ data, pageContext }) => {
                       )),
                     )(sourceImages)
                   }
-                  width={200}
-                  height={300}
+                  Children={
+                    R.compose(
+                      input=>input
+                      ? <p style={{
+                          color:"red",
+                          margin:'auto auto'
+                        }}>
+                          from {input}
+                        </p>
+                      : null,
+                      formatter.format,
+                      R.divide(R.__,100),
+                      R.head,
+                      R.sort((a,b)=>a-b),
+                      R.lift(R.prop('price')),
+                      R.pathOr([],['frontmatter','variants'])
+                    )(node)
+                  }
                 />
           ) : <CommingSoon />}
         </div>
@@ -71,6 +96,10 @@ query ($slug: String $catName: String) {
     html
     frontmatter {
       title
+      variants{
+        price,
+        varientName
+      }
     }
   }
   allFile(filter: {sourceInstanceName:{eq:"contentImages"}}){
@@ -90,7 +119,14 @@ query ($slug: String $catName: String) {
     edges {
       node {
         id
-        frontmatter{title,images}
+        frontmatter{
+          title,
+          images,
+          variants{
+            price,
+            varientName
+          }
+        }
         fields{productName}
       }
     }

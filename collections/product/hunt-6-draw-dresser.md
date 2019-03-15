@@ -1,7 +1,7 @@
 ---
 title: Hunt 6 draw Dresser
 enabled: true
-Category: Bedroom
+Category: _Bedroom
 range: Hunt Collection
 variants:
   - price: 74900
