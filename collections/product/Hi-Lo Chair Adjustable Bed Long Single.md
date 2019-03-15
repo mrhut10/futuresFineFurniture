@@ -4,7 +4,7 @@ enabled: true
 Category: Mobility
 range: Promotion
 images:
-  - /assets/Hi-Lo Chair Adjustable Bed Long Single.jpg
+  - /assets/Hi-Lo Chair Adjustable Bed Long Single.JPG
 variants:
   - price: 129500
     varientName: Long Single
