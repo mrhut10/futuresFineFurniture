@@ -1,7 +1,7 @@
 ---
 title: Dresser Mirror
 enabled: true
-Category: Bedroom
+Category: _Bedroom
 range: Hunt Collection
 images:
   - /assets/hunt_dresser.png

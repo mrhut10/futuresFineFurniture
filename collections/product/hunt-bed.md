@@ -1,7 +1,7 @@
 ---
 title: Hunt Bed
 enabled: true
-Category: Bedroom
+Category: _Bedroom_
 range: Hunt Collection
 variants:
   - price: 39500

@@ -1,7 +1,7 @@
 ---
 title: Hunt 6Dr Tallboy
 enabled: true
-Category: Bedroom
+Category: _Bedroom
 range: Hunt Collection
 variants:
   - price: 64900

@@ -1,7 +1,7 @@
 ---
 title: Hunt Bedside
 enabled: true
-Category: Bedroom
+Category: _Bedroom
 range: Hunt Collection
 variants:
   - price: 19500

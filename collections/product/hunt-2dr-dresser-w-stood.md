@@ -1,7 +1,7 @@
 ---
 title: Hunt 2dr Dresser w/stood
 enabled: true
-Category: Bedroom
+Category: _Bedroom
 range: Hunt
 variants:
   - price: 54900
