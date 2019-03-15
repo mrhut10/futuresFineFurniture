@@ -64,11 +64,14 @@ export default ({ data, pageContext }) => {
                   }
                   Children={
                     R.compose(
-                      input=>input? <p style={{
-                        color:"red",
-                        margin:'auto auto'
-
-                      }}>from {input}</p>:null,
+                      input=>input
+                      ? <p style={{
+                          color:"red",
+                          margin:'auto auto'
+                        }}>
+                          from {input}
+                        </p>
+                      : null,
                       formatter.format,
                       R.divide(R.__,100),
                       R.head,
