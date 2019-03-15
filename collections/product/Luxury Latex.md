@@ -1,16 +1,16 @@
 ---
-title: Royal Mattress
+title: Luxury Latex
 enabled: true
 Category: Mattress
-range: Pocket Spring
+range: Premium
 images:
-  - /assets/royal mattress.png
+  - /assets/luxury latex.png
 variants:
-  - price: 69500
-    varientName: Double
-  - price: 79500
-    varientName: Queen
   - price: 89500
+    varientName: Double
+  - price: 99500
+    varientName: Queen
+  - price: 109500
     varientName: King
 ---
 Plush rated pocket spring mattress with Natural Latex
