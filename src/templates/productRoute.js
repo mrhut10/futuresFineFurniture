@@ -46,7 +46,7 @@ export default ({ data, location }) => {
           ... R.map(R.prop('varientName'))(variants)
         ]}
         image={R.compose(
-          input => `${window.location.host}${input}`,
+          input => `https://futuresfinefurnitureandbedding.com${input}`,
           R.head,
           images
         )(data)}
