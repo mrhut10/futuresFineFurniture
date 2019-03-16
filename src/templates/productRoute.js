@@ -24,9 +24,7 @@ const details = R.compose(
 const ImageComponent = input => input ? <img alt="product" src={input} /> : null
 
 const images = R.compose(
-  input => <div style={{flex:'0 1 auto',order:0}}>{input}</div>,
   R.lift(R.compose(
-    ImageComponent,
     R.pathOr(null, ['node', 'childImageSharp', 'fixed', 'src']),
   )),
   R.pathOr([], ['allFile', 'edges']),
@@ -38,13 +36,20 @@ export default ({ data, location }) => {
   const { title, Category, range, variants } = data.markdownRemark.frontmatter
   return (
     <Layout>
-      <SEO title = {title} keywords={[
-        title,
-        Category,
-        'furniture',
-        range,
-        ... R.map(R.prop('varientName'))(variants)]
-        }/>
+      <SEO 
+        title = {title} 
+        keywords={[
+          title,
+          Category,
+          'furniture',
+          range,
+          ... R.map(R.prop('varientName'))(variants)
+        ]}
+        image={R.compose(
+          R.head,
+          images
+        )(data)}
+      />
       <button className="snipcart-checkout">Click here to checkout</button>
       <div>
         <h1>{title}</h1>
@@ -58,9 +63,14 @@ export default ({ data, location }) => {
                 : ''
         }
         <div style={{margin:'15px', display:'flex',flexWrap:'wrap',flexDirection:'row',justifyContent:'center',alignItems:'center',alignContent:'center'}}>
-          {
-            images(data)
-          }
+          <div style={{flex:'0 1 auto',order:0}}>
+            {
+              R.compose(
+                ImageComponent,
+                images
+              )(data)
+            }
+          </div>
           {
             details(data)
           }
