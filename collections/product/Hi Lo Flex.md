@@ -1,7 +1,7 @@
 ---
 title: Hi Lo Flex
 enabled: true
-Category: Adjustable Beds
+Category: Mobility
 range: INDEPENDENT LIVING RANGE
 images:
   - /assets/Hi-Lo Flex.jpg

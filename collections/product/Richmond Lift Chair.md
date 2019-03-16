@@ -1,7 +1,7 @@
 ---
 title: Richmond 1 Motor Lift Chair
 enabled: true
-Category: Lift Chairs
+Category: Mobility
 range: Promotion
 images:
   - /assets/Richmond-Lift-Chair.jpg

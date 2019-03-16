@@ -1,7 +1,7 @@
 ---
 title: Harlow Lift Chair
 enabled: true
-Category: Lift Chairs
+Category: Mobility
 range: Promotion
 images:
   - /assets/harlow-lift-chair.jpg

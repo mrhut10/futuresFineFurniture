@@ -1,7 +1,7 @@
 ---
 title: Leisure Flex V2 Package
 enabled: true
-Category: Adjustable Beds
+Category: Mobility
 range: Essential Living
 images:
   - /assets/LeisureFlex-V2.jpg

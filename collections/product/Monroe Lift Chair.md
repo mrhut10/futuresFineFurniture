@@ -1,7 +1,7 @@
 ---
 title: Monroe Lift Chair
 enabled: true
-Category: Lift Chairs
+Category: Mobility
 range: Promotion
 images:
   - /assets/monroe lift chair.png
