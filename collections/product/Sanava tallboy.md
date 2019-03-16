@@ -1,8 +1,8 @@
 ---
-title: Savana Tallboy
+title: Sanava Tallboy
 enabled: true
 Category: Bedroom
-range: Savana
+range: Sanava
 images:
   - /assets/sanava-tallboy.jpg
 variants:

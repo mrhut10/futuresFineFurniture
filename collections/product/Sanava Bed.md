@@ -1,8 +1,8 @@
 ---
-title: Savana Bed
+title: Sanava Bed
 enabled: true
 Category: Bedroom
-range: Savana
+range: Sanava
 images:
   - /assets/sanava bed.jpg
 variants:

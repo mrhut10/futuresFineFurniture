@@ -1,8 +1,8 @@
 ---
-title: Savana dresser
+title: Sanava dresser
 enabled: true
 Category: Bedroom
-range: Savana
+range: Sanava
 images:
   - /assets/sanava-dressing.jpg
 variants:

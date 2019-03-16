@@ -1,8 +1,8 @@
 ---
-title: Savana Bedside
+title: Sanava Bedside
 enabled: true
 Category: Bedroom
-range: Savana
+range: Sanava
 images:
   - /assets/sanava-bedside.jpg
 variants:
