@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import BuyButton from '../components/snipcart'
+import SEO from '../components/seo'
 import * as R from 'ramda'
 
 //const average = R.converge(R.divide, [R.sum, R.length])
@@ -37,6 +38,13 @@ export default ({ data, location }) => {
   const { title, Category, range, variants } = data.markdownRemark.frontmatter
   return (
     <Layout>
+      <SEO title = {title} keywords={[
+        title,
+        Category,
+        'furniture',
+        range,
+        ... R.map(R.prop('varientName'))(variants)]
+        }/>
       <button className="snipcart-checkout">Click here to checkout</button>
       <div>
         <h1>{title}</h1>

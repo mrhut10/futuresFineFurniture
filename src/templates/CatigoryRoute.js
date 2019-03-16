@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import CategoryTitle from '../components/categoryTile'
 import CommingSoon from '../components/CommingSoon'
+import SEO from "../components/seo"
 const R = require("ramda")
 
 
@@ -42,6 +43,10 @@ export default ({ data, pageContext }) => {
 
   return (
     <Layout>
+      <SEO
+        title={post.frontmatter.title}
+        keywords={post.frontmatter.keywords || []}
+      />
       <div>
         <h1>{post.frontmatter.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -83,6 +88,7 @@ export default ({ data, pageContext }) => {
                 />
           ) : <CommingSoon />}
         </div>
+        
       </div>
     </Layout>
   )
@@ -100,6 +106,7 @@ query ($slug: String $catName: String) {
         price,
         varientName
       }
+      keywords
     }
   }
   allFile(filter: {sourceInstanceName:{eq:"contentImages"}}){

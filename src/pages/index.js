@@ -19,7 +19,13 @@ const ListofLove = ({ love, children }) => (
 
 const IndexPage = () => (
   <Layout showHero>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO title="Home" keywords={[
+      `Quality Furniture`,
+      `Mobility Products`,
+      `kempsey`,
+      'port macquarie',
+      'macksville'
+    ]} />
     <h1>Welcome</h1>
     <p style={{fontSize:'1.01rem'}}>
     In Store you'll find the widest range of new and end of line furniture, <br/>

@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Futures Fine Furniture and Bedding',
-    description: `Kempsey Local Future Store`,
+    description: `Kempsey Local Furniture Store`,
     author: `@ahut10`,
     col_background: '#595b61', // gray background
     col_header: '',
