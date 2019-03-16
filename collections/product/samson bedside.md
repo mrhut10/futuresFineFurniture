@@ -1,5 +1,5 @@
 ---
-title: Savana Bedside
+title: Samson Bedside
 enabled: true
 Category: Bedroom
 range: samson

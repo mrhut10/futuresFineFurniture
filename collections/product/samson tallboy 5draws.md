@@ -1,5 +1,5 @@
 ---
-title: Savana Tallboy 5 draws
+title: Samson Tallboy 5 draws
 enabled: true
 Category: Bedroom
 range: samson
