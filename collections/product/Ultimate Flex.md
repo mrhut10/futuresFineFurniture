@@ -1,7 +1,7 @@
 ---
 title: Ultimate Flex Package
 enabled: true
-Category: Adjustable Beds
+Category: Mobility
 range: Essential Living
 images:
   - /assets/Ultimate-Flex.png
