@@ -36,6 +36,8 @@ const findImage = R.compose(
   R.pathOr('',['frontmatter','images'])
 )
 
+
+
 export default ({ data, pageContext }) => {
   const post = data.cat
   const products = data.products
@@ -53,47 +55,96 @@ export default ({ data, pageContext }) => {
         <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', width: '100%' }}>
           {
             products 
-            ? products.edges.map(
-              ({ node }) => <CategoryTitle
-                  key={node.frontmatter.title}
-                  name={node.frontmatter.title}
-                  slug={`${pageContext.slug}/${node.fields.productName}`}
-                  images={
-                    R.compose(
+            ? products
+              .edges
+              .map(
+                ({ node }) => {
+                  return {
+                    title:node.frontmatter.title,
+                    images:R.compose(
                       R.pathOr('',['source']),
                       R.find(R.compose(
                         R.equals(findImage(node)),
                         R.pathOr('',['relativePath'])
                       )),
-                    )(sourceImages)
-                  }
-                  Children={
-                    R.compose(
-                      input=>input
-                      ? <p style={{
-                          color:"red",
-                          margin:'auto auto'
-                        }}>
-                          from {input}
-                        </p>
-                      : null,
-                      formatter.format,
-                      R.divide(R.__,100),
+                    )(sourceImages),
+                    slug:`${pageContext.slug}/${node.fields.productName}`,
+                    minPriceCents:R.compose(
                       R.head,
                       R.sort((a,b)=>a-b),
                       R.lift(R.prop('price')),
                       R.pathOr([],['frontmatter','variants'])
-                    )(node)
+                    )(node),
                   }
-                />
-          ) : <CommingSoon />}
+                }
+              )
+              .sort((a,b)=>a.minPriceCents-b.minPriceCents)
+              .map(
+                (input)=>(
+                  <CategoryTitle 
+                    key={input.title}
+                    name={input.title}
+                    slug={input.slug}
+                    images={input.images}
+                    Children={
+                      R.compose(
+                        input=>input
+                          ? <p
+                            style={{
+                              color:"red",
+                              margin:'auto auto'
+                            }}
+                          >
+                            from {input}
+                          </p>
+                        : null,
+                        formatter.format,
+                        R.divide(R.__,100),
+                        R.propOr(0,'minPriceCents')
+                      )(input)
+                    }
+                  />
+                )
+              )
+            : <CommingSoon />}
         </div>
         
       </div>
     </Layout>
   )
 }
-
+const oldProductTile = ({node})=><CategoryTitle
+key={node.frontmatter.title}
+name={node.frontmatter.title}
+//slug={`${pageContext.slug}/${node.fields.productName}`}
+/*images={
+  R.compose(
+    R.pathOr('',['source']),
+    R.find(R.compose(
+      R.equals(findImage(node)),
+      R.pathOr('',['relativePath'])
+    )),
+  )(sourceImages)
+}*/
+Children={
+  R.compose(
+    input=>input
+    ? <p style={{
+        color:"red",
+        margin:'auto auto'
+      }}>
+        from {input}
+      </p>
+    : null,
+    formatter.format,
+    R.divide(R.__,100),
+    R.head,
+    R.sort((a,b)=>a-b),
+    R.lift(R.prop('price')),
+    R.pathOr([],['frontmatter','variants'])
+  )(node)
+}
+/>
 //markdownRemark(frontmatter: {title: {eq: $slug}}) {
 
 export const query = graphql`
