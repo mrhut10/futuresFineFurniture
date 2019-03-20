@@ -2,7 +2,7 @@
 title: posturezone sleeprite
 enabled: true
 Category: Mattress
-range: Pocket Spring
+range: Entry Level
 images:
   - /assets/proturezone.png
 variants:

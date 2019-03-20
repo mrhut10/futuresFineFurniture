@@ -2,7 +2,7 @@
 title: Nature Fresh
 enabled: true
 Category: Mattress
-range: Pocket Spring
+range: Entry Level
 images:
   - /assets/nature fresh.png
 variants:

@@ -2,7 +2,7 @@
 title: My Harmony
 enabled: true
 Category: Mattress
-range: my-range
+range: Premium
 images:
   - /assets/my harmony.png
 variants:
