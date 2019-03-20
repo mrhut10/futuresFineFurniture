@@ -133,10 +133,6 @@ query($productName: String!, $images: [String])	{
       variants {
         price
         varientName
-        properties {
-          propertyType
-          propertyValue
-        }
       }
     }
     fields {
