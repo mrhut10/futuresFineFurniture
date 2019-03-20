@@ -71,14 +71,26 @@ export default ({ data, pageContext }) => {
                     slug:`${pageContext.slug}/${node.fields.productName}`,
                     minPriceCents:R.compose(
                       R.head,
-                      R.sort((a,b)=>a-b),
-                      R.lift(R.prop('price')),
-                      R.pathOr([],['frontmatter','variants'])
+                      R.sort(
+                        (a,b)=>a-b
+                      ),
+                      R.lift(
+                        R.prop('price')
+                      ),
+                      R.pathOr(
+                        [],['frontmatter','variants']
+                      )
                     )(node),
+                    range:R.pathOr(
+                      [],['frontmatter','range']
+                    )(node)
                   }
                 }
               )
               .sort((a,b)=>a.minPriceCents-b.minPriceCents)
+              .sort((a,b)=>{
+                return String(a.range).localeCompare(String(b.range))
+              })
               .map(
                 (input)=>(
                   <CategoryTitle 
@@ -95,10 +107,9 @@ export default ({ data, pageContext }) => {
                               margin:'auto auto'
                             }}
                           >
-                            from {input}
+                            from {formatter.format(input)}
                           </p>
                         : null,
-                        formatter.format,
                         R.divide(R.__,100),
                         R.propOr(0,'minPriceCents')
                       )(input)
@@ -113,39 +124,6 @@ export default ({ data, pageContext }) => {
     </Layout>
   )
 }
-const oldProductTile = ({node})=><CategoryTitle
-key={node.frontmatter.title}
-name={node.frontmatter.title}
-//slug={`${pageContext.slug}/${node.fields.productName}`}
-/*images={
-  R.compose(
-    R.pathOr('',['source']),
-    R.find(R.compose(
-      R.equals(findImage(node)),
-      R.pathOr('',['relativePath'])
-    )),
-  )(sourceImages)
-}*/
-Children={
-  R.compose(
-    input=>input
-    ? <p style={{
-        color:"red",
-        margin:'auto auto'
-      }}>
-        from {input}
-      </p>
-    : null,
-    formatter.format,
-    R.divide(R.__,100),
-    R.head,
-    R.sort((a,b)=>a-b),
-    R.lift(R.prop('price')),
-    R.pathOr([],['frontmatter','variants'])
-  )(node)
-}
-/>
-//markdownRemark(frontmatter: {title: {eq: $slug}}) {
 
 export const query = graphql`
 query ($slug: String $catName: String) {
@@ -180,6 +158,7 @@ query ($slug: String $catName: String) {
         frontmatter{
           title,
           images,
+          range,
           variants{
             price,
             varientName
