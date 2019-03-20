@@ -2,7 +2,7 @@
 title: Brittany Tallboy
 enabled: true
 Category: Bedroom
-range: Ashton
+range: Brittany
 images:
   - /assets/brittany tallboy.PNG
 variants:

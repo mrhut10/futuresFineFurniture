@@ -2,7 +2,7 @@
 title: Brittany Blanket Box
 enabled: true
 Category: Bedroom
-range: Ashton
+range: Brittany
 images:
   - /assets/brittany blanket box.PNG
 variants:

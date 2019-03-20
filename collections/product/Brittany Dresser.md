@@ -2,7 +2,7 @@
 title: Brittany Dresser
 enabled: true
 Category: Bedroom
-range: Ashton
+range: Brittany
 images:
   - /assets/brittany dresser.PNG
 variants:

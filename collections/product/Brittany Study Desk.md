@@ -2,7 +2,7 @@
 title: Brittany Study Desk
 enabled: true
 Category: Bedroom
-range: Ashton
+range: Brittany
 images:
   - /assets/brittany study desk.PNG
 variants:

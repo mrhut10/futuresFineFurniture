@@ -2,7 +2,7 @@
 title: Brittany Mirror
 enabled: true
 Category: Bedroom
-range: Ashton
+range: Brittany
 images:
   - /assets/brittany mirror.PNG
 variants:
