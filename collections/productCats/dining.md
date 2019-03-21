@@ -1,5 +1,5 @@
 ---
-title: Dinning
+title: Dining
 enabled: true
 ---
 
