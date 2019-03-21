@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'Futures Fine Furniture and Bedding',
-    description: `Kempsey Local Furniture Store`,
+    description: 
+      `Mid North Coast Furniture & Mobility Store, Hastings & Macleay Valley`,
     author: `@ahut10`,
     col_background: '#595b61', // gray background
     col_header: '',
