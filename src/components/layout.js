@@ -38,15 +38,15 @@ const Layout = ({ children, showHero }) => (
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
+            { name: 'description', content: 'Furniture and Mobility Provider for the mid north coast' },
+            { name: 'keywords', content: 'Mid North Coast, Furniture, Mobility, Timber, Beds, Lift Beds, Adjustable Beds, Lift Chairs, Mattress, Mattress\'s, '},
           ]}
         >
           <html lang="en" />
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
           <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key={"YzUxMzk5NTItOThmOC00NzM3LWE5NmUtNGViMGVmNDNhNTdkNjM2NzY2ODMyMDY2NzQzNzg2"}></script>
           <link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" type="text/css" rel="stylesheet" />
-          <meta name="google-site-verification" content={process.env.GSITEVERIFY} />
+          <meta name="google-site-verification" content={process.env.GSITEVERIFY || 'goJNom09_gsf-UVMtPn0Lf0FyewffHdABHPT0y8a8so'} />
         </Helmet>
         <div style={{
           background: data.site.siteMetadata.col_background,
