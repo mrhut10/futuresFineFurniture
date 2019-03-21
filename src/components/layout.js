@@ -39,7 +39,7 @@ const Layout = ({ children, showHero }) => (
           title={data.site.siteMetadata.title}
           meta={[
             { name: 'description', content: 'Furniture and Mobility Provider for the mid north coast' },
-            { name: 'keywords', content: 'Mid North Coast, Furniture, Mobility, Timber, Beds, Lift Beds, Adjustable Beds, Lift Chairs, Mattress, Mattress\'s, '},
+            { name: 'keywords', content: 'Mid North Coast, Furniture, Mobility, Timber, Beds, Lift Beds, Adjustable Beds, Lift Chairs, Mattress, Mattress\'s, Kempsey, Port Macquarie, Macksville, Coffs Harbour'},
           ]}
         >
           <html lang="en" />
