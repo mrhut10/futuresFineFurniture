@@ -7,6 +7,7 @@ module.exports = {
     col_header: '',
     col_logoText: '',
     snipCartApiKey: process.env.snipcart_api,
+    siteUrl:'https://www.futuresfinefurnitureandbedding.com/'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
