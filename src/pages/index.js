@@ -6,11 +6,13 @@ import SEO from "../components/seo"
 import RangeDisplay from '../components/range'
 
 import RedHeart from '../components/redHeart'
-import { Card } from "@blueprintjs/core";
+import { Card, Colors } from "@blueprintjs/core";
+
 
 const ListofLove = ({ love, children, rot="0deg" }) => (
-  <Card elevation={1}
+  <Card elevation={5}
   style={{ padding: '10px', listStyle: `none`, transform:rot, }}
+  className="bp3-dark"
   >
     <h4 style={{ marginBottom: '0.1rem', textAlign:'center' }}>We <RedHeart /> {love}</h4>
     <br/>
@@ -30,12 +32,14 @@ const IndexPage = () => (
       'port macquarie',
       'macksville'
     ]} />
-    <h1>Welcome</h1>
-    <p style={{fontSize:'1.01rem'}}>
-    In Store you'll find the widest range of new and end of line furniture, <br/>
-      everything you'll need to fill a home.<br/>
-    </p>
-    <div style={{ 
+    <div>
+    
+      <h1>Welcome</h1>
+      <p style={{fontSize:'1.01rem'}}>
+        In Store you'll find the widest range of new and end of line furniture, <br/>
+        everything you'll need to fill a home.<br/>
+      </p>
+      <div style={{ 
       display:'grid',
       gridTemplateColumns: '1fr 1fr',
       gridColumnGap: '15px',
@@ -44,7 +48,7 @@ const IndexPage = () => (
       margin: '1em auto'
     }} >
       <ListofLove love="Accessibillity" rot="15deg">
-        <ul style={{listStyle:'none'}}>
+        <ul style={{listStyle:'none', textAlign:'center', margin:'0 0'}}>
           <li>Lowest Prices</li>
           <li><Link to="/payment">Flexible payments</Link></li>
           <li><span style={{fontsize:'1.5rem',color:'red'}}>Free Delivery</span>*</li>
@@ -52,13 +56,15 @@ const IndexPage = () => (
         * within Macleay Vally - March 2019
       </ListofLove> 
       <ListofLove love="Quality">
-        <ul style={{listStyle:'none'}}>
+        <ul style={{listStyle:'none', textAlign:'center', margin:'0 0'}}>
           <li>Highest Quality</li>
           <li>Best Functionality</li>
           <li>Beauty to Inspire</li>
         </ul>
       </ListofLove>
     </div>
+    </div>
+    
     <div>
       <h2>Be Inspired </h2>
       <RangeDisplay.Categories/>
