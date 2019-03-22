@@ -66,6 +66,7 @@ const Layout = ({ children, showHero }) => (
           <footer>
             © {new Date().getFullYear()}, Built for Futures Fine Furniture and Bedding Pty Ltd
             {` `}
+            <br/>by <a href="https://twitter.com/ahut10">@ahut10</a> a passionate JAMstack developer
           </footer>
         </div>
         </div>
