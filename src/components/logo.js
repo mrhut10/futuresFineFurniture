@@ -19,7 +19,7 @@ const HeroBackgroundImage = () => (
     `}
     render={
       data => <div style={{ backgroundColor: 'white' }}>
-        <Img alt="Image of Dinning Table" style={{ opacity: '0.8' }} fluid={data.placeholderImage.childImageSharp.fluid} />
+        <Img alt="Futures Fine Furniture and Bedding" style={{ opacity: '0.8' }} fluid={data.placeholderImage.childImageSharp.fluid} />
       </div>
     }
   />

@@ -7,6 +7,7 @@ import RangeDisplay from '../components/range'
 
 import RedHeart from '../components/redHeart'
 import { Card, Colors } from "@blueprintjs/core";
+import Logo from "../components/logo";
 
 
 const ListofLove = ({ love, children, rot="0deg" }) => (
@@ -32,12 +33,18 @@ const IndexPage = () => (
       'port macquarie',
       'macksville'
     ]} />
-    <div>
-    
-      <h1>Welcome</h1>
-      <p style={{fontSize:'1.01rem'}}>
-        In Store you'll find the widest range of new and end of line furniture, <br/>
-        everything you'll need to fill a home.<br/>
+    <div style={{
+      padding: '15px'
+    }}>
+    <Logo />
+      <p 
+        style={{
+          fontSize:'1.01rem',
+          textAlign:'center',
+        }}
+      >
+        The widest range of new and end of line furniture and Mobility Supplys.<br/>
+        Everything you need to turn your space into a home.<br/>
       </p>
       <div style={{ 
       display:'grid',
@@ -66,7 +73,7 @@ const IndexPage = () => (
     </div>
     
     <div>
-      <h2>Be Inspired </h2>
+      <h2>Our Range</h2>
       <RangeDisplay.Categories/>
     </div>
     <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
