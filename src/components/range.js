@@ -48,6 +48,8 @@ const Categories = ({ data }) => (
               title
               images
               order
+              parent
+              enabled
             }
             excerpt(pruneLength: 50)
             fields {
@@ -96,6 +98,11 @@ const Categories = ({ data }) => (
               />
             ),
             R.sort((a,b)=>b.count-a.count),
+            R.filter(R.and(
+              R.propEq('parent',''),
+              R.propOr(false,'enabled')
+              )
+            ),
             R.map(R.compose(
               input=>{
                 return {
@@ -110,7 +117,9 @@ const Categories = ({ data }) => (
                       R.pathOr('',['frontmatter','title'])(input)
                     )),
                     CatigoryCounts
-                  )(data)
+                  )(data),
+                  parent:R.pathOr('',['frontmatter','parent'])(input),
+                  enabled:R.pathOr(false,['frontmatter','enabled'])(input)
                 }
               },
               R.pathOr({},['node'])
