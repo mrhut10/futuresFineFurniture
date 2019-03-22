@@ -98,11 +98,10 @@ const Categories = ({ data }) => (
               />
             ),
             R.sort((a,b)=>b.count-a.count),
-            R.filter(R.and(
-              R.propEq('parent',''),
-              R.propOr(false,'enabled')
-              )
-            ),
+            R.filter(R.allPass([
+                R.propEq('parent',''),
+                R.propOr(false,'enabled')
+            ])),
             R.map(R.compose(
               input=>{
                 return {
