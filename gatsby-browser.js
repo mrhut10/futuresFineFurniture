@@ -5,6 +5,7 @@
  */
 
 exports.onServiceWorkerUpdateReady = () => {
+  /*
   const answer = window.confirm(
     `This website has been updated. ` +
       `Reload to display the latest version?`
@@ -13,4 +14,6 @@ exports.onServiceWorkerUpdateReady = () => {
   if (answer === true) {
     window.location.reload()
   }
+  */
+ window.location.reload()
 }
