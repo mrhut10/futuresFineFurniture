@@ -1,12 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-import Layout from '../components/layout'
+import Layout from '../components/layout';
+import Wrapper from '../components/wrapper';
 
 const SecondPage = () => (
   <Layout>
-    <h1>Local Delivery</h1>
-    <p>Welcome to page 2</p>
+    <Wrapper>
+      <h1>Local Delivery</h1>
+      <p>Welcome to page 2</p>
+    </Wrapper>
   </Layout>
-)
+);
 
-export default SecondPage
+export default SecondPage;

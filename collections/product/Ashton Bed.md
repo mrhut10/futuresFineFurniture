@@ -7,11 +7,12 @@ images:
   - /assets/ashton bed.png
 variants:
   - price: 69500
-    varientName: Double 
+    varientName: Double
   - price: 74900
-    varientName: Queen 
+    varientName: Queen
   - price: 79500
-    varientName: King 
+    varientName: King
 ---
+
 Chunky look with Contemporary Style
 Solid Acacia Timber in Rustic Light Finish

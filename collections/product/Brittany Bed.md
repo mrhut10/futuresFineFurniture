@@ -11,9 +11,10 @@ variants:
   - price: 54900
     varientName: King Single
   - price: 64900
-    varientName: Double 
+    varientName: Double
   - price: 69500
     varientName: Queen
 ---
-* 2 Toned finish in wenge & gloss white delivers eye catching style
-* The panel detail gives a fresh update on the contemporary coastal look
+
+- 2 Toned finish in wenge & gloss white delivers eye catching style
+- The panel detail gives a fresh update on the contemporary coastal look

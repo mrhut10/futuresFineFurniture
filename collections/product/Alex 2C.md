@@ -18,7 +18,6 @@ variants:
     varientName: Orange
 ---
 
-
 very popular range comfortable with linin Material available in 5 colours
 
 W2060xD(850 and chase 1460)xH900mm

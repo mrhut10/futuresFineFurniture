@@ -14,13 +14,15 @@ keywords:
   - patio
   - aluminium
 ---
+
 Futures Fine Furniture and Bedding are specialists Outdoor Furniture
 
 Expert advice and the finest furniture on the market including, outdoor dinning settings, outdoor lounges, outdoor seating. Commonly in wicker and aluminium varities
 
-Visit or Call today to organise no obligation demonstration at [14 Smith Street, Kempsey](/contact) and phone on [65626675](tel:+61265626675)
+Visit or call today to organise no obligation demonstration at [14 Smith Street, Kempsey](/contact) and phone on [(02) 6562 6675](tel:+61265626675)
 
-**Finance/Payment Options**
-* [afterpay](https://www.afterpay.com) provider - shopnow, enjoy now, pay it in four fortnightly payments
-* Work with a local hire/rent to buy provider
-* laybuys - over 3 months - see in store for details
+## Finance/Payment Options
+
+- [Afterpay](https://www.afterpay.com) provider - shop now, enjoy now, pay for it in four fortnightly payments
+- Work with a local hire/rent to buy provider
+- Laybuys - over 3 months - see in store for details

@@ -3,4 +3,4 @@ title: Dining
 enabled: true
 ---
 
-Dining Settings, Tables, Chairs, sideboards
+Dining Settings, tables, chairs, sideboards
