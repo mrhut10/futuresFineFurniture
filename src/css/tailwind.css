@@ -64,6 +64,7 @@
 .image-container {
   @apply absolute;
   @apply h-full;
+  @apply overflow-hidden;
   @apply w-full;
 }
 
