@@ -8,7 +8,7 @@ import Header from './header';
 import '../css/tailwind.css';
 import '../css/typography.css';
 
-const Layout = ({ children }) => (
+const Layout = ({ children, showHero }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -50,7 +50,7 @@ const Layout = ({ children }) => (
           />
         </Helmet>
         <div className="bg-grey-darker flex flex-col font-sans min-h-screen py-3 text-base text-grey-darkest">
-          <Header />
+          <Header showHero={showHero} />
           <TopMenu />
           <main className="bg-white flex-1 max-w-xl mx-auto rounded-b-lg w-full">
             {children}
