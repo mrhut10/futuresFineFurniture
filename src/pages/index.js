@@ -60,7 +60,7 @@ const IndexPage = () => (
           <li><Link to="/payment">Flexible payments</Link></li>
           <li><span style={{fontsize:'1.5rem',color:'red'}}>Free Delivery</span>*</li>
         </ul>
-        * within Macleay Vally - March 2019
+        * within Macleay Vally - March & April 2019
       </ListofLove> 
       <ListofLove love="Quality">
         <ul style={{listStyle:'none', textAlign:'center', margin:'0 0'}}>
