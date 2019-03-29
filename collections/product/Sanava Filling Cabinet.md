@@ -1,5 +1,5 @@
 ---
-title: Sanava Filling Cabinet.md
+title: Sanava Filling Cabinet
 enabled: true
 Category: Living
 range: Sanava
