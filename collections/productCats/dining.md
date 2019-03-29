@@ -5,9 +5,6 @@ images:
   - sanava dinning long.png
 ---
 
-<<<<<<< HEAD
-Dining Settings, tables, chairs, sideboards
-=======
 Futures Fine Furniture and Bedding are specialists Dining room furniture supplier for the Macleay Valley (Kempsey, Crescent Head, South West Rocks)
 
 Expert advice and the finest equipment on the market including, Dining Suites, Sideboards, Buffets, Kitchen Islands.
@@ -18,4 +15,3 @@ Visit or Call today to organise no obligation demonstration at [14 Smith Street,
 * [afterpay](https://www.afterpay.com) provider - shopnow, enjoy now, pay it in four fortnightly payments
 * Work with a local hire/rent to buy provider
 * laybuys - over 3 months - see in store for details
->>>>>>> master
