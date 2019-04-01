@@ -21,6 +21,7 @@ export const BuyArea = ({
   const [input, setInput] = useState(varients[0].varientName)
   return (
     <div>
+      Selection: {input||name}<br/>
       {
         varients.length > 1
         ?
@@ -32,7 +33,6 @@ export const BuyArea = ({
           </>
         : <></>
       }
-      Selection: {input||name}<br/>
       Price: {
         R.compose(
           formatter.format,
