@@ -81,13 +81,15 @@ export default ({ data, location }) => {
                 images
               )(data)}
             </div>
-            <div className="px-4 w-full md:w-1/3">{details(data)}</div>
+
+            <div className="px-4 w-full md:w-1/3">
+            <BuyArea name={title} id={title} image={undefined} url={location.href} description={undefined} varients={variants}/>
+            <br/>
+              {details(data)}
+            </div>
           </div>
-          {
-            details(data)
-          }
+          
         </div>
-        <BuyArea name={title} id={title} image={undefined} url={location.href} description={undefined} varients={variants}/>
       </Wrapper>
     </Layout>
   );
