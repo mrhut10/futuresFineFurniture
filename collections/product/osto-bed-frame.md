@@ -7,7 +7,7 @@ images:
   - /assets/osteo steel frame.PNG
 variants:
   - price: 16500
-    varientName: single
+    varientName: Single
   - price: 17950
     varientName: Long Single
   - price: 17900

@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import * as R from 'ramda';
 import Layout from '../components/layout';
 import Wrapper from '../components/wrapper';
-import BuyButton from '../components/snipcart';
+import { BuyArea } from '../components/snipcart';
 import SEO from '../components/seo';
 
 // const average = R.converge(R.divide, [R.sum, R.length])
@@ -83,42 +83,11 @@ export default ({ data, location }) => {
             </div>
             <div className="px-4 w-full md:w-1/3">{details(data)}</div>
           </div>
-          <table>
-            <thead>
-              <tr>
-                <th>Option</th>
-                <th>Price</th>
-                <th />
-              </tr>
-            </thead>
-            <tbody>
-              {variants.map(vari => (
-                <tr key={vari.varientName}>
-                  <td>
-                    {variants.length > 1
-                      ? vari.varientName
-                      : `${title} ${
-                          vari.varientName ? `- ${vari.varientName}` : ''
-                        }`}
-                  </td>
-                  <td>{formatter.format(vari.price / 100)}</td>
-                  <td>
-                    <BuyButton
-                      name={`${title}_${vari.varientName}`}
-                      id={`${title}_${vari.varientName}`}
-                      image={null}
-                      url={location.href}
-                      price={vari.price}
-                      description={null}
-                    >
-                      Add to Shopping Cart
-                    </BuyButton>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          {
+            details(data)
+          }
         </div>
+        <BuyArea name={title} id={title} image={undefined} url={location.href} description={undefined} varients={variants}/>
       </Wrapper>
     </Layout>
   );
