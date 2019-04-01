@@ -15,5 +15,5 @@ exports.onServiceWorkerUpdateReady = () => {
     window.location.reload()
   }
   */
- window.location.reload()
-}
+  window.location.reload();
+};

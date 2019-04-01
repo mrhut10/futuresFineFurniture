@@ -1,14 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: 'Futures Fine Furniture and Bedding',
-    description: 
-      `Mid North Coast Furniture & Mobility Store, Hastings & Macleay Valley`,
+    title: `Futures Fine Furniture and Bedding`,
+    description: `Mid North Coast Furniture & Mobility Store, Hastings & Macleay Valley`,
     author: `@ahut10`,
-    col_background: '#595b61', // gray background
-    col_header: '',
-    col_logoText: '',
     snipCartApiKey: process.env.snipcart_api,
-    siteUrl:'https://www.futuresfinefurnitureandbedding.com/'
+    siteUrl: `https://www.futuresfinefurnitureandbedding.com/`,
+    address: `Centerpoint Arcade, 14 Smith Street, Kempsey, NSW 2440`,
+    phone: `tel:+61265626675`,
+    phoneFormatted: `(02) 6562 6675`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -20,41 +19,41 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'contentImages',
+        name: `contentImages`,
         path: `${__dirname}/static/images/uploads`,
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
         name: `blog`,
         path: `${__dirname}/collections/blog`,
-      }
+      },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
         name: `productCategory`,
         path: `${__dirname}/collections/productCats`,
-      }
+      },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
         name: `productRange`,
         path: `${__dirname}/collections/productRange`,
-      }
+      },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
         name: `product`,
         path: `${__dirname}/collections/product`,
-      }
+      },
     },
-    'gatsby-transformer-remark',
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -63,15 +62,21 @@ module.exports = {
         name: `Futures Fine Furniture and Bedding`,
         short_name: `Futures Fine Furniture`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#522224`,
+        theme_color: `#FEF7C4`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    'gatsby-plugin-offline',
+    `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        tailwind: true,
+        purgeOnly: [`src/css/tailwind.css`, `src/components/layout.css`], // Purge only selected CSS files
+      },
+    },
+    `gatsby-plugin-offline`, // To learn more, visit: https://gatsby.dev/offline // this (optional) plugin enables Progressive Web App + Offline functionality
     `gatsby-plugin-sitemap`,
   ],
-}
+};

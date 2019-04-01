@@ -13,11 +13,12 @@ variants:
   - price: 36900
     varientName: Double
   - price: 39500
-    varientName: Queen 
+    varientName: Queen
   - price: 39500
-    varientName: King 
+    varientName: King
 ---
+
 Made from New Zealand Pine, this classic styled range is finished in Antique Oak to suite a large variety of interiors.
 
-* New Zealand Pine
-* Metal Center support rail
+- New Zealand Pine
+- Metal Center support rail

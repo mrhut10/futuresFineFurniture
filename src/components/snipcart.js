@@ -1,16 +1,23 @@
-import React, { useState } from "react"
-import styles from './product.module.css'
+import React, { useState } from 'react';
+import styles from './product.module.css';
 import * as R from 'ramda'
 
-const formatter = new Intl.NumberFormat('en-AU', {
-  style: 'currency',
-  currency: 'AUD',
+const formatter = new Intl.NumberFormat(`en-AU`, {
+  style: `currency`,
+  currency: `AUD`,
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
   useGrouping: true,
 })
-// : ${formatter.format(varient.price/100)}`
-export const BuyArea = ({name,id,image,url,description,varients}) => {
+
+export const BuyArea = ({
+  name,
+  id,
+  image,
+  url,
+  description,
+  varients
+}) => {
   const [input, setInput] = useState(varients[0].varientName)
   return (
     <div>
@@ -46,35 +53,40 @@ export const BuyArea = ({name,id,image,url,description,varients}) => {
         Add To Cart
       </BuyButton>
       <br/>
-      <br/>
-      <br/>
-      
     </div>
   )
 }
-export const BuyButton = ({ name, id, image, url, price, description, children, varients, value}) => {
-  const headPrice = R.compose(R.prop('price'),R.head)
-  return (
-    <button
-      type="button"
-      className={`${styles.buyButton} snipcart-add-item`}
-      data-item-name={name}
-      data-item-id={id}
-      data-item-image={image}
-      data-item-url={url}
-      data-item-price={`{"AUD":${price / 100}}`}
-      description={description}
-      data-item-custom1-name='Option'
-      data-item-custom1-options={
-        varients && varients.length > 1
-        ? varients.map(vari=>`${vari.varientName}[${vari.price-varients[0].price>=0?'+':'-'}${(vari.price-varients[0].price)/100}]`).join('|')
-        : ''
-      }
+
+const BuyButton = ({
+  name,
+  id,
+  image,
+  url,
+  price,
+  description,
+  children,
+  varients,
+  value
+}) => (
+  <button
+    type="button"
+    className={`${styles.buyButton} snipcart-add-item`}
+    data-item-name={name}
+    data-item-id={id}
+    data-item-image={image}
+    data-item-url={url}
+    data-item-price={`{"AUD":${price / 100}}`}
+    description={description}
+    data-item-custom1-name='Option'
+    data-item-custom1-options={
+      varients && varients.length > 1
+      ? varients.map(vari=>`${vari.varientName}[${vari.price-varients[0].price>=0?'+':'-'}${(vari.price-varients[0].price)/100}]`).join('|')
+      : ''
+    }
       data-item-custom1-value={value}
-    >
-      {children}
-    </button>
-  )
-}
+  >
+    {children}
+  </button>
+);
 
-
+export default BuyButton;

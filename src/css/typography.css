@@ -1,0 +1,234 @@
+html {
+  @apply leading-normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply leading-tight;
+  @apply mb-2;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  @apply mt-0;
+}
+
+h1,
+h2,
+h3 {
+  @apply font-sans;
+}
+
+a {
+  @apply font-bold;
+  @apply no-underline;
+}
+
+hr {
+  height: 1px;
+  @apply bg-grey-light;
+  @apply block;
+  @apply border-none;
+  @apply my-8;
+  @apply w-full;
+}
+
+p,
+dl,
+ol,
+ul,
+blockquote,
+pre,
+table,
+.gatsby-highlight {
+  @apply mb-6;
+}
+
+p:last-child,
+dl:last-child,
+ol:last-child,
+ul:last-child,
+blockquote:last-child,
+pre:last-child,
+table:last-child {
+  @apply mb-0;
+}
+
+p:empty {
+  display: none;
+}
+
+ol,
+ul {
+  @apply pl-6;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ol ol {
+  list-style-type: lower-alpha;
+}
+
+ol ol ol {
+  list-style-type: lower-roman;
+}
+
+ol ol ol ol {
+  list-style-type: lower-greek;
+}
+
+ol ol ol ol ol {
+  list-style-type: decimal;
+}
+
+ol ol ol ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ul ul {
+  list-style-type: circle;
+}
+
+ul ul ul {
+  list-style-type: square;
+}
+
+ul ul ul ul {
+  list-style-type: circle;
+}
+
+ul ul ul ul ul {
+  list-style-type: disc;
+}
+
+ul ul ul ul ul ul {
+  list-style-type: circle;
+}
+
+li > p {
+  @apply m-0;
+}
+
+blockquote {
+  @apply border-l-4;
+  @apply border-grey-lightest;
+  @apply text-grey;
+  @apply py-2;
+  @apply px-6;
+  @apply text-lg;
+  @apply italic;
+}
+
+blockquote em {
+  @apply roman;
+}
+
+blockquote p {
+  margin-left: 0;
+}
+
+code,
+kbd,
+samp,
+pre {
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: auto;
+  font-size: 0.9em;
+  @apply bg-grey-lightest;
+  @apply border-transparent;
+  @apply font-mono;
+  @apply mb-4;
+  @apply rounded-lg;
+}
+
+code,
+kbd,
+samp {
+  padding: 0.1em 0.4em 0.2em;
+  @apply rounded;
+  @apply align-baseline;
+}
+
+pre {
+  padding: 1em 1.2em;
+  @apply overflow-auto;
+}
+
+pre code {
+  background: none;
+  font-size: 1em;
+  line-height: 1em;
+}
+
+figure {
+  @apply mb-8;
+  @apply text-center;
+}
+
+figure:first-child {
+  @apply my-0;
+}
+
+figure:last-child {
+  @apply mb-0;
+}
+
+figcaption {
+  font-size: 0.8em;
+  margin-top: 0.875em;
+}
+
+table {
+  @apply w-full;
+}
+
+table pre {
+  white-space: pre-wrap;
+}
+
+th,
+td {
+  font-size: 1em;
+  padding: 0.7em;
+  line-height: 1.4;
+  @apply border;
+  @apply border-grey-lighter;
+}
+
+thead tr,
+tfoot tr {
+  @apply bg-grey-lightest;
+}
+
+thead th,
+thead td,
+tfoot th,
+tfoot td {
+  font-size: 0.9em;
+  padding: 0.77778em;
+}
+
+thead th code,
+thead td code,
+tfoot th code,
+tfoot td code {
+  @apply bg-white;
+}
+
+tbody tr {
+  @apply bg-white;
+}

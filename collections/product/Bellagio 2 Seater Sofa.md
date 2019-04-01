@@ -9,8 +9,8 @@ variants:
   - price: 129500
 ---
 
-* Adjustable headrests
-* Sleek Modern Design
+- Adjustable headrests
+- Sleek Modern Design
 
 Hardwood & plywood frame, Corrected grain leather with split outside back and arms
 Chromed Metal Legs

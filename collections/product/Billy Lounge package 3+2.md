@@ -18,7 +18,6 @@ variants:
     varientName: Orange
 ---
 
-
 very popular range comfortable with linin Material available in 5 colours
 
 for sizing see individual items from the billy range
