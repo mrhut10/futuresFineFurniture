@@ -6,11 +6,29 @@ import HeroImageSlim from '../../images/slimLogo.svg';
 
 
 const HeroBig = ({data}) => (
-  <div className="bg-white flex justify-center max-w-xl relative w-full">
-        <div className="image-container opacity-75">
+  <div
+    className="bg-white flex justify-center max-w-xl relative"
+    style={{height:'23rem'}}
+  >
+        {/*hero image */}
+        <div
+          className="image-container flex absolute flex opacity-75"
+        >
             <Image />
         </div>
-        <div className="max-w-md mx-auto pb-32 py-4 px-4 relative text-center w-full">
+        {/* overlay */}
+        <div
+          className="max-w-md m-auto absolute w-full object-center"
+          style={{
+            justifyContent:'center',
+            alignItems:'center',
+            textAlign:'center',
+            margin:'0px auto',
+            top:'50%',
+            left:'50%',
+            transform: 'translate(-50%, -50%)'
+          }}
+        >
           <Link to="/">
             <img
               className="w-auto"
