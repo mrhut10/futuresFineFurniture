@@ -9,29 +9,31 @@ const formatter = new Intl.NumberFormat('en-AU', {
   maximumFractionDigits: 2,
   useGrouping: true,
 })
-
+// : ${formatter.format(varient.price/100)}`
 export const BuyArea = ({name,id,image,url,description,varients}) => {
   const [input, setInput] = useState(varients[0].varientName)
   return (
     <div>
       {
         varients.length > 1
-        ? <>
-          <h5>Pick Your Option</h5>
-          <select value={input} onChange={e => setInput(e.target.value)}>
-            {varients.map(varient=><option value={varient.varientName}>{`${varient.varientName} : ${formatter.format(varient.price/100)}`}</option>)}
-          </select>
-          <br/>Selected Option : {input}
+        ?
+          <>
+            <label>Please Make a Selection: </label>
+            <select style={{margin: '10px 0px'}} value={input} onChange={e => setInput(e.target.value)}>
+              {varients.map(varient=><option value={varient.varientName}>{`${varient.varientName}`}</option>)}
+            </select><br/>
           </>
         : <></>
       }
-      Price: {R.compose(
-        formatter.format,
-        R.divide(R.__,100),
-        R.prop('price'),
-        R.find(R.propEq('varientName',input))
-      )(varients)}
-      <br/>
+      Selection: {input||name}<br/>
+      Price: {
+        R.compose(
+          formatter.format,
+          R.divide(R.__,100),
+          R.prop('price'),
+          R.find(R.propEq('varientName',input))
+        )(varients)
+      }<br/>
       <BuyButton
         Style={{margin: '10px'}}
         name={name}
@@ -43,6 +45,10 @@ export const BuyArea = ({name,id,image,url,description,varients}) => {
       >
         Add To Cart
       </BuyButton>
+      <br/>
+      <br/>
+      <br/>
+      
     </div>
   )
 }
