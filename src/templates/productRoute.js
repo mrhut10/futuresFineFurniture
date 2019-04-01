@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import BuyButton from '../components/snipcart'
+import { BuyArea } from '../components/snipcart'
 import SEO from '../components/seo'
 import * as R from 'ramda'
 
@@ -76,38 +76,7 @@ export default ({ data, location }) => {
             details(data)
           }
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Option</th>
-              <th>Price</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              variants.map(vari => (
-                <tr key={vari.varientName}>
-                  <td>{variants.length > 1 ? vari.varientName : `${title} ${vari.varientName? `- ${vari.varientName}` : ""}` }</td>
-                  <td>{formatter.format(vari.price / 100)}
-                  </td>
-                  <td>
-                    <BuyButton
-                      name={`${title}_${vari.varientName}`}
-                      id={`${title}_${vari.varientName}`}
-                      image={null}
-                      url={location.href}
-                      price={vari.price}
-                      description={null}
-                    >
-                      Add to Shopping Cart
-                    </BuyButton>
-                  </td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
+        <BuyArea name={title} id={title} image={undefined} url={location.href} description={undefined} varients={variants}/>
       </div>
     </Layout>
   )
