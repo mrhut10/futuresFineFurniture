@@ -46,10 +46,10 @@ const IndexPage = () => (
                     Flexible payments
                   </Link>
                 </li>
-                <li className="mb-2">Free delivery</li>
+                <li className="mb-2">Free delivery*</li>
               </ul>
               <p>
-                <small>* within Macleay Valley area (March & April 2019)</small>
+                <small>* promotion for Macleay Valley area (March & April 2019)</small>
               </p>
             </div>
           </div>
