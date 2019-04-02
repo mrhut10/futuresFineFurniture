@@ -43,7 +43,7 @@ const snipcart_json = ({data}) => <>{R.compose(
               return [
                 {
                   name:"Option",
-                  options:allvarients.map(vari=>`${vari.varientName}[${positive((vari.price-R.pathOr(0,['0','price'])(allvarients))/100)}]`),
+                  options:allvarients.map(vari=>`${vari.varientName}[${positive((vari.price-R.pathOr(0,['0','price'])(allvarients))/100)}]`).join('|'),
                   type:'dropdown'
                 }
               ]
