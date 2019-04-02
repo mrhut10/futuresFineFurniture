@@ -7,7 +7,7 @@ images:
   - /assets/ultimate base.PNG
 variants:
   - price: 23900
-    varientName: single
+    varientName: Single
   - price: 25000
     varientName: Long Single
   - price: 27500
