@@ -8,7 +8,7 @@
 
 const path = require('path');
 const slugify = require('slugify');
-const { compose, last, lift, pathOr, split } = require('ramda');
+const R = require('ramda')
 
 exports.onCreateNode = ({ node, actions }) => {
   if (node.internal.type === 'MarkdownRemark') {
@@ -145,14 +145,14 @@ exports.createPages = ({ graphql, actions }) => {
   };
 
   const queryToProductPages = result => {
-    const nodeToImageList = compose(
-      lift(
-        compose(
-          last,
-          split('/')
+    const nodeToImageList = R.compose(
+      R.lift(
+        R.compose(
+          R.last,
+          R.split('/')
         )
       ),
-      pathOr([], ['frontmatter', 'images'])
+      R.pathOr([], ['frontmatter', 'images'])
     );
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
