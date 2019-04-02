@@ -6,11 +6,11 @@ range: Manhattan
 images:
   - /assets/manhattan triple.PNG
 variants:
-  - price: 134900
+  - price: 144900
     varientName: Black
-  - price: 134900
+  - price: 144900
     varientName: Mist
-  - price: 134900
+  - price: 144900
     varientName: Brown
 ---
 * 3 seater with Recliner Ends

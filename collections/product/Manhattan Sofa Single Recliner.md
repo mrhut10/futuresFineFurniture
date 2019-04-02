@@ -6,11 +6,11 @@ range: Manhattan
 images:
   - /assets/manhattan single.png
 variants:
-  - price: 84900
+  - price: 94900
     varientName: Brown
-  - price: 84900
+  - price: 94900
     varientName: Mist
-  - price: 84900
+  - price: 94900
     varientName: Black
 ---
 

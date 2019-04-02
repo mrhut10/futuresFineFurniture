@@ -6,17 +6,17 @@ range: Manhattan
 images:
   - /assets/manhattan package.PNG
 variants:
-  - price: 264900
+  - price: 284900
     varientName: 2RR+R+R Black
-  - price: 264900
+  - price: 284900
     varientName: 2RR+R+R Mist
-  - price: 264900
+  - price: 284900
     varientName: 2RR+R+R Brown
-  - price: 279500
+  - price: 299500
     varientName: 3RR+R+R Black
-  - price: 279500
+  - price: 299500
     varientName: 3RR+R+R Mist
-  - price: 279500
+  - price: 299500
     varientName: 3RR+R+R Brown
 
 ---
