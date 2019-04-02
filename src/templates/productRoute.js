@@ -83,7 +83,7 @@ export default ({ data, location }) => {
             </div>
 
             <div className="px-4 w-full md:w-1/3">
-            <BuyArea name={title} id={title} image={undefined} url={location.href} description={undefined} varients={variants}/>
+            <BuyArea name={title} id={title} image={undefined} url='/snipcartJSON' description={undefined} varients={variants}/>
             <br/>
               {details(data)}
             </div>
