@@ -21,15 +21,17 @@ export const BuyArea = ({
   const [input, setInput] = useState(varients[0].varientName)
   return (
     <div>
-      Selection: {input||name}<br/>
+        <h6>
+          {`${name}${input?` \\ ${input}`:''}`}
+        </h6>
       {
         varients.length > 1
         ?
           <>
-            <label>Please Make a Selection: </label>
-            <select style={{margin: '10px 0px'}} value={input} onChange={e => setInput(e.target.value)}>
+            <label>Please Choose an Option:</label>
+            <select style={{margin: '0px 0px'}} value={input} onChange={e => setInput(e.target.value)}>
               {varients.map(varient=><option value={varient.varientName}>{`${varient.varientName}`}</option>)}
-            </select><br/>
+            </select>
           </>
         : <></>
       }
