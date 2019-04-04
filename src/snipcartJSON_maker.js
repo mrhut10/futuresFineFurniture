@@ -1,13 +1,7 @@
 const R = require('ramda')
 
-const spy = (input)=> {
-  console.log(input)
-  return input
-}
-
 exports.snipcart_json = R.compose(
   R.map(R.compose(
-    spy,
     (input) => {
       return {
         name: R.prop('title')(input),
