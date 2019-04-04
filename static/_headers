@@ -1,2 +1,4 @@
 /snipcartJSON
   Content-Type: application/json
+/snipcart.json
+  Content-Type: application/json
