@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
 import LazyLoad from 'react-lazyload';
-
+import {graphql} from 'gatsby'
 import Layout from '../components/layout';
 import Wrapper from '../components/wrapper';
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import * as R from 'ramda';
+import {graphql} from 'gatsby'
 
 export const query = graphql`
 {
