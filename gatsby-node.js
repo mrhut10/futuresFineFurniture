@@ -182,7 +182,6 @@ exports.createPages = ({ graphql, actions }) => {
     query_product.then(result=>{
       const fs = require('fs');
       const snipcart_object = snipcart_JSON.snipcart_json(result);
-      //console.log(snipcart_object);
       const JSONObject =JSON.stringify(snipcart_object);
       fs.writeFile(
         './static/snipcart.json',
