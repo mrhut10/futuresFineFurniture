@@ -9,6 +9,7 @@
 const path = require('path');
 const slugify = require('slugify');
 const R = require('ramda')
+const snipcart_JSON = require('./src/snipcartJSON_maker.js')
 
 exports.onCreateNode = ({ node, actions }) => {
   if (node.internal.type === 'MarkdownRemark') {
@@ -174,11 +175,33 @@ exports.createPages = ({ graphql, actions }) => {
   const productCategoriesPages = query_ProductCategory.then(
     queryToCategoryPage
   );
+  
   const productRangePages = query_ProductRange.then(queryToRangePage);
   const productPages = query_product.then(queryToProductPages);
+  const writesnipcartJSON = new Promise((resolve,reject)=>{
+    query_product.then(result=>{
+      const fs = require('fs');
+      const snipcart_object = snipcart_JSON.snipcart_json(result);
+      //console.log(snipcart_object);
+      const JSONObject =JSON.stringify(snipcart_object);
+      fs.writeFile(
+        './static/snipcart.json',
+        JSONObject,
+        er=>er?reject(er):resolve(er)
+      );
+    });
+  })
 
-  return Promise.all([productCategoriesPages, productRangePages, productPages]);
+  return Promise.all([productCategoriesPages, productRangePages, productPages, writesnipcartJSON]);
 };
+
+/*
+exports.onPostBuild = ({ graphql }) => {
+  const query_product = graphql(querys.product);
+  const JSONObject = query_product.then(snipcart_JSON)
+  const fs = require('fs');
+  return fs.writeFileSync('./static/snipcart.json',JSONObject);
+};*\
 
 /*
 exports.createPages = ({ graphql, actions }) => {
