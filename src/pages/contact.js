@@ -17,7 +17,7 @@ const SecondPage = ({ data }) => (
         </p>
         <ul className="list-reset">
           <li>
-            <a href={`tel:${data.site.siteMetadata.phone}`}>
+            <a href={`${data.site.siteMetadata.phone}`}>
               <Button
                 large
                 className="fill-current mr-2 text-grey-darker"
