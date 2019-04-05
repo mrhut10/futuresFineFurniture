@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, Link, StaticQuery } from 'gatsby';
+import { graphql, StaticQuery } from 'gatsby';
 import Image from './Image';
 import HeroImageBig from '../../images/heroLogo.svg';
 import HeroImageSlim from '../../images/slimLogo.svg';
@@ -29,13 +29,11 @@ const HeroBig = ({data}) => (
             transform: 'translate(-50%, -50%)'
           }}
         >
-          <Link to="/">
             <img
               className="w-auto"
               src={HeroImageBig}
               alt={data.site.siteMetadata.title}
             />
-          </Link>
         </div>
       </div>
 )
@@ -44,13 +42,11 @@ const HeroBig = ({data}) => (
 const HeroSlim = ({data}) => (
   /* insert some of Lukes Magic tailwind css stuff below */
   <div>
-    <Link to="/">
       <img
         className="w-auto"
         src={HeroImageSlim}
         alt={data.site.siteMetadata.title}
       />
-    </Link>
   </div>
 )
 
