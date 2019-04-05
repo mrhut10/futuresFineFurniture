@@ -58,11 +58,6 @@ export default ({ data, location }) => {
         )(data)}
       />
       <Wrapper>
-        <button className="snipcart-checkout">
-          <span className="font-bold text-blue-dark underline">
-            Click here to checkout &rarr;
-          </span>
-        </button>
         <div>
           <h1>{title}</h1>
           <h2>
