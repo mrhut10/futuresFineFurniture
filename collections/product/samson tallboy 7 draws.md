@@ -1,15 +1,15 @@
 ---
-title: Samson Lingerie Chest
+title: samson tallboy 7 draws
 enabled: true
 Category: Bedroom
 range: samson
 images:
-  - /assets/samson lingerie chest.png
+  - samson tallboy 7 draw.png
 variants:
-  - price: 39500
+  - price: 49500
 ---
 Solid N.Z. Pine in Blackwood finish
 
-6 draws
+7 draws
 
-L600xD420xH1060mm
+L1100xD420xH1170 mm
