@@ -5,6 +5,7 @@ import Wrapper from '../components/wrapper';
 import CategoryTitle from '../components/categoryTile';
 import ComingSoon from '../components/ComingSoon';
 import SEO from '../components/seo';
+import BuyButton from '../components/snipcart'
 
 const R = require('ramda');
 
@@ -35,7 +36,10 @@ export default ({ data, pageContext }) => {
   const post = data.cat;
   const { products } = data;
   const sourceImages = GetSourceImages(data);
-
+  const minPricedVarient = R.compose(
+    R.head,
+    R.sort((a,b)=>a.price-b.price)
+  )
   return (
     <Layout>
       <SEO
@@ -62,12 +66,12 @@ export default ({ data, pageContext }) => {
                   )(sourceImages),
                   slug: `${pageContext.slug}/${node.fields.productName}`,
                   minPriceCents: R.compose(
-                    R.head,
-                    R.sort((a, b) => a - b),
-                    R.lift(R.prop('price')),
+                    R.prop('price'),
+                    minPricedVarient,
                     R.pathOr([], ['frontmatter', 'variants'])
                   )(node),
                   range: R.pathOr([], ['frontmatter', 'range'])(node),
+                  variants: R.pathOr([], ['frontmatter', 'variants'])(node)
                 }))
                 .sort((a, b) => a.minPriceCents - b.minPriceCents)
                 .sort((a, b) => String(a.range).localeCompare(String(b.range)))
@@ -81,11 +85,36 @@ export default ({ data, pageContext }) => {
                       input =>
                         input ? (
                           <p className="mt-auto mx-auto text-red-dark">
-                            from {formatter.format(input)}
+                            from {
+                              R.compose(
+                                formatter.format,
+                                R.divide(R.__, 100),
+                                R.prop('price'),
+                                minPricedVarient,
+                                R.prop('variants'),
+                              )(input)
+                            }<br/>
+                            <BuyButton
+                              style={{margin:'5px', padding: '3px'}}
+                              name={R.prop('title')(input)}
+                              id={R.prop('title')(input)}
+                              url='https://www.futuresfinefurnitureandbedding.com/snipcart.json'
+                              price={R.compose(
+                                R.prop('price'),
+                                R.head,
+                                R.prop('variants')
+                              )(input)}
+                              varients={R.prop('variants')(input)}
+                              value={R.compose(
+                                R.prop('varientName'),
+                                minPricedVarient,
+                                R.prop('variants')
+                              )(input)}
+                             >
+                              Add to Cart
+                             </BuyButton>
                           </p>
-                        ) : null,
-                      R.divide(R.__, 100),
-                      R.propOr(0, 'minPriceCents')
+                        ) : null
                     )(input)}
                   />
                 ))

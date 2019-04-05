@@ -17,23 +17,26 @@ const CategoryTitle = ({
   width = 250,
 }) => (
   <div className="flex flex-col p-2 md:w-1/3">
-    <Link
+    <div
       className="flex flex-1 flex-col border no-underline p-4 rounded-lg shadow hover:shadow-lg"
-      to={slug || '/'}
-      title={hoverText}
     >
-      <h4 className="mb-4 text-blue-dark text-center text-xl">{name} &rarr;</h4>
-      <div className="mb-auto">
-        {comingSoon ? (
-          <ComingSoon />
-        ) : images ? (
-          ImageComponent(images, `calc(${height}-30px)`)
-        ) : (
-          ''
-        )}
-      </div>
+      <Link
+        to={slug || '/'}
+        title={hoverText}
+      >
+        <h4 className="mb-4 text-blue-dark text-center text-xl">{name} &rarr;</h4>
+        <div className="mb-auto">
+          {comingSoon ? (
+            <ComingSoon />
+          ) : images ? (
+            ImageComponent(images, `calc(${height}-30px)`)
+          ) : (
+            ''
+          )}
+        </div>
+      </Link>
       <div>{Children}</div>
-    </Link>
+    </div>
   </div>
 );
 
