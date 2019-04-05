@@ -180,14 +180,19 @@ exports.createPages = ({ graphql, actions }) => {
   const productPages = query_product.then(queryToProductPages);
   const writesnipcartJSON = new Promise((resolve,reject)=>{
     query_product.then(result=>{
-      const fs = require('fs');
-      const snipcart_object = snipcart_JSON.snipcart_json(result);
-      const JSONObject =JSON.stringify(snipcart_object);
-      fs.writeFile(
-        './static/snipcart.json',
-        JSONObject,
-        er=>er?reject(er):resolve(er)
-      );
+      
+      if (process.env.NODE_ENV == "develop") {
+        resolve();
+      } else {
+        const fs = require('fs');
+        const snipcart_object = snipcart_JSON.snipcart_json(result);
+        const JSONObject =JSON.stringify(snipcart_object);
+        fs.writeFile(
+          './static/snipcart.json',
+          JSONObject,
+          er=>er?reject(er):resolve(er)
+        );
+      }
     });
   })
 
