@@ -25,7 +25,8 @@ export const BuyArea = ({
       //border:'2px inset lightgray',
       padding:'5px',
       boxShadow:'4px 4px 15px -5px rgba(0,0,0,1)',
-      borderRadius:'5px'
+      borderRadius:'5px',
+      textAlign:'center'
     }}>
         <h6>
           {`${name}${input?` \\ ${input}`:''}`}
@@ -34,13 +35,15 @@ export const BuyArea = ({
         varients.length > 1
         ?
           <>
-            <label>Please Choose an Option:</label>
-            <select style={{margin: '5px 5px'}} value={input} onChange={e => setInput(e.target.value)}>
+            <label>Choose an Option:</label>
+            <select style={{margin: '5px 5px', textAlign:'center'}} value={input} onChange={e => setInput(e.target.value)}>
               {varients.map(varient=><option value={varient.varientName}>{`${varient.varientName}`}</option>)}
             </select>
           </>
         : <></>
       }
+      <br/>
+      <br/>
       Price: {
         R.compose(
           formatter.format,
@@ -48,7 +51,8 @@ export const BuyArea = ({
           R.prop('price'),
           R.find(R.propEq('varientName',input))
         )(varients)
-      }<br/>
+      }
+      <br/>
       <BuyButton
         Style={{margin: '10px'}}
         name={name}
@@ -61,7 +65,7 @@ export const BuyArea = ({
         Add To Cart
       </BuyButton><br/>
       <p style={{margin:"4px"}}>
-        <span style={{color:'red'}}>
+        <span style={{color:'red', fontSize:'0.8rem'}}>
           *<Link to='/contact'>Contact us</Link> for Availability
         </span>
         
