@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './product.module.css';
+import { Link } from 'gatsby';
 import * as R from 'ramda'
 
 const formatter = new Intl.NumberFormat(`en-AU`, {
@@ -20,7 +21,7 @@ export const BuyArea = ({
 }) => {
   const [input, setInput] = useState(varients[0].varientName)
   return (
-    <div>
+    <div style={{border:'2px inset lightgray', padding:'5px'}}>
         <h6>
           {`${name}${input?` \\ ${input}`:''}`}
         </h6>
@@ -29,7 +30,7 @@ export const BuyArea = ({
         ?
           <>
             <label>Please Choose an Option:</label>
-            <select style={{margin: '0px 0px'}} value={input} onChange={e => setInput(e.target.value)}>
+            <select style={{margin: '5px 5px'}} value={input} onChange={e => setInput(e.target.value)}>
               {varients.map(varient=><option value={varient.varientName}>{`${varient.varientName}`}</option>)}
             </select>
           </>
@@ -53,7 +54,13 @@ export const BuyArea = ({
         value={input}
       >
         Add To Cart
-      </BuyButton>
+      </BuyButton><br/>
+      <p style={{margin:"4px"}}>
+        <span style={{color:'red'}}>
+          *<Link to='/contact'>Contact us</Link> for Availability
+        </span>
+        
+      </p>
       <br/>
     </div>
   )
