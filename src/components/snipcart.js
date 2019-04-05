@@ -21,7 +21,12 @@ export const BuyArea = ({
 }) => {
   const [input, setInput] = useState(varients[0].varientName)
   return (
-    <div style={{border:'2px inset lightgray', padding:'5px'}}>
+    <div style={{
+      //border:'2px inset lightgray',
+      padding:'5px',
+      boxShadow:'4px 4px 15px -5px rgba(0,0,0,1)',
+      borderRadius:'5px'
+    }}>
         <h6>
           {`${name}${input?` \\ ${input}`:''}`}
         </h6>
