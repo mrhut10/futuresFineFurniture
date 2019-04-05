@@ -41,7 +41,7 @@ const Layout = ({ children, showHero }) => (
           <script
             src="https://cdn.snipcart.com/scripts/2.0/snipcart.js"
             id="snipcart"
-            data-api-key="YzUxMzk5NTItOThmOC00NzM3LWE5NmUtNGViMGVmNDNhNTdkNjM2NzY2ODMyMDY2NzQzNzg2"
+            data-api-key="ZWQ5YjMwNmEtMjE1OS00MmMyLWEzOWUtNDJjY2M4NTgyNTgzNjM2NzY2ODMyMDY2NzQzNzg2"
           />
           <link
             href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css"
