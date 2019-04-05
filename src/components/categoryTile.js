@@ -25,16 +25,21 @@ const CategoryTitle = ({
         title={hoverText}
       >
         <h4 className="mb-4 text-blue-dark text-center text-xl">{name} &rarr;</h4>
+      </Link>
         <div className="mb-auto">
           {comingSoon ? (
             <ComingSoon />
           ) : images ? (
-            ImageComponent(images, `calc(${height}-30px)`)
+            <Link
+              to={slug || '/'}
+              title={hoverText}
+            >
+              {ImageComponent(images, `calc(${height}-30px)`)}
+            </Link>
           ) : (
             ''
           )}
         </div>
-      </Link>
       <div>{Children}</div>
     </div>
   </div>
