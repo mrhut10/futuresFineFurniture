@@ -44,7 +44,17 @@ const SecondPage = ({ data }) => (
             <div />
           </li>
         </ul>
-        <p>Don't be a stranger!</p>
+        <p>
+          Working Hours
+          <ul>
+            <li>Monday: 9am to 5pm</li>
+            <li>Tuesday: 9am to 5pm</li>
+            <li>Wednesday: 9am to 5pm</li>
+            <li>Thursday: 9am to 5pm</li>
+            <li>Friday: 9am to 5pm</li>
+            <li>Saturday: 9am to 1pm</li>
+          </ul>
+        </p>
       </div>
       <div className="w-full md:w-1/2">
         <LazyLoad height={450}>
