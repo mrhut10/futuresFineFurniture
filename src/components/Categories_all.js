@@ -119,6 +119,4 @@ const Categories = ({ data }) => (
   />
 );
 
-export default {
-  Categories,
-};
+export default Categories;

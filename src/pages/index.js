@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'gatsby';
-
-import { Card } from '@blueprintjs/core';
-import Layout from '../components/layout';
 import SEO from '../components/seo';
-import RangeDisplay from '../components/range';
-
+import Layout from '../components/layout';
 import Logo from '../images/slimLogo.svg';
+import Categories_all from '../components/Categories_all';
+
 
 const IndexPage = () => (
   <Layout showHero>
@@ -68,7 +66,7 @@ const IndexPage = () => (
       </div>
       <div className="max-w-lg mb-4 mx-auto w-full">
         <h2 className="mb-2">Our Range</h2>
-        <RangeDisplay.Categories />
+        <Categories_all />
       </div>
     </div>
   </Layout>
