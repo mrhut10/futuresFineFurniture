@@ -187,6 +187,12 @@ exports.createPages = ({ graphql, actions }) => {
         const fs = require('fs');
         const snipcart_object = snipcart_JSON.snipcart_json(result);
         const JSONObject =JSON.stringify(snipcart_object);
+        if (fs.existsSync('./static/snipcart.json')){
+          fs.unlinkSync('./static/snipcart.json')
+        }
+        if (fs.existsSync('./public/snipcart.json')){
+          fs.unlinkSync('./public/snipcart.json')
+        }
         fs.writeFile(
           './static/snipcart.json',
           JSONObject,
