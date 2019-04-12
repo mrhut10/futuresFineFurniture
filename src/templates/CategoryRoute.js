@@ -92,7 +92,29 @@ export default ({ data, pageContext }) => {
                                   R.isNil,
                                   input=><span/>,
                                   R.compose(
-                                    input => <span>from {input}</span>,
+                                    MinPrice => <span>
+                                      from {MinPrice}
+                                      <br/>
+                                      <BuyButton
+                                        style={{margin:'5px', padding: '3px'}}
+                                        name={R.prop('title')(input)}
+                                        id={R.prop('title')(input)}
+                                        url='https://www.futuresfinefurnitureandbedding.com/snipcart.json'
+                                        price={R.compose(
+                                          R.prop('price'),
+                                          R.head,
+                                          R.prop('variants')
+                                        )(input)}
+                                        varients={R.prop('variants')(input)}
+                                        value={R.compose(
+                                          R.prop('varientName'),
+                                          minPricedVarient,
+                                          R.prop('variants')
+                                        )(input)}
+                                      >
+                                        Add to Cart
+                                      </BuyButton>
+                                    </span>,
                                     formatter.format,
                                     R.divide(R.__, 100),
                                     R.prop('price'),
@@ -101,26 +123,7 @@ export default ({ data, pageContext }) => {
                                 minPricedVarient,
                                 R.prop('variants'),
                               )(input)
-                            }<br/>
-                            <BuyButton
-                              style={{margin:'5px', padding: '3px'}}
-                              name={R.prop('title')(input)}
-                              id={R.prop('title')(input)}
-                              url='https://www.futuresfinefurnitureandbedding.com/snipcart.json'
-                              price={R.compose(
-                                R.prop('price'),
-                                R.head,
-                                R.prop('variants')
-                              )(input)}
-                              varients={R.prop('variants')(input)}
-                              value={R.compose(
-                                R.prop('varientName'),
-                                minPricedVarient,
-                                R.prop('variants')
-                              )(input)}
-                             >
-                              Add to Cart
-                             </BuyButton>
+                            }
                           </p>
                         ) : null
                     )(input)}
