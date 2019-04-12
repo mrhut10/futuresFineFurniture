@@ -1,6 +1,8 @@
 ---
 title: Outdoor
 enabled: true
+images:
+  - milford lounge.png
 keywords:
   - outdoor furniture
   - outdoor setting
