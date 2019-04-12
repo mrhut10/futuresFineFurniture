@@ -68,14 +68,23 @@ export const BuyArea = ({
               <span style={{color:'red', fontSize:'0.8rem'}}>
               </span>
             ),
-            R.compose(
-              input => <span>
-                Price: {input}
+            R.ifElse(
+              item=>item.discount && item.discount>0,
+              item=><span>
+                <span style={{color:'red', textDecoration:'line-through'}}>Was : {formatter.format(item.price / 100)}</span><br/>
+                <span>Now : {formatter.format((item.price-item.discount)/100)}</span>
               </span>,
-              formatter.format,
-              R.divide(R.__,100),
-              R.prop('price'),
+              R.compose(
+                input => <span>
+                  Price: {input}
+                </span>,
+                formatter.format,
+                R.divide(R.__,100),
+                R.prop('price'),
+              )
             )
+            /*
+            */
           ),
           R.find(R.propEq('varientName',input))
         )(varients)
