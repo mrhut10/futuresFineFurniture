@@ -38,7 +38,8 @@ export default ({ data, pageContext }) => {
   const sourceImages = GetSourceImages(data);
   const minPricedVarient = R.compose(
     R.head,
-    R.sort((a,b)=>a.price-b.price)
+    R.sort((a,b)=>a.price-b.price),
+    R.filter(input => input.price && input.price > 0)
   )
   return (
     <Layout>
@@ -85,11 +86,18 @@ export default ({ data, pageContext }) => {
                       input =>
                         input ? (
                           <p className="mt-auto mx-auto text-red-dark">
-                            from {
-                              R.compose(
-                                formatter.format,
-                                R.divide(R.__, 100),
-                                R.prop('price'),
+                            {
+                              R.compose(                                
+                                R.ifElse(
+                                  R.isNil,
+                                  input=><span/>,
+                                  R.compose(
+                                    input => <span>from {input}</span>,
+                                    formatter.format,
+                                    R.divide(R.__, 100),
+                                    R.prop('price'),
+                                  )
+                                ),
                                 minPricedVarient,
                                 R.prop('variants'),
                               )(input)
