@@ -14,7 +14,7 @@ variants:
 
 * Setting Consists of a 2 seater Sofa, 2 x Arm Chairs and a rectangular Coffee Table
 * Designed for outdoor use with low to no maintenance
-* Textmesh outdoor fabric for easy care
+* Techmesh outdoor fabric for easy care
 * Aluminium white powder coated frame
 
 
