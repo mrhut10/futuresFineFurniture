@@ -36,9 +36,11 @@ export default ({ data, pageContext }) => {
   const post = data.cat;
   const { products } = data;
   const sourceImages = GetSourceImages(data);
+  const removeDiscount = (item) => item.price - (item.discount && item.discount>0? item.discount : 0)
+
   const minPricedVarient = R.compose(
     R.head,
-    R.sort((a,b)=>a.price-b.price),
+    R.sort((a,b)=>removeDiscount(a)-removeDiscount(b)),
     R.filter(input => input.price && input.price > 0)
   )
   return (
@@ -117,7 +119,7 @@ export default ({ data, pageContext }) => {
                                     </span>,
                                     formatter.format,
                                     R.divide(R.__, 100),
-                                    R.prop('price'),
+                                    removeDiscount,
                                   )
                                 ),
                                 minPricedVarient,
