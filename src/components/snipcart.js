@@ -19,7 +19,20 @@ export const BuyArea = ({
   description,
   varients
 }) => {
-  const [input, setInput] = useState(varients[0].varientName)
+  const [input, setInput] = useState(
+    //varients[0].varientName
+    R.compose(
+      R.prop('varientName'),
+      R.ifElse(
+        R.isNil,
+        R.always(varients[0]),
+        R.identity,
+      ),
+      R.find(
+        input=>input.price && input.price > 0
+      )
+    )(varients)
+  )
   return (
     <div style={{
       //border:'2px inset lightgray',
