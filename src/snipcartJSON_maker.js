@@ -20,7 +20,14 @@ exports.snipcart_json = R.compose(
               return [
                 {
                   name:"Option",
-                  options:allvarients.map(vari=>`${vari.varientName}[${positive((vari.price-R.pathOr(0,['0','price'])(allvarients))/100)}]`).join('|'),
+                  options:R.compose(
+                    R.join('|'),
+                    R.map(
+                      vari=>`${vari.varientName}[${positive((vari.price-R.pathOr(0,['0','price'])(allvarients))/100)}]`,
+                    ),
+                    R.filter(item=>item.price && item.price > 0),
+                  )(allvarients),
+                  //allvarients.map().join('|'),
                   type:'dropdown'
                 }
               ]
