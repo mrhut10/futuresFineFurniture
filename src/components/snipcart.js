@@ -145,9 +145,19 @@ const BuyButton = ({
     description={description}
     data-item-custom1-name={varients && varients.length > 1?'Option':''}
     data-item-custom1-options={
-      varients && varients.length > 1
-      ? varients.map(vari=>`${vari.varientName}[${vari.price-varients[0].price>=0?'+':''}${(vari.price-varients[0].price)/100}]`).join('|')
-      : ''
+      /*
+        varients && varients.length > 1
+        ? varients.map(vari=>`${vari.varientName}[${vari.price-varients[0].price>=0?'+':''}${(vari.price-varients[0].price)/100}]`).join('|')
+        : ''
+
+      */
+      R.compose(
+        R.join('|'),
+        R.map(
+          vari=>`${vari.varientName}[${vari.price-varients[0].price>=0?'+':''}${(vari.price-varients[0].price)/100}]`
+        ),
+        R.filter(item=>item.price && item.price > 0),
+      )(varients)
     }
       data-item-custom1-value={value}
   >
