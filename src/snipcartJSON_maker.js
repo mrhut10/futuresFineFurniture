@@ -9,7 +9,8 @@ exports.snipcart_json = R.compose(
         price:{
           AUD:R.compose(
             R.divide(R.__,100),
-            R.path(['variants',0,'price']
+            item=>item.price - (item.discount || 0),
+            R.path(['variants',0]
           ))(input),
         },
         url:'/snipcart.json',
@@ -23,7 +24,7 @@ exports.snipcart_json = R.compose(
                   options:R.compose(
                     R.join('|'),
                     R.map(
-                      vari=>`${vari.varientName}[${positive((vari.price-R.pathOr(0,['0','price'])(allvarients))/100)}]`,
+                      vari=>`${vari.varientName}[${positive((vari.price-(vari.discount || 0)-R.pathOr(0,['0','price'])(allvarients))/100)}]`,
                     ),
                     R.filter(item=>item.price && item.price > 0),
                   )(allvarients),

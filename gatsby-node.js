@@ -102,6 +102,7 @@ const querys = {
             variants {
               price
               varientName
+              discount
             }
           }
         }
