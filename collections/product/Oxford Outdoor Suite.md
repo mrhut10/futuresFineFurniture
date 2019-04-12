@@ -1,7 +1,7 @@
 ---
-title: Oxford Outdoor Suite
+title: Oxford Outdoor Lounge
 enabled: true
-Category: _Outdoor
+Category: Outdoor
 range: Oxford
 images:
   - oxford outdoor.png
