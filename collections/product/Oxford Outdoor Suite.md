@@ -1,7 +1,7 @@
 ---
 title: Oxford Outdoor Suite
 enabled: true
-Category: Outdoor
+Category: _Outdoor
 range: Oxford
 images:
   - oxford outdoor.png
