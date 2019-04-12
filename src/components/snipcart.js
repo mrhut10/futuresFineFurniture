@@ -44,32 +44,67 @@ export const BuyArea = ({
       }
       <br/>
       <br/>
-      Price: {
+      {
         R.compose(
-          formatter.format,
-          R.divide(R.__,100),
-          R.prop('price'),
+          R.ifElse(
+            R.compose(
+              R.isNil,
+              R.prop('price')
+            ),
+            input=>(
+              <span style={{color:'red', fontSize:'0.8rem'}}>
+              </span>
+            ),
+            R.compose(
+              input => <span>
+                Price: {input}
+              </span>,
+              formatter.format,
+              R.divide(R.__,100),
+              R.prop('price'),
+            )
+          ),
           R.find(R.propEq('varientName',input))
         )(varients)
       }
       <br/>
-      <BuyButton
-        Style={{margin: '10px'}}
-        name={name}
-        id={name}
-        url={url}
-        price={varients[0].price}
-        varients={varients}
-        value={input}
-      >
-        Add To Cart
-      </BuyButton><br/>
-      <p style={{margin:"4px"}}>
-        <span style={{color:'red', fontSize:'0.8rem'}}>
-          *<Link to='/contact'>Contact us</Link> for Availability
-        </span>
-        
-      </p>
+        {
+          R.compose(
+            R.ifElse(
+              R.compose(
+                R.isNil,
+                R.prop('price')
+              ),
+              input=>(
+                <p style={{margin:"4px"}}>
+                  <span style={{color:'red', fontSize:'0.8rem'}}> 
+                    *See us <Link to='/contact'>Instore or Call</Link><br/>
+                    for Pricing and Availability
+                  </span>
+                </p>
+              ),
+              input=>(
+                <p style={{margin:"4px"}}>
+                  <BuyButton
+                    Style={{margin: '10px'}}
+                    name={name}
+                    id={name}
+                    url={url}
+                    price={varients[0].price}
+                    varients={varients}
+                    value={input}
+                  >
+                    Add To Cart
+                  </BuyButton><br/>
+                  <span style={{color:'red', fontSize:'0.8rem'}}>
+                    *<Link to='/contact'>Contact us</Link> for Availability 
+                  </span>
+                </p>
+              )
+            ),
+            R.find(R.propEq('varientName',input))
+          )(varients)
+        }
       <br/>
     </div>
   )
