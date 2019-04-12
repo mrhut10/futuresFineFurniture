@@ -137,7 +137,7 @@ const BuyButton = ({
   id,
   image,
   url,
-  price,
+  //price,
   description,
   children,
   varients,
@@ -150,7 +150,7 @@ const BuyButton = ({
     data-item-id={id}
     data-item-image={image}
     data-item-url={url}
-    data-item-price={`{"AUD":${price / 100}}`}
+    data-item-price={`{"AUD":${(varients[0].price-(varients[0].discount || 0)) / 100}}`}
     description={description}
     data-item-custom1-name={varients && varients.length > 1?'Option':''}
     data-item-custom1-options={
@@ -163,7 +163,7 @@ const BuyButton = ({
       R.compose(
         R.join('|'),
         R.map(
-          vari=>`${vari.varientName}[${vari.price-varients[0].price>=0?'+':''}${(vari.price-varients[0].price)/100}]`
+          vari=>`${vari.varientName}[${vari.price-(vari.discount || 0)-varients[0].price>=0?'+':''}${(vari.price-(vari.discount || 0)-varients[0].price)/100}]`
         ),
         R.filter(item=>item.price && item.price > 0),
       )(varients)
