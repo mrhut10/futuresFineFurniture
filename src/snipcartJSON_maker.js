@@ -12,7 +12,7 @@ exports.snipcart_json = R.compose(
             R.path(['variants',0,'price']
           ))(input),
         },
-        url:'/snipcartJSON',
+        url:'/snipcart.json',
         customFields:R.compose(
           R.ifElse(
             R.compose(R.gt(R.__,1),R.length),
