@@ -180,6 +180,7 @@ export const query = graphql`
             variants {
               price
               varientName
+              discount
             }
           }
           fields {
