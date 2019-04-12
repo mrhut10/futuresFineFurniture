@@ -7,7 +7,7 @@ images:
   - oxford outdoor.png
 variants:
   - varientName: 4pc Lounge Setting
-  - varientName: 2 Seeter
+  - varientName: 2 Seater
   - varientName: Arm Chair
   - varientName: Coffee Table
 ---
