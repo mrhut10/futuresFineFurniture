@@ -71,7 +71,10 @@ export const BuyArea = ({
             R.ifElse(
               item=>item.discount && item.discount>0,
               item=><span>
-                <span style={{color:'red', textDecoration:'line-through'}}>Was : {formatter.format(item.price / 100)}</span><br/>
+                <h6 style={{color:'red',fontSize:'1rem'}}>
+                Special Offer
+                </h6>
+                <span style={{color:'red', textDecoration:'line-through'}}>RRP : {formatter.format(item.price / 100)}</span><br/>
                 <span>Now : {formatter.format((item.price-item.discount)/100)}</span>
               </span>,
               R.compose(
