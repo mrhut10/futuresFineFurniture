@@ -48,7 +48,7 @@ export const BuyArea = ({
         R.compose(
           R.ifElse(
             R.compose(
-              R.isNil,
+              R.or(R.isNil,R.lte(R.__,0)),
               R.prop('price')
             ),
             input=>(
