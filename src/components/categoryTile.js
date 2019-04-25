@@ -41,7 +41,7 @@ const CategoryTitle = ({
           )}
         </div>
       <div>{Children}</div>
-      <Link style={{width:'100%',textAlign:'right'}} to={slug||'/'} title={hoverText}>...further details</Link>
+      <Link style={{width:'100%',textAlign:'right'}} to={slug||'/'} title={hoverText}>see more ...</Link>
     </div>
   </div>
 );
