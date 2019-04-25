@@ -24,42 +24,26 @@ const IndexPage = () => (
       </div>
       <div className="max-w-md mb-8 mx-auto p-4 text-xl w-full">
         <p className="mb-2">
-          The widest range of new, end of line furniture, and mobility supplies.
+          Widest range of Furniture, Mattresses and Mobility Solutions within the Macleay Valley.<br/>
         </p>
-        <p>Everything you need to turn your space into a home!</p>
       </div>
       <div className="max-w-lg mb-8 mx-auto text-lg">
         <div className="flex flex-wrap -mx-2 mb-6">
           <div className="flex-1 mb-6 md:mb-0 px-2 text-white w-full md:w-1/2">
             <div className="flex flex-col items-center bg-grey-darkest p-4 rounded-lg">
-              <h3>We ❤ Accessibility</h3>
+              <h3>Highest Quality, Lowest Prices!</h3>
               <hr className="mt-0" />
-              <ul className="list-reset">
-                <li className="mb-2">Lowest prices</li>
-                <li className="mb-2">
+              <p className="mb-2">
+                Highest Quality, Loweset Prices, {
                   <Link
-                    className="text-cream hover:text-blue-lighter underline"
-                    to="payment"
+                  className="text-cream hover:text-blue-lighter underline" 
+                  to="payment"
                   >
-                    Flexible payments
+                  Flexible Payments
                   </Link>
-                </li>
-                <li className="mb-2">Free delivery*</li>
-              </ul>
-              <p>
-                <small>* promotion for Macleay Valley area (March & April 2019)</small>
+                } and Free Delivery* <br/><br/>
+                <small>* Macleay Valley area (March & April 2019)</small>
               </p>
-            </div>
-          </div>
-          <div className="flex mb-6 md:mb-0 px-2 text-white w-full md:w-1/2">
-            <div className="flex flex-1 flex-col items-center bg-grey-darkest p-4 rounded-lg">
-              <h3>We ❤ Quality</h3>
-              <hr className="mt-0" />
-              <ul className="list-reset">
-                <li className="mb-2">Highest quality</li>
-                <li className="mb-2">Best functionality</li>
-                <li className="mb-2">Beauty to inspire</li>
-              </ul>
             </div>
           </div>
         </div>
