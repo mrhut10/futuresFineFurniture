@@ -19,7 +19,7 @@ export const BuyArea = ({
   description,
   varients
 }) => {
-  const [input, setInput] = useState(
+  const [GetProductValue, SetProductValue] = useState(
     //varients[0].varientName
     R.compose(
       R.prop('varientName'),
@@ -42,14 +42,14 @@ export const BuyArea = ({
       textAlign:'center'
     }}>
         <h6>
-          {`${name}${input?` \\ ${input}`:''}`}
+          {`${name}${GetProductValue?` \\ ${GetProductValue}`:''}`}
         </h6>
       {
         varients.length > 1
         ?
           <>
             <label>Choose an Option:</label>
-            <select style={{margin: '5px 5px', textAlign:'center'}} value={input} onChange={e => setInput(e.target.value)}>
+            <select style={{margin: '5px 5px', textAlign:'center'}} value={GetProductValue} onChange={e => SetProductValue(e.target.value)}>
               {varients.map(varient=><option value={varient.varientName}>{`${varient.varientName}`}</option>)}
             </select>
           </>
@@ -64,10 +64,7 @@ export const BuyArea = ({
               R.or(R.isNil,R.lte(R.__,0)),
               R.prop('price')
             ),
-            input=>(
-              <span style={{color:'red', fontSize:'0.8rem'}}>
-              </span>
-            ),
+            input=><span style={{color:'red', fontSize:'0.8rem'}}></span>,
             R.ifElse(
               item=>item.discount && item.discount>0,
               item=><span>
@@ -89,7 +86,7 @@ export const BuyArea = ({
             /*
             */
           ),
-          R.find(R.propEq('varientName',input))
+          R.find(R.propEq('varientName',GetProductValue))
         )(varients)
       }
       <br/>
@@ -100,14 +97,10 @@ export const BuyArea = ({
                 R.isNil,
                 R.prop('price')
               ),
-              input=>(
-                <p style={{margin:"4px"}}>
-                  <span style={{color:'red', fontSize:'0.8rem'}}> 
-                    *See us <Link to='/contact'>Instore or Call</Link><br/>
-                    for Pricing and Availability
-                  </span>
-                </p>
-              ),
+              ()=><p style={{margin:"4px"}}><span style={{color:'red', fontSize:'0.8rem'}}>
+                *See us <Link to='/contact'>Instore or Call</Link><br/>
+                for Pricing and Availability
+              </span></p>,
               input=>(
                 <p style={{margin:"4px"}}>
                   <BuyButton
@@ -117,7 +110,7 @@ export const BuyArea = ({
                     url={url}
                     price={varients[0].price}
                     varients={varients}
-                    value={input}
+                    value={GetProductValue}
                   >
                     Add To Cart
                   </BuyButton><br/>
@@ -127,7 +120,7 @@ export const BuyArea = ({
                 </p>
               )
             ),
-            R.find(R.propEq('varientName',input))
+            R.find(R.propEq('varientName',GetProductValue))
           )(varients)
         }
       <br/>
