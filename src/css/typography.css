@@ -27,6 +27,10 @@ h3 {
   @apply font-sans;
 }
 
+h6 {
+  @apply text-base;
+}
+
 a {
   @apply font-bold;
   @apply no-underline;
