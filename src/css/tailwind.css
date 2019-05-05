@@ -60,15 +60,3 @@
   * @import "utilities/background-patterns";
   * @import "utilities/skew-transforms";
   */
-
-.image-container {
-  @apply absolute;
-  @apply h-full;
-  @apply overflow-hidden;
-  @apply w-full;
-}
-
-.image-container > .gatsby-image-wrapper {
-  @apply h-full;
-  @apply w-full;
-}

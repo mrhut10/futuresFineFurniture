@@ -10,9 +10,7 @@ const HeroBig = ({ data }) => (
     style={{ height: '23rem' }}
   >
     {/* hero image */}
-    <div className="image-container flex absolute flex opacity-75">
-      <Image />
-    </div>
+    <Image />
     {/* overlay */}
     <div
       className="max-w-md m-auto absolute w-full object-center"
