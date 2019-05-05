@@ -29,7 +29,7 @@ const ImageComponent = input =>
 
 const images = R.compose(
   R.lift(
-    R.compose(R.pathOr(null, ['node', 'childImageSharp', 'fixed', 'src']))
+    R.compose(R.pathOr(null, ['node', 'childImageSharp', 'fluid', 'src']))
   ),
   R.pathOr([], ['allFile', 'edges'])
 );
@@ -78,12 +78,18 @@ export default ({ data, location }) => {
             </div>
 
             <div className="px-4 w-full md:w-1/3">
-            <BuyArea name={title} id={title} image={undefined} url='https://www.futuresfinefurnitureandbedding.com/snipcart.json' description={undefined} varients={variants}/>
-            <br/>
+              <BuyArea
+                name={title}
+                id={title}
+                image={undefined}
+                url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
+                description={undefined}
+                varients={variants}
+              />
+              <br />
               {details(data)}
             </div>
           </div>
-          
         </div>
       </Wrapper>
     </Layout>
@@ -102,7 +108,7 @@ export const query = graphql`
       edges {
         node {
           childImageSharp {
-            fixed(width: 400) {
+            fluid(maxWidth: 400) {
               src
             }
           }

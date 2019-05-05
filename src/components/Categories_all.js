@@ -10,7 +10,7 @@ const CategoryCounts = R.compose(R.pathOr([], ['proCount', 'group']));
 const GetSourceImages = R.compose(
   R.map(input => ({
     relativePath: R.pathOr('', ['node', 'relativePath'])(input),
-    source: R.pathOr('', ['node', 'childImageSharp', 'fixed', 'src'])(input),
+    source: R.pathOr('', ['node', 'childImageSharp', 'fluid', 'src'])(input),
   })),
   R.pathOr([], ['allFile', 'edges'])
 );
@@ -56,7 +56,7 @@ const Categories = ({ data }) => (
             node {
               relativePath
               childImageSharp {
-                fixed(width: 400) {
+                fluid(maxWidth: 400) {
                   src
                 }
               }
