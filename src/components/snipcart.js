@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import * as R from 'ramda';
-import styles from './product.module.css';
+// import styles from './product.module.css';
 
 const formatter = new Intl.NumberFormat(`en-AU`, {
   style: `currency`,
@@ -21,15 +21,7 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
     )(varients)
   );
   return (
-    <div
-      style={{
-        // border:'2px inset lightgray',
-        padding: '5px',
-        boxShadow: '4px 4px 15px -5px rgba(0,0,0,1)',
-        borderRadius: '5px',
-        textAlign: 'center',
-      }}
-    >
+    <div>
       <h6>{`${name}${GetProductValue ? ` \\ ${GetProductValue}` : ''}`}</h6>
       {varients.length > 1 ? (
         <>
@@ -49,8 +41,6 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
       ) : (
         <></>
       )}
-      <br />
-      <br />
       {R.compose(
         R.ifElse(
           R.compose(
@@ -89,7 +79,22 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
               </span>
             ),
             R.compose(
-              input => <span>Price: {input}</span>,
+              input => (
+                <div className="flex items-baseline justify-between">
+                  <span>Price: {input}</span>
+                  <BuyButton
+                    Style={{ margin: '10px' }}
+                    name={name}
+                    id={name}
+                    url={url}
+                    price={varients[0].price}
+                    varients={varients}
+                    value={GetProductValue}
+                  >
+                    Add To Cart
+                  </BuyButton>
+                </div>
+              ),
               formatter.format,
               R.divide(R.__, 100),
               R.prop('price')
@@ -100,7 +105,6 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
         ),
         R.find(R.propEq('varientName', GetProductValue))
       )(varients)}
-      <br />
       {R.compose(
         R.ifElse(
           R.compose(
@@ -117,28 +121,19 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
             </p>
           ),
           input => (
-            <p style={{ margin: '4px' }}>
-              <BuyButton
-                Style={{ margin: '10px' }}
-                name={name}
-                id={name}
-                url={url}
-                price={varients[0].price}
-                varients={varients}
-                value={GetProductValue}
-              >
-                Add To Cart
-              </BuyButton>
-              <br />
-              <span style={{ color: 'red', fontSize: '0.8rem' }}>
-                *<Link to="/contact">Contact us</Link> for Availability
-              </span>
-            </p>
+            <div>
+              <p>
+                <strong>*</strong>{' '}
+                <Link className="text-blue-dark hover:underline" to="/contact">
+                  Contact us
+                </Link>{' '}
+                for Availability
+              </p>
+            </div>
           )
         ),
         R.find(R.propEq('varientName', GetProductValue))
       )(varients)}
-      <br />
     </div>
   );
 };
@@ -156,7 +151,7 @@ const BuyButton = ({
 }) => (
   <button
     type="button"
-    className={`${styles.buyButton} snipcart-add-item`}
+    className="snipcart-add-item bg-maroon font-semibold p-2 rounded text-cream"
     data-item-name={name}
     data-item-id={id}
     data-item-image={image}
