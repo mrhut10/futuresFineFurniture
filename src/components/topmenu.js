@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { Button, Navbar, NavbarGroup, Alignment } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
-import { ICON } from '@blueprintjs/core/lib/esm/common/classes';
+// import { ICON } from '@blueprintjs/core/lib/esm/common/classes';
 
 const content = {
   left: [
