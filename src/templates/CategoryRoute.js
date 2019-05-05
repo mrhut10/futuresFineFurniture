@@ -87,18 +87,16 @@ export default ({ data, pageContext }) => {
                     images={input.images}
                     Children={R.compose(input =>
                       input ? (
-                        <p className="mt-auto mx-auto text-red-dark">
+                        <>
                           {R.compose(
                             R.ifElse(
                               R.isNil,
                               input => <span />,
                               R.compose(
                                 MinPrice => (
-                                  <span>
-                                    from {MinPrice}
-                                    <br />
+                                  <div className="flex font-semibold items-baseline justify-between mt-auto mx-auto p-4">
+                                    <small>from {MinPrice}</small>
                                     <BuyButton
-                                      style={{ margin: '5px', padding: '3px' }}
                                       name={R.prop('title')(input)}
                                       id={R.prop('title')(input)}
                                       url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
@@ -114,9 +112,9 @@ export default ({ data, pageContext }) => {
                                         R.prop('variants')
                                       )(input)}
                                     >
-                                      Add to Cart
+                                      Add&nbsp;to&nbsp;Cart
                                     </BuyButton>
-                                  </span>
+                                  </div>
                                 ),
                                 formatter.format,
                                 R.divide(R.__, 100),
@@ -126,7 +124,7 @@ export default ({ data, pageContext }) => {
                             minPricedVarient,
                             R.prop('variants')
                           )(input)}
-                        </p>
+                        </>
                       ) : null
                     )(input)}
                   />
