@@ -72,7 +72,7 @@ export default ({ data, location }) => {
               : ''}
           </h2>
           <div className="flex flex-wrap text-left justify-center m-4">
-            <div className="flex justify-center w-full md:w-1/2">
+            <div className="justify-center w-full md:w-1/2">
               {R.compose(
                 ImageComponent,
                 images
