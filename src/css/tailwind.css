@@ -64,3 +64,9 @@
 .bp3-icon {
   @apply mr-2;
 }
+
+@responsive {
+  .first {
+    order: -1;
+  }
+}
