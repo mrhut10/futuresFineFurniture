@@ -54,7 +54,7 @@ export default ({ data, pageContext }) => {
         <div>
           <h1>{post.frontmatter.title}</h1>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
-          <div className="flex flex-wrap justify-center w-full">
+          <div className="flex flex-wrap w-full">
             {products ? (
               products.edges
                 .map(({ node }) => ({
