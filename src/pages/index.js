@@ -33,9 +33,9 @@ const IndexPage = () => (
           <div className="flex-1 mb-6 md:mb-0 px-2 text-white w-full md:w-1/2">
             <div className="flex flex-col items-center bg-grey-darkest p-4 rounded-lg">
               <h3>Highest Quality, Lowest Prices!</h3>
-              <hr className="mt-0" />
+              <hr className="bg-grey-darker mt-0" />
               <p className="mb-2">
-                Highest Quality, Loweset Prices,{' '}
+                Highest Quality, Lowest Prices,{' '}
                 {
                   <Link
                     className="text-cream hover:text-blue-lighter underline"
