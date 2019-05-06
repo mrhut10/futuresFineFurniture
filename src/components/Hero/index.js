@@ -6,23 +6,21 @@ import HeroImageSlim from '../../images/slimLogo.svg';
 
 const HeroBig = ({ data }) => (
   <div
-    className="bg-white flex justify-center max-w-xl relative"
+    className="bg-maroon flex justify-center max-w-xl relative"
     style={{ height: '23rem' }}
   >
-    {/* hero image */}
     <Image />
-    {/* overlay */}
     <div
-      className="max-w-md m-auto absolute w-full object-center"
-      style={{
-        justifyContent: 'center',
-        alignItems: 'center',
-        textAlign: 'center',
-        margin: '0px auto',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-      }}
+      className="max-w-md m-auto absolute w-full object-center p-4"
+      // style={{
+      //   justifyContent: 'center',
+      //   alignItems: 'center',
+      //   textAlign: 'center',
+      //   margin: '0px auto',
+      //   top: '50%',
+      //   left: '50%',
+      //   transform: 'translate(-50%, -50%)',
+      // }}
     >
       <img
         className="w-auto"
@@ -35,9 +33,9 @@ const HeroBig = ({ data }) => (
 
 const HeroSlim = ({ data }) => (
   /* insert some of Luke's Magic Tailwind CSS stuff below */
-  <div>
+  <div className="flex items-center">
     <img
-      className="w-auto"
+      className="w-full"
       src={HeroImageSlim}
       alt={data.site.siteMetadata.title}
     />
