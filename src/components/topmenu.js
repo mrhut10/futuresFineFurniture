@@ -88,7 +88,7 @@ const NewMenu = () => (
           type="button"
         >
           <Icon
-            className="fill-current text-grey-lighter group-hover:text-cream"
+            className="fill-current flex items-center justify-center mr-1 text-grey-lighter group-hover:text-cream"
             icon={IconNames.SHOPPING_CART}
           />
           Shopping Cart
@@ -112,7 +112,7 @@ const NavLink = props => (
     className="hover:bg-grey-darker md:hover:bg-grey-darkest border-grey-dark border-t md:border-none flex font-semibold group items-center px-4 sm:px-12 md:px-3 py-3 text-grey-lighter hover:text-cream"
   >
     <Icon
-      className="fill-current text-grey-lighter group-hover:text-cream"
+      className="fill-current flex items-center justify-center mr-1 text-grey-lighter group-hover:text-cream"
       icon={props.icon}
     />
     {props.title}
