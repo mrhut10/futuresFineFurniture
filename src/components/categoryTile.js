@@ -26,11 +26,7 @@ const CategoryTitle = ({
       {comingSoon ? (
         <ComingSoon />
       ) : images ? (
-        <Link
-          className="mb-auto mx-auto p-4"
-          to={slug || '/'}
-          title={hoverText}
-        >
+        <Link className="m-auto p-4" to={slug || '/'} title={hoverText}>
           {ImageComponent(images, `calc(${height}-30px)`)}
         </Link>
       ) : (
