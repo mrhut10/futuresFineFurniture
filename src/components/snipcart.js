@@ -21,23 +21,35 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
     )(varients)
   );
   return (
-    <div>
-      <h6>{`${name}${GetProductValue ? ` \\ ${GetProductValue}` : ''}`}</h6>
+    <div className="flex flex-col">
+      <h6>{`${name}${GetProductValue ? ` \/ ${GetProductValue}` : ''}`}</h6>
       {varients.length > 1 ? (
-        <>
-          <label>Choose an Option:</label>
-          <select
-            style={{ margin: '5px 5px', textAlign: 'center' }}
-            value={GetProductValue}
-            onChange={e => SetProductValue(e.target.value)}
-          >
-            {varients.map(varient => (
-              <option value={varient.varientName}>{`${
-                varient.varientName
-              }`}</option>
-            ))}
-          </select>
-        </>
+        <div className="flex items-center justify-between mb-4">
+          <label>Choose an Option: </label>
+          <div className="inline-block relative w-64">
+            <select
+              className="appearance-none bg-white block border border-grey-light hover:border-grey leading-tight focus:outline-none px-4 py-2 pr-8 rounded shadow focus:shadow-outline w-full"
+              // style={{ margin: '5px 5px', textAlign: 'center' }}
+              value={GetProductValue}
+              onChange={e => SetProductValue(e.target.value)}
+            >
+              {varients.map(varient => (
+                <option value={varient.varientName}>{`${
+                  varient.varientName
+                }`}</option>
+              ))}
+            </select>
+            <div className="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
+              <svg
+                className="fill-current h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
+            </div>
+          </div>
+        </div>
       ) : (
         <></>
       )}
@@ -80,7 +92,7 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
             ),
             R.compose(
               input => (
-                <div className="flex items-baseline justify-between">
+                <div className="flex items-baseline justify-between mb-4">
                   <span>Price: {input}</span>
                   <BuyButton
                     Style={{ margin: '10px' }}
@@ -122,12 +134,10 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
           ),
           input => (
             <div>
-              <p>
-                <strong>*</strong>{' '}
+              <p className="text-center">
                 <Link className="text-blue-dark hover:underline" to="/contact">
-                  Contact us
-                </Link>{' '}
-                for Availability
+                  *Contact us for availability
+                </Link>
               </p>
             </div>
           )
