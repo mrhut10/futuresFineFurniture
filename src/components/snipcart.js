@@ -34,9 +34,9 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
               onChange={e => SetProductValue(e.target.value)}
             >
               {varients.map(varient => (
-                <option value={varient.varientName}>{`${
-                  varient.varientName
-                }`}</option>
+                <option value={varient.varientName} key={varient.varientName}>
+                  {varient.varientName}
+                </option>
               ))}
             </select>
             <div className="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
