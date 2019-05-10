@@ -1,9 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import propTypes from 'prop-types';
 import Layout from '../components/layout';
 import Wrapper from '../components/wrapper';
 
-export default ({ data }) => {
+exports.default = ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout>
@@ -28,3 +29,7 @@ export const query = graphql`
     }
   }
 `;
+
+exports.default.propTypes = {
+  data: propTypes.any,
+};

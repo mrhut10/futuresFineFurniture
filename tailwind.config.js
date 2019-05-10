@@ -1,3 +1,4 @@
+const pluginContainer = require('tailwindcss/plugins/container');
 /*
 
 Tailwind - The Utility-First CSS Framework
@@ -927,7 +928,7 @@ module.exports = {
   */
 
   plugins: [
-    require('tailwindcss/plugins/container')({
+    pluginContainer({
       // center: true,
       // padding: '1rem',
     }),
