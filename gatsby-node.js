@@ -5,11 +5,11 @@
  */
 
 // You can delete this file if you're not using it
-
+const fs = require('fs');
 const path = require('path');
 const slugify = require('slugify');
 const R = require('ramda');
-const snipcart_JSON = require('./src/snipcartJSON_maker.js');
+const snipcartJSON = require('./src/snipcartJSON_maker.js');
 
 exports.onCreateNode = ({ node, actions }) => {
   if (node.internal.type === 'MarkdownRemark') {
@@ -116,9 +116,9 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   // run query
-  const query_ProductCategory = graphql(querys.productCategory);
-  const query_ProductRange = graphql(querys.productRange);
-  const query_product = graphql(querys.product);
+  const queryProductCategory = graphql(querys.productCategory);
+  const queryProductRange = graphql(querys.productRange);
+  const queryProduct = graphql(querys.product);
 
   // page generator functions
   const queryToCategoryPage = result => {
@@ -173,20 +173,17 @@ exports.createPages = ({ graphql, actions }) => {
   };
 
   // Do work in promise
-  const productCategoriesPages = query_ProductCategory.then(
-    queryToCategoryPage
-  );
+  const productCategoriesPages = queryProductCategory.then(queryToCategoryPage);
 
-  const productRangePages = query_ProductRange.then(queryToRangePage);
-  const productPages = query_product.then(queryToProductPages);
+  const productRangePages = queryProductRange.then(queryToRangePage);
+  const productPages = queryProduct.then(queryToProductPages);
   const writesnipcartJSON = new Promise((resolve, reject) => {
-    query_product.then(result => {
-      if (process.env.NODE_ENV == 'develop') {
+    queryProduct.then(result => {
+      if (process.env.NODE_ENV === 'develop') {
         resolve();
       } else {
-        const fs = require('fs');
-        const snipcart_object = snipcart_JSON.snipcart_json(result);
-        const JSONObject = JSON.stringify(snipcart_object);
+        const snipcartObject = snipcartJSON.snipcartJson(result);
+        const JSONObject = JSON.stringify(snipcartObject);
         if (fs.existsSync('./static/snipcart.json')) {
           fs.unlinkSync('./static/snipcart.json');
         }
@@ -210,8 +207,8 @@ exports.createPages = ({ graphql, actions }) => {
 
 /*
 exports.onPostBuild = ({ graphql }) => {
-  const query_product = graphql(querys.product);
-  const JSONObject = query_product.then(snipcart_JSON)
+  const queryProduct = graphql(querys.product);
+  const JSONObject = queryProduct.then(snipcart_JSON)
   const fs = require('fs');
   return fs.writeFileSync('./static/snipcart.json',JSONObject);
 };*\

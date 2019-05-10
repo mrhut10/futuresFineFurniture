@@ -1,6 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-
+import PropTypes from 'prop-types';
 import CategoryTitle from './categoryTile';
 
 const R = require('ramda');
@@ -65,7 +65,7 @@ const Categories = ({ data }) => (
         }
       }
     `}
-    render={data => (
+    render={queryData => (
       <div className="flex flex-wrap justify-center max-w-lg mx-auto w-full">
         <div className="flex flex-wrap -m-2">
           {R.compose(
@@ -79,7 +79,7 @@ const Categories = ({ data }) => (
                   R.prop('source'),
                   R.find(R.propEq('relativePath', findImage(input))),
                   GetSourceImages
-                )(data)}
+                )(queryData)}
                 comingSoon={!(input.count && input.count > 0)}
                 height={300}
               />
@@ -104,7 +104,7 @@ const Categories = ({ data }) => (
                       )
                     ),
                     CategoryCounts
-                  )(data),
+                  )(queryData),
                   parent: R.pathOr('', ['frontmatter', 'parent'])(input),
                   enabled: R.pathOr(false, ['frontmatter', 'enabled'])(input),
                 }),
@@ -112,11 +112,15 @@ const Categories = ({ data }) => (
               )
             ),
             R.pathOr([], ['allMarkdownRemark', 'edges'])
-          )(data)}
+          )(queryData)}
         </div>
       </div>
     )}
   />
 );
+
+Categories.propTypes = {
+  data: PropTypes.any,
+};
 
 export default Categories;
