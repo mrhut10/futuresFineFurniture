@@ -63,13 +63,25 @@ export default ({ data, location }) => {
         <div className="text-center">
           <h1>{title}</h1>
           <h2>
-            {Category && range
-              ? `From the ${Category} Collection and the ${range} range`
-              : Category
-              ? `From the ${Category} Collection`
-              : range
-              ? `From the ${range} range`
-              : ''}
+            {
+              ()=>{
+                let output;
+                switch ([Category==true,range==true]) {
+                  case [true,true]:
+                    output = `From the ${Category} Collection and the ${range} range`
+                    break;
+                  case [true,false]:
+                    output = `From the ${Category} Collection`
+                    break;
+                  case [false,true]:
+                    output = `From the ${range} range`
+                  default:
+                    output = ''
+                    break;
+                }
+                return output
+              }
+            }
           </h2>
           <div className="flex flex-wrap text-left justify-center m-4">
             <div className="justify-center w-full md:w-1/2">
