@@ -17,7 +17,9 @@ const formatter = new Intl.NumberFormat('en-AU', {
 
 const details = R.compose(
   dangHtml => (
-    <div style={{ flex: '0 1 auto', order: 2, maxWidth: '250px' }}>
+    <div
+    // style={{ flex: '0 1 auto', order: 2, maxWidth: '250px' }}
+    >
       <p dangerouslySetInnerHTML={{ __html: dangHtml }} />
     </div>
   ),
@@ -29,7 +31,7 @@ const ImageComponent = input =>
 
 const images = R.compose(
   R.lift(
-    R.compose(R.pathOr(null, ['node', 'childImageSharp', 'fixed', 'src']))
+    R.compose(R.pathOr(null, ['node', 'childImageSharp', 'fluid', 'src']))
   ),
   R.pathOr([], ['allFile', 'edges'])
 );
@@ -58,7 +60,7 @@ export default ({ data, location }) => {
         )(data)}
       />
       <Wrapper>
-        <div>
+        <div className="text-center">
           <h1>{title}</h1>
           <h2>
             {Category && range
@@ -69,21 +71,27 @@ export default ({ data, location }) => {
               ? `From the ${range} range`
               : ''}
           </h2>
-          <div className="flex flex-wrap justify-center m-4">
-            <div className="w-full md:w-2/3">
+          <div className="flex flex-wrap text-left justify-center m-4">
+            <div className="justify-center w-full md:w-1/2">
               {R.compose(
                 ImageComponent,
                 images
               )(data)}
             </div>
 
-            <div className="px-4 w-full md:w-1/3">
-            <BuyArea name={title} id={title} image={undefined} url='https://www.futuresfinefurnitureandbedding.com/snipcart.json' description={undefined} varients={variants}/>
-            <br/>
+            <div className="px-4 w-full md:w-1/2">
+              <BuyArea
+                name={title}
+                id={title}
+                image={undefined}
+                url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
+                description={undefined}
+                varients={variants}
+              />
+              <br />
               {details(data)}
             </div>
           </div>
-          
         </div>
       </Wrapper>
     </Layout>
@@ -102,7 +110,7 @@ export const query = graphql`
       edges {
         node {
           childImageSharp {
-            fixed(width: 400) {
+            fluid(maxWidth: 400) {
               src
             }
           }

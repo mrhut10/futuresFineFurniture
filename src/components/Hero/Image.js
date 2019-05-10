@@ -26,7 +26,12 @@ const Image = () => (
         }
       }
     `}
-    render={data => <Img fluid={data.placeholderImage.childImageSharp.fluid} />}
+    render={data => (
+      <Img
+        className="h-full opacity-75 w-full"
+        fluid={data.placeholderImage.childImageSharp.fluid}
+      />
+    )}
   />
 );
 export default Image;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import styles from './product.module.css';
 import { Link } from 'gatsby';
-import * as R from 'ramda'
+import * as R from 'ramda';
+// import styles from './product.module.css';
 
 const formatter = new Intl.NumberFormat(`en-AU`, {
   style: `currency`,
@@ -9,102 +9,93 @@ const formatter = new Intl.NumberFormat(`en-AU`, {
   minimumFractionDigits: 2,
   maximumFractionDigits: 2,
   useGrouping: true,
-})
+});
 
-export const BuyArea = ({
-  name,
-  id,
-  image,
-  url,
-  description,
-  varients
-}) => {
+export const BuyArea = ({ name, id, image, url, description, varients }) => {
   const [GetProductValue, SetProductValue] = useState(
-    //varients[0].varientName
+    // varients[0].varientName
     R.compose(
       R.prop('varientName'),
-      R.ifElse(
-        R.isNil,
-        R.always(varients[0]),
-        R.identity,
-      ),
-      R.find(
-        input=>input.price && input.price > 0
-      )
+      R.ifElse(R.isNil, R.always(varients[0]), R.identity),
+      R.find(input => input.price && input.price > 0)
     )(varients)
-  )
+  );
   return (
-    <div style={{
-      //border:'2px inset lightgray',
-      padding:'5px',
-      boxShadow:'4px 4px 15px -5px rgba(0,0,0,1)',
-      borderRadius:'5px',
-      textAlign:'center'
-    }}>
-        <h6>
-          {`${name}${GetProductValue?` \\ ${GetProductValue}`:''}`}
-        </h6>
-      {
-        varients.length > 1
-        ?
-          <>
-            <label>Choose an Option:</label>
-            <select style={{margin: '5px 5px', textAlign:'center'}} value={GetProductValue} onChange={e => SetProductValue(e.target.value)}>
-              {varients.map(varient=><option value={varient.varientName}>{`${varient.varientName}`}</option>)}
+    <div className="flex flex-col">
+      <h6>{`${name}${GetProductValue ? ` \/ ${GetProductValue}` : ''}`}</h6>
+      {varients.length > 1 ? (
+        <div className="flex items-center justify-between mb-4">
+          <label>Choose an Option: </label>
+          <div className="inline-block relative w-64">
+            <select
+              className="appearance-none bg-white block border border-grey-light hover:border-grey leading-tight focus:outline-none px-4 py-2 pr-8 rounded shadow focus:shadow-outline w-full"
+              // style={{ margin: '5px 5px', textAlign: 'center' }}
+              value={GetProductValue}
+              onChange={e => SetProductValue(e.target.value)}
+            >
+              {varients.map(varient => (
+                <option value={varient.varientName}>{`${
+                  varient.varientName
+                }`}</option>
+              ))}
             </select>
-          </>
-        : <></>
-      }
-      <br/>
-      <br/>
-      {
-        R.compose(
+            <div className="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
+              <svg
+                className="fill-current h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
+      {R.compose(
+        R.ifElse(
+          R.compose(
+            R.or(R.isNil, R.lte(R.__, 0)),
+            R.prop('price')
+          ),
+          input => <span style={{ color: 'red', fontSize: '0.8rem' }} />,
           R.ifElse(
-            R.compose(
-              R.or(R.isNil,R.lte(R.__,0)),
-              R.prop('price')
-            ),
-            input=><span style={{color:'red', fontSize:'0.8rem'}}></span>,
-            R.ifElse(
-              item=>item.discount && item.discount>0,
-              item=><span>
-                <h6 style={{color:'red',fontSize:'1rem', transform: 'rotate(-3deg)', textDecoration:'underline', margin: '0px'}}>
+            item => item.discount && item.discount > 0,
+            item => (
+              <span>
+                <h6
+                  style={{
+                    color: 'red',
+                    fontSize: '1rem',
+                    transform: 'rotate(-3deg)',
+                    textDecoration: 'underline',
+                    margin: '0px',
+                  }}
+                >
                   Special Offer
                 </h6>
-                <span style={{color:'red', textDecoration:'line-through', fontsize:'1rem'}}>RRP : {formatter.format(item.price / 100)}</span><br/>
-                <span style={{color:'blue', fontsize:'2.5rem'}}>Now : {formatter.format((item.price-item.discount)/100)}</span>
-              </span>,
-              R.compose(
-                input => <span>
-                  Price: {input}
-                </span>,
-                formatter.format,
-                R.divide(R.__,100),
-                R.prop('price'),
-              )
-            )
-            /*
-            */
-          ),
-          R.find(R.propEq('varientName',GetProductValue))
-        )(varients)
-      }
-      <br/>
-        {
-          R.compose(
-            R.ifElse(
-              R.compose(
-                R.isNil,
-                R.prop('price')
-              ),
-              ()=><p style={{margin:"4px"}}><span style={{color:'red', fontSize:'0.8rem'}}>
-                *See us <Link to='/contact'>Instore or Call</Link><br/>
-                for Pricing and Availability
-              </span></p>,
-              input=>(
-                <p style={{margin:"4px"}}>
+                <span
+                  style={{
+                    color: 'red',
+                    textDecoration: 'line-through',
+                    fontsize: '1rem',
+                  }}
+                >
+                  RRP : {formatter.format(item.price / 100)}
+                </span>
+                <br />
+                <span style={{ color: 'blue', fontsize: '2.5rem' }}>
+                  Now : {formatter.format((item.price - item.discount) / 100)}
+                </span>
+              </span>
+            ),
+            R.compose(
+              input => (
+                <div className="flex items-baseline justify-between mb-4">
+                  <span>Price: {input}</span>
                   <BuyButton
-                    Style={{margin: '10px'}}
+                    Style={{ margin: '10px' }}
                     name={name}
                     id={name}
                     url={url}
@@ -113,42 +104,73 @@ export const BuyArea = ({
                     value={GetProductValue}
                   >
                     Add To Cart
-                  </BuyButton><br/>
-                  <span style={{color:'red', fontSize:'0.8rem'}}>
-                    *<Link to='/contact'>Contact us</Link> for Availability 
-                  </span>
-                </p>
-              )
-            ),
-            R.find(R.propEq('varientName',GetProductValue))
-          )(varients)
-        }
-      <br/>
+                  </BuyButton>
+                </div>
+              ),
+              formatter.format,
+              R.divide(R.__, 100),
+              R.prop('price')
+            )
+          )
+          /*
+           */
+        ),
+        R.find(R.propEq('varientName', GetProductValue))
+      )(varients)}
+      {R.compose(
+        R.ifElse(
+          R.compose(
+            R.isNil,
+            R.prop('price')
+          ),
+          () => (
+            <p style={{ margin: '4px' }}>
+              <span style={{ color: 'red', fontSize: '0.8rem' }}>
+                *See us <Link to="/contact">Instore or Call</Link>
+                <br />
+                for Pricing and Availability
+              </span>
+            </p>
+          ),
+          input => (
+            <div>
+              <p className="text-center">
+                <Link className="text-blue-dark hover:underline" to="/contact">
+                  *Contact us for availability
+                </Link>
+              </p>
+            </div>
+          )
+        ),
+        R.find(R.propEq('varientName', GetProductValue))
+      )(varients)}
     </div>
-  )
-}
+  );
+};
 
 const BuyButton = ({
   name,
   id,
   image,
   url,
-  //price,
+  // price,
   description,
   children,
   varients,
-  value
+  value,
 }) => (
   <button
     type="button"
-    className={`${styles.buyButton} snipcart-add-item`}
+    className="snipcart-add-item bg-maroon font-semibold p-2 rounded text-cream"
     data-item-name={name}
     data-item-id={id}
     data-item-image={image}
     data-item-url={url}
-    data-item-price={`{"AUD":${(varients[0].price-(varients[0].discount || 0)) / 100}}`}
+    data-item-price={`{"AUD":${(varients[0].price -
+      (varients[0].discount || 0)) /
+      100}}`}
     description={description}
-    data-item-custom1-name={varients && varients.length > 1?'Option':''}
+    data-item-custom1-name={varients && varients.length > 1 ? 'Option' : ''}
     data-item-custom1-options={
       /*
         varients && varients.length > 1
@@ -159,12 +181,17 @@ const BuyButton = ({
       R.compose(
         R.join('|'),
         R.map(
-          vari=>`${vari.varientName}[${vari.price-(vari.discount || 0)-varients[0].price>=0?'+':''}${(vari.price-(vari.discount || 0)-varients[0].price)/100}]`
+          vari =>
+            `${vari.varientName}[${
+              vari.price - (vari.discount || 0) - varients[0].price >= 0
+                ? '+'
+                : ''
+            }${(vari.price - (vari.discount || 0) - varients[0].price) / 100}]`
         ),
-        R.filter(item=>item.price && item.price > 0),
+        R.filter(item => item.price && item.price > 0)
       )(varients)
     }
-      data-item-custom1-value={value}
+    data-item-custom1-value={value}
   >
     {children}
   </button>

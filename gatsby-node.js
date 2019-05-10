@@ -8,8 +8,8 @@
 
 const path = require('path');
 const slugify = require('slugify');
-const R = require('ramda')
-const snipcart_JSON = require('./src/snipcartJSON_maker.js')
+const R = require('ramda');
+const snipcart_JSON = require('./src/snipcartJSON_maker.js');
 
 exports.onCreateNode = ({ node, actions }) => {
   if (node.internal.type === 'MarkdownRemark') {
@@ -176,34 +176,36 @@ exports.createPages = ({ graphql, actions }) => {
   const productCategoriesPages = query_ProductCategory.then(
     queryToCategoryPage
   );
-  
+
   const productRangePages = query_ProductRange.then(queryToRangePage);
   const productPages = query_product.then(queryToProductPages);
-  const writesnipcartJSON = new Promise((resolve,reject)=>{
-    query_product.then(result=>{
-      
-      if (process.env.NODE_ENV == "develop") {
+  const writesnipcartJSON = new Promise((resolve, reject) => {
+    query_product.then(result => {
+      if (process.env.NODE_ENV == 'develop') {
         resolve();
       } else {
         const fs = require('fs');
         const snipcart_object = snipcart_JSON.snipcart_json(result);
-        const JSONObject =JSON.stringify(snipcart_object);
-        if (fs.existsSync('./static/snipcart.json')){
-          fs.unlinkSync('./static/snipcart.json')
+        const JSONObject = JSON.stringify(snipcart_object);
+        if (fs.existsSync('./static/snipcart.json')) {
+          fs.unlinkSync('./static/snipcart.json');
         }
-        if (fs.existsSync('./public/snipcart.json')){
-          fs.unlinkSync('./public/snipcart.json')
+        if (fs.existsSync('./public/snipcart.json')) {
+          fs.unlinkSync('./public/snipcart.json');
         }
-        fs.writeFile(
-          './static/snipcart.json',
-          JSONObject,
-          er=>er?reject(er):resolve(er)
+        fs.writeFile('./static/snipcart.json', JSONObject, er =>
+          er ? reject(er) : resolve(er)
         );
       }
     });
-  })
+  });
 
-  return Promise.all([productCategoriesPages, productRangePages, productPages, writesnipcartJSON]);
+  return Promise.all([
+    productCategoriesPages,
+    productRangePages,
+    productPages,
+    writesnipcartJSON,
+  ]);
 };
 
 /*

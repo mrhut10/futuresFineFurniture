@@ -49,7 +49,7 @@ const Layout = ({ children, showHero }) => (
             rel="stylesheet"
           />
         </Helmet>
-        <div className="bg-grey-darker flex flex-col font-sans min-h-screen py-3 text-base text-grey-darkest">
+        <div className="bg-grey-darker flex flex-col font-sans min-h-screen sm:pt-3 text-base text-grey-darkest">
           <Header showHero={showHero} />
           <TopMenu />
           <main className="bg-white flex-1 max-w-xl mx-auto rounded-b-lg w-full">
