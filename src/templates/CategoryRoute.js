@@ -5,7 +5,7 @@ import Wrapper from '../components/wrapper';
 import CategoryTitle from '../components/categoryTile';
 import ComingSoon from '../components/ComingSoon';
 import SEO from '../components/seo';
-import BuyButton from '../components/snipcart'
+import BuyButton from '../components/snipcart';
 
 const R = require('ramda');
 
@@ -20,7 +20,7 @@ const formatter = new Intl.NumberFormat('en-AU', {
 const GetSourceImages = R.compose(
   R.lift(input => ({
     relativePath: R.pathOr('', ['node', 'relativePath'])(input),
-    source: R.pathOr('', ['node', 'childImageSharp', 'fixed', 'src'])(input),
+    source: R.pathOr('', ['node', 'childImageSharp', 'fluid', 'src'])(input),
   })),
   R.pathOr([], ['allFile', 'edges'])
 );
@@ -36,13 +36,14 @@ export default ({ data, pageContext }) => {
   const post = data.cat;
   const { products } = data;
   const sourceImages = GetSourceImages(data);
-  const removeDiscount = (item) => item.price - (item.discount && item.discount>0? item.discount : 0)
+  const removeDiscount = item =>
+    item.price - (item.discount && item.discount > 0 ? item.discount : 0);
 
   const minPricedVarient = R.compose(
     R.head,
-    R.sort((a,b)=>removeDiscount(a)-removeDiscount(b)),
+    R.sort((a, b) => removeDiscount(a) - removeDiscount(b)),
     R.filter(input => input.price && input.price > 0)
-  )
+  );
   return (
     <Layout>
       <SEO
@@ -53,7 +54,7 @@ export default ({ data, pageContext }) => {
         <div>
           <h1>{post.frontmatter.title}</h1>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
-          <div className="flex flex-wrap justify-center w-full">
+          <div className="flex flex-wrap w-full">
             {products ? (
               products.edges
                 .map(({ node }) => ({
@@ -74,7 +75,7 @@ export default ({ data, pageContext }) => {
                     R.pathOr([], ['frontmatter', 'variants'])
                   )(node),
                   range: R.pathOr([], ['frontmatter', 'range'])(node),
-                  variants: R.pathOr([], ['frontmatter', 'variants'])(node)
+                  variants: R.pathOr([], ['frontmatter', 'variants'])(node),
                 }))
                 .sort((a, b) => a.minPriceCents - b.minPriceCents)
                 .sort((a, b) => String(a.range).localeCompare(String(b.range)))
@@ -84,50 +85,47 @@ export default ({ data, pageContext }) => {
                     name={input.title}
                     slug={input.slug}
                     images={input.images}
-                    Children={R.compose(
-                      input =>
-                        input ? (
-                          <p className="mt-auto mx-auto text-red-dark">
-                            {
-                              R.compose(                                
-                                R.ifElse(
-                                  R.isNil,
-                                  input=><span/>,
-                                  R.compose(
-                                    MinPrice => <span>
-                                      from {MinPrice}
-                                      <br/>
-                                      <BuyButton
-                                        style={{margin:'5px', padding: '3px'}}
-                                        name={R.prop('title')(input)}
-                                        id={R.prop('title')(input)}
-                                        url='https://www.futuresfinefurnitureandbedding.com/snipcart.json'
-                                        price={R.compose(
-                                          R.prop('price'),
-                                          R.head,
-                                          R.prop('variants')
-                                        )(input)}
-                                        varients={R.prop('variants')(input)}
-                                        value={R.compose(
-                                          R.prop('varientName'),
-                                          minPricedVarient,
-                                          R.prop('variants')
-                                        )(input)}
-                                      >
-                                        Add to Cart
-                                      </BuyButton>
-                                    </span>,
-                                    formatter.format,
-                                    R.divide(R.__, 100),
-                                    removeDiscount,
-                                  )
+                    Children={R.compose(input =>
+                      input ? (
+                        <>
+                          {R.compose(
+                            R.ifElse(
+                              R.isNil,
+                              input => <span />,
+                              R.compose(
+                                MinPrice => (
+                                  <div className="flex font-semibold items-baseline justify-between mt-auto mx-auto p-4">
+                                    <small>from {MinPrice}</small>
+                                    <BuyButton
+                                      name={R.prop('title')(input)}
+                                      id={R.prop('title')(input)}
+                                      url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
+                                      price={R.compose(
+                                        R.prop('price'),
+                                        R.head,
+                                        R.prop('variants')
+                                      )(input)}
+                                      varients={R.prop('variants')(input)}
+                                      value={R.compose(
+                                        R.prop('varientName'),
+                                        minPricedVarient,
+                                        R.prop('variants')
+                                      )(input)}
+                                    >
+                                      Add&nbsp;to&nbsp;Cart
+                                    </BuyButton>
+                                  </div>
                                 ),
-                                minPricedVarient,
-                                R.prop('variants'),
-                              )(input)
-                            }
-                          </p>
-                        ) : null
+                                formatter.format,
+                                R.divide(R.__, 100),
+                                removeDiscount
+                              )
+                            ),
+                            minPricedVarient,
+                            R.prop('variants')
+                          )(input)}
+                        </>
+                      ) : null
                     )(input)}
                   />
                 ))
@@ -160,7 +158,7 @@ export const query = graphql`
           relativePath
           absolutePath
           childImageSharp {
-            fixed(width: 200) {
+            fluid(maxWidth: 200) {
               src
             }
           }

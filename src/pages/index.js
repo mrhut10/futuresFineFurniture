@@ -5,7 +5,6 @@ import Layout from '../components/layout';
 import Logo from '../images/slimLogo.svg';
 import Categories_all from '../components/Categories_all';
 
-
 const IndexPage = () => (
   <Layout showHero>
     <SEO
@@ -24,7 +23,9 @@ const IndexPage = () => (
       </div>
       <div className="max-w-md mb-8 mx-auto p-4 text-xl w-full">
         <p className="mb-2">
-          Widest range of Furniture, Mattresses and Mobility Solutions within the Macleay Valley.<br/>
+          Widest range of Furniture, Mattresses and Mobility Solutions within
+          the Macleay Valley.
+          <br />
         </p>
       </div>
       <div className="max-w-lg mb-8 mx-auto text-lg">
@@ -32,16 +33,19 @@ const IndexPage = () => (
           <div className="flex-1 mb-6 md:mb-0 px-2 text-white w-full md:w-1/2">
             <div className="flex flex-col items-center bg-grey-darkest p-4 rounded-lg">
               <h3>Highest Quality, Lowest Prices!</h3>
-              <hr className="mt-0" />
+              <hr className="bg-grey-darker mt-0" />
               <p className="mb-2">
-                Highest Quality, Loweset Prices, {
+                Highest Quality, Lowest Prices,{' '}
+                {
                   <Link
-                  className="text-cream hover:text-blue-lighter underline" 
-                  to="payment"
+                    className="text-cream hover:text-blue-lighter underline"
+                    to="payment"
                   >
-                  Flexible Payments
+                    Flexible Payments
                   </Link>
-                } and Free Delivery* <br/><br/>
+                }{' '}
+                and Free Delivery* <br />
+                <br />
                 <small>* Macleay Valley area (March & April 2019)</small>
               </p>
             </div>

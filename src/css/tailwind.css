@@ -61,14 +61,12 @@
   * @import "utilities/skew-transforms";
   */
 
-.image-container {
-  @apply absolute;
-  @apply h-full;
-  @apply overflow-hidden;
-  @apply w-full;
+.bp3-icon {
+  @apply mr-2;
 }
 
-.image-container > .gatsby-image-wrapper {
-  @apply h-full;
-  @apply w-full;
+@responsive {
+  .first {
+    order: -1;
+  }
 }
