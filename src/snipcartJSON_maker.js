@@ -1,6 +1,6 @@
 const R = require('ramda');
 
-exports.snipcart_json = R.compose(
+exports.snipcartJson = R.compose(
   R.map(
     R.compose(
       input => ({

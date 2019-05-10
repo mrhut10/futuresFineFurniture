@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-// import { Card, Elevation } from '@blueprintjs/core';
+import PropTypes from 'prop-types';
 import ComingSoon from './ComingSoon';
 
 const ImageComponent = (input, maxheight = '350px') =>
@@ -37,4 +37,25 @@ const CategoryTitle = ({
   </div>
 );
 
+
+CategoryTitle.propTypes = {
+  name: PropTypes.string,
+  hoverText: PropTypes.string,
+  slug: PropTypes.string,
+  images: PropTypes.string,
+  comingSoon: PropTypes.bool,
+  height: PropTypes.number,
+  width: PropTypes.number,
+};
+/*
+
+Children,
+  name,
+  hoverText,
+  slug,
+  images,
+  comingSoon,
+  height = 350,
+  width = 250,\
+  */
 export default CategoryTitle;
