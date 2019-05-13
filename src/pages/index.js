@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import Logo from '../images/slimLogo.svg';
-import Categories_all from '../components/Categories_all';
+import CategoriesAll from '../components/Categories_all';
 
 const IndexPage = () => (
   <Layout showHero>
@@ -54,7 +54,7 @@ const IndexPage = () => (
       </div>
       <div className="max-w-lg mb-4 mx-auto w-full">
         <h2 className="mb-2">Our Range</h2>
-        <Categories_all />
+        <CategoriesAll />
       </div>
     </div>
   </Layout>
