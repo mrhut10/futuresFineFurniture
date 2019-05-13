@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import propTypes from 'prop-types';
 import Layout from '../components/layout';
 import Wrapper from '../components/wrapper';
 import CategoryTitle from '../components/categoryTile';
@@ -32,7 +33,7 @@ const findImage = R.compose(
   R.pathOr('', ['frontmatter', 'images'])
 );
 
-export default ({ data, pageContext }) => {
+const CategoryRoute = ({ data, pageContext }) => {
   const post = data.cat;
   const { products } = data;
   const sourceImages = GetSourceImages(data);
@@ -85,13 +86,13 @@ export default ({ data, pageContext }) => {
                     name={input.title}
                     slug={input.slug}
                     images={input.images}
-                    Children={R.compose(input =>
-                      input ? (
+                    Children={R.compose(input2 =>
+                      input2 ? (
                         <>
                           {R.compose(
                             R.ifElse(
                               R.isNil,
-                              input => <span />,
+                              () => <span />,
                               R.compose(
                                 MinPrice => (
                                   <div className="flex font-semibold items-baseline justify-between mt-auto mx-auto p-4">
@@ -104,13 +105,13 @@ export default ({ data, pageContext }) => {
                                         R.prop('price'),
                                         R.head,
                                         R.prop('variants')
-                                      )(input)}
+                                      )(input2)}
                                       varients={R.prop('variants')(input)}
                                       value={R.compose(
                                         R.prop('varientName'),
                                         minPricedVarient,
                                         R.prop('variants')
-                                      )(input)}
+                                      )(input2)}
                                     >
                                       Add&nbsp;to&nbsp;Cart
                                     </BuyButton>
@@ -123,7 +124,7 @@ export default ({ data, pageContext }) => {
                             ),
                             minPricedVarient,
                             R.prop('variants')
-                          )(input)}
+                          )(input2)}
                         </>
                       ) : null
                     )(input)}
@@ -191,3 +192,10 @@ export const query = graphql`
     }
   }
 `;
+
+CategoryRoute.propTypes = {
+  data: propTypes.any,
+  pageContext: propTypes.any,
+};
+
+export default CategoryRoute;
