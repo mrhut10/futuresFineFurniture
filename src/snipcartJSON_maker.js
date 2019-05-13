@@ -1,5 +1,7 @@
 const R = require('ramda');
 
+const positive = input => `${input >= 0 ? '+' : ''}${input}`;
+
 exports.snipcartJson = R.compose(
   R.map(
     R.compose(
@@ -51,4 +53,4 @@ exports.snipcartJson = R.compose(
   R.path(['data', 'allMarkdownRemark', 'edges'])
 );
 
-const positive = input => `${input >= 0 ? '+' : ''}${input}`;
+
