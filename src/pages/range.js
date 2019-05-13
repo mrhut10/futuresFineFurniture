@@ -1,12 +1,12 @@
 import React from 'react';
 import Layout from '../components/layout';
-import Categories_all from '../components/Categories_all';
+import CategoriesAll from '../components/Categories_all';
 
-const rangePage = ({ data }) => (
+const rangePage = () => (
   <Layout>
     <div className="max-w-lg mx-auto p-4">
       <h1>Pick a Category</h1>
-      <Categories_all />
+      <CategoriesAll />
     </div>
   </Layout>
 );
