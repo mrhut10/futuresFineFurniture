@@ -52,5 +52,3 @@ exports.snipcartJson = R.compose(
   ),
   R.path(['data', 'allMarkdownRemark', 'edges'])
 );
-
-
