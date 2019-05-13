@@ -4,7 +4,7 @@ import propTypes from 'prop-types';
 import Layout from '../components/layout';
 import Wrapper from '../components/wrapper';
 
-exports.default = ({ data }) => {
+const RangeRoute = ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout>
@@ -30,6 +30,8 @@ export const query = graphql`
   }
 `;
 
-exports.default.propTypes = {
+RangeRoute.propTypes = {
   data: propTypes.any,
 };
+
+export default RangeRoute;
