@@ -49,7 +49,13 @@ const RangeCatigoryString = (range, catigory) => {
 };
 
 const productRoute = ({ data, location }) => {
-  const { title, Category, range, variants } = data.markdownRemark.frontmatter;
+  const {
+    title,
+    Category,
+    range,
+    variants,
+    qty,
+  } = data.markdownRemark.frontmatter;
   return (
     <Layout>
       <SEO
@@ -88,6 +94,7 @@ const productRoute = ({ data, location }) => {
                 url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
                 description={undefined}
                 varients={variants}
+                qty={qty}
               />
               <br />
               {details(data)}
@@ -131,6 +138,7 @@ export const query = graphql`
           price
           varientName
           discount
+          qty
         }
       }
       fields {

@@ -92,28 +92,50 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
             ),
             R.compose(
               input => (
-                <div className="flex items-baseline justify-between mb-4">
-                  <span>Price: {input}</span>
-                  <BuyButton
-                    Style={{ margin: '10px' }}
-                    name={name}
-                    id={name}
-                    url={url}
-                    price={varients[0].price}
-                    varients={varients}
-                    value={GetProductValue}
-                  >
-                    Add To Cart
-                  </BuyButton>
-                </div>
+                <>
+                  <div className="flex items-baseline justify-between mb-4">
+                    <span>Price: {input}</span>
+                    <BuyButton
+                      Style={{ margin: '10px' }}
+                      name={name}
+                      id={name}
+                      url={url}
+                      price={varients[0].price}
+                      varients={varients}
+                      value={GetProductValue}
+                    >
+                      Add To Cart
+                    </BuyButton>
+                  </div>
+                  <div>
+                    <p className="text-center">
+                      {varients
+                        .filter(value => value.varientName === GetProductValue)
+                        .map(value =>
+                          value.qty && value.qty > 0 ? (
+                            <span className="text-red-dark">
+                              {value.qty > 10
+                                ? `In Store: 10 or more units available`
+                                : `In Store: ${value.qty} units available`}
+                            </span>
+                          ) : (
+                            <Link
+                              className="text-blue-dark hover:underline"
+                              to="/contact"
+                            >
+                              *Contact us for availability
+                            </Link>
+                          )
+                        )}
+                    </p>
+                  </div>
+                </>
               ),
               formatter.format,
               R.divide(R.__, 100),
               R.prop('price')
             )
           )
-          /*
-           */
         ),
         R.find(R.propEq('varientName', GetProductValue))
       )(varients)}
@@ -132,15 +154,7 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
               </span>
             </p>
           ),
-          input => (
-            <div>
-              <p className="text-center">
-                <Link className="text-blue-dark hover:underline" to="/contact">
-                  *Contact us for availability
-                </Link>
-              </p>
-            </div>
-          )
+          input => ''
         ),
         R.find(R.propEq('varientName', GetProductValue))
       )(varients)}
