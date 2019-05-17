@@ -1,12 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
 import LazyLoad from 'react-lazyload';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
-import Wrapper from '../components/wrapper';
 
-const SecondPage = ({ data }) => (
+const contactPage = ({ data }) => (
   <Layout>
     <div className="flex flex-wrap">
       <div className="p-4 w-full md:w-1/2">
@@ -85,4 +85,7 @@ export const query = graphql`
   }
 `;
 
-export default SecondPage;
+contactPage.propTypes = {
+  data: PropTypes.any,
+};
+export default contactPage;

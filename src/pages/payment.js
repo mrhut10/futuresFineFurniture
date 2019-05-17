@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Elevation } from '@blueprintjs/core';
+import PropTypes from 'prop-types';
 import Layout from '../components/layout';
 import Wrapper from '../components/wrapper';
 
@@ -19,6 +20,10 @@ const PaymentCard = ({ children }) => (
     {children}
   </Card>
 );
+
+PaymentCard.propTypes = {
+  children: PropTypes.element,
+};
 
 const PaymentPage = () => (
   <Layout>

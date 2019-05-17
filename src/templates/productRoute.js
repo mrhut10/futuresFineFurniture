@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import * as R from 'ramda';
+import propTypes from 'prop-types';
 import Layout from '../components/layout';
 import Wrapper from '../components/wrapper';
 import { BuyArea } from '../components/snipcart';
@@ -38,8 +39,23 @@ const images = R.compose(
 
 // const getSafePath = (p, o) => p.reduce((xs, x) => (xs && xs[x]) ? xs[x] : null, o)
 
-export default ({ data, location }) => {
-  const { title, Category, range, variants } = data.markdownRemark.frontmatter;
+const RangeCatigoryString = (range, catigory) => {
+  let output;
+  if (range && catigory)
+    output = `From the ${catigory} Collection and the ${range} range`;
+  else if (range) output = `From the ${catigory} Collection`;
+  else if (catigory) output = `From the ${range} range`;
+  return output;
+};
+
+const productRoute = ({ data, location }) => {
+  const {
+    title,
+    Category,
+    range,
+    variants,
+    qty,
+  } = data.markdownRemark.frontmatter;
   return (
     <Layout>
       <SEO
@@ -62,6 +78,7 @@ export default ({ data, location }) => {
       <Wrapper>
         <div className="text-center">
           <h1>{title}</h1>
+<<<<<<< HEAD
           <h2>
             {
               ()=>{
@@ -83,6 +100,9 @@ export default ({ data, location }) => {
               }
             }
           </h2>
+=======
+          <h2>{RangeCatigoryString(range, Category)}</h2>
+>>>>>>> staging
           <div className="flex flex-wrap text-left justify-center m-4">
             <div className="justify-center w-full md:w-1/2">
               {R.compose(
@@ -90,7 +110,6 @@ export default ({ data, location }) => {
                 images
               )(data)}
             </div>
-
             <div className="px-4 w-full md:w-1/2">
               <BuyArea
                 name={title}
@@ -99,6 +118,7 @@ export default ({ data, location }) => {
                 url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
                 description={undefined}
                 varients={variants}
+                qty={qty}
               />
               <br />
               {details(data)}
@@ -142,6 +162,7 @@ export const query = graphql`
           price
           varientName
           discount
+          qty
         }
       }
       fields {
@@ -154,3 +175,10 @@ export const query = graphql`
     }
   }
 `;
+
+productRoute.propTypes = {
+  data: propTypes.any,
+  location: propTypes.string,
+};
+
+export default productRoute;

@@ -1,62 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { Icon } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
 
-// const content = {
-//   left: [
-//     {
-//       text: ' Home',
-//       link: '/',
-//       icon: IconNames.HOME,
-//     },
-//     {
-//       text: ' Categories',
-//       link: '/range',
-//       icon: IconNames.SHOP,
-//     },
-//     {
-//       text: ' Contact',
-//       link: '/contact',
-//       icon: IconNames.PHONE,
-//     },
-//   ],
-//   right: [
-//     {
-//       text: ' Cart',
-//       link: '#',
-//       icon: IconNames.SHOPPING_CART,
-//     },
-//   ],
-// };
-
 const SizeSafeMenu = () => <NewMenu />;
-
-// const NewMenu = () => (
-//   <Navbar className="bg-grey-darkest max-w-xl mx-auto overflow-x-scroll w-full">
-//     <NavbarGroup className="flex justify-between p-4" align={Alignment.LEFT}>
-//       <div className="flex">
-//         {content.left.map(item => (
-//           <Link to={item.link} className="mr-4" key={item.link}>
-//             <Button
-//               large
-//               className="flex fill-current font-semibold items-center mr-2 text-grey-light hover:text-cream"
-//               icon={item.icon}
-//               text={item.text}
-//             />
-//           </Link>
-//         ))}
-//       </div>
-//       <Button
-//         large
-//         className="flex fill-current font-semibold items-center pr-2 text-grey-light hover:text-cream snipcart-checkout"
-//         style={{ whiteSpace: `nowrap` }}
-//         icon={IconNames.SHOPPING_CART}
-//         text="Shopping Cart"
-//       />
-//     </NavbarGroup>
-//   </Navbar>
-// );
 
 const handleClick = e => {
   e.preventDefault();
@@ -106,17 +54,22 @@ const NewMenu = () => (
   </div>
 );
 
-const NavLink = props => (
+const NavLink = ({ link, icon, title }) => (
   <Link
-    to={props.link}
+    to={link}
     className="hover:bg-grey-darker md:hover:bg-grey-darkest border-grey-dark border-t md:border-none flex font-semibold group items-center px-4 sm:px-12 md:px-3 py-3 text-grey-lighter hover:text-cream"
   >
     <Icon
       className="fill-current flex items-center justify-center mr-1 text-grey-lighter group-hover:text-cream"
-      icon={props.icon}
+      icon={icon}
     />
-    {props.title}
+    {title}
   </Link>
 );
+NavLink.propTypes = {
+  link: PropTypes.string,
+  icon: PropTypes.string,
+  title: PropTypes.string,
+};
 
 export default SizeSafeMenu;

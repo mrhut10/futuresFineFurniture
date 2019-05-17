@@ -1,9 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import propTypes from 'prop-types';
 import Layout from '../components/layout';
 import Wrapper from '../components/wrapper';
 
-export default ({ data }) => {
+const RangeRoute = ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout>
@@ -28,3 +29,9 @@ export const query = graphql`
     }
   }
 `;
+
+RangeRoute.propTypes = {
+  data: propTypes.any,
+};
+
+export default RangeRoute;
