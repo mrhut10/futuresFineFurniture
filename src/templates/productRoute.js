@@ -80,7 +80,7 @@ const productRoute = ({ data, location }) => {
           <h1>{title}</h1>
           <h2>{RangeCatigoryString(range, Category)}</h2>
           <div className="text-left m-4">
-            <div className="float-left w-full md:w-1/2">
+            <div className="md:float-left md:pr-4 text-center w-full md:w-1/2">
               {R.compose(
                 ImageComponent,
                 images
