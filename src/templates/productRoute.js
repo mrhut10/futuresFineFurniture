@@ -79,14 +79,14 @@ const productRoute = ({ data, location }) => {
         <div className="text-center">
           <h1>{title}</h1>
           <h2>{RangeCatigoryString(range, Category)}</h2>
-          <div className="flex flex-wrap text-left justify-center m-4">
-            <div className="justify-center w-full md:w-1/2">
+          <div className="text-left m-4">
+            <div className="float-left w-full md:w-1/2">
               {R.compose(
                 ImageComponent,
                 images
               )(data)}
             </div>
-            <div className="px-4 w-full md:w-1/2">
+            <div className="px-4 w-full">
               <BuyArea
                 name={title}
                 id={title}
