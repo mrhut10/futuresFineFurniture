@@ -8,9 +8,11 @@ updated: 2019-05-31
 images:
   - davy.png
 variants:
-  - price: 149500
+  - price: 199900
+    discount: 50400
     varientName: Wild Mushroom
-  - price: 194900
+  - price: 199900
+    discount: 50400
     varientName: Tobacco
   
 ---
