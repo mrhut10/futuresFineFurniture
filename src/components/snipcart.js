@@ -64,43 +64,39 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
             item => item.discount && item.discount > 0,
             item => (
               <>
-                <span>
+                <div>
                   <h6
                     style={{
-                      color: 'red',
-                      fontSize: '1rem',
-                      transform: 'rotate(-3deg)',
-                      textDecoration: 'underline',
-                      margin: '0px',
+                      transform: `rotate(-3deg)`,
                     }}
+                    className="font-bold m-0 relative text-red text-base"
                   >
                     Special Offer
                   </h6>
-                  <span
-                    style={{
-                      color: 'red',
-                      textDecoration: 'line-through',
-                      fontsize: '1rem',
-                    }}
-                  >
-                    RRP : {formatter.format(item.price / 100)}
-                  </span>
-                  <br />
-                  <span style={{ color: 'blue', fontsize: '2.5rem' }}>
-                    Now : {formatter.format((item.price - item.discount) / 100)}
-                  </span>
-                </span>
-                <BuyButton
-                  Style={{ margin: '10px' }}
-                  name={name}
-                  id={name}
-                  url={url}
-                  price={varients[0].price}
-                  varients={varients}
-                  value={GetProductValue}
-                >
-                  Add To Cart
-                </BuyButton>
+                  <div className="flex items-end justify-between">
+                    <div>
+                      <span className="font-base line-through text-grey-dark">
+                        RRP : {formatter.format(item.price / 100)}
+                      </span>
+                      <br />
+                      <span>
+                        Now :{' '}
+                        {formatter.format((item.price - item.discount) / 100)}
+                      </span>
+                    </div>
+                    <BuyButton
+                      Style={{ margin: '10px' }}
+                      name={name}
+                      id={name}
+                      url={url}
+                      price={varients[0].price}
+                      varients={varients}
+                      value={GetProductValue}
+                    >
+                      Add To Cart
+                    </BuyButton>
+                  </div>
+                </div>
               </>
             ),
             R.compose(
@@ -188,7 +184,7 @@ const BuyButton = ({
 }) => (
   <button
     type="button"
-    className="snipcart-add-item bg-maroon font-semibold p-2 rounded text-cream"
+    className="snipcart-add-item bg-maroon font-semibold inline-block p-2 rounded text-cream"
     data-item-name={name}
     data-item-id={id}
     data-item-image={image}

@@ -73,6 +73,7 @@ p:empty {
 ol,
 ul {
   @apply pl-6;
+  list-style-position: inside;
 }
 
 ol {
