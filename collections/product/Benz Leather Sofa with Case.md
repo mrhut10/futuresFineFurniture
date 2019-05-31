@@ -6,8 +6,7 @@ range: Benz
 created: 2019-05-31
 updated: 2019-05-31
 images:
-  - "benz 1.jpeg"
-  - "benz 2.jpeg"
+  - "benz 1.jpeg" # - "benz 2.jpeg"
 variants:
   - price: 159500
     varientName: LHS Chase - Caramel Hermes
