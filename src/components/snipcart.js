@@ -63,32 +63,45 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
           R.ifElse(
             item => item.discount && item.discount > 0,
             item => (
-              <span>
-                <h6
-                  style={{
-                    color: 'red',
-                    fontSize: '1rem',
-                    transform: 'rotate(-3deg)',
-                    textDecoration: 'underline',
-                    margin: '0px',
-                  }}
-                >
-                  Special Offer
-                </h6>
-                <span
-                  style={{
-                    color: 'red',
-                    textDecoration: 'line-through',
-                    fontsize: '1rem',
-                  }}
-                >
-                  RRP : {formatter.format(item.price / 100)}
+              <>
+                <span>
+                  <h6
+                    style={{
+                      color: 'red',
+                      fontSize: '1rem',
+                      transform: 'rotate(-3deg)',
+                      textDecoration: 'underline',
+                      margin: '0px',
+                    }}
+                  >
+                    Special Offer
+                  </h6>
+                  <span
+                    style={{
+                      color: 'red',
+                      textDecoration: 'line-through',
+                      fontsize: '1rem',
+                    }}
+                  >
+                    RRP : {formatter.format(item.price / 100)}
+                  </span>
+                  <br />
+                  <span style={{ color: 'blue', fontsize: '2.5rem' }}>
+                    Now : {formatter.format((item.price - item.discount) / 100)}
+                  </span>
                 </span>
-                <br />
-                <span style={{ color: 'blue', fontsize: '2.5rem' }}>
-                  Now : {formatter.format((item.price - item.discount) / 100)}
-                </span>
-              </span>
+                <BuyButton
+                  Style={{ margin: '10px' }}
+                  name={name}
+                  id={name}
+                  url={url}
+                  price={varients[0].price}
+                  varients={varients}
+                  value={GetProductValue}
+                >
+                  Add To Cart
+                </BuyButton>
+              </>
             ),
             R.compose(
               input => (
