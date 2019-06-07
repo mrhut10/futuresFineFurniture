@@ -4,7 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-// You can delete this file if you're not using it
 const fs = require('fs');
 const path = require('path');
 const slugify = require('slugify');
@@ -187,9 +186,9 @@ exports.createPages = ({ graphql, actions }) => {
         if (fs.existsSync('./static/snipcart.json')) {
           fs.unlinkSync('./static/snipcart.json');
         }
-        if (fs.existsSync('./public/snipcart.json')) {
+        /* if (fs.existsSync('./public/snipcart.json')) {
           fs.unlinkSync('./public/snipcart.json');
-        }
+        } */
         fs.writeFile('./static/snipcart.json', JSONObject, er =>
           er ? reject(er) : resolve(er)
         );
@@ -204,45 +203,3 @@ exports.createPages = ({ graphql, actions }) => {
     writesnipcartJSON,
   ]);
 };
-
-/*
-exports.onPostBuild = ({ graphql }) => {
-  const queryProduct = graphql(querys.product);
-  const JSONObject = queryProduct.then(snipcart_JSON)
-  const fs = require('fs');
-  return fs.writeFileSync('./static/snipcart.json',JSONObject);
-};*\
-
-/*
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
-  return new Promise((resolve, reject) => {
-    graphql(`
-    {
-      allFile(filter:{sourceInstanceName:{eq:"productCategory"}}) {
-        edges {
-          node {
-            childMarkdownRemark {
-              frontmatter {
-                title
-              }
-            }
-          }
-        }
-      }
-    }
-    `).then(result => {
-        result.data.allFile.edges.forEach(({ node }) => {
-          createPage({
-            path: `range/${node.childMarkdownRemark.frontmatter.title}`,
-            component: path.resolve(`./src/templates/mainCatListing.js`),
-            context: {
-              slug: `range/${node.childMarkdownRemark.frontmatter.title}`,
-            }
-          })
-        })
-        resolve()
-      })
-  })
-}
-*/

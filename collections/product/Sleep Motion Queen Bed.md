@@ -8,8 +8,8 @@ updated: 2019-04-26
 images:
   - sleep motion.jpg
 variants:
-  - price: 179500
-
+  - price: 279500
+    discount: 100000
 ---
 
 

@@ -7,16 +7,9 @@ import CategoryTitle from '../components/categoryTile';
 import ComingSoon from '../components/ComingSoon';
 import SEO from '../components/seo';
 import BuyButton from '../components/snipcart';
+import { intToPriceFormat } from '../helpers/index'
 
 const R = require('ramda');
-
-const formatter = new Intl.NumberFormat('en-AU', {
-  style: 'currency',
-  currency: 'AUD',
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-  useGrouping: true,
-});
 
 const GetSourceImages = R.compose(
   R.lift(input => ({
@@ -117,8 +110,7 @@ const CategoryRoute = ({ data, pageContext }) => {
                                     </BuyButton>
                                   </div>
                                 ),
-                                formatter.format,
-                                R.divide(R.__, 100),
+                                intToPriceFormat,
                                 removeDiscount
                               )
                             ),
