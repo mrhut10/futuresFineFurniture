@@ -7,7 +7,7 @@ import CategoryTitle from '../components/categoryTile';
 import ComingSoon from '../components/ComingSoon';
 import SEO from '../components/seo';
 import BuyButton from '../components/snipcart';
-import { intToPriceFormat } from '../helpers/index'
+import { intToPriceFormat } from '../helpers/index';
 
 const R = require('ramda');
 

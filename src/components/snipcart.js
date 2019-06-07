@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import propTypes from 'prop-types';
 import { Link } from 'gatsby';
 import * as R from 'ramda';
 import { intToPriceFormat } from '../helpers/index';
@@ -14,12 +15,16 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
   );
   return (
     <div className="flex flex-col">
-      <h6>{`${name}${GetProductValue ? ` \/ ${GetProductValue}` : ''}`}</h6>
+      <h6>{`${name}${GetProductValue ? ` \\ ${GetProductValue}` : ''}`}</h6>
       {varients.length > 1 ? (
         <div className="flex items-center justify-between mb-4">
-          <label>Choose an Option: </label>
+          <label htmlFor="pickVar">
+            <input />
+            Choose an Option:{' '}
+          </label>
           <div className="inline-block relative w-64">
             <select
+              id="pickVar"
               className="appearance-none bg-white block border border-grey-light hover:border-grey leading-tight focus:outline-none px-4 py-2 pr-8 rounded shadow focus:shadow-outline w-full"
               // style={{ margin: '5px 5px', textAlign: 'center' }}
               value={GetProductValue}
@@ -209,5 +214,24 @@ const BuyButton = ({
     {children}
   </button>
 );
+
+BuyArea.propTypes = {
+  name: propTypes.string,
+  id: propTypes.string,
+  image: propTypes.string,
+  url: propTypes.string,
+  description: propTypes.string,
+  varients: propTypes.any,
+};
+BuyButton.propTypes = {
+  name: propTypes.string,
+  id: propTypes.string,
+  image: propTypes.any,
+  url: propTypes.string,
+  description: propTypes.string,
+  children: propTypes.arrayOf(propTypes.element),
+  varients: propTypes.array,
+  value: propTypes.string,
+};
 
 export default BuyButton;
