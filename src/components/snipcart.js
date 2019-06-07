@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import * as R from 'ramda';
-// import styles from './product.module.css';
-
-const formatter = new Intl.NumberFormat(`en-AU`, {
-  style: `currency`,
-  currency: `AUD`,
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-  useGrouping: true,
-});
+import { intToPriceFormat } from '../helpers/index';
 
 export const BuyArea = ({ name, id, image, url, description, varients }) => {
   const [GetProductValue, SetProductValue] = useState(
@@ -76,12 +68,11 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
                   <div className="flex items-end justify-between">
                     <div>
                       <span className="font-base line-through text-grey-dark">
-                        RRP : {formatter.format(item.price / 100)}
+                        RRP : {intToPriceFormat(item.price)}
                       </span>
                       <br />
                       <span>
-                        Now :{' '}
-                        {formatter.format((item.price - item.discount) / 100)}
+                        Now : {intToPriceFormat(item.price - item.discount)}
                       </span>
                     </div>
                     <BuyButton
@@ -140,8 +131,7 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
                   </div>
                 </>
               ),
-              formatter.format,
-              R.divide(R.__, 100),
+              intToPriceFormat,
               R.prop('price')
             )
           )

@@ -7,20 +7,9 @@ import Wrapper from '../components/wrapper';
 import { BuyArea } from '../components/snipcart';
 import SEO from '../components/seo';
 
-// const average = R.converge(R.divide, [R.sum, R.length])
-const formatter = new Intl.NumberFormat('en-AU', {
-  style: 'currency',
-  currency: 'AUD',
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-  useGrouping: true,
-});
-
 const details = R.compose(
   dangHtml => (
-    <div
-    // style={{ flex: '0 1 auto', order: 2, maxWidth: '250px' }}
-    >
+    <div>
       <p dangerouslySetInnerHTML={{ __html: dangHtml }} />
     </div>
   ),
@@ -48,7 +37,7 @@ const RangeCatigoryString = (range, catigory) => {
   return output;
 };
 
-const productRoute = ({ data, location }) => {
+const productRoute = ({ data }) => {
   const {
     title,
     Category,
@@ -154,7 +143,6 @@ export const query = graphql`
 
 productRoute.propTypes = {
   data: propTypes.any,
-  location: propTypes.string,
 };
 
 export default productRoute;
