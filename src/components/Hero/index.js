@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import { graphql, StaticQuery } from 'gatsby';
 import Image from './Image';
 import HeroImageBig from '../../images/heroLogo.svg';
@@ -58,5 +59,15 @@ const Hero = ({ showHero = false }) => (
     }
   />
 );
+
+HeroSlim.propTypes = {
+  data: propTypes.any,
+};
+HeroBig.propTypes = {
+  data: propTypes.any,
+};
+Hero.propTypes = {
+  showHero: propTypes.bool,
+};
 
 export default Hero;

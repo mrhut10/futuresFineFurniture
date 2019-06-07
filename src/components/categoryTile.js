@@ -14,7 +14,6 @@ const CategoryTitle = ({
   images,
   comingSoon,
   height = 350,
-  width = 250,
 }) => (
   <div className="flex flex-col p-2 w-full sm:w-1/2 md:w-1/3">
     <div className="flex flex-1 flex-col border no-underline overflow-hidden rounded-lg shadow hover:shadow-lg">
@@ -25,18 +24,15 @@ const CategoryTitle = ({
       </Link>
       {comingSoon ? (
         <ComingSoon />
-      ) : images ? (
+      ) : (
         <Link className="m-auto p-4" to={slug || '/'} title={hoverText}>
           {ImageComponent(images, `calc(${height}-30px)`)}
         </Link>
-      ) : (
-        ''
       )}
       <div>{Children}</div>
     </div>
   </div>
 );
-
 
 CategoryTitle.propTypes = {
   name: PropTypes.string,
@@ -45,7 +41,7 @@ CategoryTitle.propTypes = {
   images: PropTypes.string,
   comingSoon: PropTypes.bool,
   height: PropTypes.number,
-  width: PropTypes.number,
+  Children: PropTypes.arrayOf(PropTypes.element),
 };
 /*
 

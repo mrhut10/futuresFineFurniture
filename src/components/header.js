@@ -14,11 +14,7 @@ const Header = ({ showHero }) => (
 );
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
-
-Header.defaultProps = {
-  siteTitle: ``,
+  showHero: PropTypes.bool,
 };
 
 export default Header;

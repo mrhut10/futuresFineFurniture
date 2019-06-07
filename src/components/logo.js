@@ -1,7 +1,7 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
-
 import logo from '../images/slimLogo.svg';
 import hero from '../images/heroLogo.svg';
 
@@ -51,4 +51,7 @@ const Logo = ({ showHero }) => (
   </div>
 );
 
+Logo.propTypes = {
+  showHero: propTypes.bool,
+};
 export default Logo;
