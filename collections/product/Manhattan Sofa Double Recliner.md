@@ -4,7 +4,7 @@ enabled: true
 Category: Living
 range: Manhattan
 images:
-  - /assets/manhattan triple.PNG
+  - manhattan double.jpg
 variants:
   - price: 129500
     varientName: Black

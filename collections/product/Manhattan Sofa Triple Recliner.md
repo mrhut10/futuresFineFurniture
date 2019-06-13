@@ -1,5 +1,5 @@
 ---
-title: Manhattan Sofa Double Recliner
+title: Manhattan Sofa Triple Recliner
 enabled: true
 Category: Living
 range: Manhattan
