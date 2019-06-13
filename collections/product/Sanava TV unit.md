@@ -6,7 +6,7 @@ range: Sanava
 images:
   - /assets/sanava tv unit.png
 variants:
-  - price: 74900
+  - price: 59500
 ---
 3 Draws, 3 Niche
 Solid Acacia Timber in Drift wood finish

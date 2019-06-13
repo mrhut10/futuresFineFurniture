@@ -6,7 +6,7 @@ range: Dover
 images:
   - dover tv units.png
 variants:
-  - price: 69500
+  - price: 74900
     varientName: 2 Door, 2 Niche
   - price: 89500
     varientName: 2 Door, 1 Drawer, 1 Niche

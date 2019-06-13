@@ -6,7 +6,7 @@ range: Dover
 images:
   - dover buffet.png
 variants:
-  - price: 89500
+  - price: 94900
 ---
 
 Solid Acacia Timber in Multicolour
