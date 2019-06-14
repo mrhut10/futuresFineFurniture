@@ -91,6 +91,9 @@ const productRoute = ({ data }) => {
           </div>
         </div>
       </Wrapper>
+      <div id="relatedProducts">
+        
+      </div>
     </Layout>
   );
 };
