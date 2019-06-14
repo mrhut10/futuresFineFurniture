@@ -56,7 +56,7 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
             R.or(R.isNil, R.lte(R.__, 0)),
             R.prop('price')
           ),
-          input => <span style={{ color: 'red', fontSize: '0.8rem' }} />,
+          () => <span style={{ color: 'red', fontSize: '0.8rem' }} />,
           R.ifElse(
             item => item.discount && item.discount > 0,
             item => (
@@ -118,7 +118,10 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
                         .filter(value => value.varientName === GetProductValue)
                         .map(value =>
                           value.qty && value.qty > 0 ? (
-                            <span className="text-red-dark">
+                            <span
+                              className="text-red-dark"
+                              key={value.varientName}
+                            >
                               {value.qty > 10
                                 ? `In Store: 10 or more units available`
                                 : `In Store: ${value.qty} units available`}
@@ -127,6 +130,7 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
                             <Link
                               className="text-blue-dark hover:underline"
                               to="/contact"
+                              key={value.varientName}
                             >
                               *Contact us for availability
                             </Link>
@@ -158,7 +162,7 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
               </span>
             </p>
           ),
-          input => ''
+          () => ''
         ),
         R.find(R.propEq('varientName', GetProductValue))
       )(varients)}
@@ -166,7 +170,7 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
   );
 };
 
-const BuyButton = ({
+export const BuyButton = ({
   name,
   id,
   image,
@@ -229,7 +233,7 @@ BuyButton.propTypes = {
   image: propTypes.any,
   url: propTypes.string,
   description: propTypes.string,
-  children: propTypes.arrayOf(propTypes.element),
+  children: propTypes.any, // arrayOf(propTypes.element),
   varients: propTypes.array,
   value: propTypes.string,
 };
