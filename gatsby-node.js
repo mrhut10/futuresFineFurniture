@@ -35,6 +35,13 @@ exports.onCreateNode = ({ node, actions }) => {
       });
     } else if (node.fileAbsolutePath.includes('collections/product/')) {
       // if a product
+      actions.createNodeField({
+        node,
+        name: 'slug',
+        value: `/category/${node.frontmatter.Category}/${slugify(
+          node.frontmatter.title
+        )}`,
+      });
       actions.createNodeField({ node, name: 'type', value: `product` });
       actions.createNodeField({
         node,
@@ -45,6 +52,11 @@ exports.onCreateNode = ({ node, actions }) => {
         node,
         name: 'category',
         value: node.frontmatter.Category,
+      });
+      actions.createNodeField({
+        node,
+        name: 'range',
+        value: node.frontmatter.range,
       });
     }
   } else if (node.internal.type === 'gatsby-source-filesystem') {
@@ -82,6 +94,7 @@ const querys = {
           }
           frontmatter {
             title
+            range
           }
         }
       }
@@ -93,6 +106,9 @@ const querys = {
     allMarkdownRemark(filter: {fields: {type: {eq: "product"}}}) {
       edges {
         node {
+          fields {
+            slug
+          }
           frontmatter {
             title
             Category
@@ -159,12 +175,11 @@ exports.createPages = ({ graphql, actions }) => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       // create main page from category
       createPage({
-        path: `/category/${node.frontmatter.Category}/${slugify(
-          node.frontmatter.title
-        )}`,
+        path: node.fields.slug,
         component: path.resolve(`./src/templates/productRoute.js`),
         context: {
           productName: slugify(node.frontmatter.title),
+          range: node.frontmatter.range,
           images: nodeToImageList(node),
         },
       });
