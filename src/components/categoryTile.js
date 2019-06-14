@@ -41,7 +41,7 @@ CategoryTitle.propTypes = {
   images: PropTypes.string,
   comingSoon: PropTypes.bool,
   height: PropTypes.number,
-  Children: PropTypes.arrayOf(PropTypes.element),
+  Children: PropTypes.any,
 };
 /*
 
