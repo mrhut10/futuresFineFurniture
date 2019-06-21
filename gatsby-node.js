@@ -193,17 +193,12 @@ exports.createPages = ({ graphql, actions }) => {
   const productPages = queryProduct.then(queryToProductPages);
   const writesnipcartJSON = new Promise((resolve, reject) => {
     queryProduct.then(result => {
-      if (process.env.NODE_ENV === 'develop') {
+      const snipcartObject = snipcartJSON.snipcartJson(result);
+      const JSONObject = JSON.stringify(snipcartObject);
+      if (process.env.NODE_ENV === 'development') {
+        console.log('snipcart.json not created as in development');
         resolve();
       } else {
-        const snipcartObject = snipcartJSON.snipcartJson(result);
-        const JSONObject = JSON.stringify(snipcartObject);
-        if (fs.existsSync('./static/snipcart.json')) {
-          fs.unlinkSync('./static/snipcart.json');
-        }
-        /* if (fs.existsSync('./public/snipcart.json')) {
-          fs.unlinkSync('./public/snipcart.json');
-        } */
         fs.writeFile('./static/snipcart.json', JSONObject, er =>
           er ? reject(er) : resolve(er)
         );
