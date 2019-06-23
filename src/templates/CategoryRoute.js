@@ -1,15 +1,12 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import propTypes from 'prop-types';
+import * as R from 'ramda';
 import Layout from '../components/layout';
 import Wrapper from '../components/wrapper';
-import CategoryTitle from '../components/categoryTile';
 import ComingSoon from '../components/ComingSoon';
 import SEO from '../components/seo';
-import BuyButton from '../components/snipcart';
-import { intToPriceFormat } from '../helpers/index';
-
-const R = require('ramda');
+import { ProductTile } from '../components/ProductTile';
 
 const GetSourceImages = R.compose(
   R.lift(input => ({
@@ -73,53 +70,13 @@ const CategoryRoute = ({ data, pageContext }) => {
                 }))
                 .sort((a, b) => a.minPriceCents - b.minPriceCents)
                 .sort((a, b) => String(a.range).localeCompare(String(b.range)))
-                .map(input => (
-                  <CategoryTitle
-                    key={input.title}
-                    name={input.title}
-                    slug={input.slug}
-                    images={input.images}
-                    Children={R.compose(input2 =>
-                      input2 ? (
-                        <>
-                          {R.compose(
-                            R.ifElse(
-                              R.isNil,
-                              () => <span />,
-                              R.compose(
-                                MinPrice => (
-                                  <div className="flex font-semibold items-baseline justify-between mt-auto mx-auto p-4">
-                                    <small>from {MinPrice}</small>
-                                    <BuyButton
-                                      name={R.prop('title')(input)}
-                                      id={R.prop('title')(input)}
-                                      url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
-                                      price={R.compose(
-                                        R.prop('price'),
-                                        R.head,
-                                        R.prop('variants')
-                                      )(input2)}
-                                      varients={R.prop('variants')(input)}
-                                      value={R.compose(
-                                        R.prop('varientName'),
-                                        minPricedVarient,
-                                        R.prop('variants')
-                                      )(input2)}
-                                    >
-                                      Add&nbsp;to&nbsp;Cart
-                                    </BuyButton>
-                                  </div>
-                                ),
-                                intToPriceFormat,
-                                removeDiscount
-                              )
-                            ),
-                            minPricedVarient,
-                            R.prop('variants')
-                          )(input2)}
-                        </>
-                      ) : null
-                    )(input)}
+                .map(product => (
+                  <ProductTile
+                    name={product.title}
+                    images={product.images}
+                    varients={product.variants}
+                    varientLock={false}
+                    slug={product.slug}
                   />
                 ))
             ) : (
