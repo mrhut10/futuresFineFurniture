@@ -6,7 +6,6 @@ const priceFormat = new Intl.NumberFormat('en-AU', {
   useGrouping: true,
 });
 
-
 const [head, tail] = [
   a => a.find(() => true),
   a => a.reverse().find(() => true),
