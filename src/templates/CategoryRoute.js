@@ -1,12 +1,12 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import propTypes from 'prop-types';
+import * as R from 'ramda';
 import Layout from '../components/layout';
 import Wrapper from '../components/wrapper';
 import ComingSoon from '../components/ComingSoon';
 import SEO from '../components/seo';
 import { ProductTile } from '../components/ProductTile';
-const R = require('ramda');
 
 const GetSourceImages = R.compose(
   R.lift(input => ({
