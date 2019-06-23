@@ -72,6 +72,7 @@ const CategoryRoute = ({ data, pageContext }) => {
                 .sort((a, b) => String(a.range).localeCompare(String(b.range)))
                 .map(product => (
                   <ProductTile
+                    key={product.title}
                     name={product.title}
                     images={product.images}
                     varients={product.variants}

@@ -27,6 +27,7 @@ export const ProductTile = ({ name, images, varients, varientLock, slug }) => {
                 from {intToPriceFormat(removeDiscount(minPricedVarient))}
               </small>
               <BuyButton
+                key={name}
                 name={name}
                 id={name}
                 url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
@@ -51,8 +52,8 @@ export const ProductVarient = ({ varientName, price, discount }) =>
 
 ProductTile.propTypes = {
   name: propTypes.string,
-  images: propTypes.arrayOf(propTypes.string),
+  images: propTypes.any,
   varients: propTypes.arrayOf(propTypes.object),
-  varientLock: propTypes.string,
+  varientLock: propTypes.any,
   slug: propTypes.string,
 };
