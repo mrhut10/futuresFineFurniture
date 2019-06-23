@@ -4,7 +4,7 @@ import { intToPriceFormat } from '../helpers/index';
 import { BuyButton } from './snipcart';
 import CategoryTitle from './categoryTile';
 
-export const ProductTile = ({ name, images, varients, varientLock }) => {
+export const ProductTile = ({ name, images, varients, varientLock, slug }) => {
   const removeDiscount = item =>
     item.price - (item.discount && item.discount > 0 ? item.discount : 0);
   const minPricedVarient = varients
@@ -18,6 +18,7 @@ export const ProductTile = ({ name, images, varients, varientLock }) => {
       hoverText={name}
       key={name + (varientLock ? `/${varientLock}` : '')}
       images={images}
+      slug={slug}
       Children={
         <div className="flex font-semibold items-baseline justify-between mt-auto mx-auto p-4">
           <small>
@@ -35,9 +36,7 @@ export const ProductTile = ({ name, images, varients, varientLock }) => {
           </BuyButton>
         </div>
       }
-    >
-      
-    </CategoryTitle>
+    />
   );
 };
 
@@ -49,4 +48,5 @@ ProductTile.propTypes = {
   images: propTypes.arrayOf(propTypes.string),
   varients: propTypes.arrayOf(propTypes.object),
   varientLock: propTypes.string,
+  slug: propTypes.string,
 };

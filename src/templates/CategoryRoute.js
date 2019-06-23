@@ -76,6 +76,7 @@ const CategoryRoute = ({ data, pageContext }) => {
                     images={product.images}
                     varients={product.variants}
                     varientLock={false}
+                    slug={product.slug}
                   />
                 ))
             ) : (
