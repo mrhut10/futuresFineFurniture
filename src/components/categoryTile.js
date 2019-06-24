@@ -3,8 +3,14 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import ComingSoon from './ComingSoon';
 
-const ImageComponent = (input, maxheight = '350px') =>
-  input ? <img style={{ maxheight }} alt="product" src={input} /> : null;
+const ImageComponent = (image, maxheight = '350px') => (
+  <img
+    style={{ maxheight }}
+    alt="product"
+    src={image.src}
+    srcSet={image.srcSet}
+  />
+);
 
 const CategoryTitle = ({
   Children,
@@ -26,7 +32,7 @@ const CategoryTitle = ({
         <ComingSoon />
       ) : (
         <Link className="m-auto p-4" to={slug || '/'} title={hoverText}>
-          {ImageComponent(images, `calc(${height}-30px)`)}
+          {ImageComponent(images[0], `calc(${height}-30px)`)}
         </Link>
       )}
       <div>{Children}</div>
@@ -38,20 +44,10 @@ CategoryTitle.propTypes = {
   name: PropTypes.string,
   hoverText: PropTypes.string,
   slug: PropTypes.string,
-  images: PropTypes.string,
+  images: PropTypes.arrayOf(PropTypes.object),
   comingSoon: PropTypes.bool,
   height: PropTypes.number,
   Children: PropTypes.any,
 };
-/*
 
-Children,
-  name,
-  hoverText,
-  slug,
-  images,
-  comingSoon,
-  height = 350,
-  width = 250,\
-  */
 export default CategoryTitle;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import PropTypes from 'prop-types';
 import CategoryTitle from './categoryTile';
 
 const R = require('ramda');
@@ -10,7 +9,8 @@ const CategoryCounts = R.compose(R.pathOr([], ['proCount', 'group']));
 const GetSourceImages = R.compose(
   R.map(input => ({
     relativePath: R.pathOr('', ['node', 'relativePath'])(input),
-    source: R.pathOr('', ['node', 'childImageSharp', 'fluid', 'src'])(input),
+    src: R.pathOr('', ['node', 'childImageSharp', 'fluid', 'src'])(input),
+    srcSet: R.pathOr('', ['node', 'childImageSharp', 'fluid', 'srcSet'])(input),
   })),
   R.pathOr([], ['allFile', 'edges'])
 );
@@ -22,7 +22,7 @@ const findImage = R.compose(
   R.prop('images')
 );
 
-const Categories = ({ data }) => (
+const Categories = () => (
   <StaticQuery
     query={graphql`
       {
@@ -58,6 +58,7 @@ const Categories = ({ data }) => (
               childImageSharp {
                 fluid(maxWidth: 400) {
                   src
+                  srcSet
                 }
               }
             }
@@ -75,11 +76,12 @@ const Categories = ({ data }) => (
                 name={input.title}
                 slug={input.slug}
                 hoverText={input.excerpt}
-                images={R.compose(
-                  R.prop('source'),
-                  R.find(R.propEq('relativePath', findImage(input))),
-                  GetSourceImages
-                )(queryData)}
+                images={[
+                  R.compose(
+                    R.find(R.propEq('relativePath', findImage(input))),
+                    GetSourceImages
+                  )(queryData),
+                ]}
                 comingSoon={!(input.count && input.count > 0)}
                 height={300}
               />
@@ -119,8 +121,6 @@ const Categories = ({ data }) => (
   />
 );
 
-Categories.propTypes = {
-  data: PropTypes.any,
-};
+Categories.propTypes = {};
 
 export default Categories;
