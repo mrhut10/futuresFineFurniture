@@ -89,7 +89,7 @@ export const ProductTile = ({
                   </BuyButton>
                 </div>
               ) : (
-                <>see details</>
+                <>see more details</>
               )
             }
           />
