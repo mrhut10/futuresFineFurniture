@@ -8,25 +8,9 @@ import ComingSoon from '../components/ComingSoon';
 import SEO from '../components/seo';
 import { ProductTile } from '../components/ProductTile';
 
-const GetSourceImages = R.compose(
-  R.lift(input => ({
-    relativePath: R.pathOr('', ['node', 'relativePath'])(input),
-    source: R.pathOr('', ['node', 'childImageSharp', 'fluid', 'src'])(input),
-  })),
-  R.pathOr([], ['allFile', 'edges'])
-);
-
-const findImage = R.compose(
-  R.last,
-  R.split('/'),
-  input => String(input),
-  R.pathOr('', ['frontmatter', 'images'])
-);
-
 const CategoryRoute = ({ data, pageContext }) => {
   const post = data.cat;
   const { products } = data;
-  const sourceImages = GetSourceImages(data);
   const removeDiscount = item =>
     item.price - (item.discount && item.discount > 0 ? item.discount : 0);
 
@@ -50,15 +34,7 @@ const CategoryRoute = ({ data, pageContext }) => {
               products.edges
                 .map(({ node }) => ({
                   title: node.frontmatter.title,
-                  images: R.compose(
-                    R.pathOr('', ['source']),
-                    R.find(
-                      R.compose(
-                        R.equals(findImage(node)),
-                        R.pathOr('', ['relativePath'])
-                      )
-                    )
-                  )(sourceImages),
+                  images: R.pathOr('', ['frontmatter', 'images'])(node),
                   slug: `${pageContext.slug}/${node.fields.productName}`,
                   minPriceCents: R.compose(
                     R.prop('price'),
@@ -74,7 +50,7 @@ const CategoryRoute = ({ data, pageContext }) => {
                   <ProductTile
                     key={product.title}
                     name={product.title}
-                    images={product.images}
+                    ProductImages={product.images}
                     varients={product.variants}
                     varientLock={false}
                     slug={product.slug}
