@@ -73,7 +73,7 @@ const CategoryRoute = ({ data, pageContext }) => {
                 .map(product => (
                   <ProductTile
                     name={product.title}
-                    images={product.images}
+                    ProductImageName={product.images}
                     varients={product.variants}
                     varientLock={false}
                     slug={product.slug}
