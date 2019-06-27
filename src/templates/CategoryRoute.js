@@ -29,31 +29,27 @@ const CategoryRoute = ({ data, pageContext }) => {
         <div>
           <h1>{post.frontmatter.title}</h1>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
-          <div className="flex flex-wrap w-full">
-            {products ? (
-              <BulkProducts
-                products={products.edges
-                  .map(({ node }) => ({
-                    name: node.frontmatter.title,
-                    images: R.pathOr('', ['frontmatter', 'images'])(node),
-                    slug: `${pageContext.slug}/${node.fields.productName}`,
-                    variants: R.pathOr([], ['frontmatter', 'variants'])(node),
-                    minPriceCents: R.compose(
-                      R.prop('price'),
-                      minPricedVarient,
-                      R.pathOr([], ['frontmatter', 'variants'])
-                    )(node),
-                    range: R.pathOr([], ['frontmatter', 'range'])(node),
-                  }))
-                  .sort((a, b) => a.minPriceCents - b.minPriceCents)
-                  .sort((a, b) =>
-                    String(a.range).localeCompare(String(b.range))
-                  )}
-              />
-            ) : (
-              <ComingSoon />
-            )}
-          </div>
+          {products ? (
+            <BulkProducts
+              products={products.edges
+                .map(({ node }) => ({
+                  name: node.frontmatter.title,
+                  images: R.pathOr('', ['frontmatter', 'images'])(node),
+                  slug: `${pageContext.slug}/${node.fields.productName}`,
+                  variants: R.pathOr([], ['frontmatter', 'variants'])(node),
+                  minPriceCents: R.compose(
+                    R.prop('price'),
+                    minPricedVarient,
+                    R.pathOr([], ['frontmatter', 'variants'])
+                  )(node),
+                  range: R.pathOr([], ['frontmatter', 'range'])(node),
+                }))
+                .sort((a, b) => a.minPriceCents - b.minPriceCents)
+                .sort((a, b) => String(a.range).localeCompare(String(b.range)))}
+            />
+          ) : (
+            <ComingSoon />
+          )}
         </div>
       </Wrapper>
     </Layout>

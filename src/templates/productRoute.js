@@ -6,6 +6,7 @@ import Layout from '../components/layout';
 import Wrapper from '../components/wrapper';
 import { BuyArea } from '../components/snipcart';
 import SEO from '../components/seo';
+import { BulkProducts } from '../components/BulkProducts';
 
 const details = R.compose(
   dangHtml => (
@@ -92,7 +93,27 @@ const productRoute = ({ data }) => {
         </div>
       </Wrapper>
       <div id="relatedProducts">
-        
+        {
+          <BulkProducts
+            heading={"More Products From Range"}
+            products={data.allMarkdownRemark.edges
+              .map(({ node }) => {
+                const output = {
+                  name: node.frontmatter.title,
+                  images: node.frontmatter.images,
+                  slug: node.fields.slug,
+                  range: node.frontmatter.range,
+                  variants: node.frontmatter.variants,
+                };
+                return output;
+              })
+              .filter(
+                product =>
+                  product.range === data.markdownRemark.frontmatter.range &&
+                  product.name !== data.markdownRemark.frontmatter.title
+              )}
+          />
+        }
       </div>
     </Layout>
   );
@@ -100,48 +121,62 @@ const productRoute = ({ data }) => {
 
 // markdownRemark(frontmatter: {title: {eq: $slug}}) {
 export const query = graphql`
-  query($productName: String!, $images: [String]) {
-    allFile(
-      filter: {
-        relativePath: { in: $images }
-        sourceInstanceName: { eq: "contentImages" }
-      }
-    ) {
-      edges {
-        node {
-          childImageSharp {
-            fluid(maxWidth: 400) {
-              src
-            }
+query ($productName: String!, $images: [String]) {
+  allFile(filter: {relativePath: {in: $images}, sourceInstanceName: {eq: "contentImages"}}) {
+    edges {
+      node {
+        childImageSharp {
+          fluid(maxWidth: 400) {
+            src
           }
         }
       }
     }
-    markdownRemark(
-      fields: { type: { eq: "product" }, productName: { eq: $productName } }
-    ) {
-      html
-      frontmatter {
-        title
-        enabled
-        Category
-        range
-        variants {
-          price
-          varientName
-          discount
-          qty
-        }
+  }
+  markdownRemark(fields: {type: {eq: "product"}, productName: {eq: $productName}}) {
+    html
+    frontmatter {
+      title
+      enabled
+      Category
+      range
+      variants {
+        price
+        varientName
+        discount
+        qty
       }
-      fields {
-        type
-        slug
-        catName
-        productName
-        category
+    }
+    fields {
+      type
+      slug
+      catName
+      productName
+      category
+    }
+  }
+  allMarkdownRemark(filter: {fields: {type: {eq: "product"}}}) {
+    edges {
+      node {
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          images
+          enabled
+          Category
+          range
+          variants {
+            varientName
+            price
+            discount
+          }
+        }
       }
     }
   }
+}
 `;
 
 productRoute.propTypes = {
