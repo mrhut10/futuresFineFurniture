@@ -24,9 +24,13 @@ export const ProductTile = ({
 }) => {
   const removeDiscount = item =>
     item.price - (item.discount && item.discount > 0 ? item.discount : 0);
-  const minPricedVarient = varients
-    .filter(({ price }) => price && price > 0)
-    .sort((a, b) => removeDiscount(a) - removeDiscount(b))[0];
+  const selectedVarient =
+    varientLock && varients.find(vari => vari.varientName === varientLock)
+      ? varients.find(vari => vari.varientName === varientLock)
+      : // min priced varient
+        varients
+          .filter(({ price }) => price && price > 0)
+          .sort((a, b) => removeDiscount(a) - removeDiscount(b))[0];
 
   const GetFileName = R.compose(
     R.last,
@@ -72,10 +76,10 @@ export const ProductTile = ({
             images={MapImageFileNamesToSourceSet}
             slug={slug}
             Children={
-              minPricedVarient ? (
+              selectedVarient ? (
                 <div className="flex font-semibold items-baseline justify-between mt-auto mx-auto p-4">
                   <small>
-                    from {intToPriceFormat(removeDiscount(minPricedVarient))}
+                    from {intToPriceFormat(removeDiscount(selectedVarient))}
                   </small>
                   <BuyButton
                     name={name}
@@ -83,7 +87,7 @@ export const ProductTile = ({
                     url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
                     price={varients[0].price}
                     varients={varients}
-                    value={minPricedVarient.varientName}
+                    value={selectedVarient.varientName}
                   >
                     Add&nbsp;to&nbsp;Cart
                   </BuyButton>
@@ -103,9 +107,15 @@ export const ProductVarient = ({ varientName, price, discount }) =>
   Object({ varientName, price, discount });
 
 ProductTile.propTypes = {
-  name: propTypes.string,
-  ProductImages: propTypes.arrayOf(propTypes.object),
-  varients: propTypes.arrayOf(propTypes.object),
-  varientLock: propTypes.any,
-  slug: propTypes.string,
+  name: propTypes.string.isRequired,
+  ProductImages: propTypes.arrayOf(propTypes.string),
+  varients: propTypes.arrayOf(
+    propTypes.shape({
+      varientName: propTypes.string,
+      price: propTypes.number,
+      discount: propTypes.number,
+    })
+  ).isRequired,
+  varientLock: propTypes.string,
+  slug: propTypes.string.isRequired,
 };

@@ -6,7 +6,7 @@ import Layout from '../components/layout';
 import Wrapper from '../components/wrapper';
 import ComingSoon from '../components/ComingSoon';
 import SEO from '../components/seo';
-import { ProductTile } from '../components/ProductTile';
+import { BulkProducts } from '../components/BulkProducts';
 
 const CategoryRoute = ({ data, pageContext }) => {
   const post = data.cat;
@@ -31,31 +31,25 @@ const CategoryRoute = ({ data, pageContext }) => {
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
           <div className="flex flex-wrap w-full">
             {products ? (
-              products.edges
-                .map(({ node }) => ({
-                  title: node.frontmatter.title,
-                  images: R.pathOr('', ['frontmatter', 'images'])(node),
-                  slug: `${pageContext.slug}/${node.fields.productName}`,
-                  minPriceCents: R.compose(
-                    R.prop('price'),
-                    minPricedVarient,
-                    R.pathOr([], ['frontmatter', 'variants'])
-                  )(node),
-                  range: R.pathOr([], ['frontmatter', 'range'])(node),
-                  variants: R.pathOr([], ['frontmatter', 'variants'])(node),
-                }))
-                .sort((a, b) => a.minPriceCents - b.minPriceCents)
-                .sort((a, b) => String(a.range).localeCompare(String(b.range)))
-                .map(product => (
-                  <ProductTile
-                    key={product.title}
-                    name={product.title}
-                    ProductImages={product.images}
-                    varients={product.variants}
-                    varientLock={false}
-                    slug={product.slug}
-                  />
-                ))
+              <BulkProducts
+                products={products.edges
+                  .map(({ node }) => ({
+                    name: node.frontmatter.title,
+                    images: R.pathOr('', ['frontmatter', 'images'])(node),
+                    slug: `${pageContext.slug}/${node.fields.productName}`,
+                    variants: R.pathOr([], ['frontmatter', 'variants'])(node),
+                    minPriceCents: R.compose(
+                      R.prop('price'),
+                      minPricedVarient,
+                      R.pathOr([], ['frontmatter', 'variants'])
+                    )(node),
+                    range: R.pathOr([], ['frontmatter', 'range'])(node),
+                  }))
+                  .sort((a, b) => a.minPriceCents - b.minPriceCents)
+                  .sort((a, b) =>
+                    String(a.range).localeCompare(String(b.range))
+                  )}
+              />
             ) : (
               <ComingSoon />
             )}
