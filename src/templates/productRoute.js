@@ -66,9 +66,12 @@ const productRoute = ({ data }) => {
         )(data)}
       />
       <Wrapper>
-        <div className="text-center">
-          <h1>{title}</h1>
-          <h2>{RangeCatigoryString(range, Category)}</h2>
+        <div className="pt-8">
+          <div className="px-4">
+            <h1>{title}</h1>
+            <h3>{RangeCatigoryString(range, Category)}</h3>
+          </div>
+          <br />
           <div className="text-left m-4">
             <div className="md:float-left mb-4 md:pr-8 text-center w-full md:w-1/2">
               {R.compose(
@@ -92,10 +95,13 @@ const productRoute = ({ data }) => {
           </div>
         </div>
       </Wrapper>
-      <div id="relatedProducts">
+      <div
+        id="relatedProducts"
+        className="flex flex-col max-w-lg mx-auto p-4 w-full"
+      >
         {
           <BulkProducts
-            heading="More Products From Range"
+            heading="More products from this range"
             maxLimit={3}
             products={data.allMarkdownRemark.edges
               .map(({ node }) => {

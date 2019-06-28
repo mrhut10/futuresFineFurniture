@@ -3,8 +3,10 @@ import propTypes from 'prop-types';
 import { ProductTile } from './ProductTile';
 
 export const BulkProducts = ({ products, heading, maxLimit }) => (
-  <div>
-    {heading ? <h4>{heading}</h4> : null}
+  <>
+    <hr />
+    <br />
+    {heading ? <h2 className="px-2 w-full">{heading}</h2> : null}
     <div className="flex flex-wrap w-full">
       {// product { name, images, slug, minPriceCents, range, variants }
       products
@@ -25,7 +27,8 @@ export const BulkProducts = ({ products, heading, maxLimit }) => (
           );
         })}
     </div>
-  </div>
+    <br />
+  </>
 );
 
 BulkProducts.propTypes = {
