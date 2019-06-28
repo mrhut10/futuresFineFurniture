@@ -96,6 +96,7 @@ const productRoute = ({ data }) => {
         {
           <BulkProducts
             heading={"More Products From Range"}
+            maxLimit={3}
             products={data.allMarkdownRemark.edges
               .map(({ node }) => {
                 const output = {
@@ -104,6 +105,7 @@ const productRoute = ({ data }) => {
                   slug: node.fields.slug,
                   range: node.frontmatter.range,
                   variants: node.frontmatter.variants,
+                  Category: node.frontmatter.Category,
                 };
                 return output;
               })
@@ -111,7 +113,22 @@ const productRoute = ({ data }) => {
                 product =>
                   product.range === data.markdownRemark.frontmatter.range &&
                   product.name !== data.markdownRemark.frontmatter.title
-              )}
+              )
+              .sort((productA, productB) =>
+                // alpha by name
+                String(productA.name).localeCompare(String(productB.name)))
+              .sort((productA, productB) => {
+                // sort by weighted category
+                const weightedStringByCatigory = CatName =>
+                  CatName === data.markdownRemark.frontmatter.Category
+                    ? `_${CatName}` // this should make it sort first
+                    : CatName;
+                const [weightedA, weightedB] = [
+                  weightedStringByCatigory(productA.Category),
+                  weightedStringByCatigory(productB.Category),
+                ];
+                return weightedA.localeCompare(weightedB);
+              })}
           />
         }
       </div>
