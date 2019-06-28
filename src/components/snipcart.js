@@ -15,7 +15,7 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
   );
   return (
     <div className="flex flex-col">
-      <h6>{`${name}${GetProductValue ? ` (${GetProductValue}` : ''})`}</h6>
+      <h6>{`${name}${GetProductValue ? ` (${GetProductValue})` : ''}`}</h6>
       {varients.length > 1 ? (
         <div className="flex items-center justify-between mb-4">
           <label htmlFor="pickVar">
