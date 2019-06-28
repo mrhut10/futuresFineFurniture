@@ -7,9 +7,9 @@ images:
   - my opulence.png
 variants:
   - price: 139500
-    varientName: Queen
+    variantName: Queen
   - price: 149500
-    varientName: King
+    variantName: King
 ---
 The My Opulence features a 6 turn, 7 zone pocket spring unit. This model has a combination of 125mm premium foam, memory foam and premium natural latex comfort layers with a natural stretch knit cotton cover.
 

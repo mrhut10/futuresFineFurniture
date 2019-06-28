@@ -9,9 +9,9 @@ images:
   - "Paris_QS.jpg"
 variants:
   - price: 59500
-    varientName: Double
+    variantName: Double
   - price: 69500
-    varientName: Queen
+    variantName: Queen
 ---
 
 Paris Mattress, Knitted Fabric, with 7 zoned Pocket Springs, Memory Foam, Wave & Soft Foam layers.

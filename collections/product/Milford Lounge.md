@@ -6,10 +6,10 @@ range: Oxford
 images:
   - milford lounge.png
 variants:
-  - varientName: 4pce Lounge Setting
-  - varientName: 2 Seater 1 Arm Sofa
-  - varientName: Corner
-  - varientName: Square Coffee Table
+  - variantName: 4pce Lounge Setting
+  - variantName: 2 Seater 1 Arm Sofa
+  - variantName: Corner
+  - variantName: Square Coffee Table
 ---
 * Setting consists of a 3PC Modular Lounge and a square coffee table
 * Designed for outdoor use UV Stabilised wicker 3000 hours  - long life when directly exposed to the sun’s rays

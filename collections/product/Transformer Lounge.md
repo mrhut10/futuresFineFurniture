@@ -7,12 +7,12 @@ images:
   - transformer Lounges.png
 variants:
   - price: 89500
-    varientName: "1ER : Single Electric Recliner"
+    variantName: "1ER : Single Electric Recliner"
   - price: 199500
-    varientName: "3ERER : 3 Seater with Electric Recliner Ends"
+    variantName: "3ERER : 3 Seater with Electric Recliner Ends"
   - price: 349500
-    varientName: "3ERER + 2ERER + 1ER : Package Deal"
-    
+    variantName: "3ERER + 2ERER + 1ER : Package Deal"
+
 ---
 
 Touch and elegant Prime Suede Fabric

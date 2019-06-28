@@ -6,15 +6,15 @@ images:
   - /assets/savant dreamz.png
 variants:
   - price: 44900
-    varientName: Single
+    variantName: Single
   - price: 49500
-    varientName: King Single
+    variantName: King Single
   - price: 54900
-    varientName: Double
+    variantName: Double
   - price: 59500
-    varientName: Queen
+    variantName: Queen
   - price: 69500
-    varientName: King
+    variantName: King
 ---
 The Savant Dreamz features fire retardant stretch knit fabric with 83mm of premium comfort layers.  It utilizes a 6 turn Bonnell spring unit for excellent comfort and support at a reasonable cost.
 * 83mm Comfort Layers·Bonnell Spring Unit

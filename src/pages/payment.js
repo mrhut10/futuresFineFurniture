@@ -1,8 +1,8 @@
 import React from 'react';
 import { Card, Elevation } from '@blueprintjs/core';
 import PropTypes from 'prop-types';
-import Layout from '../components/layout';
-import Wrapper from '../components/wrapper';
+import Layout from '../components/Layout';
+import Wrapper from '../components/Wrapper';
 
 import afterpayLogo from '../images/afterpay/afterpay_AP-RGB-sm.svg';
 import afterpaySocial from '../images/afterpay/social-1080x1080-blue.png';
@@ -22,7 +22,7 @@ const PaymentCard = ({ children }) => (
 );
 
 PaymentCard.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.array,
 };
 
 const PaymentPage = () => (

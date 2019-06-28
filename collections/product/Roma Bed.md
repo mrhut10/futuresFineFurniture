@@ -7,9 +7,9 @@ images:
   - /assets/Roma Bed.png
 variants:
   - price: 124500
-    varientName: Queen Oak
+    variantName: Queen Oak
   - price: 124500
-    varientName: Queen Tesky
+    variantName: Queen Tesky
 
 ---
 * Solid and veneered Acacia timber

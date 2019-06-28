@@ -6,9 +6,9 @@ range: Oxford
 images:
   - oxford slat dining.png
 variants:
-  - varientName: 7PC Dining Suite
-  - varientName: Dining Table
-  - varientName: Slat Arm Chair
+  - variantName: 7PC Dining Suite
+  - variantName: Dining Table
+  - variantName: Slat Arm Chair
 ---
 * Setting consists of 164cm rectangular dining table & 6 slat dining arm chairs
 * Designed for outdoor use with low to no maintenance

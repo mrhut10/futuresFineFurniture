@@ -7,7 +7,7 @@ images:
   - /assets/jamaica bed.PNG
 variants:
   - price: 79500
-    varientName: Queen
+    variantName: Queen
 
 ---
 * 100% solid pine, rough sawn finish

@@ -7,11 +7,11 @@ images:
   - /assets/LeisureFlex-V2.jpg
 variants:
   - price: 249500
-    varientName: Long Single
+    variantName: Long Single
   - price: 269500
-    varientName: King Single
+    variantName: King Single
   - price: 299500
-    varientName: Queen
+    variantName: Queen
 ---
 
 The Leisure Flex V2 is designed for those who seek basic adjustability with a few extra luxuries. Featuring a wireless hand control and USB charging ports the Leisure Flex V2 helps make life that little bit simpler.

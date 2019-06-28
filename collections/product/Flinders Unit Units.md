@@ -8,8 +8,8 @@ updated: 2019-06-28
 images:
   - "finders TV unit.png"
 variants:
-  - varientName: "Small"
-  - varientName: "Big"
+  - variantName: "Small"
+  - variantName: "Big"
 
 ---
 Solid N.Z. Pine in Jarrah Colour.

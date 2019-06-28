@@ -7,9 +7,9 @@ images:
   - /assets/Dover Bed.png
 variants:
   - price: 119500
-    varientName: Queen
+    variantName: Queen
   - price: 129500
-    varientName: King
+    variantName: King
 ---
 Solid Drawer base with Metal Extension Runners
 Combination of Colours

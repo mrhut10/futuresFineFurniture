@@ -7,17 +7,17 @@ images:
   - /assets/ultimate base.PNG
 variants:
   - price: 23900
-    varientName: Single
+    variantName: Single
   - price: 25000
-    varientName: Long Single
+    variantName: Long Single
   - price: 27500
-    varientName: King Single
+    variantName: King Single
   - price: 29500
-    varientName: Double
+    variantName: Double
   - price: 32500
-    varientName: Queen
+    variantName: Queen
   - price: 50000
-    varientName: King - (2 x Long Single)
+    variantName: King - (2 x Long Single)
 ---
 Superior support system for all
 mattresses. Constructed using heavy duty powder coated steel, the 4mm mesh

@@ -9,11 +9,11 @@ images:
   - concept electric.png
 variants:
   - price: 389500
-    varientName: Black
+    variantName: Black
   - price: 389500
-    varientName: Brown
+    variantName: Brown
   - price: 389500
-    varientName: Taupe
+    variantName: Taupe
 
 ---
 

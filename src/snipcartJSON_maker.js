@@ -22,23 +22,23 @@ exports.snipcartJson = R.compose(
               R.gt(R.__, 1),
               R.length
             ),
-            allvarients => [
+            allvariants => [
               {
                 name: 'Option',
                 options: R.compose(
                   R.join('|'),
                   R.map(
                     vari =>
-                      `${vari.varientName}[${positive(
+                      `${vari.variantName}[${positive(
                         (vari.price -
                           (vari.discount || 0) -
-                          R.pathOr(0, ['0', 'price'])(allvarients)) /
+                          R.pathOr(0, ['0', 'price'])(allvariants)) /
                           100
                       )}]`
                   ),
                   R.filter(item => item.price && item.price > 0)
-                )(allvarients),
-                // allvarients.map().join('|'),
+                )(allvariants),
+                // allvariants.map().join('|'),
                 type: 'dropdown',
               },
             ],

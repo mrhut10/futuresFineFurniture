@@ -1,17 +1,18 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import { graphql } from 'gatsby';
 import * as R from 'ramda';
 import propTypes from 'prop-types';
-import Layout from '../components/layout';
-import Wrapper from '../components/wrapper';
-import { BuyArea } from '../components/snipcart';
-import SEO from '../components/seo';
+import Layout from '../components/Layout';
+import Wrapper from '../components/Wrapper';
+import { BuyArea } from '../components/Snipcart';
+import SEO from '../components/SEO';
 import { BulkProducts } from '../components/BulkProducts';
 
 const details = R.compose(
-  dangHtml => (
+  html => (
     <div>
-      <p dangerouslySetInnerHTML={{ __html: dangHtml }} />
+      <p dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   ),
   R.pathOr('', ['markdownRemark', 'html'])
@@ -29,12 +30,12 @@ const images = R.compose(
 
 // const getSafePath = (p, o) => p.reduce((xs, x) => (xs && xs[x]) ? xs[x] : null, o)
 
-const RangeCatigoryString = (range, catigory) => {
+const RangeCategoryString = (range, category) => {
   let output;
-  if (range && catigory)
-    output = `From the ${catigory} Collection and the ${range} range`;
-  else if (range) output = `From the ${catigory} Collection`;
-  else if (catigory) output = `From the ${range} range`;
+  if (range && category)
+    output = `From the ${category} Collection and the ${range} range`;
+  else if (range) output = `From the ${category} Collection`;
+  else if (category) output = `From the ${range} range`;
   return output;
 };
 
@@ -55,7 +56,7 @@ const productRoute = ({ data }) => {
           Category,
           'furniture',
           range,
-          ...R.map(R.prop('varientName'))(variants),
+          ...R.map(R.prop('variantName'))(variants),
         ]}
         image={R.compose(
           input =>
@@ -69,7 +70,7 @@ const productRoute = ({ data }) => {
         <div className="pt-8">
           <div className="px-4">
             <h1>{title}</h1>
-            <h3>{RangeCatigoryString(range, Category)}</h3>
+            <h3>{RangeCategoryString(range, Category)}</h3>
           </div>
           <br />
           <div className="text-left m-4">
@@ -86,7 +87,7 @@ const productRoute = ({ data }) => {
                 image={undefined}
                 url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
                 description={undefined}
-                varients={variants}
+                variants={variants}
                 qty={qty}
               />
               <br />
@@ -126,13 +127,13 @@ const productRoute = ({ data }) => {
               )
               .sort((productA, productB) => {
                 // sort by weighted category
-                const weightedStringByCatigory = CatName =>
+                const weightedStringByCategory = CatName =>
                   CatName === data.markdownRemark.frontmatter.Category
                     ? `_${CatName}` // this should make it sort first
                     : CatName;
                 const [weightedA, weightedB] = [
-                  weightedStringByCatigory(productA.Category),
-                  weightedStringByCatigory(productB.Category),
+                  weightedStringByCategory(productA.Category),
+                  weightedStringByCategory(productB.Category),
                 ];
                 return weightedA.localeCompare(weightedB);
               })}
@@ -173,7 +174,7 @@ export const query = graphql`
         range
         variants {
           price
-          varientName
+          variantName
           discount
           qty
         }
@@ -199,7 +200,7 @@ export const query = graphql`
             Category
             range
             variants {
-              varientName
+              variantName
               price
               discount
             }

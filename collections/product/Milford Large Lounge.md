@@ -6,10 +6,10 @@ range: Oxford
 images:
   - milford large lounge.png
 variants:
-  - varientName: 4pce Lounge Setting
-  - varientName: 3 Seater
-  - varientName: Arm Chair
-  - varientName: Coffee Table
+  - variantName: 4pce Lounge Setting
+  - variantName: 3 Seater
+  - variantName: Arm Chair
+  - variantName: Coffee Table
 ---
 * Setting consists of a 3 Seater sofa, 2x Arm Chairs and a 100cm rec coffee table
 * Designed for outdoor use UV Stabilised wicker 3000 hours  - long life when directly exposed to the sun’s rays

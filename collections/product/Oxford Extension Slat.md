@@ -6,9 +6,9 @@ range: Oxford
 images:
   - oxford extension slat.png
 variants:
-  - varientName: 11PC Dining Suite
-  - varientName: Extension Dining Table
-  - varientName: Slat Arm Chairs
+  - variantName: 11PC Dining Suite
+  - variantName: Extension Dining Table
+  - variantName: Slat Arm Chairs
 ---
 * Setting consists of 220-346cm Extension dining table & 10 slat dining arm chairs
 * Designed for outdoor use with low to no maintenance

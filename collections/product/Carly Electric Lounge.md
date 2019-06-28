@@ -9,7 +9,7 @@ images:
   - carly electric package.png
 variants:
   - price: 349500
-    varientName: 3ERER+RER+ER  
+    variantName: 3ERER+RER+ER
 
 ---
 

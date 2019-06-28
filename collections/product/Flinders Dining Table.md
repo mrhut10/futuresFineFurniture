@@ -8,8 +8,8 @@ updated: 2019-06-28
 images:
   - "Flinders Dining.png"
 variants:
-  - varientName: "7 Pce"
-  - varientName: "9 Pce"
+  - variantName: "7 Pce"
+  - variantName: "9 Pce"
 ---
 Solid N.Z. Pine in Jarrah Colour.
 

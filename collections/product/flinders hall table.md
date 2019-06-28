@@ -8,7 +8,7 @@ updated: 2019-06-28
 images:
   - "flinders hall table.png"
 variants:
-  - varientName: "Hall Table"
+  - variantName: "Hall Table"
 ---
 Solid N.Z. Pine in Jarrah Colour.
 

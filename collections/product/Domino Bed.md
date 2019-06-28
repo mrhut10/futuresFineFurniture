@@ -7,9 +7,9 @@ images:
   - /assets/Domino bed.PNG
 variants:
   - price: 46500
-    varientName: Double
+    variantName: Double
   - price: 49500
-    varientName: Queen
+    variantName: Queen
 ---
 versatile and modern design
 Premium Quality Polyester fabric from Malaysia

@@ -7,10 +7,10 @@ images:
   - /assets/sanava bed.jpg
 variants:
   - price: 64900
-    varientName: Double
+    variantName: Double
   - price: 69500
-    varientName: Queen 
+    variantName: Queen
   - price: 74900
-    varientName: King 
+    variantName: King
 ---
 Solid Acacia Timber in Drift wood finish

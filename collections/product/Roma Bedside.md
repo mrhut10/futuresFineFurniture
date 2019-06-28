@@ -7,9 +7,9 @@ images:
   - /assets/roma bedside.png
 variants:
   - price: 44500
-    varientName: Oak
+    variantName: Oak
   - price: 44500
-    varientName: Tesky    
+    variantName: Tesky
 ---
 2 draws
 * Solid and veneered Acacia timber

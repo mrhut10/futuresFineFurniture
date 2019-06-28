@@ -3,8 +3,8 @@ import { StaticQuery, graphql } from 'gatsby';
 import propTypes from 'prop-types';
 import * as R from 'ramda';
 import { intToPriceFormat } from '../helpers/index';
-import { BuyButton } from './snipcart';
-import CategoryTitle from './categoryTile';
+import { BuyButton } from './Snipcart';
+import CategoryTitle from './CategoryTile';
 
 const GetSourceImages = R.compose(
   R.lift(input => ({
@@ -18,17 +18,17 @@ const GetSourceImages = R.compose(
 export const ProductTile = ({
   name,
   ProductImages,
-  varients,
-  varientLock,
+  variants,
+  variantLock,
   slug,
 }) => {
   const removeDiscount = item =>
     item.price - (item.discount && item.discount > 0 ? item.discount : 0);
-  const selectedVarient =
-    varientLock && varients.find(vari => vari.varientName === varientLock)
-      ? varients.find(vari => vari.varientName === varientLock)
-      : // min priced varient
-        varients
+  const selectedVariant =
+    variantLock && variants.find(vari => vari.variantName === variantLock)
+      ? variants.find(vari => vari.variantName === variantLock)
+      : // min priced variant
+        variants
           .filter(({ price }) => price && price > 0)
           .sort((a, b) => removeDiscount(a) - removeDiscount(b))[0];
 
@@ -70,24 +70,24 @@ export const ProductTile = ({
 
         return (
           <CategoryTitle
-            name={name + (varientLock ? ` / ${varientLock}` : '')}
+            name={name + (variantLock ? ` / ${variantLock}` : '')}
             hoverText={name}
-            key={name + (varientLock ? `/${varientLock}` : '')}
+            key={name + (variantLock ? `/${variantLock}` : '')}
             images={MapImageFileNamesToSourceSet}
             slug={slug}
             Children={
-              selectedVarient ? (
+              selectedVariant ? (
                 <div className="flex font-semibold items-baseline justify-between mt-auto mx-auto p-4">
                   <small>
-                    from {intToPriceFormat(removeDiscount(selectedVarient))}
+                    from {intToPriceFormat(removeDiscount(selectedVariant))}
                   </small>
                   <BuyButton
                     name={name}
                     id={name}
                     url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
-                    price={varients[0].price}
-                    varients={varients}
-                    value={selectedVarient.varientName}
+                    price={variants[0].price}
+                    variants={variants}
+                    value={selectedVariant.variantName}
                   >
                     Add&nbsp;to&nbsp;Cart
                   </BuyButton>
@@ -103,19 +103,19 @@ export const ProductTile = ({
   );
 };
 
-export const ProductVarient = ({ varientName, price, discount }) =>
-  Object({ varientName, price, discount });
+export const ProductVariant = ({ variantName, price, discount }) =>
+  Object({ variantName, price, discount });
 
 ProductTile.propTypes = {
   name: propTypes.string.isRequired,
   ProductImages: propTypes.arrayOf(propTypes.string),
-  varients: propTypes.arrayOf(
+  variants: propTypes.arrayOf(
     propTypes.shape({
-      varientName: propTypes.string,
+      variantName: propTypes.string,
       price: propTypes.number,
       discount: propTypes.number,
     })
   ).isRequired,
-  varientLock: propTypes.string,
+  variantLock: propTypes.string,
   slug: propTypes.string.isRequired,
 };

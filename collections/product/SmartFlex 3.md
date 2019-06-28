@@ -7,9 +7,9 @@ images:
   - /assets/SmartFlex3.png
 variants:
   - price: 335000
-    varientName: Long Single
+    variantName: Long Single
   - price: 349500
-    varientName: King Single
+    variantName: King Single
 ---
 
 The Smartflex 3 combines Luxury with Mobility, featuring a wireless hand control, preset positions, vibration massage and Hi-Lo lift functionality. the SmartFlex 3 helps to create a sleep position that promotes perfect rest and healthy living.

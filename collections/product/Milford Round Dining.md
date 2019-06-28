@@ -6,11 +6,11 @@ range: Oxford
 images:
   - MILFORD Round DINING.png
 variants:
-  - varientName: 3Pc Kit
-  - varientName: 5pc Kit
-  - varientName: 60cm Round Chat Table
-  - varientName: 110cm Round Chat Table
-  - varientName: Dining Arm Chair w/Cushion
+  - variantName: 3Pc Kit
+  - variantName: 5pc Kit
+  - variantName: 60cm Round Chat Table
+  - variantName: 110cm Round Chat Table
+  - variantName: Dining Arm Chair w/Cushion
 ---
 * 3PC Setting consists of a 60cm Round Table and 2 x Dining Arm Chairs
 * 5PC Setting consists of a 110cm Round Table and 4 x Dining Arm Chairs

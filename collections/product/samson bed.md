@@ -7,14 +7,14 @@ images:
   - /assets/samson bed.png
 variants:
   - price: 32000
-    varientName: Single
+    variantName: Single
   - price: 36500
-    varientName: King Single
+    variantName: King Single
   - price: 39500
-    varientName: Double
+    variantName: Double
   - price: 42900
-    varientName: Queen 
+    variantName: Queen
   - price: 44900
-    varientName: King 
+    variantName: King
 ---
 Solid N.Z. Pine in Blackwood finish

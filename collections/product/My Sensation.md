@@ -7,9 +7,9 @@ images:
   - my sensation.png
 variants:
   - price: 124900
-    varientName: Queen
+    variantName: Queen
   - price: 134900
-    varientName: King
+    variantName: King
 ---
 The My Sensation features a 6 turn, 7 zone pocket spring unit. This model has a combination of 115mm premium foam and premium natural latex comfort layers with a natural stretch knit cotton cover.
 

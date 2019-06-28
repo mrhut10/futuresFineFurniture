@@ -7,11 +7,11 @@ images:
   - manhattan double.jpg
 variants:
   - price: 129500
-    varientName: Black
+    variantName: Black
   - price: 129500
-    varientName: Mist
+    variantName: Mist
   - price: 129500
-    varientName: Brown
+    variantName: Brown
 ---
 * 2 seater with Recliner Ends
 * Timeless Design

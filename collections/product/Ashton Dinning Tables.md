@@ -7,11 +7,11 @@ images:
   - /assets/ashton dinning set.png
 variants:
   - price: 189500
-    varientName: 6 Piece Dinning Set
+    variantName: 6 Piece Dinning Set
   - price: 209500
-    varientName: 9 Piece Dinning Set
+    variantName: 9 Piece Dinning Set
   - price: 27500
-    varientName: Extra Chair
+    variantName: Extra Chair
 ---
 
 * Chunky look with a Contemporary Style

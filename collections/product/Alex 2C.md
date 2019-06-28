@@ -7,15 +7,15 @@ images:
   - /assets/alex lounge 2C.PNG
 variants:
   - price: 69500
-    varientName: Cyan
+    variantName: Cyan
   - price: 69500
-    varientName: Chacroal
+    variantName: Chacroal
   - price: 69500
-    varientName: Khaki
+    variantName: Khaki
   - price: 69500
-    varientName: Red
+    variantName: Red
   - price: 69500
-    varientName: Orange
+    variantName: Orange
 ---
 
 very popular range comfortable with linin Material available in 5 colours

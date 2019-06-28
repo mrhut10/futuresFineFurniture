@@ -6,9 +6,9 @@ range: Oxford
 images:
   - oxford 11pce outdoor dining.png
 variants:
-  - varientName: 11PC Dining Suite
-  - varientName: Extension Dining Table
-  - varientName: Sling Arm Chairs
+  - variantName: 11PC Dining Suite
+  - variantName: Extension Dining Table
+  - variantName: Sling Arm Chairs
 ---
 * Setting consists of 220-346cm Extension dining table & 10 sling dining arm chairs
 * Designed for outdoor use with low to no maintenance
