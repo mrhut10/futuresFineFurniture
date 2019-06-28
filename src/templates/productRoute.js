@@ -95,7 +95,7 @@ const productRoute = ({ data }) => {
       <div id="relatedProducts">
         {
           <BulkProducts
-            heading={"More Products From Range"}
+            heading="More Products From Range"
             maxLimit={3}
             products={data.allMarkdownRemark.edges
               .map(({ node }) => {
@@ -116,7 +116,8 @@ const productRoute = ({ data }) => {
               )
               .sort((productA, productB) =>
                 // alpha by name
-                String(productA.name).localeCompare(String(productB.name)))
+                String(productA.name).localeCompare(String(productB.name))
+              )
               .sort((productA, productB) => {
                 // sort by weighted category
                 const weightedStringByCatigory = CatName =>
@@ -138,62 +139,69 @@ const productRoute = ({ data }) => {
 
 // markdownRemark(frontmatter: {title: {eq: $slug}}) {
 export const query = graphql`
-query ($productName: String!, $images: [String]) {
-  allFile(filter: {relativePath: {in: $images}, sourceInstanceName: {eq: "contentImages"}}) {
-    edges {
-      node {
-        childImageSharp {
-          fluid(maxWidth: 400) {
-            src
+  query($productName: String!, $images: [String]) {
+    allFile(
+      filter: {
+        relativePath: { in: $images }
+        sourceInstanceName: { eq: "contentImages" }
+      }
+    ) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 400) {
+              src
+            }
+          }
+        }
+      }
+    }
+    markdownRemark(
+      fields: { type: { eq: "product" }, productName: { eq: $productName } }
+    ) {
+      html
+      frontmatter {
+        title
+        enabled
+        Category
+        range
+        variants {
+          price
+          varientName
+          discount
+          qty
+        }
+      }
+      fields {
+        type
+        slug
+        catName
+        productName
+        category
+      }
+    }
+    allMarkdownRemark(filter: { fields: { type: { eq: "product" } } }) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            images
+            enabled
+            Category
+            range
+            variants {
+              varientName
+              price
+              discount
+            }
           }
         }
       }
     }
   }
-  markdownRemark(fields: {type: {eq: "product"}, productName: {eq: $productName}}) {
-    html
-    frontmatter {
-      title
-      enabled
-      Category
-      range
-      variants {
-        price
-        varientName
-        discount
-        qty
-      }
-    }
-    fields {
-      type
-      slug
-      catName
-      productName
-      category
-    }
-  }
-  allMarkdownRemark(filter: {fields: {type: {eq: "product"}}}) {
-    edges {
-      node {
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-          images
-          enabled
-          Category
-          range
-          variants {
-            varientName
-            price
-            discount
-          }
-        }
-      }
-    }
-  }
-}
 `;
 
 productRoute.propTypes = {
