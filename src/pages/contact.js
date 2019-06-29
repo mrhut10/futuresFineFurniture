@@ -12,8 +12,10 @@ const contactPage = ({ data }) => (
   <Layout>
     <SEO title="Contact" />
     <div className="flex flex-wrap">
-      <div className="p-4 w-full md:w-1/2">
-        <h1>Get In Touch</h1>
+      <div className="px-4 py-12 w-full md:w-1/2">
+        <h1 className="font-bold mb-4 text-2xl text-maroon-600">
+          Get In Touch
+        </h1>
         <p>
           we are always ready to meet and discuss how you can have quality
           furniture in your home for less.
