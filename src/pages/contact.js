@@ -6,9 +6,11 @@ import LazyLoad from 'react-lazyload';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 
 const contactPage = ({ data }) => (
   <Layout>
+    <SEO title="Contact" />
     <div className="flex flex-wrap">
       <div className="p-4 w-full md:w-1/2">
         <h1>Get In Touch</h1>
