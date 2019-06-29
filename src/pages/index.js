@@ -26,7 +26,6 @@ const IndexPage = () => (
         <p className="mb-16">
           The widest range of Furniture, Mattresses and Mobility Solutions
           within the Macleay Valley.
-          <br />
         </p>
       </div>
       <div className="mb-8 mx-auto text-lg">
