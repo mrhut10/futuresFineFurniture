@@ -18,7 +18,7 @@ const IndexPage = () => (
         `macksville`,
       ]}
     />
-    <div className="max-w-4xl mx-auto p-4 w-full">
+    <div className="max-w-4xl mx-auto px-4 py-12 w-full">
       <div className="mx-auto w-full">
         <img src={Logo} alt="" />
       </div>
