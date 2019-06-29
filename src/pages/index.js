@@ -58,7 +58,7 @@ const IndexPage = () => (
       <br />
       <hr className="bg-gray-200" />
       <div className="mb-4 mx-auto w-full">
-        <h2 className="font-bold mb-4 text-2xl">Our Range</h2>
+        <h2 className="font-bold mb-4 text-2xl text-maroon-600">Our Range</h2>
         <CategoriesAll />
       </div>
     </div>
