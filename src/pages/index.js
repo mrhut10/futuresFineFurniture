@@ -23,7 +23,7 @@ const IndexPage = () => (
         <img src={Logo} alt="" />
       </div>
       <div className="my-8 mx-auto text-center text-xl w-full">
-        <p className="mb-2">
+        <p className="mb-16">
           The widest range of Furniture, Mattresses and Mobility Solutions
           within the Macleay Valley.
           <br />
