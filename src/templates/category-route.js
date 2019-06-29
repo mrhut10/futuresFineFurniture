@@ -9,7 +9,7 @@ import ComingSoon from '../components/ComingSoon';
 import SEO from '../components/SEO';
 import { BulkProducts } from '../components/BulkProducts';
 
-const CategoryRoute = ({ data, pageContext }) => {
+const categoryRoute = ({ data, pageContext }) => {
   const post = data.cat;
   const { products } = data;
   const removeDiscount = item =>
@@ -111,9 +111,9 @@ export const query = graphql`
   }
 `;
 
-CategoryRoute.propTypes = {
+categoryRoute.propTypes = {
   data: propTypes.any,
   pageContext: propTypes.any,
 };
 
-export default CategoryRoute;
+export default categoryRoute;
