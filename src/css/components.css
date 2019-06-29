@@ -1,4 +1,8 @@
 /* Component classes */
+body {
+  @apply bg-maroon-900;
+}
+
 hr {
   height: 1px;
   @apply bg-gray-500;
