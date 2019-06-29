@@ -51,7 +51,7 @@ const Hero = ({ showHero = false }) => {
   `);
 
   return (
-    <header className="bg-maroon-800 max-w-5xl mx-auto overflow-hidden relative rounded-t-lg w-full">
+    <header className="bg-maroon-800 max-w-5xl mx-auto overflow-hidden relative sm:rounded-t-lg w-full">
       <h1>
         <Link to="/">
           {showHero ? <HeroBig data={data} /> : <HeroSlim data={data} />}
