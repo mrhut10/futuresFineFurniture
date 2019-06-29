@@ -59,15 +59,14 @@ const contactPage = ({ data }) => (
           </ul>
         </p>
       </div>
-      <div className="p-2 w-full md:w-1/2">
+      <div className="overflow-hidden w-full md:w-1/2">
         <LazyLoad height={450}>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3417.0768809607753!2d152.8386913141883!3d-31.07978838715898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b9ddf8643294fa9%3A0x4fb64c39e261278a!2sFUTURES+FINE+FURNITURE+%26+BEDDING+Pty+Ltd!5e0!3m2!1sen!2sau!4v1542370777195"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3417.076880963955!2d152.8386859508759!3d-31.07978838707053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b9ddf8643294fa9%3A0x4fb64c39e261278a!2sFUTURES+FINE+FURNITURE+%26+BEDDING+Pty+Ltd!5e0!3m2!1sen!2sau!4v1561777106747!5m2!1sen!2sau"
             allowFullScreen
-            className="w-full"
+            className="rounded-br-lg w-full"
             frameBorder={0}
             height={450}
-            style={{ border: 0 }}
             title="location"
           />
         </LazyLoad>
