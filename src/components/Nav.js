@@ -52,7 +52,7 @@ const NewMenu = () => (
 const NavLink = ({ children, link, title }) => (
   <Link
     to={link}
-    className="border-maroon-600 border-t md:border-none flex font-bold items-center px-4 sm:px-12 md:px-3 py-3 text-cream-300 hover:text-cream-200"
+    className="border-maroon-700 border-t md:border-none flex font-bold items-center px-4 md:px-3 py-3 text-cream-300 hover:text-cream-200"
   >
     {children}
     {title}
