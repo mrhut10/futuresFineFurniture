@@ -2,6 +2,7 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import propTypes from 'prop-types';
 import * as R from 'ramda';
+
 import { intToPriceFormat } from '../helpers/index';
 import { BuyButton } from './Snipcart';
 import CategoryTitle from './CategoryTile';
@@ -77,10 +78,13 @@ export const ProductTile = ({
             slug={slug}
             Children={
               selectedVariant ? (
-                <div className="flex font-semibold items-baseline justify-between mt-auto mx-auto p-4">
-                  <small>
-                    from {intToPriceFormat(removeDiscount(selectedVariant))}
-                  </small>
+                <div className="flex flex-col font-medium -mt-2 p-4 pt-0">
+                  <p className="mb-4 text-sm">
+                    from{' '}
+                    <span className="font-bold text-xl">
+                      {intToPriceFormat(removeDiscount(selectedVariant))}
+                    </span>
+                  </p>
                   <BuyButton
                     name={name}
                     id={name}

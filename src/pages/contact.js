@@ -4,6 +4,7 @@ import { Button } from '@blueprintjs/core';
 import { IconNames } from '@blueprintjs/icons';
 import LazyLoad from 'react-lazyload';
 import { graphql } from 'gatsby';
+
 import Layout from '../components/Layout';
 
 const contactPage = ({ data }) => (

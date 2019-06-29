@@ -1,5 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
+
 import { ProductTile } from './ProductTile';
 
 export const BulkProducts = ({ products, heading, maxLimit }) => (

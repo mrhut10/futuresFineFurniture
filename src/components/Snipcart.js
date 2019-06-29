@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import propTypes from 'prop-types';
 import { Link } from 'gatsby';
 import * as R from 'ramda';
-import { intToPriceFormat } from '../helpers/index';
+
+import { intToPriceFormat } from '../helpers';
 
 export const BuyArea = ({ name, url, variants }) => {
   const [GetProductValue, SetProductValue] = useState(
@@ -183,7 +184,7 @@ export const BuyButton = ({
 }) => (
   <button
     type="button"
-    className="snipcart-add-item bg-maroon-800 font-semibold inline-block p-2 rounded text-cream-200"
+    className="snipcart-add-item bg-maroon-800 hover:bg-maroon-700 font-semibold inline-block leading-none px-3 py-2 rounded hover:shadow-md text-cream-200 text-sm"
     data-item-name={name}
     data-item-id={id}
     data-item-image={image}
