@@ -3,8 +3,8 @@ import { Card, Elevation } from '@blueprintjs/core';
 import PropTypes from 'prop-types';
 
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 import Wrapper from '../components/Wrapper';
-
 import afterpayLogo from '../images/afterpay/afterpay_AP-RGB-sm.svg';
 import afterpaySocial from '../images/afterpay/social-1080x1080-blue.png';
 import visacard from '../images/paymentMethods/Dark Color/1.png';
@@ -28,6 +28,7 @@ PaymentCard.propTypes = {
 
 const PaymentPage = () => (
   <Layout>
+    <SEO title="Payment" />
     <Wrapper>
       <h1>Innovative Payment Options</h1>
       <p>
