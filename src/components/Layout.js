@@ -25,7 +25,7 @@ const Layout = ({ children, showHero }) => {
         <div className="flex flex-col max-w-5xl mx-auto relative rounded-lg shadow-2xl w-full">
           <Hero showHero={showHero} />
           <Nav />
-          <main className="bg-white mx-auto rounded-b-lg w-full">
+          <main className="flex flex-col bg-gray-100 rounded-b-lg w-full">
             {children}
           </main>
         </div>
