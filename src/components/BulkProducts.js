@@ -39,8 +39,8 @@ BulkProducts.propTypes = {
       name: propTypes.string.isRequired,
       images: propTypes.arrayOf(propTypes.string),
       slug: propTypes.string.isRequired,
-      varientLock: propTypes.string,
-      varients: propTypes.arrayOf(
+      variantsLock: propTypes.string,
+      variants: propTypes.arrayOf(
         propTypes.shape({
           varientName: propTypes.string,
           price: propTypes.number,
