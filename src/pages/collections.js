@@ -5,7 +5,6 @@ import slugify from 'slugify';
 import Layout from '../components/layout';
 import { BulkProducts } from '../components/BulkProducts';
 import Wrapper from '../components/wrapper';
-import { stringify } from 'querystring';
 
 const query = graphql`
   {
