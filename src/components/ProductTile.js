@@ -1,5 +1,5 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import { graphql, Link, StaticQuery } from 'gatsby';
 import propTypes from 'prop-types';
 import * as R from 'ramda';
 
@@ -97,7 +97,11 @@ export const ProductTile = ({
                   </BuyButton>
                 </div>
               ) : (
-                <>see more details</>
+                <Link to={slug} className="p-4">
+                  <div className="bg-cream-200 hover:bg-cream-100 font-semibold inline-block leading-none px-3 py-2 rounded hover:shadow-md text-maroon-700 hover:text-maroon-500 text-sm w-full">
+                    See more details
+                  </div>
+                </Link>
               )
             }
           />
