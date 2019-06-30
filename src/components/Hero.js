@@ -35,7 +35,7 @@ const HeroSlim = ({ data }) => (
 const Hero = ({ showHero = false }) => {
   const data = useStaticQuery(graphql`
     query {
-      hero: file(relativePath: { eq: "DINING_ALASKA.jpg" }) {
+      hero: file(relativePath: { eq: "hero.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 5000) {
             ...GatsbyImageSharpFluid_withWebp
