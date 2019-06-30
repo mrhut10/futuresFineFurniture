@@ -12,11 +12,10 @@ variants:
     variantName: Fabric
   - price: 349500
     variantName: Thick Leather
-
 ---
 
+#### Features
 
-**Features**
 * 2x Electric End Recliners plus 2x Armless Manual Recliners
 * Deep Seating with High Back
 * Soft comfort for long Movies
@@ -28,4 +27,5 @@ Solid Wood & Ply Structural Frame,
 Either Fabric or Thick Leather
 
 #### Dimensions
+
 W388xD93.5xH103 cm

@@ -12,12 +12,12 @@ variants:
     discount: 100000
 ---
 
-
 Sleep Motion Queen Electric Bed
 
 **Quick Limited Stock!!**
 
-**Features**
+#### Features
+
 * Memory Foam Mattress
 * Cordless remote
 * Under Bed Night Light
