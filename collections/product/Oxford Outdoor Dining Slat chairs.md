@@ -21,6 +21,6 @@ variants:
 * Table Top - Aluminium
 
 
-**Dimensions**
+#### Dimensions
 * Dining Table : W164xD104.5xH75 cm
 * Slat Arm Dining Chair : W60 x D55.5 x H89 CM

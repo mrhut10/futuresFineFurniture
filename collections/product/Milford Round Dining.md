@@ -24,7 +24,7 @@ variants:
 * Table Top - 5mm Clear tempered Glass
 
 
-**Dimensions**
+#### Dimensions
 * 60cm Round Table : W60 x D60 x H74 CM
 * 110cm Round Table : W110 x D110 x H72 CM
 * Dining Arm Chair : W57 x D57 x H90 CM

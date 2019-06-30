@@ -21,6 +21,6 @@ variants:
 * Table Top - Aluminium
 
 
-**Dimensions**
+#### Dimensions
 * Bar Table : W94 x D94 x H90.5 CM
 * Bar Arm Chair : W61.5 x D56 x H103 CM

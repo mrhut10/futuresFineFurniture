@@ -19,6 +19,6 @@ Checkout the full domino range for matching products
 <br/>
 
 
-**Dimensions**
+#### Dimensions
 * Double: W160xD218xH107 cm
 * Queen: W145xD206xH107 cm

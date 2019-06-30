@@ -18,6 +18,7 @@ variants:
 * Rustic light Finish
 * Chairs have a chocolate brown PU seat Pads
 
-Dimensions
+#### Dimensions
+
 Table for 6pc dining : W1900xD1000xH1770 mm
 Table for 9pc dining : W2200xD1100xH1770 mm

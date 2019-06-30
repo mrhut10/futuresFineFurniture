@@ -14,6 +14,6 @@ variants:
 * 100% solid pine, rough sawn finish
 * Wood naturally expands and contracts with seasonal changes in humidity
 
-**Dimensions**
+#### Dimensions
 * Table : W180xD105xH77 cm
 * Chairs : W47xD55.5xH105 cm

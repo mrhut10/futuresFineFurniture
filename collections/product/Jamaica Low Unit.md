@@ -14,5 +14,5 @@ variants:
 * Wood naturally expands and contracts with seasonal changes in humidity
 * Leadlight glass doors
 
-**Dimensions**
+#### Dimensions
 W166xD48xH64 cm

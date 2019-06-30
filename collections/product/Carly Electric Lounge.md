@@ -23,6 +23,6 @@ variants:
 
 Steel & Ply frame, Thick Beige Leather with Pocket Coil Spring Support
 
-**Dimensions**
+#### Dimensions
 * 1ER : W90xD98xH103 cm
 * 3ERER : W199xD98xH103 cm

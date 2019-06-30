@@ -22,7 +22,7 @@ variants:
 * Table Top - 5mm Clear tempered Glass
 
 
-**Dimensions**
+#### Dimensions
 * 2 Seater 1 Arm Sofa : W146 x D82 x H75 CM
 * Corner : W82 x D82 x H75 CM
 * Square Coffee Table : W65 x D65 x H34 CM

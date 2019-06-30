@@ -24,7 +24,7 @@ variants:
 * Table Top - 5mm Clear tempered Glass
 
 
-**Dimensions**
+#### Dimensions
 * 180cm Dining Table : W180 x D100 x H72 CM
 * 210cm Dining Table : W210 x D100 x H72 CM
 * Dining Arm Chairs w/Cushion W57 x D57 x H90 CM

@@ -18,5 +18,5 @@ Checkout the full domino range for matching products
 <br/>
 
 
-**Dimensions**
+#### Dimensions
 * W81xD40.5xH122.5 cm

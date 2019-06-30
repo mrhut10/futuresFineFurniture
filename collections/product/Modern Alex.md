@@ -21,7 +21,7 @@ Alex Right Hand Chaise 2 Seater with Ottoman
 
 
 
-**Dimensions**
+#### Dimensions
 * 2 Seater - W208 x D97 x H85 CM
 * Chaise - W113 x D74 x H82 CM
 * Ottoman - W190 x D74 x H47 CM

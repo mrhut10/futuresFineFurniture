@@ -27,5 +27,5 @@ variants:
 Solid Wood & Ply Structural Frame,
 Either Fabric or Thick Leather
 
-**Dimensions**
+#### Dimensions
 W388xD93.5xH103 cm

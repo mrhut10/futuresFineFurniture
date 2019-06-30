@@ -20,6 +20,6 @@ Downtown Right Hand Chaise 2 Seater
 * Available in 3 neutral colour options to suit your home
 * Cushioned back for support and comfort
 
-**Dimensions**
+#### Dimensions
 * 2 Seater - W181 x D88.5 x H82 CM
 * Chaise - W99 x D162 x H82 CM

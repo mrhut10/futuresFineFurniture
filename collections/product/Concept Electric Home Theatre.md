@@ -28,5 +28,5 @@ variants:
 
 Solid Wood & Ply frame, Thick Black, Brown or Taupe Leather with Pocket Coil Spring Support
 
-**Dimensions**
+#### Dimensions
 W315xD98xH108 cm

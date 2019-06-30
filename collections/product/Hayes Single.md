@@ -13,5 +13,5 @@ variants:
 
 * Colour: White/Oak
 
-**Dimensions**
+#### Dimensions
 W99.6 x D202 x H91.5 CM

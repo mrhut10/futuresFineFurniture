@@ -18,6 +18,6 @@ Solid wood slat system with central support legs
 
 Solid Acacia Timber in multi Colour finish
 
-**Dimensions**
+#### Dimensions
 * Queen: W221xD171xH120 cm
 * King: W221xD201xH120 cm

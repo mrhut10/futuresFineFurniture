@@ -14,4 +14,6 @@ Made from New Zealand Pine, this classic styled range is finished in Antique Oak
 - New Zealand Pine
 - Metal Center support rail
 
-**Dimentions** 500x400x590mm
+#### Dimensions
+
+500x400x590mm

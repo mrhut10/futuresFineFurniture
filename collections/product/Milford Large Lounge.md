@@ -22,7 +22,7 @@ variants:
 * Table Top - 5mm Clear tempered Glass
 
 
-**Dimensions**
+#### Dimensions
 * 3 Seater Sofa : W187 x D75 x H73 CM
 * Arm Chair : W73 x D75 x H73 CM
 * Coffee Table : W100 x D50 x H42 CM
