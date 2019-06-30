@@ -9,12 +9,12 @@ images:
   - vito dropon.jpg
 variants:
   - price: 249500
-
 ---
 
 The Vito Slimline Queen drop-on Bed is designed to drop on to your existing Bedframe, and turn it into a Adjustable Bed - negating any need to get rid of your current Bedframe.
 
-**Features**
+### Features
+
 * Use your current Bedframe
 * Comes with Splendor Supreme Pocket Spring with Latex Mattress
 * Local Delivery and Installation included

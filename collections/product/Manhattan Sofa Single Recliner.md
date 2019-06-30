@@ -21,5 +21,6 @@ variants:
 * High resilience foam back cushions create ultimate in comfort
 
 
-**Dimensions**
+#### Dimensions
+
 W90 x D94 x H105 CM

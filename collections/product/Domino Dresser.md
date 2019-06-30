@@ -15,8 +15,7 @@ Metal Buttons / handles
 Glass tops on case goods for durability and ease of cleaning
 MDF Wood / Special Particle Board / Foam & Fabric in Charcoal Colour
 Checkout the full domino range for matching products
-<br/>
 
+#### Dimensions
 
-**Dimensions**
 * W106.5xD40.5xH75.5 cm

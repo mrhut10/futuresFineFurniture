@@ -14,5 +14,6 @@ Metal Extension Runners
 
 Solid Acacia Timber in multi Colour finish
 
-**Dimensions**
+#### Dimensions
+
 * Dresser: W140xD45xH82.5 cm

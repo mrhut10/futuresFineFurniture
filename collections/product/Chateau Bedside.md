@@ -14,5 +14,6 @@ variants:
 * Solid Drawer Base with Metal Extension Runners
 * Brushed & Multi Colour Finish
 
-**Dimentions**
+#### Dimensions
+
 W62xD45xH60 CM

@@ -8,9 +8,10 @@ images:
 variants:
   - price: 19500
 ---
+
 * White washed, Brushed Mountain Ash range
 * Contemporary coastal design with generous proportions
 
+#### Dimensions
 
-**Dimensions**
 * Mirror: W100D2.5xH100 cm

@@ -6,6 +6,7 @@ import ComingSoon from './ComingSoon';
 
 const ImageComponent = (image, maxHeight = '350px') => (
   <img
+    className="object-cover"
     style={{ maxHeight }}
     alt="product"
     src={image.src}

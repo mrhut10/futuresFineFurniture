@@ -7,8 +7,8 @@ images:
   - jamaica low tv unit.png
 variants:
   - price: 79500
-
 ---
+
 2 doors, 2 side storage, 1 draw, 2 niche
 
 * Elegant & Timeless Design
@@ -16,5 +16,6 @@ variants:
 * Wood naturally expands and contracts with seasonal changes in humidity
 * Leadlight glass doors
 
-**Dimensions**
+#### Dimensions
+
 W220xD48xH64 cm

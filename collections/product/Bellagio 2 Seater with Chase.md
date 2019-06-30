@@ -18,7 +18,7 @@ variants:
 Hardwood & plywood frame, Corrected grain leather with split outside back and arms
 Chromed Metal Legs
 
-**Dimensions**
+#### Dimensions
 
 - Left Hand Chase - W281 x D106 x H73/92 CMW228
 - Right Hand Chase - W281 x D106 x H73/92 CMW228

@@ -11,6 +11,7 @@ variants:
   - price: 114500
     variantName: King
 ---
+
 * Modern Elegant design
 * Premium Quality Polyester fabric from Malaysia
 * Glass Tops on case goods for durability and ease of cleaning
@@ -19,6 +20,7 @@ variants:
 
 * Matches products from the Valencia Range
 
-**Dimensions**
+#### Dimensions
+
 * Queen : W181 x D241.5 x H119 CM
 * King : W210 x D241.5 x H119 CM
