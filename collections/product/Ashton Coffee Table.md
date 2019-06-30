@@ -13,5 +13,6 @@ variants:
 * Rustic light Finish
 
 
-Dimensions
+#### Dimensions
+
 W1200xD700xH4500 mm

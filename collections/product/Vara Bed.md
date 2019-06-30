@@ -7,9 +7,9 @@ images:
   - /assets/vara bed.PNG
 variants:
   - price: 104500
-    varientName: Queen
+    variantName: Queen
   - price: 114500
-    varientName: King
+    variantName: King
 ---
 * Modern Elegant design
 * Premium Quality Polyester fabric from Malaysia
@@ -19,6 +19,6 @@ variants:
 
 * Matches products from the Valencia Range
 
-**Dimensions**
+#### Dimensions
 * Queen : W181 x D241.5 x H119 CM
 * King : W210 x D241.5 x H119 CM

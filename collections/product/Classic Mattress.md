@@ -9,11 +9,11 @@ images:
   - "Classic-QS-3.jpg"
 variants:
   - price: 49500
-    varientName: Double
+    variantName: Double
   - price: 59500
-    varientName: Queen
+    variantName: Queen
   - price: 69500
-    varientName: King
+    variantName: King
 ---
 
 Classic Mattress, Knitted Fabric, with 7 zoned Pocket Springs

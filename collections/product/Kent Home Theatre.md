@@ -9,14 +9,13 @@ images:
   - kent lounges.png
 variants:
   - price: 219500
-    varientName: Fabric
+    variantName: Fabric
   - price: 349500
-    varientName: Thick Leather
-
+    variantName: Thick Leather
 ---
 
+#### Features
 
-**Features**
 * 2x Electric End Recliners plus 2x Armless Manual Recliners
 * Deep Seating with High Back
 * Soft comfort for long Movies
@@ -24,8 +23,9 @@ variants:
 * Cup Holders
 * Consoles can be moved to suit your needs
 
-Solid Wood & Ply Structural Frame, 
+Solid Wood & Ply Structural Frame,
 Either Fabric or Thick Leather
 
-**Dimensions**
+#### Dimensions
+
 W388xD93.5xH103 cm

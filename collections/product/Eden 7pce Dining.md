@@ -6,13 +6,13 @@ range: Eden
 images:
   - eden outdoor Dining.jpg
 variants:
-  - varientName: Eden 7pce Dining
+  - variantName: Eden 7pce Dining
     price: 269500
     discount: 144500
 ---
 * Setting consists of rounded dining table & 6 dining arm chairs
 * Designed for outdoor use with low to no maintenance
 
-**Dimensions**
+#### Dimensions
 * Table : W200xD110xH70 cm
 * Chair : W70xD80xH90 cm

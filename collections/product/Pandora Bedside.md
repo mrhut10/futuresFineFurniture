@@ -10,5 +10,6 @@ variants:
 ---
 N.Z. Pine + MDF in White
 
-Dimensions
+#### Dimensions
+
 L500xD400xH590 mm

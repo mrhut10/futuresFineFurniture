@@ -8,9 +8,10 @@ updated: 2019-06-28
 images:
   - "Flinders Buffet.png"
 variants:
-  - varientName: "Buffet"
+  - variantName: "Buffet"
 ---
 Solid N.Z. Pine in Jarrah Colour.
 
-Dimensions:
-  L1490xW450xH860
+#### Dimensions
+
+L1490xW450xH860

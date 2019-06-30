@@ -28,7 +28,7 @@ collections:
     label : Product Categories
     folder : collections/productCats
     create : true
-    fields : 
+    fields :
       - { name: "title", label: "Title", }
       - { name: "body", label: "Body", widget: "markdown"}
       - { name: "images", label: "Featured Images", widget: "list", required: false, field:  { label: Image, name: image, widget: image}}
@@ -37,7 +37,7 @@ collections:
     label: Product Range
     folder : collections/productRange
     create: true
-    fields : 
+    fields :
       - { name: "title", label: "Title", }
       - { name: "body", label: "Body", widget: "markdown"}
       - { name: "enabled", label: "Enabled", widget: "boolean", default: true, hint: "this will enable all products within the range"}

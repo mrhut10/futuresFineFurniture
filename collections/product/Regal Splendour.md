@@ -9,9 +9,9 @@ images:
   - "Regal-Splendour-King-3.jpg"
 variants:
   - price: 74900
-    varientName: Queen
+    variantName: Queen
   - price: 84900
-    varientName: King
+    variantName: King
 ---
 
 Regal Splendour Mattress with the highest Quality Cool Gel Memory Foam, and 7 zoned Pocket Springs and extra High Density, and Spray Foams layers.

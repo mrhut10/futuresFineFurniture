@@ -116,7 +116,7 @@ const querys = {
             images
             variants {
               price
-              varientName
+              variantName
               discount
             }
           }
@@ -140,7 +140,7 @@ exports.createPages = ({ graphql, actions }) => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
         path: node.fields.slug,
-        component: path.resolve(`./src/templates/CategoryRoute.js`),
+        component: path.resolve(`./src/templates/category-route.js`),
         context: {
           slug: node.fields.slug,
           catName: node.frontmatter.title,
@@ -153,7 +153,7 @@ exports.createPages = ({ graphql, actions }) => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
         path: node.fields.slug,
-        component: path.resolve(`./src/templates/RangeRoute.js`),
+        component: path.resolve(`./src/templates/range-route.js`),
         context: {
           slug: node.fields.slug,
         },
@@ -176,7 +176,7 @@ exports.createPages = ({ graphql, actions }) => {
       // create main page from category
       createPage({
         path: node.fields.slug,
-        component: path.resolve(`./src/templates/productRoute.js`),
+        component: path.resolve(`./src/templates/product-route.js`),
         context: {
           productName: slugify(node.frontmatter.title),
           range: node.frontmatter.range,

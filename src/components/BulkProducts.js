@@ -1,28 +1,32 @@
 import React from 'react';
 import propTypes from 'prop-types';
+
 import { ProductTile } from './ProductTile';
 
 export const BulkProducts = ({ products, heading, maxLimit }) => (
   <>
     <hr />
-    <br />
-    {heading ? <h2 className="px-2 w-full">{heading}</h2> : null}
-    <div className="flex flex-wrap w-full">
+    {heading ? (
+      <h2 className="font-bold mb-4 mt-6 text-2xl text-maroon-600">
+        {heading}
+      </h2>
+    ) : null}
+    <div className="flex flex-wrap -mx-2 w-full">
       {// product { name, images, slug, minPriceCents, range, variants }
       products
         // limit to maxLimit or if no limit don't
         .filter((t, i) => (maxLimit ? i < maxLimit : true))
         // map to ProductTile
         .map(product => {
-          const { name, images, variants, varientLock, slug } = product;
+          const { name, images, variants, variantLock, slug } = product;
           return (
             <ProductTile
               key={name}
               name={name}
               ProductImages={images}
               slug={slug}
-              varientLock={varientLock}
-              varients={variants}
+              variantLock={variantLock}
+              variants={variants}
             />
           );
         })}
@@ -39,10 +43,10 @@ BulkProducts.propTypes = {
       name: propTypes.string.isRequired,
       images: propTypes.arrayOf(propTypes.string),
       slug: propTypes.string.isRequired,
-      varientLock: propTypes.string,
-      varients: propTypes.arrayOf(
+      variantLock: propTypes.string,
+      variants: propTypes.arrayOf(
         propTypes.shape({
-          varientName: propTypes.string,
+          variantName: propTypes.string,
           price: propTypes.number,
           discount: propTypes.number,
         })

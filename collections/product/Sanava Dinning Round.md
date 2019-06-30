@@ -4,7 +4,7 @@ enabled: true
 Category: Dining
 range: Sanava
 images:
-  - /assets/sanava round dinning.png
+  - /assets/sanava round dining.png
 variants:
   - price: 74900
 ---
@@ -13,5 +13,6 @@ with Sanava Round Dinning Table
 
 Solid Acacia Timber in Drift wood finish
 
-Dimensions
+#### Dimensions
+
 1200mm wide (round)

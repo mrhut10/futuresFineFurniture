@@ -1,17 +1,21 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import { graphql } from 'gatsby';
 import * as R from 'ramda';
 import propTypes from 'prop-types';
-import Layout from '../components/layout';
-import Wrapper from '../components/wrapper';
-import { BuyArea } from '../components/snipcart';
-import SEO from '../components/seo';
+import Layout from '../components/Layout';
+import Wrapper from '../components/Wrapper';
+import { BuyArea } from '../components/Snipcart';
+import SEO from '../components/SEO';
 import { BulkProducts } from '../components/BulkProducts';
 
 const details = R.compose(
-  dangHtml => (
-    <div>
-      <p dangerouslySetInnerHTML={{ __html: dangHtml }} />
+  html => (
+    <div className="bg-white mt-12 px-4 py-12 rounded-lg shadow-md hover:shadow-lg">
+      <div
+        className="markdown max-w-md mx-auto"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </div>
   ),
   R.pathOr('', ['markdownRemark', 'html'])
@@ -29,12 +33,12 @@ const images = R.compose(
 
 // const getSafePath = (p, o) => p.reduce((xs, x) => (xs && xs[x]) ? xs[x] : null, o)
 
-const RangeCatigoryString = (range, catigory) => {
+const RangeCategoryString = (range, category) => {
   let output;
-  if (range && catigory)
-    output = `From the ${catigory} Collection and the ${range} range`;
-  else if (range) output = `From the ${catigory} Collection`;
-  else if (catigory) output = `From the ${range} range`;
+  if (range && category)
+    output = `From the ${category} Collection and the ${range} range`;
+  else if (range) output = `From the ${category} Collection`;
+  else if (category) output = `From the ${range} range`;
   return output;
 };
 
@@ -55,7 +59,7 @@ const productRoute = ({ data }) => {
           Category,
           'furniture',
           range,
-          ...R.map(R.prop('varientName'))(variants),
+          ...R.map(R.prop('variantName'))(variants),
         ]}
         image={R.compose(
           input =>
@@ -66,38 +70,34 @@ const productRoute = ({ data }) => {
         )(data)}
       />
       <Wrapper>
-        <div className="pt-8">
-          <div className="px-4">
-            <h1>{title}</h1>
-            <h3>{RangeCatigoryString(range, Category)}</h3>
+        <div className="mb-8 text-center">
+          <h1 className="font-bold text-3xl text-maroon-600">{title}</h1>
+          <h3>{RangeCategoryString(range, Category)}</h3>
+        </div>
+        <div className="flex flex-wrap">
+          <div className="flex items-center justify-center mb-4 md:pr-12 object-cover text-center w-full md:w-1/2">
+            {R.compose(
+              ImageComponent,
+              images
+            )(data)}
           </div>
-          <br />
-          <div className="text-left m-4">
-            <div className="md:float-left mb-4 md:pr-8 text-center w-full md:w-1/2">
-              {R.compose(
-                ImageComponent,
-                images
-              )(data)}
-            </div>
-            <div className="px-4 w-full">
-              <BuyArea
-                name={title}
-                id={title}
-                image={undefined}
-                url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
-                description={undefined}
-                varients={variants}
-                qty={qty}
-              />
-              <br />
-              {details(data)}
-            </div>
+          <div className="flex flex-1 w-full md:w-1/2">
+            <BuyArea
+              name={title}
+              id={title}
+              image={undefined}
+              url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
+              description={undefined}
+              variants={variants}
+              qty={qty}
+            />
           </div>
         </div>
+        {details(data)}
       </Wrapper>
       <div
         id="relatedProducts"
-        className="flex flex-col max-w-lg mx-auto p-4 w-full"
+        className="flex flex-col max-w-4xl mx-auto p-4 w-full"
       >
         {
           <BulkProducts
@@ -126,13 +126,13 @@ const productRoute = ({ data }) => {
               )
               .sort((productA, productB) => {
                 // sort by weighted category
-                const weightedStringByCatigory = CatName =>
+                const weightedStringByCategory = CatName =>
                   CatName === data.markdownRemark.frontmatter.Category
                     ? `_${CatName}` // this should make it sort first
                     : CatName;
                 const [weightedA, weightedB] = [
-                  weightedStringByCatigory(productA.Category),
-                  weightedStringByCatigory(productB.Category),
+                  weightedStringByCategory(productA.Category),
+                  weightedStringByCategory(productB.Category),
                 ];
                 return weightedA.localeCompare(weightedB);
               })}
@@ -173,7 +173,7 @@ export const query = graphql`
         range
         variants {
           price
-          varientName
+          variantName
           discount
           qty
         }
@@ -199,7 +199,7 @@ export const query = graphql`
             Category
             range
             variants {
-              varientName
+              variantName
               price
               discount
             }

@@ -15,5 +15,5 @@ variants:
 * Metal Handles
 * Leadlight Glass Doors
 
-**Dimensions**
+#### Dimensions
 W92.5xD37xH102 cm

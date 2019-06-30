@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import SEO from '../components/seo';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
+
 import Logo from '../images/slimLogo.svg';
-import CategoriesAll from '../components/Categories_all';
+import CategoriesAll from '../components/CategoriesAll';
 
 const IndexPage = () => (
   <Layout showHero>
@@ -17,43 +18,47 @@ const IndexPage = () => (
         `macksville`,
       ]}
     />
-    <div className="p-4 w-full">
-      <div className="flex justify-center w-full">
-        <img className="h-12 max-w-lg mx-auto w-full" src={Logo} alt="" />
+    <div className="max-w-4xl mx-auto px-4 py-12 w-full">
+      <div className="mx-auto w-full">
+        <img src={Logo} alt="" />
       </div>
-      <div className="max-w-md mb-8 mx-auto p-4 text-xl w-full">
-        <p className="mb-2">
-          Widest range of Furniture, Mattresses and Mobility Solutions within
-          the Macleay Valley.
-          <br />
+      <div className="my-8 mx-auto text-center text-xl w-full">
+        <p className="mb-16">
+          The widest range of Furniture, Mattresses and Mobility Solutions
+          within the Macleay Valley.
         </p>
       </div>
-      <div className="max-w-lg mb-8 mx-auto text-lg">
+      <div className="mb-8 mx-auto text-lg">
         <div className="flex flex-wrap -mx-2 mb-6">
-          <div className="flex-1 mb-6 md:mb-0 px-2 text-white w-full md:w-1/2">
-            <div className="flex flex-col items-center bg-grey-darkest p-4 rounded-lg">
-              <h3>Highest Quality, Lowest Prices!</h3>
-              <hr className="bg-grey-darker mt-0" />
+          <div className="flex-1 mb-6 md:mb-0 px-2 w-full md:w-1/2">
+            <div className="border border-cream-200 flex flex-col items-center bg-cream-100 p-4 rounded-lg shadow text-cream-700">
+              <h3 className="font-bold text-2xl">
+                Highest Quality, Lowest Prices!
+              </h3>
+              <hr className="bg-cream-300 mt-1" />
               <p className="mb-2">
                 Highest Quality, Lowest Prices,{' '}
                 {
                   <Link
-                    className="text-cream hover:text-blue-lighter underline"
-                    to="payment"
+                    className="font-bold hover:text-cream-600 underline"
+                    to="/payment"
                   >
                     Flexible Payments
                   </Link>
                 }{' '}
                 and Free Delivery* <br />
-                <br />
+              </p>
+              <p>
                 <small>* Macleay Valley area (March & April 2019)</small>
               </p>
             </div>
           </div>
         </div>
       </div>
-      <div className="max-w-lg mb-4 mx-auto w-full">
-        <h2 className="mb-2">Our Range</h2>
+      <br />
+      <hr className="bg-gray-200" />
+      <div className="mb-4 mx-auto w-full">
+        <h2 className="font-bold mb-4 text-2xl text-maroon-600">Our Range</h2>
         <CategoriesAll />
       </div>
     </div>

@@ -8,9 +8,10 @@ updated: 2019-06-28
 images:
   - "flinders lamp table.png"
 variants:
-  - varientName: "Lamp Table"
+  - variantName: "Lamp Table"
 ---
 Solid N.Z. Pine in Jarrah Colour.
 
-Dimensions:
-  L600xW600xH450
+#### Dimensions
+
+L600xW600xH450

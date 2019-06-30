@@ -7,9 +7,9 @@ images:
   - /assets/toscana bed.png
 variants:
   - price: 99500
-    varientName: Queen
+    variantName: Queen
   - price: 114500
-    varientName: King
+    variantName: King
 
 ---
 * Solid Mountain Ash with Naturally occurring grains and knots which makes every piece unique
@@ -17,6 +17,6 @@ variants:
 * Metal Handle on Dresser, bedside & Tallboy
 
 
-**Dimensions**
+#### Dimensions
 * Queen : W168xD218xH118 cm
 * King : W198xD218xH118 cm

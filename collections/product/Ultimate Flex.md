@@ -7,13 +7,13 @@ images:
   - /assets/Ultimate-Flex.png
 variants:
   - price: 189500
-    varientName: Long Single
+    variantName: Long Single
   - price: 199500
-    varientName: King Single
+    variantName: King Single
   - price: 219500
-    varientName: Queen
+    variantName: Queen
   - price: 349500
-    varientName: King (2xLongSingle's)
+    variantName: King (2xLongSingle's)
 ---
 
 The ultimate Flex adjustable bed is designed for those who seek basic adjustability with the look of a standard ensemble base.

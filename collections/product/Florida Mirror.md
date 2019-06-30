@@ -12,5 +12,5 @@ variants:
 * Contemporary coastal design with generous proportions
 
 
-**Dimensions**
+#### Dimensions
 * Mirror: W100D2.5xH100 cm
