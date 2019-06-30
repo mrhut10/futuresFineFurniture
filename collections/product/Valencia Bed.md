@@ -16,15 +16,15 @@ variants:
     variantName: Queen
   - price: 59500
     variantName: King
----
 
+---
 * Premium Quality Polyester fabric from Malaysia
 * Distinctive vertical stitching detail on the headboard
 * Glass tops on case goods for durability and ease of cleaning
 * Metal handles on Draws ( Bedside, Dresser, Tallboy )
 
-#### Dimensions
 
+**Dimensions**
 * Single : W98.5 x D211.5 x H94 CM
 * King Single : W115.5 x D223 x H94 CM
 * Double : W145.5 x D211.5 x H94 CM

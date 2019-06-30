@@ -14,6 +14,5 @@ variants:
 * Chairs have a chocolate brown PU seat Pads
 * Chrome Handles
 
-#### Dimensions
-
+Dimensions
 W1700xD450xH850 mm

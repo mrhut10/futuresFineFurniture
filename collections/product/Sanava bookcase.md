@@ -8,11 +8,9 @@ images:
 variants:
   - price: 29500
 ---
-
-6 shelves
+6 shelfs
 
 Solid Acacia Timber in Drift wood finish
 
-#### Dimensions
-
+Dimensions
 L 800xD 550xH 1820 mm

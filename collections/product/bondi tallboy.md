@@ -14,6 +14,4 @@ Made from New Zealand Pine, this classic styled range is finished in Antique Oak
 - New Zealand Pine
 - 2 over 4 draws
 
-#### Dimensions
-
-920x420x1300mm
+**Dimentions** 920x420x1300mm

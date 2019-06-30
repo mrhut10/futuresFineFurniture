@@ -17,15 +17,15 @@ variants:
 * Techmesh outdoor fabric for easy care
 * Aluminium white powder coated frame
 
-#### Details
 
+**Details**
 * 1.2 mm thick aluminium frame
 * Strong Textmesh Fabric
 * White/Champagne | Taupe
 * Table Top - Aluminium
 
-#### Dimensions
 
+**Dimentions**
 * 2 Seater : W117xD72xH83 cm
 * Arm Chair : W65xD72xH83 cm
 * Coffee Table : W100xD54.5xH56 cm

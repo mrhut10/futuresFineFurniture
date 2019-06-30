@@ -13,7 +13,6 @@ variants:
   - price: 144900
     variantName: Brown
 ---
-
 * 3 seater with Recliner Ends
 * Timeless Design
 * Thick Leather
@@ -22,6 +21,5 @@ variants:
 * High resilience foam back cushions create ultimate in comfort
 
 
-#### Dimensions
-
+**Dimensions**
 W203 x D94 x H105 CM

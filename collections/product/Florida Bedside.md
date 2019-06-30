@@ -15,6 +15,5 @@ variants:
 * Storage draws to maximize storage for your room
 
 
-#### Dimensions
-
+**Dimensions**
 * bedside: W50xD40.5xH60.1 cm

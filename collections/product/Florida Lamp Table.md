@@ -8,12 +8,9 @@ images:
 variants:
   - price: 49500
 ---
-
 1 draw
-
 * White washed, Brushed Mountain Ash range
 * Contemporary coastal design with generous proportions
 
-#### Dimensions
-
+**Dimensions**
 W600xD600x400 mm

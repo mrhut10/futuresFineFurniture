@@ -13,6 +13,5 @@ Combination of Colours
 
 Solid Acacia Timber in multi Colour finish
 
-#### Dimensions
-
+**Dimensions**
 * Bedside: W58xD45xH60 cm

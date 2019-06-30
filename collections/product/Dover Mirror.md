@@ -12,6 +12,5 @@ Combination of Colours
 
 Solid Acacia Timber in multi Colour finish
 
-#### Dimensions
-
+**Dimensions**
 * Mirror: W112xD6.5xH102.5 cm

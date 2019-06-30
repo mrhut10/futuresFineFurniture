@@ -13,7 +13,6 @@ variants:
   - price: 129500
     variantName: Brown
 ---
-
 * 2 seater with Recliner Ends
 * Timeless Design
 * Thick Leather
@@ -21,6 +20,5 @@ variants:
 * Great Quality split leather offers both comfort & style
 * High resilience foam back cushions create ultimate in comfort
 
-#### Dimensions
-
+**Dimensions**
 W147 x D94 x H105 CM

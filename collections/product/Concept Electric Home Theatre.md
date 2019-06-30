@@ -14,18 +14,19 @@ variants:
     variantName: Brown
   - price: 389500
     variantName: Taupe
+
 ---
 
-### Features
 
+**Features**
 * Smart Cup Holder & Storage Console
 * 4 Electric Recliner, Legs & Headrest
 * Top Grade Thick Leather
 * USB Charger
 * Child Lock
 
+
 Solid Wood & Ply frame, Thick Black, Brown or Taupe Leather with Pocket Coil Spring Support
 
-#### Dimensions
-
+**Dimensions**
 W315xD98xH108 cm

@@ -7,8 +7,8 @@ images:
   - jamaica low corner.png
 variants:
   - price: 54900
----
 
+---
 2 doors, 1 niche
 
 * Elegant & Timeless Design
@@ -16,6 +16,5 @@ variants:
 * Wood naturally expands and contracts with seasonal changes in humidity
 * Leadlight glass doors
 
-#### Dimensions
-
+**Dimensions**
 W126xD48xH64 cm

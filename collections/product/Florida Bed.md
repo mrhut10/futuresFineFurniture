@@ -20,7 +20,6 @@ variants:
 * Solid wood slat system with central support legs
 
 
-#### Dimensions
-
+**Dimensions**
 * Double: W208xD149xH120 cm
 * Queen: W219xD166xH120 cm

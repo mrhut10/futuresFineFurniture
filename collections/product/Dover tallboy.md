@@ -14,6 +14,5 @@ Metal Extension Runners
 
 Solid Acacia Timber in multi Colour finish
 
-#### Dimensions
-
+**Dimensions**
 * tallboy: W105xD45xH120 cm

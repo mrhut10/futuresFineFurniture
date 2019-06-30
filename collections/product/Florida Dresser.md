@@ -8,7 +8,6 @@ images:
 variants:
   - price: 76500
 ---
-
 * 6 draws
 * White washed, Brushed Mountain Ash range
 * Contemporary coastal design with generous proportions
@@ -16,6 +15,6 @@ variants:
 * Features metal handles with an antiqued finished
 * Storage draws to maximize storage for your room
 
-#### Dimensions
 
+**Dimensions**
 * dresser: W32xD40.5xH81.5 cm

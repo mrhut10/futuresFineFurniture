@@ -13,6 +13,5 @@ variants:
 
 Solid Acacia Timber in Multicolour
 
-#### Dimensions
-
+Dimensions
 W2150xD380xH780 mm
