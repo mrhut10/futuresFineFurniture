@@ -25,7 +25,7 @@ const CategoryTitle = ({
   <div className="flex flex-col p-2 w-full sm:w-1/2 md:w-1/3">
     <div className="bg-white flex flex-1 flex-col no-underline overflow-hidden rounded-lg shadow hover:shadow-lg text-center">
       <Link
-        className="flex flex-1 flex-col p-4 pb-2"
+        className="flex flex-1 flex-col group p-4"
         to={slug || '/'}
         title={hoverText}
       >
@@ -36,7 +36,7 @@ const CategoryTitle = ({
             {ImageComponent(images[0], `calc(${height}-30px)`)}
           </div>
         )}
-        <h4 className="font-bold leading-none pt-4 hover:text-cream-500 text-sm tracking-wide uppercase">
+        <h4 className="font-bold leading-none pt-4 text-maroon-700 group-hover:text-maroon-500 text-sm tracking-wider uppercase">
           {name}
         </h4>
       </Link>
