@@ -18,6 +18,8 @@ variants:
     variantName: Orange
 ---
 
-Dimensions: W940xD940xH1070mm
+#### Dimensions
+
+W940xD940xH1070mm
 
 very popular range comfortable with linin Material available in 5 colours

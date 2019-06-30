@@ -18,7 +18,8 @@ variants:
 
 Solid Acacia Timber in Multicolour
 
-Dimensions
+#### Dimensions
+
 Table for 5pc Dinning : W900xD900xH770 mm
 Table for 7pc Dinning : W1800xD900xH770 mm
 Table for 9pc Dinning : W2000xD1000xH770 mm

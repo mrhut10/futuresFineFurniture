@@ -13,5 +13,6 @@ with Sanava Round Dinning Table
 
 Solid Acacia Timber in Drift wood finish
 
-Dimensions
+#### Dimensions
+
 1200mm wide (round)

@@ -8,7 +8,9 @@ images:
 variants:
   - price: 64900
 ---
+
 Solid N.Z. Pine in Blackwood finish
 
-Dimensions:
+#### Dimensions
+
 L900xD350xH1980 mm

@@ -10,6 +10,7 @@ variants:
 ---
 Solid N.Z. Pine in Jarrah Colour.
 
-Dimensions
+#### Dimensions
+
 Dressing Table : L1400xD420xH825 mm
 Mirror : L1000xD30xH950mm

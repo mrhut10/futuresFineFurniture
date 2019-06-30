@@ -8,10 +8,12 @@ images:
 variants:
   - price: 64900
 ---
+
 4 Sanava Dinning Chairs
 with Sanava Square Dinning Table
 
 Solid Acacia Timber in Drift wood finish
 
-Dimensions
+#### Dimensions
+
 1000mm x 1000mm

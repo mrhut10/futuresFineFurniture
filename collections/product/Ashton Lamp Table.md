@@ -12,7 +12,6 @@ variants:
 * Chunky look with a Contemporary Style
 * Rustic light Finish
 
-
 #### Dimensions
 
 W1200xD700xH4500 mm

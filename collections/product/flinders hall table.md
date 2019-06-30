@@ -10,7 +10,9 @@ images:
 variants:
   - variantName: "Hall Table"
 ---
-Solid N.Z. Pine in Jarrah Colour.
 
-Dimensions:
+Solid N.Z. Pine in Jarrah Colour
+
+#### Dimensions
+
   L1350xW350xH780

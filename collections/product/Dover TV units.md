@@ -14,6 +14,7 @@ variants:
 
 Solid Acacia Timber in Multicolour
 
-Dimensions
+#### Dimensions
+
 2 Door 2 Niche  : W1800xD500xH600 mm
 2 Door 1 Draw 1 Niche  : W2140xD500xH600 mm

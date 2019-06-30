@@ -10,5 +10,6 @@ variants:
 ---
 Solid N.Z. Pine in Jarrah Colour.
 
-Dimensions
+#### Dimensions
+
 L580xD420xH610 mm

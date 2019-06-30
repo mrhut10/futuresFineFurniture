@@ -18,6 +18,8 @@ variants:
     variantName: 2RR - Burgndy
 ---
 
-Dimensions: W2050xD940xH1070mm
+#### Dimensions
+
+W2050xD940xH1070mm
 
 very popular range comfortable firm foam with Thick Treasure Suede Fabric available in 5 colours
