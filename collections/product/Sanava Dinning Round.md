@@ -4,7 +4,7 @@ enabled: true
 Category: Dining
 range: Sanava
 images:
-  - /assets/sanava round dinning.png
+  - /assets/sanava round dining.png
 variants:
   - price: 74900
 ---

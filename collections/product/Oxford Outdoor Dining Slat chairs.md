@@ -1,5 +1,5 @@
 ---
-title: Oxford Slat Dinning
+title: Oxford Slat Dining
 enabled: true
 Category: Outdoor
 range: Oxford

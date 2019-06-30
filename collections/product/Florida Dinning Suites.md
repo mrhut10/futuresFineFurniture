@@ -1,5 +1,5 @@
 ---
-title: Florida Dinning Suites
+title: Florida Dining Suites
 enabled: true
 Category: Dining
 range: Florida
