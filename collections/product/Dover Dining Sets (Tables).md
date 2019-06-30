@@ -7,13 +7,13 @@ images:
   - dover dinning sets.png
 variants:
   - price: 84900
-    varientName: 5pce Square Dining Set
+    variantName: 5pce Square Dining Set
   - price: 124900
-    varientName: 7 Piece Dinning Set
+    variantName: 7 Piece Dinning Set
   - price: 149500
-    varientName: 9 Piece Dinning Set
+    variantName: 9 Piece Dinning Set
   - price: 15900
-    varientName: Extra Dinning Chair
+    variantName: Extra Dinning Chair
 ---
 
 Solid Acacia Timber in Multicolour

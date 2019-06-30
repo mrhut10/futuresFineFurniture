@@ -7,11 +7,11 @@ images:
   - /assets/ashton bed.png
 variants:
   - price: 69500
-    varientName: Double
+    variantName: Double
   - price: 74900
-    varientName: Queen
+    variantName: Queen
   - price: 79500
-    varientName: King
+    variantName: King
 ---
 
 Chunky look with Contemporary Style

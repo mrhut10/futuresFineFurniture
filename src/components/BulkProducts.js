@@ -14,15 +14,15 @@ export const BulkProducts = ({ products, heading, maxLimit }) => (
         .filter((t, i) => (maxLimit ? i < maxLimit : true))
         // map to ProductTile
         .map(product => {
-          const { name, images, variants, varientLock, slug } = product;
+          const { name, images, variants, variantLock, slug } = product;
           return (
             <ProductTile
               key={name}
               name={name}
               ProductImages={images}
               slug={slug}
-              varientLock={varientLock}
-              varients={variants}
+              variantLock={variantLock}
+              variants={variants}
             />
           );
         })}
@@ -39,10 +39,10 @@ BulkProducts.propTypes = {
       name: propTypes.string.isRequired,
       images: propTypes.arrayOf(propTypes.string),
       slug: propTypes.string.isRequired,
-      variantsLock: propTypes.string,
+      variantLock: propTypes.string,
       variants: propTypes.arrayOf(
         propTypes.shape({
-          varientName: propTypes.string,
+          variantName: propTypes.string,
           price: propTypes.number,
           discount: propTypes.number,
         })

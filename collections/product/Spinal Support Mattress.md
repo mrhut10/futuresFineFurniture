@@ -9,35 +9,35 @@ images:
   - Spinal Support-Medium.jpg
 variants:
   - price: 29500
-    varientName: Single - Soft
+    variantName: Single - Soft
   - price: 29500
-    varientName: Single - Medium
+    variantName: Single - Medium
   - price: 29500
-    varientName: Single - Firm
+    variantName: Single - Firm
   - price: 37500
-    varientName: King Single - Soft
+    variantName: King Single - Soft
   - price: 37500
-    varientName: King Single - Medium
+    variantName: King Single - Medium
   - price: 37500
-    varientName: King Single - Firm
+    variantName: King Single - Firm
   - price: 44900
-    varientName: Double - Soft
+    variantName: Double - Soft
   - price: 49500
-    varientName: Double - Medium
+    variantName: Double - Medium
   - price: 49500
-    varientName: Double - Firm
+    variantName: Double - Firm
   - price: 49500
-    varientName: Queen - Soft
+    variantName: Queen - Soft
   - price: 57500
-    varientName: Queen - Medium
+    variantName: Queen - Medium
   - price: 57500
-    varientName: Queen - Firm
+    variantName: Queen - Firm
   - price: 57500
-    varientName: King - Soft
+    variantName: King - Soft
   - price: 57500
-    varientName: King - Medium
+    variantName: King - Medium
   - price: 57500
-    varientName: King - Firm
+    variantName: King - Firm
 ---
 
 The Spinal Support is great value with quality Australian craftsmanship.

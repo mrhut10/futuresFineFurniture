@@ -6,9 +6,9 @@ range: Oxford
 images:
   - Oxford Outdoor Dining.png
 variants:
-  - varientName: 7PC Dining w Sling Chairs
-  - varientName: Dining Table
-  - varientName: Sling Arm Chair
+  - variantName: 7PC Dining w Sling Chairs
+  - variantName: Dining Table
+  - variantName: Sling Arm Chair
 ---
 * Setting consists of 164cm rectangular dining table & 6 sling dining arm chairs
 * Designed for outdoor use with low to no maintenance

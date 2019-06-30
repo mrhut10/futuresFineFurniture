@@ -7,9 +7,9 @@ images:
   - /assets/chateau bed.png
 variants:
   - price: 89500
-    varientName: Queen
+    variantName: Queen
   - price: 94500
-    varientName: King
+    variantName: King
 ---
 * Characteristic Solid Acacia Timber
 * Stylish & Sleek look

@@ -7,11 +7,11 @@ images:
   - /assets/alex modern.png
 variants:
   - price: 149500
-    varientName: SPA
+    variantName: SPA
   - price: 149500
-    varientName: Mocha
+    variantName: Mocha
   - price: 149500
-    varientName: Charcoal
+    variantName: Charcoal
 ---
 Alex Right Hand Chaise 2 Seater with Ottoman
 

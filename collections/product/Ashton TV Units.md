@@ -7,9 +7,9 @@ images:
   - /assets/ashton tv units.png
 variants:
   - price: 89500
-    varientName: 3 Draws
+    variantName: 3 Draws
   - price: 109500
-    varientName: 2 Draws, 2 Doors
+    variantName: 2 Draws, 2 Doors
 ---
 
 * Chunky look with a Contemporary Style

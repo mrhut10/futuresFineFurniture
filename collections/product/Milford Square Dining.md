@@ -6,11 +6,11 @@ range: Oxford
 images:
   - Milford Square Dining.png
 variants:
-  - varientName: 7pc Dining Set
-  - varientName: 9Pc Dining Set
-  - varientName: 180cm Dining Table
-  - varientName: 210cm Dining Table
-  - varientName: Dining Arm Chair w/Cushion
+  - variantName: 7pc Dining Set
+  - variantName: 9Pc Dining Set
+  - variantName: 180cm Dining Table
+  - variantName: 210cm Dining Table
+  - variantName: Dining Arm Chair w/Cushion
 ---
 * 7PC Setting consists of a 180cm Rectangular Dining Table and 6 x Dining Arm Chairs
 * 9PC Setting consists of a 210cm Rectangular Dining Table and 8 x Dining Arm Chairs

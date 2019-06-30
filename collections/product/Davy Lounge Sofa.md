@@ -10,11 +10,11 @@ images:
 variants:
   - price: 199900
     discount: 50400
-    varientName: Wild Mushroom
+    variantName: Wild Mushroom
   - price: 199900
     discount: 50400
-    varientName: Tobacco
-  
+    variantName: Tobacco
+
 ---
 
 Two + Three Seater Sofa suite, Thick Leather in either

@@ -7,9 +7,9 @@ images:
   - /assets/florida bed.png
 variants:
   - price: 99500
-    varientName: Queen
+    variantName: Queen
   - price: 109500
-    varientName: King
+    variantName: King
 
 ---
 * White washed, Brushed Mountain Ash range with distinctive panelled 'checker-board' headboard

@@ -9,9 +9,9 @@ images:
   - kent lounges.png
 variants:
   - price: 219500
-    varientName: Fabric
+    variantName: Fabric
   - price: 349500
-    varientName: Thick Leather
+    variantName: Thick Leather
 
 ---
 
@@ -24,7 +24,7 @@ variants:
 * Cup Holders
 * Consoles can be moved to suit your needs
 
-Solid Wood & Ply Structural Frame, 
+Solid Wood & Ply Structural Frame,
 Either Fabric or Thick Leather
 
 **Dimensions**

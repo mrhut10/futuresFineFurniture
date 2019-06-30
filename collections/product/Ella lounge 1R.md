@@ -7,15 +7,15 @@ images:
   - /assets/ella lounge single.png
 variants:
   - price: 59500
-    varientName: 1R - Chocolate
+    variantName: 1R - Chocolate
   - price: 59500
-    varientName: 1R - Steel
+    variantName: 1R - Steel
   - price: 59500
-    varientName: 1R - Mink
+    variantName: 1R - Mink
   - price: 59500
-    varientName: 1R - Olive
+    variantName: 1R - Olive
   - price: 59500
-    varientName: 1R - Burgndy
+    variantName: 1R - Burgndy
 ---
 
 Dimensions: W940xD940xH1070mm

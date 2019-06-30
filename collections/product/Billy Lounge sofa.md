@@ -7,11 +7,11 @@ images:
   - /assets/billy lounge triple.png
 variants:
   - price: 89500
-    varientName: Cyan
+    variantName: Cyan
   - price: 89500
-    varientName: Chacroal
+    variantName: Chacroal
   - price: 89500
-    varientName: Khaki
+    variantName: Khaki
 ---
 
 Dimensions: W940xD940xH1070mm

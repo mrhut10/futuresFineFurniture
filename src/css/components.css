@@ -1,0 +1,10 @@
+/* Component classes */
+hr {
+  height: 1px;
+  @apply bg-gray-500;
+  display: block;
+  border-style: none;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}

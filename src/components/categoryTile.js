@@ -22,9 +22,9 @@ const CategoryTitle = ({
   height = 350,
 }) => (
   <div className="flex flex-col p-2 w-full sm:w-1/2 md:w-1/3">
-    <div className="flex flex-1 flex-col border no-underline overflow-hidden rounded-lg shadow hover:shadow-lg">
-      <Link className="bg-grey-darkest" to={slug || '/'} title={hoverText}>
-        <h4 className="font-semibold mb-0 px-4 py-3 text-center text-grey-lighter hover:text-cream">
+    <div className="flex flex-1 flex-col no-underline overflow-hidden rounded-lg shadow hover:shadow-lg">
+      <Link className="bg-cream-100" to={slug || '/'} title={hoverText}>
+        <h4 className="font-bold mb-0 px-4 py-3 text-center text-cream-700 hover:text-cream-600">
           {name}
         </h4>
       </Link>

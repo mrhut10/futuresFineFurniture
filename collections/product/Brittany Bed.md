@@ -7,13 +7,13 @@ images:
   - /assets/brittany bed.png
 variants:
   - price: 49500
-    varientName: Single
+    variantName: Single
   - price: 54900
-    varientName: King Single
+    variantName: King Single
   - price: 64900
-    varientName: Double
+    variantName: Double
   - price: 69500
-    varientName: Queen
+    variantName: Queen
 ---
 
 - 2 Toned finish in wenge & gloss white delivers eye catching style

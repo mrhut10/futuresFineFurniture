@@ -7,9 +7,9 @@ images:
   - /assets/roma tallboy.PNG
 variants:
   - price: 124500
-    varientName: Oak
+    variantName: Oak
   - price: 124500
-    varientName: Tesky
+    variantName: Tesky
 ---
 4 draws
 * Solid and veneered Acacia timber

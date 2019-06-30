@@ -7,9 +7,9 @@ images:
   - /assets/Bellagio 2 Seater with Chase.png
 variants:
   - price: 299500
-    varientName: Left Hand Chase
+    variantName: Left Hand Chase
   - price: 239500
-    varientName: Right Hand Chase
+    variantName: Right Hand Chase
 ---
 
 - Adjustable headrests

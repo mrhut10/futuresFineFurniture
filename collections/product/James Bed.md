@@ -7,11 +7,11 @@ images:
   - james bed.png
 variants:
   - price: 25900
-    varientName: Single
+    variantName: Single
   - price: 28500
-    varientName: King Single
+    variantName: King Single
   - price: 34900
-    varientName: Double
+    variantName: Double
   - price: 37900
-    varientName: Queen
+    variantName: Queen
 ---

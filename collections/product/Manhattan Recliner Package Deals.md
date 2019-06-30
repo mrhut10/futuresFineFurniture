@@ -7,17 +7,17 @@ images:
   - /assets/manhattan package.PNG
 variants:
   - price: 284900
-    varientName: 2RR+R+R Black
+    variantName: 2RR+R+R Black
   - price: 284900
-    varientName: 2RR+R+R Mist
+    variantName: 2RR+R+R Mist
   - price: 284900
-    varientName: 2RR+R+R Brown
+    variantName: 2RR+R+R Brown
   - price: 299500
-    varientName: 3RR+R+R Black
+    variantName: 3RR+R+R Black
   - price: 299500
-    varientName: 3RR+R+R Mist
+    variantName: 3RR+R+R Mist
   - price: 299500
-    varientName: 3RR+R+R Brown
+    variantName: 3RR+R+R Brown
 
 ---
 * Timeless Design

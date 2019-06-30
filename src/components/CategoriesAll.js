@@ -1,6 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import CategoryTitle from './categoryTile';
+import CategoryTitle from './CategoryTile';
 
 const R = require('ramda');
 
@@ -67,7 +67,7 @@ const Categories = () => (
       }
     `}
     render={queryData => (
-      <div className="flex flex-wrap justify-center max-w-lg mx-auto w-full">
+      <div className="flex flex-wrap justify-center mx-auto w-full">
         <div className="flex flex-wrap -m-2">
           {R.compose(
             R.map(input => (

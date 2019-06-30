@@ -7,15 +7,15 @@ images:
   - /assets/ella lounge 2RR+R+R.png
 variants:
   - price: 179500
-    varientName: 2R+R+R - Chocolate
+    variantName: 2R+R+R - Chocolate
   - price: 179500
-    varientName: 2R+R+R - Steel
+    variantName: 2R+R+R - Steel
   - price: 179500
-    varientName: 2R+R+R - Mink
+    variantName: 2R+R+R - Mink
   - price: 179500
-    varientName: 2R+R+R - Olive
+    variantName: 2R+R+R - Olive
   - price: 179500
-    varientName: 2R+R+R - Burgndy
+    variantName: 2R+R+R - Burgndy
 ---
 
 very popular range comfortable firm foam with Thick Treasure Suede Fabric available in 5 colours

@@ -7,9 +7,9 @@ images:
   - /assets/vara bed.PNG
 variants:
   - price: 104500
-    varientName: Queen
+    variantName: Queen
   - price: 114500
-    varientName: King
+    variantName: King
 ---
 * Modern Elegant design
 * Premium Quality Polyester fabric from Malaysia

@@ -7,11 +7,11 @@ images:
   - /assets/downtown RHF chase 2 seater.png
 variants:
   - price: 144900
-    varientName: SPA
+    variantName: SPA
   - price: 144900
-    varientName: Mocha
+    variantName: Mocha
   - price: 144900
-    varientName: Charcoal
+    variantName: Charcoal
 ---
 Downtown Right Hand Chaise 2 Seater
 

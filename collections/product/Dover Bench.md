@@ -7,9 +7,9 @@ images:
   - dover bench.png
 variants:
   - price: 24900
-    varientName: 150cm Bench
+    variantName: 150cm Bench
   - price: 26900
-    varientName: 170cm Bench
+    variantName: 170cm Bench
 ---
 
 Solid Acacia Timber in Multicolour

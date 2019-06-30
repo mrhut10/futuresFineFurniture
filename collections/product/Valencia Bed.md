@@ -7,15 +7,15 @@ images:
   - /assets/valencia bed.PNG
 variants:
   - price: 39500
-    varientName: Single
+    variantName: Single
   - price: 41500
-    varientName: King Single
+    variantName: King Single
   - price: 46500
-    varientName: Double
+    variantName: Double
   - price: 49500
-    varientName: Queen
+    variantName: Queen
   - price: 59500
-    varientName: King
+    variantName: King
 
 ---
 * Premium Quality Polyester fabric from Malaysia

@@ -1,8 +1,9 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import { graphql } from 'gatsby';
 import propTypes from 'prop-types';
-import Layout from '../components/layout';
-import Wrapper from '../components/wrapper';
+import Layout from '../components/Layout';
+import Wrapper from '../components/Wrapper';
 
 const RangeRoute = ({ data }) => {
   const post = data.markdownRemark;

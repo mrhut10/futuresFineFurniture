@@ -7,14 +7,14 @@ images:
   - /assets/pandora bed.png
 variants:
   - price: 39500
-    varientName: Single
+    variantName: Single
   - price: 46500
-    varientName: King Single
+    variantName: King Single
   - price: 64900
-    varientName: Double
+    variantName: Double
   - price: 69500
-    varientName: Queen
+    variantName: Queen
   - price: 74900
-    varientName: King
+    variantName: King
 ---
 N.Z. Pine + MDF in White

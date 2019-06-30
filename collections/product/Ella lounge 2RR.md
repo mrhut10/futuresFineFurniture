@@ -7,15 +7,15 @@ images:
   - /assets/ella lounge 2RR.png
 variants:
   - price: 79500
-    varientName: 2RR - Chocolate
+    variantName: 2RR - Chocolate
   - price: 79500
-    varientName: 2RR - Steel
+    variantName: 2RR - Steel
   - price: 79500
-    varientName: 2RR - Mink
+    variantName: 2RR - Mink
   - price: 79500
-    varientName: 2RR - Olive
+    variantName: 2RR - Olive
   - price: 79500
-    varientName: 2RR - Burgndy
+    variantName: 2RR - Burgndy
 ---
 
 Dimensions: W1540xD940xH1070mm

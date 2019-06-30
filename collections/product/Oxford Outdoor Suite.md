@@ -6,10 +6,10 @@ range: Oxford
 images:
   - oxford outdoor.png
 variants:
-  - varientName: 4pc Lounge Setting
-  - varientName: 2 Seater
-  - varientName: Arm Chair
-  - varientName: Coffee Table
+  - variantName: 4pc Lounge Setting
+  - variantName: 2 Seater
+  - variantName: Arm Chair
+  - variantName: Coffee Table
 ---
 
 * Setting Consists of a 2 seater Sofa, 2 x Arm Chairs and a rectangular Coffee Table

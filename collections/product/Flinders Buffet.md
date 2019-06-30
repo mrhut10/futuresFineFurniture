@@ -8,7 +8,7 @@ updated: 2019-06-28
 images:
   - "Flinders Buffet.png"
 variants:
-  - varientName: "Buffet"
+  - variantName: "Buffet"
 ---
 Solid N.Z. Pine in Jarrah Colour.
 

@@ -6,9 +6,9 @@ range: Oxford
 images:
   - oxford bar.png
 variants:
-  - varientName: 5pce Bar Setting
-  - varientName: Bar Table
-  - varientName: Bar Arm Chair
+  - variantName: 5pce Bar Setting
+  - variantName: Bar Table
+  - variantName: Bar Arm Chair
 ---
 * Setting consists of a square 94cm bar table &  slat bar chairs
 * Designed for outdoor use with low to no maintenance

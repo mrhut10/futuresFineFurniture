@@ -116,7 +116,7 @@ const querys = {
             images
             variants {
               price
-              varientName
+              variantName
               discount
             }
           }

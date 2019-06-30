@@ -9,12 +9,12 @@ images:
   - reno package.png
 variants:
   - price: 109500
-    varientName: Single ER
+    variantName: Single ER
   - price: 194900
-    varientName: 2 Seater ERER
+    variantName: 2 Seater ERER
   - price: 219500
-    varientName: 3 Seater ERER
-  
+    variantName: 3 Seater ERER
+
 
 ---
 

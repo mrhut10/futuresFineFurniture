@@ -7,9 +7,9 @@ images:
   - /assets/BELLAGIO 3pc Corner.png
 variants:
   - price: 299500
-    varientName: Black
+    variantName: Black
   - price: 299500
-    varientName: Sand
+    variantName: Sand
 ---
 
 - Adjustable headrests

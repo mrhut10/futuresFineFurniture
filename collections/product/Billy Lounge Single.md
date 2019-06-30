@@ -7,15 +7,15 @@ images:
   - /assets/billly lounge single.png
 variants:
   - price: 39500
-    varientName: Cyan
+    variantName: Cyan
   - price: 39500
-    varientName: Chacroal
+    variantName: Chacroal
   - price: 39500
-    varientName: Khaki
+    variantName: Khaki
   - price: 39500
-    varientName: Red
+    variantName: Red
   - price: 39500
-    varientName: Orange
+    variantName: Orange
 ---
 
 Dimensions: W940xD940xH1070mm

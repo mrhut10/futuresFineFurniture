@@ -4,19 +4,19 @@ import { Link } from 'gatsby';
 import * as R from 'ramda';
 import { intToPriceFormat } from '../helpers/index';
 
-export const BuyArea = ({ name, id, image, url, description, varients }) => {
+export const BuyArea = ({ name, url, variants }) => {
   const [GetProductValue, SetProductValue] = useState(
-    // varients[0].varientName
+    // variants[0].variantName
     R.compose(
-      R.prop('varientName'),
-      R.ifElse(R.isNil, R.always(varients[0]), R.identity),
+      R.prop('variantName'),
+      R.ifElse(R.isNil, R.always(variants[0]), R.identity),
       R.find(input => input.price && input.price > 0)
-    )(varients)
+    )(variants)
   );
   return (
     <div className="flex flex-col">
       <h6>{`${name}${GetProductValue ? ` (${GetProductValue})` : ''}`}</h6>
-      {varients.length > 1 ? (
+      {variants.length > 1 ? (
         <div className="flex items-center justify-between mb-4">
           <label htmlFor="pickVar">
             <input />
@@ -25,18 +25,18 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
           <div className="inline-block relative w-64">
             <select
               id="pickVar"
-              className="appearance-none bg-white block border border-grey-light hover:border-grey leading-tight focus:outline-none px-4 py-2 pr-8 rounded shadow focus:shadow-outline w-full"
+              className="appearance-none bg-white block border border-gray-400 hover:border-gray-500 leading-tight focus:outline-none px-4 py-2 pr-8 rounded shadow focus:shadow-outline w-full"
               // style={{ margin: '5px 5px', textAlign: 'center' }}
               value={GetProductValue}
               onChange={e => SetProductValue(e.target.value)}
             >
-              {varients.map(varient => (
-                <option value={varient.varientName} key={varient.varientName}>
-                  {varient.varientName}
+              {variants.map(variant => (
+                <option value={variant.variantName} key={variant.variantName}>
+                  {variant.variantName}
                 </option>
               ))}
             </select>
-            <div className="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
               <svg
                 className="fill-current h-4 w-4"
                 xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +72,7 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
                   </h6>
                   <div className="flex items-end justify-between">
                     <div>
-                      <span className="font-base line-through text-grey-dark">
+                      <span className="font-base line-through text-gray-600">
                         RRP : {intToPriceFormat(item.price)}
                       </span>
                       <br />
@@ -85,8 +85,8 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
                       name={name}
                       id={name}
                       url={url}
-                      price={varients[0].price}
-                      varients={varients}
+                      price={variants[0].price}
+                      variants={variants}
                       value={GetProductValue}
                     >
                       Add To Cart
@@ -105,8 +105,8 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
                       name={name}
                       id={name}
                       url={url}
-                      price={varients[0].price}
-                      varients={varients}
+                      price={variants[0].price}
+                      variants={variants}
                       value={GetProductValue}
                     >
                       Add To Cart
@@ -114,13 +114,13 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
                   </div>
                   <div>
                     <p className="text-center">
-                      {varients
-                        .filter(value => value.varientName === GetProductValue)
+                      {variants
+                        .filter(value => value.variantName === GetProductValue)
                         .map(value =>
                           value.qty && value.qty > 0 ? (
                             <span
-                              className="text-red-dark"
-                              key={value.varientName}
+                              className="text-red-600"
+                              key={value.variantName}
                             >
                               {value.qty > 10
                                 ? `In Store: 10 or more units available`
@@ -128,9 +128,9 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
                             </span>
                           ) : (
                             <Link
-                              className="text-blue-dark hover:underline"
+                              className="text-blue-600 hover:underline"
                               to="/contact"
-                              key={value.varientName}
+                              key={value.variantName}
                             >
                               *Contact us for availability
                             </Link>
@@ -145,8 +145,8 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
             )
           )
         ),
-        R.find(R.propEq('varientName', GetProductValue))
-      )(varients)}
+        R.find(R.propEq('variantName', GetProductValue))
+      )(variants)}
       {R.compose(
         R.ifElse(
           R.compose(
@@ -164,8 +164,8 @@ export const BuyArea = ({ name, id, image, url, description, varients }) => {
           ),
           () => ''
         ),
-        R.find(R.propEq('varientName', GetProductValue))
-      )(varients)}
+        R.find(R.propEq('variantName', GetProductValue))
+      )(variants)}
     </div>
   );
 };
@@ -178,25 +178,25 @@ export const BuyButton = ({
   // price,
   description,
   children,
-  varients,
+  variants,
   value,
 }) => (
   <button
     type="button"
-    className="snipcart-add-item bg-maroon font-semibold inline-block p-2 rounded text-cream"
+    className="snipcart-add-item bg-maroon-800 font-semibold inline-block p-2 rounded text-cream-200"
     data-item-name={name}
     data-item-id={id}
     data-item-image={image}
     data-item-url={url}
-    data-item-price={`{"AUD":${(varients[0].price -
-      (varients[0].discount || 0)) /
+    data-item-price={`{"AUD":${(variants[0].price -
+      (variants[0].discount || 0)) /
       100}}`}
     description={description}
-    data-item-custom1-name={varients && varients.length > 1 ? 'Option' : ''}
+    data-item-custom1-name={variants && variants.length > 1 ? 'Option' : ''}
     data-item-custom1-options={
       /*
-        varients && varients.length > 1
-        ? varients.map(vari=>`${vari.varientName}[${vari.price-varients[0].price>=0?'+':''}${(vari.price-varients[0].price)/100}]`).join('|')
+        variants && variants.length > 1
+        ? variants.map(vari=>`${vari.variantName}[${vari.price-variants[0].price>=0?'+':''}${(vari.price-variants[0].price)/100}]`).join('|')
         : ''
 
       */
@@ -204,14 +204,14 @@ export const BuyButton = ({
         R.join('|'),
         R.map(
           vari =>
-            `${vari.varientName}[${
-              vari.price - (vari.discount || 0) - varients[0].price >= 0
+            `${vari.variantName}[${
+              vari.price - (vari.discount || 0) - variants[0].price >= 0
                 ? '+'
                 : ''
-            }${(vari.price - (vari.discount || 0) - varients[0].price) / 100}]`
+            }${(vari.price - (vari.discount || 0) - variants[0].price) / 100}]`
         ),
         R.filter(item => item.price && item.price > 0)
-      )(varients)
+      )(variants)
     }
     data-item-custom1-value={value}
   >
@@ -225,7 +225,7 @@ BuyArea.propTypes = {
   image: propTypes.string,
   url: propTypes.string,
   description: propTypes.string,
-  varients: propTypes.any,
+  variants: propTypes.any,
 };
 BuyButton.propTypes = {
   name: propTypes.string,
@@ -234,7 +234,7 @@ BuyButton.propTypes = {
   url: propTypes.string,
   description: propTypes.string,
   children: propTypes.any, // arrayOf(propTypes.element),
-  varients: propTypes.array,
+  variants: propTypes.array,
   value: propTypes.string,
 };
 

@@ -7,11 +7,11 @@ images:
   - /assets/manhattan triple.PNG
 variants:
   - price: 144900
-    varientName: Black
+    variantName: Black
   - price: 144900
-    varientName: Mist
+    variantName: Mist
   - price: 144900
-    varientName: Brown
+    variantName: Brown
 ---
 * 3 seater with Recliner Ends
 * Timeless Design

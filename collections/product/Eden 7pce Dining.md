@@ -6,7 +6,7 @@ range: Eden
 images:
   - eden outdoor Dining.jpg
 variants:
-  - varientName: Eden 7pce Dining
+  - variantName: Eden 7pce Dining
     price: 269500
     discount: 144500
 ---
