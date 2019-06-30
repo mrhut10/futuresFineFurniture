@@ -28,7 +28,9 @@ const categoryRoute = ({ data, pageContext }) => {
       />
       <Wrapper>
         <div>
-          <h1>{post.frontmatter.title}</h1>
+          <h1 className="font-bold mb-4 text-2xl text-maroon-600">
+            {post.frontmatter.title}
+          </h1>
           <div dangerouslySetInnerHTML={{ __html: post.html }} />
           {products ? (
             <BulkProducts
