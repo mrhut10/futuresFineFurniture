@@ -23,7 +23,7 @@ const query = graphql`
             Category
             range
             variants {
-              varientName
+              variantName
               price
               discount
             }
