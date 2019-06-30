@@ -5,7 +5,7 @@ import propTypes from 'prop-types';
 import Layout from '../components/Layout';
 import Wrapper from '../components/Wrapper';
 
-const RangeRoute = ({ data }) => {
+const rangeRoute = ({ data }) => {
   const post = data.markdownRemark;
   return (
     <Layout>
@@ -19,7 +19,6 @@ const RangeRoute = ({ data }) => {
   );
 };
 
-// markdownRemark(frontmatter: {title: {eq: $slug}}) {
 export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -31,8 +30,8 @@ export const query = graphql`
   }
 `;
 
-RangeRoute.propTypes = {
+rangeRoute.propTypes = {
   data: propTypes.any,
 };
 
-export default RangeRoute;
+export default rangeRoute;

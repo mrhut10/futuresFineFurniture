@@ -12,5 +12,5 @@ variants:
 * Colour: White
 Available in white colour build from premium quality pine wood, MDF and pine veneer
 
-**Dimensions**
+#### Dimensions
 W106.6 x D201 x H160.9 CM

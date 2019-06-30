@@ -21,11 +21,11 @@ const Layout = ({ children, showHero }) => {
   return (
     <>
       <Head data={data} />
-      <div className="bg-maroon-900 flex flex-col font-sans min-h-screen sm:pt-3 text-base text-gray-700">
-        <div className="flex flex-col max-w-5xl mx-auto relative rounded-lg shadow-2xl w-full">
+      <div className="bg-maroon-900 flex flex-col font-sans min-h-screen sm:px-4 sm:pt-4 text-base text-gray-700">
+        <div className="flex flex-col max-w-5xl m-auto relative rounded-lg shadow-2xl w-full">
           <Hero showHero={showHero} />
           <Nav />
-          <main className="bg-white mx-auto rounded-b-lg w-full">
+          <main className="flex flex-col bg-gray-100 rounded-b-lg w-full">
             {children}
           </main>
         </div>

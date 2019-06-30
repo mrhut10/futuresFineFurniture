@@ -14,6 +14,7 @@ variants:
 ---
 Solid N.Z. Pine in Jarrah Colour.
 
-Dimensions:
+#### Dimensions
+
 * Small TV Unit : L1500xW480xH650
 * Large TV Unit : L2000xW480xH650

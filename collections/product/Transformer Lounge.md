@@ -12,7 +12,6 @@ variants:
     variantName: "3ERER : 3 Seater with Electric Recliner Ends"
   - price: 349500
     variantName: "3ERER + 2ERER + 1ER : Package Deal"
-
 ---
 
 Touch and elegant Prime Suede Fabric
@@ -21,7 +20,8 @@ In Arm Storage
 console in 3 seater with storage, power outlets and drink holders
 USB changers
 
-Dimensions
+#### Dimensions
+
 * 1ER : W1020xD1010x1040 mm
 * 2ERER : W1640xD1010x1040 mm
 * 3ERER : W2260xD1010x1040 mm

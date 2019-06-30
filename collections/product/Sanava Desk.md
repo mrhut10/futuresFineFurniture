@@ -8,9 +8,11 @@ images:
 variants:
   - price: 49500
 ---
+
 3 Draw
 
 Solid Acacia Timber in Drift wood finish
 
-Dimensions
+#### Dimensions
+
 L 1500xD 6000xH 760 mm

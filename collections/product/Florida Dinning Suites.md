@@ -1,5 +1,5 @@
 ---
-title: Florida Dinning Suites
+title: Florida Dining Suites
 enabled: true
 Category: Dining
 range: Florida
@@ -18,7 +18,7 @@ variants:
 * White washed, Brushed Mountain Ash range
 * Contemporary coastal design with generous proportions
 
-**Dimensions**
+#### Dimensions
 * 5pce Table: W1500xD900xH760 mm
 * 7pce Table: W1900xD1000xH760 mm
 * 9pce Table: W2250xD1000xH760 mm

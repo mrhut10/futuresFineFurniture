@@ -13,6 +13,6 @@ variants:
 * Setting consists of rounded dining table & 6 dining arm chairs
 * Designed for outdoor use with low to no maintenance
 
-**Dimensions**
+#### Dimensions
 * Table : W200xD110xH70 cm
 * Chair : W70xD80xH90 cm

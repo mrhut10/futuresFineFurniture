@@ -17,5 +17,5 @@ variants:
 * Herringbone pattern parquet tops celebrate the natural appear of the Acacia grain
 * Colour in tesky & Oak
 
-**Dimensions**
+#### Dimensions
 * tallboy : W50xD45xH64 cm

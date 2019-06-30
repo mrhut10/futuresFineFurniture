@@ -14,6 +14,7 @@ variants:
 
 Solid Acacia Timber in Multicolour
 
-Dimensions
+#### Dimensions
+
 150cm Bench : W1500xD350xH450 cm
 170cm Bench : W1700xD350xH450 cm

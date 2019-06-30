@@ -40,11 +40,10 @@ const NewMenu = () => (
         </NavLink>
       </nav>
       <button
-        className="snipcart-checkout flex font-bold items-center md:justify-end no-underline p-4 text-cream-300 hover:text-cream-200"
+        className="snipcart-checkout bg-maroon-800 bottom-0 right-0 fixed font-bold h-12 w-12 no-underline mb-4 mr-10 rounded-full shadow-md text-cream-300 hover:text-cream-200"
         type="button"
       >
-        <MdShoppingCart className="flex items-center justify-center mr-1 text-cream-200 text-lg" />
-        Shopping Cart
+        <MdShoppingCart className="flex items-center justify-center text-cream-200 text-2xl leading-none mt-1" />
       </button>
     </div>
   </div>
@@ -53,7 +52,7 @@ const NewMenu = () => (
 const NavLink = ({ children, link, title }) => (
   <Link
     to={link}
-    className="border-maroon-600 border-t md:border-none flex font-bold items-center px-4 sm:px-12 md:px-3 py-3 text-cream-300 hover:text-cream-200"
+    className="border-maroon-700 border-t md:border-none flex font-bold items-center px-4 md:px-3 py-3 text-cream-300 hover:text-cream-200"
   >
     {children}
     {title}

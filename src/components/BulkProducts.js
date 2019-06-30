@@ -1,13 +1,17 @@
 import React from 'react';
 import propTypes from 'prop-types';
+
 import { ProductTile } from './ProductTile';
 
 export const BulkProducts = ({ products, heading, maxLimit }) => (
   <>
     <hr />
-    <br />
-    {heading ? <h2 className="px-2 w-full">{heading}</h2> : null}
-    <div className="flex flex-wrap w-full">
+    {heading ? (
+      <h2 className="font-bold mb-4 mt-6 text-2xl text-maroon-600">
+        {heading}
+      </h2>
+    ) : null}
+    <div className="flex flex-wrap -mx-2 w-full">
       {// product { name, images, slug, minPriceCents, range, variants }
       products
         // limit to maxLimit or if no limit don't

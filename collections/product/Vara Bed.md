@@ -19,6 +19,6 @@ variants:
 
 * Matches products from the Valencia Range
 
-**Dimensions**
+#### Dimensions
 * Queen : W181 x D241.5 x H119 CM
 * King : W210 x D241.5 x H119 CM

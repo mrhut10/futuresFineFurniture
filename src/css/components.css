@@ -1,7 +1,11 @@
 /* Component classes */
+body {
+  @apply bg-maroon-900;
+}
+
 hr {
   height: 1px;
-  @apply bg-gray-500;
+  @apply bg-gray-200;
   display: block;
   border-style: none;
   margin-top: 2rem;

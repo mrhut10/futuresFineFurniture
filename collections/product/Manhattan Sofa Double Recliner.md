@@ -20,5 +20,5 @@ variants:
 * Great Quality split leather offers both comfort & style
 * High resilience foam back cushions create ultimate in comfort
 
-**Dimensions**
+#### Dimensions
 W147 x D94 x H105 CM

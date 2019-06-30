@@ -14,5 +14,5 @@ variants:
 * Metal Handles
 * Wood naturally expands and contracts with seasonal changes in humidity
 
-**Dimensions**
+#### Dimensions
 W165xD83xH79 cm

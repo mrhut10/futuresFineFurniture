@@ -17,6 +17,7 @@ variants:
 * Chairs have a chocolate brown PU seat Pads
 * Chrome Handles
 
-Dimensions
+#### Dimensions
+
 3 draws: W1800xD450xH600 mm
 2 draws 2 doors: W2200xD450xH600 mm

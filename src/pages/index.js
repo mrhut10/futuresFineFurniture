@@ -18,15 +18,14 @@ const IndexPage = () => (
         `macksville`,
       ]}
     />
-    <div className="max-w-4xl mx-auto p-4 w-full">
+    <div className="max-w-4xl mx-auto px-4 py-12 w-full">
       <div className="mx-auto w-full">
         <img src={Logo} alt="" />
       </div>
       <div className="my-8 mx-auto text-center text-xl w-full">
-        <p className="mb-2">
+        <p className="mb-16">
           The widest range of Furniture, Mattresses and Mobility Solutions
           within the Macleay Valley.
-          <br />
         </p>
       </div>
       <div className="mb-8 mx-auto text-lg">
@@ -59,7 +58,7 @@ const IndexPage = () => (
       <br />
       <hr className="bg-gray-200" />
       <div className="mb-4 mx-auto w-full">
-        <h2 className="font-bold mb-4 text-2xl">Our Range</h2>
+        <h2 className="font-bold mb-4 text-2xl text-maroon-600">Our Range</h2>
         <CategoriesAll />
       </div>
     </div>

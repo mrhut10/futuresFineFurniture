@@ -11,8 +11,11 @@ import { BulkProducts } from '../components/BulkProducts';
 
 const details = R.compose(
   html => (
-    <div>
-      <p dangerouslySetInnerHTML={{ __html: html }} />
+    <div className="bg-white mt-12 px-4 py-12 rounded-lg shadow-md hover:shadow-lg">
+      <div
+        className="markdown max-w-md mx-auto"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </div>
   ),
   R.pathOr('', ['markdownRemark', 'html'])
@@ -67,38 +70,34 @@ const productRoute = ({ data }) => {
         )(data)}
       />
       <Wrapper>
-        <div className="pt-8">
-          <div className="px-4">
-            <h1>{title}</h1>
-            <h3>{RangeCategoryString(range, Category)}</h3>
+        <div className="mb-8 text-center">
+          <h1 className="font-bold text-3xl text-maroon-600">{title}</h1>
+          <h3>{RangeCategoryString(range, Category)}</h3>
+        </div>
+        <div className="flex flex-wrap">
+          <div className="flex items-center justify-center mb-4 md:pr-12 object-cover text-center w-full md:w-1/2">
+            {R.compose(
+              ImageComponent,
+              images
+            )(data)}
           </div>
-          <br />
-          <div className="text-left m-4">
-            <div className="md:float-left mb-4 md:pr-8 text-center w-full md:w-1/2">
-              {R.compose(
-                ImageComponent,
-                images
-              )(data)}
-            </div>
-            <div className="px-4 w-full">
-              <BuyArea
-                name={title}
-                id={title}
-                image={undefined}
-                url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
-                description={undefined}
-                variants={variants}
-                qty={qty}
-              />
-              <br />
-              {details(data)}
-            </div>
+          <div className="flex flex-1 w-full md:w-1/2">
+            <BuyArea
+              name={title}
+              id={title}
+              image={undefined}
+              url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
+              description={undefined}
+              variants={variants}
+              qty={qty}
+            />
           </div>
         </div>
+        {details(data)}
       </Wrapper>
       <div
         id="relatedProducts"
-        className="flex flex-col max-w-lg mx-auto p-4 w-full"
+        className="flex flex-col max-w-4xl mx-auto p-4 w-full"
       >
         {
           <BulkProducts

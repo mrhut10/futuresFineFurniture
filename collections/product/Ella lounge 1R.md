@@ -18,6 +18,8 @@ variants:
     variantName: 1R - Burgndy
 ---
 
-Dimensions: W940xD940xH1070mm
+#### Dimensions
+
+W940xD940xH1070mm
 
 very popular range comfortable firm foam with Thick Treasure Suede Fabric available in 5 colours

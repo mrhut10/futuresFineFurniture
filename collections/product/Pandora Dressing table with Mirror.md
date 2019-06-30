@@ -10,6 +10,7 @@ variants:
 ---
 N.Z. Pine + MDF in White
 
-Dimensions
+#### Dimensions
+
 Mirror  L500xD80H585 mm
 Dressing Table L1050xD420xH770 mm

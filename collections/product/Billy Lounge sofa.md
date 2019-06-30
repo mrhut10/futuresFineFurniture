@@ -9,11 +9,13 @@ variants:
   - price: 89500
     variantName: Cyan
   - price: 89500
-    variantName: Chacroal
+    variantName: Charcoal
   - price: 89500
     variantName: Khaki
 ---
 
-Dimensions: W940xD940xH1070mm
+#### Dimensions
+
+W940xD940xH1070mm
 
 very popular range comfortable with linin Material the sofa is available in 3 colours

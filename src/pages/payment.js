@@ -1,60 +1,53 @@
 import React from 'react';
-import { Card, Elevation } from '@blueprintjs/core';
+import { MdCheckCircle } from 'react-icons/md';
 import PropTypes from 'prop-types';
+
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 import Wrapper from '../components/Wrapper';
-
-import afterpayLogo from '../images/afterpay/afterpay_AP-RGB-sm.svg';
-import afterpaySocial from '../images/afterpay/social-1080x1080-blue.png';
-import visacard from '../images/paymentMethods/Dark Color/1.png';
-import mastercard from '../images/paymentMethods/Dark Color/2.png';
-import amexcard from '../images/paymentMethods/Dark Color/22.png';
-import wallet from '../images/paymentMethods/australian-money-8746289.jpg';
-
-const PaymentCard = ({ children }) => (
-  <Card
-    interactive
-    elevation={Elevation.TWO}
-    style={{ margin: '10px', maxWidth: '300px' }}
-  >
-    {children}
-  </Card>
-);
-
-PaymentCard.propTypes = {
-  children: PropTypes.array,
-};
+import afterpay from '../images/afterpay/social-1080x1080-blue.png';
+import eftpos from '../images/paymentMethods/eftpos.svg';
+import cash from '../images/paymentMethods/australian-money-8746289.jpg';
 
 const PaymentPage = () => (
   <Layout>
+    <SEO title="Payment" />
     <Wrapper>
-      <h1>Innovative Payment Options</h1>
+      <h1 className="font-bold mb-4 text-2xl text-maroon-600">
+        Innovative Payment Options
+      </h1>
       <p>
         Helpful and flexible payment options to help you get your quality
-        furniture quicker
+        furniture quicker.
       </p>
-      <div style={{ display: 'flex', flexDirection: 'row' }}>
-        <PaymentCard>
-          <img src={afterpayLogo} height="50rem" alt="Afterpay" />
-          <img src={afterpaySocial} alt="SHOP NOW, ENJOY NOW, PAY LATER" />
-          <br />
-          *instore
-        </PaymentCard>
-        <PaymentCard>
-          <h3>Cards </h3>
-          <img src={visacard} alt="VISA Card" />
-          <img src={mastercard} alt="master Card" />
-          <img src={amexcard} alt="amex card" />
-          <br /> *instore and online
-        </PaymentCard>
-        <PaymentCard>
-          <h3>Cash</h3>
-          <img src={wallet} alt="cash in wallet" />
-          <br /> *instore
-        </PaymentCard>
-      </div>
+      <hr />
+      <ul className="flex flex-wrap mt-4 -mx-4">
+        <CheckMark title="Afterpay" img={afterpay} />
+        <CheckMark title="EFTPOS" img={eftpos} />
+        <CheckMark title="Cash" img={cash} />
+      </ul>
     </Wrapper>
   </Layout>
 );
+
+const CheckMark = ({ title, img }) => (
+  <li className="mb-8 px-4 w-full sm:w-1/2 md:w-1/3">
+    <div className="bg-white p-4 relative rounded-lg shadow-md w-full">
+      <MdCheckCircle className="absolute bottom-0 left-0 mb-4 ml-4 rounded-full text-maroon-600" />
+      <img
+        className="h-56 object-cover object-center w-full"
+        src={img}
+        alt=""
+      />
+      <h4 className="font-bold mt-4 text-center text-maroon-700 text-sm tracking-wider uppercase">
+        {title}
+      </h4>
+    </div>
+  </li>
+);
+CheckMark.propTypes = {
+  title: PropTypes.node,
+  img: PropTypes.node,
+};
 
 export default PaymentPage;

@@ -12,5 +12,6 @@ variants:
 
 Solid Acacia Timber in Drift wood finish
 
-Dimensions
+#### Dimensions
+
 L 1400xD 700xH 400 mm

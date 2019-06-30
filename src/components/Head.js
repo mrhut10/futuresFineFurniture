@@ -1,22 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
 
-const Head = ({ data }) => (
-  <Helmet
-    title={data.site.siteMetadata.title}
-    meta={[
-      {
-        name: 'description',
-        content: 'Furniture and Mobility Provider for the mid north coast',
-      },
-      {
-        name: 'keywords',
-        content:
-          "Mid North Coast, Furniture, Mobility, Timber, Beds, Lift Beds, Adjustable Beds, Lift Chairs, Mattress, Mattress's, Kempsey, Port Macquarie, Macksville, Coffs Harbour",
-      },
-    ]}
-  >
+const Head = () => (
+  <Helmet>
     <html lang="en" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js" />
     <script id="mcjs">
@@ -34,8 +20,5 @@ const Head = ({ data }) => (
     />
   </Helmet>
 );
-Head.propTypes = {
-  data: PropTypes.object,
-};
 
 export default Head;
