@@ -9,7 +9,7 @@ variants:
   - price: 69500
     variantName: Cyan
   - price: 69500
-    variantName: Chacroal
+    variantName: Charcoal
   - price: 69500
     variantName: Khaki
   - price: 69500
