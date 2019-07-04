@@ -7,8 +7,8 @@ images:
   - /assets/flinders bed.png
 variants:
   - price: 84900
-    varientName: Queen
+    variantName: Queen
   - price: 89500
-    varientName: King
+    variantName: King
 ---
 Solid N.Z. Pine in Jarrah Colour.

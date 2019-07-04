@@ -2,9 +2,9 @@ import React from 'react';
 import * as R from 'ramda';
 import { StaticQuery, graphql, Link } from 'gatsby';
 import slugify from 'slugify';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import { BulkProducts } from '../components/BulkProducts';
-import Wrapper from '../components/wrapper';
+import Wrapper from '../components/Wrapper';
 
 const query = graphql`
   {
@@ -23,7 +23,7 @@ const query = graphql`
             Category
             range
             variants {
-              varientName
+              variantName
               price
               discount
             }

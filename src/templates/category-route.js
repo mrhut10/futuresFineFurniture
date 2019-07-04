@@ -1,20 +1,21 @@
+/* eslint-disable react/no-danger */
 import React from 'react';
 import { graphql } from 'gatsby';
 import propTypes from 'prop-types';
 import * as R from 'ramda';
-import Layout from '../components/layout';
-import Wrapper from '../components/wrapper';
+import Layout from '../components/Layout';
+import Wrapper from '../components/Wrapper';
 import ComingSoon from '../components/ComingSoon';
-import SEO from '../components/seo';
+import SEO from '../components/SEO';
 import { BulkProducts } from '../components/BulkProducts';
 
-const CategoryRoute = ({ data, pageContext }) => {
+const categoryRoute = ({ data, pageContext }) => {
   const post = data.cat;
   const { products } = data;
   const removeDiscount = item =>
     item.price - (item.discount && item.discount > 0 ? item.discount : 0);
 
-  const minPricedVarient = R.compose(
+  const minPricedVariant = R.compose(
     R.head,
     R.sort((a, b) => removeDiscount(a) - removeDiscount(b)),
     R.filter(input => input.price && input.price > 0)
@@ -26,31 +27,31 @@ const CategoryRoute = ({ data, pageContext }) => {
         keywords={post.frontmatter.keywords || []}
       />
       <Wrapper>
-        <div>
-          <h1>{post.frontmatter.title}</h1>
-          <div dangerouslySetInnerHTML={{ __html: post.html }} />
-          {products ? (
-            <BulkProducts
-              products={products.edges
-                .map(({ node }) => ({
-                  name: node.frontmatter.title,
-                  images: R.pathOr('', ['frontmatter', 'images'])(node),
-                  slug: `${pageContext.slug}/${node.fields.productName}`,
-                  variants: R.pathOr([], ['frontmatter', 'variants'])(node),
-                  minPriceCents: R.compose(
-                    R.prop('price'),
-                    minPricedVarient,
-                    R.pathOr([], ['frontmatter', 'variants'])
-                  )(node),
-                  range: R.pathOr([], ['frontmatter', 'range'])(node),
-                }))
-                .sort((a, b) => a.minPriceCents - b.minPriceCents)
-                .sort((a, b) => String(a.range).localeCompare(String(b.range)))}
-            />
-          ) : (
-            <ComingSoon />
-          )}
-        </div>
+        <h1 className="font-bold mb-4 text-2xl text-maroon-600">
+          {post.frontmatter.title}
+        </h1>
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        {products ? (
+          <BulkProducts
+            products={products.edges
+              .map(({ node }) => ({
+                name: node.frontmatter.title,
+                images: R.pathOr('', ['frontmatter', 'images'])(node),
+                slug: `${pageContext.slug}/${node.fields.productName}`,
+                variants: R.pathOr([], ['frontmatter', 'variants'])(node),
+                minPriceCents: R.compose(
+                  R.prop('price'),
+                  minPricedVariant,
+                  R.pathOr([], ['frontmatter', 'variants'])
+                )(node),
+                range: R.pathOr([], ['frontmatter', 'range'])(node),
+              }))
+              .sort((a, b) => a.minPriceCents - b.minPriceCents)
+              .sort((a, b) => String(a.range).localeCompare(String(b.range)))}
+          />
+        ) : (
+          <ComingSoon />
+        )}
       </Wrapper>
     </Layout>
   );
@@ -64,7 +65,7 @@ export const query = graphql`
         title
         variants {
           price
-          varientName
+          variantName
           discount
         }
         keywords
@@ -97,7 +98,7 @@ export const query = graphql`
             range
             variants {
               price
-              varientName
+              variantName
               discount
             }
           }
@@ -110,9 +111,9 @@ export const query = graphql`
   }
 `;
 
-CategoryRoute.propTypes = {
+categoryRoute.propTypes = {
   data: propTypes.any,
   pageContext: propTypes.any,
 };
 
-export default CategoryRoute;
+export default categoryRoute;

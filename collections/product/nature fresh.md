@@ -7,11 +7,11 @@ images:
   - /assets/nature fresh.png
 variants:
   - price: 59500
-    varientName: Double
+    variantName: Double
   - price: 64900
-    varientName: Queen
+    variantName: Queen
   - price: 74900
-    varientName: King
+    variantName: King
 ---
 Firm Pocket Spring Mattress.
 * 22cm 5 zoned pocket springs with foam encasement

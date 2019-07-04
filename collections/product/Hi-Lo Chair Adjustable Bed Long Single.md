@@ -7,7 +7,7 @@ images:
   - /assets/Hi-Lo Chair Adjustable Bed Long Single.JPG
 variants:
   - price: 599500
-    varientName: Long Single
+    variantName: Long Single
 ---
 
 Adjustable Bed / Lift Chair in one

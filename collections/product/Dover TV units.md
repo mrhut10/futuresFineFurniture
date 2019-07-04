@@ -7,13 +7,14 @@ images:
   - dover tv units.png
 variants:
   - price: 74900
-    varientName: 2 Door, 2 Niche
+    variantName: 2 Door, 2 Niche
   - price: 89500
-    varientName: 2 Door, 1 Drawer, 1 Niche
+    variantName: 2 Door, 1 Drawer, 1 Niche
 ---
 
 Solid Acacia Timber in Multicolour
 
-Dimensions
+#### Dimensions
+
 2 Door 2 Niche  : W1800xD500xH600 mm
 2 Door 1 Draw 1 Niche  : W2140xD500xH600 mm

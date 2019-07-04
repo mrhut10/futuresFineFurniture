@@ -9,16 +9,15 @@ images:
   - reno package.png
 variants:
   - price: 109500
-    varientName: Single ER
+    variantName: Single ER
   - price: 194900
-    varientName: 2 Seater ERER
+    variantName: 2 Seater ERER
   - price: 219500
-    varientName: 3 Seater ERER
-  
-
+    variantName: 3 Seater ERER
 ---
 
-**Features**
+#### Features
+
 * Smart Cub Holder
 * Tray Table
 * Full Function - Electric Recliner & Headrests
@@ -29,7 +28,8 @@ variants:
 
 Steel & Ply frame, Thick Black Leather with Pocket Coil Spring Support
 
-**Dimensions**
+#### Dimensions
+
 * 1ER : W91xD96xH108 cm
 * 2ERER : W184xD96xH108 cm
 * 3ERER : W207xD96xH108 cm

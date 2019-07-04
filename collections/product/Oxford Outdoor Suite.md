@@ -6,10 +6,10 @@ range: Oxford
 images:
   - oxford outdoor.png
 variants:
-  - varientName: 4pc Lounge Setting
-  - varientName: 2 Seater
-  - varientName: Arm Chair
-  - varientName: Coffee Table
+  - variantName: 4pc Lounge Setting
+  - variantName: 2 Seater
+  - variantName: Arm Chair
+  - variantName: Coffee Table
 ---
 
 * Setting Consists of a 2 seater Sofa, 2 x Arm Chairs and a rectangular Coffee Table
@@ -18,14 +18,16 @@ variants:
 * Aluminium white powder coated frame
 
 
-**Details**
+#### Details
+
 * 1.2 mm thick aluminium frame
 * Strong Textmesh Fabric
 * White/Champagne | Taupe
 * Table Top - Aluminium
 
 
-**Dimentions**
+#### Dimensions
+
 * 2 Seater : W117xD72xH83 cm
 * Arm Chair : W65xD72xH83 cm
 * Coffee Table : W100xD54.5xH56 cm

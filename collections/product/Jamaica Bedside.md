@@ -14,5 +14,5 @@ variants:
 * radius on the drawer fronts, with all have full extension metal runners
 * Metal Handles
 
-**Dimensions**
+#### Dimensions
 * bedside: W53xD45xH63.5 cm

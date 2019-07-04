@@ -10,16 +10,16 @@ images:
 variants:
   - price: 219500
     discount: 60000
-    varientName: LHS Chase - Caramel Hermes
+    variantName: LHS Chase - Caramel Hermes
   - price: 219500
     discount: 60000
-    varientName: RHS Chase - Caramel Hermes
+    variantName: RHS Chase - Caramel Hermes
   - price: 219500
     discount: 60000
-    varientName: LHS Chase - Coffee Bean Brown
+    variantName: LHS Chase - Coffee Bean Brown
   - price: 219500
     discount: 60000
-    varientName: RHS Chase - Coffee Bean Brown
+    variantName: RHS Chase - Coffee Bean Brown
 ---
 
 Benz Thick Leather Sofa Lounge with either RHS or LHS Chase

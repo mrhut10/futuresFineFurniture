@@ -7,11 +7,11 @@ images:
   - /assets/royal mattress.png
 variants:
   - price: 69500
-    varientName: Double
+    variantName: Double
   - price: 79500
-    varientName: Queen
+    variantName: Queen
   - price: 89500
-    varientName: King
+    variantName: King
 ---
 Plush rated pocket spring mattress with Natural Latex
 * 20cm 5 zoned pocket springs with foam encasement

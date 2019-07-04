@@ -7,11 +7,11 @@ images:
   - /assets/manhattan single.png
 variants:
   - price: 94900
-    varientName: Brown
+    variantName: Brown
   - price: 94900
-    varientName: Mist
+    variantName: Mist
   - price: 94900
-    varientName: Black
+    variantName: Black
 ---
 
 * Timeless Design
@@ -21,5 +21,5 @@ variants:
 * High resilience foam back cushions create ultimate in comfort
 
 
-**Dimensions**
+#### Dimensions
 W90 x D94 x H105 CM

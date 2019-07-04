@@ -13,5 +13,5 @@ variants:
 * White washed, Brushed Mountain Ash range
 * Contemporary coastal design with generous proportions
 
-**Dimensions**
+#### Dimensions
 W1000xD360xH1900 mm

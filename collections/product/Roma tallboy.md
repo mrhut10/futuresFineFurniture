@@ -7,9 +7,9 @@ images:
   - /assets/roma tallboy.PNG
 variants:
   - price: 124500
-    varientName: Oak
+    variantName: Oak
   - price: 124500
-    varientName: Tesky
+    variantName: Tesky
 ---
 4 draws
 * Solid and veneered Acacia timber
@@ -17,5 +17,5 @@ variants:
 * Herringbone pattern parquet tops celebrate the natural appear of the Acacia grain
 * Colour in tesky & Oak
 
-**Dimensions**
+#### Dimensions
 * tallboy : W95xD45xH110 cm

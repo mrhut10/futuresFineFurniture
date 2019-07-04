@@ -7,15 +7,15 @@ images:
   - /assets/billy lounge package 3+2.PNG
 variants:
   - price: 94900
-    varientName: Cyan
+    variantName: Cyan
   - price: 94900
-    varientName: Chacroal
+    variantName: Charcoal
   - price: 94900
-    varientName: Khaki
+    variantName: Khaki
   - price: 94900
-    varientName: Red
+    variantName: Red
   - price: 94900
-    varientName: Orange
+    variantName: Orange
 ---
 
 very popular range comfortable with linin Material available in 5 colours

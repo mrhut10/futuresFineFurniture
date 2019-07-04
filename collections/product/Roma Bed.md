@@ -7,9 +7,9 @@ images:
   - /assets/Roma Bed.png
 variants:
   - price: 124500
-    varientName: Queen Oak
+    variantName: Queen Oak
   - price: 124500
-    varientName: Queen Tesky
+    variantName: Queen Tesky
 
 ---
 * Solid and veneered Acacia timber
@@ -17,5 +17,5 @@ variants:
 * Herringbone pattern parquet tops celebrate the natural appear of the Acacia grain
 * Colour in tesky & Oak
 
-**Dimensions**
+#### Dimensions
 * Queen : W211.5xD160xH120 cm

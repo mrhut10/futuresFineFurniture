@@ -8,9 +8,10 @@ updated: 2019-06-28
 images:
   - "flinders coffee table.png"
 variants:
-  - varientName: "Coffee Table"
+  - variantName: "Coffee Table"
 ---
 Solid N.Z. Pine in Jarrah Colour.
 
-Dimensions:
+#### Dimensions
+
   L1270xW730xH420

@@ -16,5 +16,5 @@ variants:
 * Storage draws to maximize storage for your room
 
 
-**Dimensions**
+#### Dimensions
 * tallboy: W102xD40.5xH107.3 cm

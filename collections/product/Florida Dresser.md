@@ -16,5 +16,5 @@ variants:
 * Storage draws to maximize storage for your room
 
 
-**Dimensions**
+#### Dimensions
 * dresser: W32xD40.5xH81.5 cm

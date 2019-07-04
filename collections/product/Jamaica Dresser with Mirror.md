@@ -14,5 +14,5 @@ variants:
 * radius on the drawer fronts, with all have full extension metal runners
 * Metal Handles
 
-**Dimensions**
+#### Dimensions
 * dresser: W140xD45xH101 cm

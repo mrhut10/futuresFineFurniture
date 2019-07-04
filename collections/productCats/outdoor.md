@@ -11,7 +11,7 @@ keywords:
   - outdoor daybed
   - outdoor table
   - outdoor chairs
-  - outdoor dinning
+  - outdoor dining
   - wicker
   - patio
   - aluminium
@@ -19,7 +19,7 @@ keywords:
 
 Futures Fine Furniture and Bedding are specialists Outdoor Furniture
 
-Expert advice and the finest furniture on the market including, outdoor dinning settings, outdoor lounges, outdoor seating. Commonly in wicker and aluminium varities
+Expert advice and the finest furniture on the market including, outdoor dining settings, outdoor lounges, outdoor seating. Commonly in wicker and aluminium varities
 
 Visit or call today to organise no obligation demonstration at [14 Smith Street, Kempsey](/contact) and phone on [(02) 6562 6675](tel:+61265626675)
 

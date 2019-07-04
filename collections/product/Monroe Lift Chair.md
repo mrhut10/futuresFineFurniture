@@ -7,9 +7,9 @@ images:
   - /assets/monroe lift chair.png
 variants:
   - price: 94900
-    varientName: Navy
+    variantName: Navy
   - price: 94900
-    varientName: Grey
+    variantName: Grey
 ---
 
 1 Motor Lift / reclining arm chair, with Battery Backup. available in two colours Grey and Navy.

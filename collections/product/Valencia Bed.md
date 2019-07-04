@@ -7,15 +7,15 @@ images:
   - /assets/valencia bed.PNG
 variants:
   - price: 39500
-    varientName: Single
+    variantName: Single
   - price: 41500
-    varientName: King Single
+    variantName: King Single
   - price: 46500
-    varientName: Double
+    variantName: Double
   - price: 49500
-    varientName: Queen
+    variantName: Queen
   - price: 59500
-    varientName: King
+    variantName: King
 
 ---
 * Premium Quality Polyester fabric from Malaysia
@@ -24,7 +24,7 @@ variants:
 * Metal handles on Draws ( Bedside, Dresser, Tallboy )
 
 
-**Dimensions**
+#### Dimensions
 * Single : W98.5 x D211.5 x H94 CM
 * King Single : W115.5 x D223 x H94 CM
 * Double : W145.5 x D211.5 x H94 CM
