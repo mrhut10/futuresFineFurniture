@@ -78,7 +78,7 @@ exports.onCreateNode = ({ node, actions }) => {
   }
 };
 
-const querys = {
+const queries = {
   productCategory: `
   {
     allMarkdownRemark(filter: {fields: {type: {eq: "productCats"}}}) {
@@ -143,9 +143,9 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   // run query
-  const queryProductCategory = graphql(querys.productCategory);
-  const queryProductRange = graphql(querys.productRange);
-  const queryProduct = graphql(querys.product);
+  const queryProductCategory = graphql(queries.productCategory);
+  const queryProductRange = graphql(queries.productRange);
+  const queryProduct = graphql(queries.product);
 
   // page generator functions
   const queryToCategoryPage = result => {
