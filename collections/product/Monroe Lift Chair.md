@@ -9,7 +9,7 @@ variants:
   - price: 94900
     variantName: Navy
   - price: 94900
-    variantName: Grey
+    variantName: Brown
 ---
 
 1 Motor Lift / reclining arm chair, with Battery Backup. available in two colours Grey and Navy.
