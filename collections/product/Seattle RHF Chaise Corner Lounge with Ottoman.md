@@ -1,7 +1,7 @@
 ---
 title: Seattle RHF Chaise Corner Lounge with Ottoman
 enabled: true
-Category: Living
+Category: Lounges and Sofas
 range: Downtown
 images:
   - /assets/Seattle RHF Chaise Corner Lounge with Ottoman.PNG

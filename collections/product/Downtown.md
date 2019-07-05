@@ -1,7 +1,7 @@
 ---
 title: Downtown RHF Chase 2 seater
 enabled: true
-Category: Living
+Category: Lounges and Sofas
 range: Downtown
 images:
   - /assets/downtown RHF chase 2 seater.png

@@ -1,7 +1,7 @@
 ---
 title: Bellagio 2 Seater with Chase
 enabled: true
-Category: Living
+Category: Lounges and Sofas
 range: Bellagio
 images:
   - /assets/Bellagio 2 Seater with Chase.png

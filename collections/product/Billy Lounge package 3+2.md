@@ -1,7 +1,7 @@
 ---
 title: Billy Lounge package 3+2
 enabled: true
-Category: Living
+Category: Lounges and Sofas
 range: Billy
 images:
   - /assets/billy lounge package 3+2.PNG

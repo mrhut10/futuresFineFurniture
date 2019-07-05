@@ -1,7 +1,7 @@
 ---
 title: Billy Lounge Triple
 enabled: true
-Category: Living
+Category: Lounges and Sofas
 range: Billy
 images:
   - /assets/billy lounge triple.png

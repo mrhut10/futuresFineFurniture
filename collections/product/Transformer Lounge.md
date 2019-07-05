@@ -1,7 +1,7 @@
 ---
 title: Transformer Lounge
 enabled: true
-Category: Living
+Category: Lounges and Sofas
 range: Billy
 images:
   - transformer Lounges.png

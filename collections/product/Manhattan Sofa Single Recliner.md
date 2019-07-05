@@ -1,7 +1,7 @@
 ---
 title: Manhattan Sofa Single Recliner
 enabled: true
-Category: Living
+Category: Lounges and Sofas
 range: Manhattan
 images:
   - /assets/manhattan single.png

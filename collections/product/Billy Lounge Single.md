@@ -1,7 +1,7 @@
 ---
 title: Billy Lounge Single
 enabled: true
-Category: Living
+Category: Lounges and Sofas
 range: Billy
 images:
   - /assets/billly lounge single.png
