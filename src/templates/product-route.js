@@ -1,6 +1,7 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
+import slugify from 'slugify';
 import * as R from 'ramda';
 import propTypes from 'prop-types';
 import Layout from '../components/Layout';
@@ -101,8 +102,25 @@ const productRoute = ({ data }) => {
       >
         {
           <BulkProducts
-            heading="More products from this range"
+            heading={
+              <Link
+                to={`/collections/?range=${slugify(
+                  data.markdownRemark.frontmatter.range
+                )}`}
+              >
+                More from this range...
+              </Link>
+            }
             maxLimit={3}
+            footer={
+              <Link
+                to={`/collections/?range=${slugify(
+                  data.markdownRemark.frontmatter.range
+                )}`}
+              >
+                click here to see the full range
+              </Link>
+            }
             products={data.allMarkdownRemark.edges
               .map(({ node }) => {
                 const output = {

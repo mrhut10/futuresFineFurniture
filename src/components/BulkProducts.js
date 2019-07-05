@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 
 import { ProductTile } from './ProductTile';
 
-export const BulkProducts = ({ products, heading, maxLimit }) => (
+export const BulkProducts = ({ products, heading, maxLimit, footer }) => (
   <>
     <hr />
     {heading ? (
@@ -31,12 +31,14 @@ export const BulkProducts = ({ products, heading, maxLimit }) => (
           );
         })}
     </div>
+    <div>{footer}</div>
     <br />
   </>
 );
 
 BulkProducts.propTypes = {
   heading: propTypes.element,
+  footer: propTypes.element,
   maxLimit: propTypes.number,
   products: propTypes.arrayOf(
     propTypes.shape({
