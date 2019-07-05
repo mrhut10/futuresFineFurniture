@@ -72,8 +72,10 @@ const CollectionPage = () => (
                     {keys
                       .sort((ka, kb) => obj[kb].length - obj[ka].length)
                       .filter(key => {
-                        const searchRange = queryString.parse(location.search)
-                          .range;
+                        const searchRange =
+                          typeof window === 'object'
+                            ? queryString.parse(window.location.search).range
+                            : '';
                         return searchRange
                           ? searchRange === slugify(key)
                           : true;
@@ -83,8 +85,9 @@ const CollectionPage = () => (
                           key={key}
                           products={obj[key]}
                           maxLimit={
-                            queryString.parse(location.search).range ===
-                            slugify(key)
+                            typeof window === 'object' &&
+                            queryString.parse(window.location.search).range ===
+                              slugify(key)
                               ? null
                               : 3
                           }
@@ -92,7 +95,8 @@ const CollectionPage = () => (
                             <Link to={`/collections/?range=${slugify(key)}`}>
                               {key}
                               {obj[key].length > 3 &&
-                              !queryString.parse(location.search).range
+                              typeof window === 'object' &&
+                              !queryString.parse(window.location.search).range
                                 ? `    (see all ${obj[key].length} products)`
                                 : ''}
                             </Link>
