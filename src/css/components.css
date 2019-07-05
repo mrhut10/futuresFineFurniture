@@ -12,3 +12,7 @@ hr {
   margin-bottom: 2rem;
   width: 100%;
 }
+
+.mc-modal {
+  z-index: 0 !important;
+}

@@ -117,8 +117,9 @@ const productRoute = ({ data }) => {
                 to={`/collections/?range=${slugify(
                   data.markdownRemark.frontmatter.range
                 )}`}
+                className="font-bold text-maroon-600 hover:underline"
               >
-                click here to see the full range
+                Click here to see the full range &rarr;
               </Link>
             }
             products={data.allMarkdownRemark.edges
