@@ -62,7 +62,9 @@ const CollectionPage = () => (
     <Wrapper>
       <div className="pt-8">
         <div className="px-4">
-          <h1>Explore Our Collections</h1>
+          <h1 className="font-bold mb-4 text-2xl text-maroon-600">
+            Explore Our Collections
+          </h1>
           <StaticQuery
             query={query}
             render={R.compose(
@@ -97,7 +99,7 @@ const CollectionPage = () => (
                               {obj[key].length > 3 &&
                               typeof window === 'object' &&
                               !queryString.parse(window.location.search).range
-                                ? `    (see all ${obj[key].length} products)`
+                                ? `(see all ${obj[key].length} products)`
                                 : ''}
                             </Link>
                           }
