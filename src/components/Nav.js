@@ -40,10 +40,10 @@ const NewMenu = () => (
         </NavLink>
       </nav>
       <button
-        className="snipcart-checkout bg-maroon-800 bottom-0 right-0 fixed font-bold h-12 w-12 no-underline mb-4 mr-10 rounded-full shadow-md text-cream-300 hover:text-cream-200"
+        className="snipcart-checkout bg-maroon-800 bottom-0 flex fixed font-bold h-12 items-center justify-center no-underline mb-4 mr-10 right-0 rounded-full shadow-md text-cream-300 hover:text-cream-200 w-12 z-10"
         type="button"
       >
-        <MdShoppingCart className="flex items-center justify-center text-cream-200 text-2xl leading-none mt-1" />
+        <MdShoppingCart className="text-cream-200 text-2xl leading-none mt-1" />
       </button>
     </div>
   </div>
