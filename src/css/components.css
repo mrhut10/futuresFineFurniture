@@ -13,6 +13,8 @@ hr {
   width: 100%;
 }
 
+/* purgecss start ignore */
 .mc-modal {
   z-index: 0 !important;
 }
+/* purgecss end ignore */
