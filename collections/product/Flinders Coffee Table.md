@@ -9,6 +9,7 @@ images:
   - "flinders coffee table.png"
 variants:
   - variantName: "Coffee Table"
+    price: 54900
 ---
 Solid N.Z. Pine in Jarrah Colour.
 

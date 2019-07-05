@@ -6,7 +6,7 @@ range: Flinders
 images:
   - /assets/flinders bed.png
 variants:
-  - price: 84900
+  - price: 79500
     variantName: Queen
   - price: 89500
     variantName: King

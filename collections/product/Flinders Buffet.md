@@ -9,6 +9,7 @@ images:
   - "Flinders Buffet.png"
 variants:
   - variantName: "Buffet"
+    price: 79500
 ---
 Solid N.Z. Pine in Jarrah Colour.
 

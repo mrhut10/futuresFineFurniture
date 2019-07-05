@@ -9,7 +9,9 @@ images:
   - "finders TV unit.png"
 variants:
   - variantName: "Small"
-  - variantName: "Big"
+    price: 69500
+  - variantName: "Large"
+    price: 79500
 
 ---
 Solid N.Z. Pine in Jarrah Colour.
