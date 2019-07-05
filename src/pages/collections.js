@@ -1,6 +1,7 @@
 import React from 'react';
 import * as R from 'ramda';
 import { StaticQuery, graphql, Link } from 'gatsby';
+import queryString from 'query-string';
 import slugify from 'slugify';
 import Layout from '../components/Layout';
 import { BulkProducts } from '../components/BulkProducts';
@@ -70,12 +71,32 @@ const CollectionPage = () => (
                   <ul>
                     {keys
                       .sort((ka, kb) => obj[kb].length - obj[ka].length)
+                      .filter(key => {
+                        const searchRange = queryString.parse(location.search)
+                          .range;
+                        return searchRange
+                          ? searchRange === slugify(key)
+                          : true;
+                      })
                       .map(key => (
                         <BulkProducts
                           key={key}
                           products={obj[key]}
-                          maxLimit={3}
-                          heading={`${key} ${obj[key].length} items`}
+                          maxLimit={
+                            queryString.parse(location.search).range ===
+                            slugify(key)
+                              ? null
+                              : 3
+                          }
+                          heading={
+                            <Link to={`/collections/?range=${slugify(key)}`}>
+                              {key}
+                              {obj[key].length > 3 &&
+                              !queryString.parse(location.search).range
+                                ? `    (see all ${obj[key].length} products)`
+                                : ''}
+                            </Link>
+                          }
                         />
                       ))}
                   </ul>
