@@ -1,7 +1,7 @@
 ---
 title: Ella Package 3RR+R+R
 enabled: true
-Category: Living
+Category: Lounges and Sofas
 range: Ella
 images:
   - /assets/ella lounge 3RR+R+R.png

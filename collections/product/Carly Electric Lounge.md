@@ -1,7 +1,7 @@
 ---
 title: Carly Electric Package Deal
 enabled: true
-Category: Living
+Category: Lounges and Sofas
 range: Carly
 created: 2019-04-26
 updated: 2019-04-26

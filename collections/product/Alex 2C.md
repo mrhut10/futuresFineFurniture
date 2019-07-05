@@ -1,7 +1,7 @@
 ---
 title: Alex Lounge 2 seat with Chase
 enabled: true
-Category: Living
+Category: Lounges and Sofas
 range: Billy
 images:
   - /assets/alex lounge 2C.PNG

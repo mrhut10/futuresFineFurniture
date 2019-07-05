@@ -1,8 +1,8 @@
 ---
-title: Living
+title: Lounges and Sofas
 enabled: true
 images:
-  - dover tv units.png
+  - /assets/ella lounge single.png
 ---
 
 Futures Fine Furniture and Bedding are specialists living room furniture providers for the Macleay Valley (Kempsey, Crescent Head, South West Rocks)

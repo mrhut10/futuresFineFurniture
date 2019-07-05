@@ -1,7 +1,7 @@
 ---
 title: Manhattan Sofa Double Recliner
 enabled: true
-Category: Living
+Category: Lounges and Sofas
 range: Manhattan
 images:
   - manhattan double.jpg

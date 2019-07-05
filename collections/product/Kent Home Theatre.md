@@ -1,7 +1,7 @@
 ---
 title: Kent Home Theatre
 enabled: true
-Category: Living
+Category: Lounges and Sofas
 range: Kent
 created: 2019-04-26
 updated: 2019-04-26

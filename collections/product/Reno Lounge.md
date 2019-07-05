@@ -1,7 +1,7 @@
 ---
 title: Reno Smart Lounge
 enabled: true
-Category: Living
+Category: Lounges and Sofas
 range: Reno
 created: 2019-04-26
 updated: 2019-04-26

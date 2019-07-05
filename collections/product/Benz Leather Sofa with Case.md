@@ -1,7 +1,7 @@
 ---
 title: Benz Leather Sofa with Case
 enabled: true
-Category: Living
+Category: Lounges and Sofas
 range: Benz
 created: 2019-05-31
 updated: 2019-05-31

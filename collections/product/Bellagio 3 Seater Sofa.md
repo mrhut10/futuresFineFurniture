@@ -1,7 +1,7 @@
 ---
 title: Bellagio 3 Seater Sofa
 enabled: true
-Category: Living
+Category: Lounges and Sofas
 range: Bellagio
 images:
   - /assets/Bellagio 3 Seater Sofa.png

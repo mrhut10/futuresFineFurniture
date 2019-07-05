@@ -1,7 +1,7 @@
 ---
 title: Ella Lounge 2RR
 enabled: true
-Category: Living
+Category: Lounges and Sofas
 range: Ella
 images:
   - /assets/ella lounge 2RR.png

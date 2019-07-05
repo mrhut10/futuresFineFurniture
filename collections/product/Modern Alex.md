@@ -1,7 +1,7 @@
 ---
 title: Modern Alex
 enabled: true
-Category: Living
+Category: Lounges and Sofas
 range: Downtown
 images:
   - /assets/alex modern.png
