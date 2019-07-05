@@ -2,7 +2,7 @@
 title: Ella Lift Chair
 enabled: true
 Category: Mobility
-range: Promotion
+range: Ella
 images:
   - /assets/Ella_lift_chair.jpg
 variants:
