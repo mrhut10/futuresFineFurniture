@@ -35,10 +35,22 @@ exports.onCreateNode = ({ node, actions }) => {
       });
     } else if (node.fileAbsolutePath.includes('collections/product/')) {
       // if a product
+      if (node.frontmatter.Category === 'Lounges and Sofas') {
+        // redirect to ensure havnen't broken old links when we took lounges out of living catigory
+        actions.createRedirect({
+          fromPath: `/category/Living/${slugify(node.frontmatter.title)}`,
+          isPermanent: true,
+          toPath: `/category/${slugify(node.frontmatter.Category)}/${slugify(
+            node.frontmatter.title
+          )}`,
+          force: true,
+          redirectInBrowser: true,
+        });
+      }
       actions.createNodeField({
         node,
         name: 'slug',
-        value: `/category/${node.frontmatter.Category}/${slugify(
+        value: `/category/${slugify(node.frontmatter.Category)}/${slugify(
           node.frontmatter.title
         )}`,
       });
