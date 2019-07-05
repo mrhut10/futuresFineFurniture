@@ -36,7 +36,7 @@ export const BulkProducts = ({ products, heading, maxLimit }) => (
 );
 
 BulkProducts.propTypes = {
-  heading: propTypes.string,
+  heading: propTypes.element,
   maxLimit: propTypes.number,
   products: propTypes.arrayOf(
     propTypes.shape({
