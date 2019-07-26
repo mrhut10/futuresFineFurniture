@@ -6,7 +6,8 @@ range: Scooter
 images:
   - /assets/fende s946-red.jpg
 variants:
-  - price: 419000
+  - price: 549500
+    discount: 130500
 ---
 The new Agility mid-sized mobility scooter will delight & surpass your expectations designed to provide the ultimate in performance, luxury, comfort & manoeuvrability. 
 * Easy to read display showing battery gauge speed, time & temperature 
