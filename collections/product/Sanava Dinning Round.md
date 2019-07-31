@@ -6,7 +6,7 @@ range: Sanava
 images:
   - /assets/sanava round dining.png
 variants:
-  - price: 74900
+  - price: 79500
 ---
 4 Sanava Dinning Chairs
 with Sanava Round Dinning Table
