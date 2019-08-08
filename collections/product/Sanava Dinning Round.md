@@ -1,5 +1,5 @@
 ---
-title: Sanava Round Dinning Suite
+title: Sanava Round Dining Suite
 enabled: true
 Category: Dining
 range: Sanava
@@ -8,8 +8,8 @@ images:
 variants:
   - price: 79500
 ---
-4 Sanava Dinning Chairs
-with Sanava Round Dinning Table
+4 Sanava Dining Chairs
+with Sanava Round Dining Table
 
 Solid Acacia Timber in Drift wood finish
 

@@ -1,5 +1,5 @@
 ---
-title: Ashton Dinning Tables
+title: Ashton Dining Tables
 enabled: true
 Category: Dining
 range: Ashton

@@ -1,5 +1,5 @@
 ---
-title: Sanava Square Dinning
+title: Sanava Square Dining
 enabled: true
 Category: Dining
 range: Sanava
@@ -9,8 +9,8 @@ variants:
   - price: 64900
 ---
 
-4 Sanava Dinning Chairs
-with Sanava Square Dinning Table
+4 Sanava Dining Chairs
+with Sanava Square Dining Table
 
 Solid Acacia Timber in Drift wood finish
 

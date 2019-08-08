@@ -1,5 +1,5 @@
 ---
-title: Oxford Sling Dinning
+title: Oxford Sling Dining
 enabled: true
 Category: Outdoor
 range: Oxford

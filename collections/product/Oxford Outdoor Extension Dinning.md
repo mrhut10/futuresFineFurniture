@@ -1,5 +1,5 @@
 ---
-title: Oxford Extension Dinning
+title: Oxford Extension Dining
 enabled: true
 Category: Outdoor
 range: Oxford

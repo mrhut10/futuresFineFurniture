@@ -1,5 +1,5 @@
 ---
-title: Sanava Dinning Long
+title: Sanava Dining Long
 enabled: true
 Category: Dining
 range: Sanava
@@ -9,8 +9,8 @@ variants:
   - price: 89500
 ---
 
-6 Sanava Dinning Chairs
-with Sanava Long Dinning Table
+6 Sanava Dining Chairs
+with Sanava Long Dining Table
 
 Solid Acacia Timber in Drift wood finish
 
