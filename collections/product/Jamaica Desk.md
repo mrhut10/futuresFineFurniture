@@ -1,6 +1,6 @@
 ---
 title: Jamaica Desk
-enabled: true
+
 Category: Living
 range: Jamaica
 images:

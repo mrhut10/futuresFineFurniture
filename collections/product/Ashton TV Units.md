@@ -1,6 +1,6 @@
 ---
 title: Ashton TV Units
-enabled: true
+
 Category: Dining
 range: Ashton
 images:

@@ -1,6 +1,6 @@
 ---
 title: Domino Bed
-enabled: true
+
 Category: Bedroom
 range: Domino
 images:

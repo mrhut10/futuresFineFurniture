@@ -1,6 +1,5 @@
 ---
 title: Dining
-enabled: true
 images:
   - sanava dining long.png
 ---

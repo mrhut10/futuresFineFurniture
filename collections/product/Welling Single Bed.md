@@ -1,6 +1,6 @@
 ---
 title: Welling Single Bed
-enabled: true
+
 Category: Bedroom
 range: Bunk
 images:

@@ -1,6 +1,5 @@
 ---
 title: Alex Lounge 2 seat with Chase
-enabled: true
 Category: Lounges and Sofas
 range: Billy
 images:

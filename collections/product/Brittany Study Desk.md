@@ -1,6 +1,6 @@
 ---
 title: Brittany Study Desk
-enabled: true
+
 Category: Bedroom
 range: Brittany
 images:

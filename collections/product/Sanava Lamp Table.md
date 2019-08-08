@@ -1,6 +1,6 @@
 ---
 title: Sanava Lamp Table
-enabled: true
+
 Category: Living
 range: Sanava
 images:

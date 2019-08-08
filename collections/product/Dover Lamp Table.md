@@ -1,6 +1,6 @@
 ---
 title: Dover Lamp Table
-enabled: true
+
 Category: Dining
 range: Dover
 images:

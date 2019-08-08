@@ -1,6 +1,6 @@
 ---
 title: Downtown RHF Chase 2 seater
-enabled: true
+
 Category: Lounges and Sofas
 range: Downtown
 images:

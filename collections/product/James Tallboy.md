@@ -1,6 +1,6 @@
 ---
 title: James Tallboy
-enabled: true
+
 Category: Bedroom
 range: James
 images:

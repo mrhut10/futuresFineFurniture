@@ -1,6 +1,6 @@
 ---
 title: Dover Bedside
-enabled: true
+
 Category: Bedroom
 range: Dover
 images:

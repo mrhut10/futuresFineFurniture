@@ -1,6 +1,6 @@
 ---
 title: Jamaica Low Unit
-enabled: true
+
 Category: Living
 range: Jamaica
 images:

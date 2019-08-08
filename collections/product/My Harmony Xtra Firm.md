@@ -1,6 +1,6 @@
 ---
 title: My Harmony Xtra Firm
-enabled: true
+
 Category: Mattress
 range: Premium
 images:

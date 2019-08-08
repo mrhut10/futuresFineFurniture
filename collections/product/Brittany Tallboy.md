@@ -1,6 +1,6 @@
 ---
 title: Brittany Tallboy
-enabled: true
+
 Category: Bedroom
 range: Brittany
 images:

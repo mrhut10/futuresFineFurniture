@@ -1,6 +1,6 @@
 ---
 title: Roma Tallboy
-enabled: true
+
 Category: Bedroom
 range: Roma
 images:

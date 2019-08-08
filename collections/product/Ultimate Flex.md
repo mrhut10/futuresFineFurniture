@@ -1,6 +1,6 @@
 ---
 title: Ultimate Flex Package
-enabled: true
+
 Category: Mobility
 range: Essential Living
 images:

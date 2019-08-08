@@ -1,6 +1,6 @@
 ---
 title: Sanava dresser
-enabled: true
+
 Category: Bedroom
 range: Sanava
 images:

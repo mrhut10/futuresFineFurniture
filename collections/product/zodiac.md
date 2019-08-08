@@ -1,6 +1,6 @@
 ---
 title: Zodiac
-enabled: true
+
 Category: Mattress
 range: Budget
 images:

@@ -1,6 +1,6 @@
 ---
 title: KYMCO AGILITY SCOOTER
-enabled: true
+
 Category: Mobility
 range: Promotion
 images:

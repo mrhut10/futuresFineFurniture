@@ -1,6 +1,6 @@
 ---
 title: Jamaica Coffee Table
-enabled: true
+
 Category: Living
 range: Jamaica
 images:

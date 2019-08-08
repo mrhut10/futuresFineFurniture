@@ -1,6 +1,6 @@
 ---
 title: Domino Dresser
-enabled: true
+
 Category: Bedroom
 range: Domino
 images:

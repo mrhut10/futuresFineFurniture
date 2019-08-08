@@ -1,6 +1,6 @@
 ---
 title: lumbar latex
-enabled: true
+
 Category: Mattress
 range: Lumbar
 images:

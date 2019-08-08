@@ -1,6 +1,6 @@
 ---
 title: Domino Mirror
-enabled: true
+
 Category: Bedroom
 range: Domino
 images:

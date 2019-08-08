@@ -1,6 +1,6 @@
 ---
 title: Valencia Tallboy
-enabled: true
+
 Category: Bedroom
 range: Valencia
 images:

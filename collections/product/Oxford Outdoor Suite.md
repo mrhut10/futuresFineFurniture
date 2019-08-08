@@ -1,6 +1,6 @@
 ---
 title: Oxford Outdoor Lounge
-enabled: true
+
 Category: Outdoor
 range: Oxford
 images:

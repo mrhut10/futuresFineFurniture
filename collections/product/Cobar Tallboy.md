@@ -1,6 +1,6 @@
 ---
 title: Cobar Tallboy
-enabled: true
+
 Category: Bedroom
 range: Cobar
 created: 2019-05-31

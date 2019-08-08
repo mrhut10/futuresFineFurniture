@@ -1,6 +1,6 @@
 ---
 title: Dover Dining Table Sets
-enabled: true
+
 Category: Dining
 range: Dover
 images:

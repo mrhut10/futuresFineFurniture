@@ -1,6 +1,6 @@
 ---
 title: Royal Mattress
-enabled: true
+
 Category: Mattress
 range: Pocket Spring
 images:

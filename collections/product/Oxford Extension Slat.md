@@ -1,6 +1,6 @@
 ---
 title: Oxford Extension Slat
-enabled: true
+
 Category: Outdoor
 range: Oxford
 images:

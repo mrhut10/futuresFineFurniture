@@ -1,6 +1,6 @@
 ---
 title: Samson Lingerie Chest
-enabled: true
+
 Category: Bedroom
 range: samson
 images:

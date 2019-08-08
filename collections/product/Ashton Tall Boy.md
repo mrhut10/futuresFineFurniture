@@ -1,6 +1,6 @@
 ---
 title: Ashton Tall Boy
-enabled: true
+
 Category: Bedroom
 range: Ashton
 images:

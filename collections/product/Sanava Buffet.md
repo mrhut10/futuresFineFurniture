@@ -1,6 +1,6 @@
 ---
 title: Sanava Buffet
-enabled: true
+
 Category: Living
 range: Sanava
 images:

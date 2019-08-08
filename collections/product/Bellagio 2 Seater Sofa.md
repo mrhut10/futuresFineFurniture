@@ -1,6 +1,6 @@
 ---
 title: Bellagio 2 Seater Sofa
-enabled: true
+
 Category: Lounges and Sofas
 range: Bellagio
 images:

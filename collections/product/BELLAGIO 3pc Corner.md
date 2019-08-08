@@ -1,6 +1,6 @@
 ---
 title: BELLAGIO 3pc Corner
-enabled: true
+
 Category: Lounges and Sofas
 range: Bellagio
 images:

@@ -1,6 +1,6 @@
 ---
 title: Luxury Latex
-enabled: true
+
 Category: Mattress
 range: Premium
 images:

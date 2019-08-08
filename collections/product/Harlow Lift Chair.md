@@ -1,6 +1,6 @@
 ---
 title: Harlow Lift Chair
-enabled: true
+
 Category: Mobility
 range: Promotion
 images:

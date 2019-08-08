@@ -1,6 +1,5 @@
 ---
 title: Ashton Dresser
-enabled: true
 Category: Bedroom
 range: Ashton
 images:

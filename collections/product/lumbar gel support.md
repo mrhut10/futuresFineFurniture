@@ -1,6 +1,6 @@
 ---
 title: lumbar gel support
-enabled: true
+
 Category: Mattress
 range: Lumbar
 images:

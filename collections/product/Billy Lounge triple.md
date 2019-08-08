@@ -1,6 +1,6 @@
 ---
 title: Billy Lounge Triple
-enabled: true
+
 Category: Lounges and Sofas
 range: Billy
 images:

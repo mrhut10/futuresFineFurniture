@@ -1,6 +1,6 @@
 ---
 title: Sanava Dining Long
-enabled: true
+
 Category: Dining
 range: Sanava
 images:

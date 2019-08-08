@@ -1,6 +1,6 @@
 ---
 title: Dover Mirror
-enabled: true
+
 Category: Bedroom
 range: Dover
 images:

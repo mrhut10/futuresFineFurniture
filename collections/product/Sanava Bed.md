@@ -1,6 +1,6 @@
 ---
 title: Sanava Bed
-enabled: true
+
 Category: Bedroom
 range: Sanava
 images:

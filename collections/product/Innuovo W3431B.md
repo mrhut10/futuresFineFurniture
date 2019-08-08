@@ -1,6 +1,6 @@
 ---
 title: INNUOVO W3431B
-enabled: true
+
 Category: Mobility
 range: Promotion
 images:

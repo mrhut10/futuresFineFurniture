@@ -1,6 +1,6 @@
 ---
 title: Dover TV units
-enabled: true
+
 Category: Living
 range: Dover
 images:

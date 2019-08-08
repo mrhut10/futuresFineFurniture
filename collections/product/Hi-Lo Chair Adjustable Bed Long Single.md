@@ -1,6 +1,6 @@
 ---
 title: Hi-Lo Chair Adjustable Bed Long Single
-enabled: true
+
 Category: Mobility
 range: Promotion
 images:

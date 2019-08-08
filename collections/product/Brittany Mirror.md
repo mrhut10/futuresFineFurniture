@@ -1,6 +1,6 @@
 ---
 title: Brittany Mirror
-enabled: true
+
 Category: Bedroom
 range: Brittany
 images:

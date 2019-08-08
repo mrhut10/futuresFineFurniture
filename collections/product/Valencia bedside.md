@@ -1,6 +1,6 @@
 ---
 title: Valencia Bedside
-enabled: true
+
 Category: Bedroom
 range: Valencia
 images:

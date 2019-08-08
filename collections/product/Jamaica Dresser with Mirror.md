@@ -1,6 +1,6 @@
 ---
 title: Jamaica Dresser with Mirror
-enabled: true
+
 Category: Bedroom
 range: Jamaica
 images:

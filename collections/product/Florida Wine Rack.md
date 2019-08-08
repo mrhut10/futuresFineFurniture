@@ -1,6 +1,6 @@
 ---
 title: Florida Wine Rack
-enabled: true
+
 Category: Dining
 range: Florida
 images:

@@ -1,6 +1,6 @@
 ---
 title: Hayes Single over Single Bunk
-enabled: true
+
 Category: Bedroom
 range: Bunk
 images:

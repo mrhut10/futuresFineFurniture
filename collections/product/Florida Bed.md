@@ -1,6 +1,6 @@
 ---
 title: Florida Bed
-enabled: true
+
 Category: Bedroom
 range: Florida
 images:

@@ -1,6 +1,6 @@
 ---
 title: Sanava Hall Table
-enabled: true
+
 Category: Living
 range: Sanava
 images:

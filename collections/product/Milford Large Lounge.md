@@ -1,6 +1,6 @@
 ---
 title: Milford Large Lounge
-enabled: true
+
 Category: Outdoor
 range: Oxford
 images:

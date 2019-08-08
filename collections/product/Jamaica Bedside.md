@@ -1,6 +1,6 @@
 ---
 title: Jamaica Bedside
-enabled: true
+
 Category: Bedroom
 range: Jamaica
 images:

@@ -1,6 +1,6 @@
 ---
 title: Flinders Dressing Table with Mirror
-enabled: true
+
 Category: Bedroom
 range: Flinders
 images:

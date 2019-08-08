@@ -1,6 +1,5 @@
 ---
 title: Ashton Coffee Table
-enabled: true
 Category: Living
 range: Ashton
 images:

@@ -1,6 +1,6 @@
 ---
 title: Sanava Coffee Table
-enabled: true
+
 Category: Living
 range: Sanava
 images:

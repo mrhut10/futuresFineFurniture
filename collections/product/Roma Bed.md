@@ -1,6 +1,6 @@
 ---
 title: Roma Bed
-enabled: true
+
 Category: Bedroom
 range: Roma
 images:

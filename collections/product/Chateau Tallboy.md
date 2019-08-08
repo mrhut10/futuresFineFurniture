@@ -1,6 +1,6 @@
 ---
 title: Chateau Tallboy
-enabled: true
+
 Category: Bedroom
 range: Chateau
 images:

@@ -1,6 +1,6 @@
 ---
 title: Jamaica hall table
-enabled: true
+
 Category: Living
 range: Jamaica
 images:

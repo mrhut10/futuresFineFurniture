@@ -1,6 +1,6 @@
 ---
 title: Jamaica Barstool
-enabled: true
+
 Category: Dining
 range: Jamaica
 images:

@@ -1,6 +1,6 @@
 ---
 title: Jamaica Kitchen Island
-enabled: true
+
 Category: Dining
 range: Jamaica
 images:

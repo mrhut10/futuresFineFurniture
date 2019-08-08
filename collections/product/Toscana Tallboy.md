@@ -1,6 +1,6 @@
 ---
 title: Toscana Tallboy
-enabled: true
+
 Category: Bedroom
 range: Toscana
 images:

@@ -1,6 +1,5 @@
 ---
 title: Ashton Dining Tables
-enabled: true
 Category: Dining
 range: Ashton
 images:

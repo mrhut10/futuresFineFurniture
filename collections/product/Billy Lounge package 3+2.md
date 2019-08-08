@@ -1,6 +1,6 @@
 ---
 title: Billy Lounge package 3+2
-enabled: true
+
 Category: Lounges and Sofas
 range: Billy
 images:

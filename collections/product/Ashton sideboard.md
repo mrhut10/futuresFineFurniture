@@ -1,6 +1,6 @@
 ---
 title: Ashton sideboard
-enabled: true
+
 Category: Dining
 range: Ashton
 images:

@@ -1,6 +1,6 @@
 ---
 title: Jamaica Lamp Table
-enabled: true
+
 Category: Living
 range: Jamaica
 images:

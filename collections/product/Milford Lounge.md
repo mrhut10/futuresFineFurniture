@@ -1,6 +1,6 @@
 ---
 title: Milford Small Lounge
-enabled: true
+
 Category: Outdoor
 range: Oxford
 images:

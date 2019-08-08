@@ -1,6 +1,6 @@
 ---
 title: Dover Bench
-enabled: true
+
 Category: Dining
 range: Dover
 images:

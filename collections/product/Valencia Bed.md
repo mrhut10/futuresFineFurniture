@@ -1,6 +1,6 @@
 ---
 title: Valencia Bed
-enabled: true
+
 Category: Bedroom
 range: Valencia
 images:

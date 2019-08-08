@@ -1,6 +1,6 @@
 ---
 title: Sanava Round Dining Suite
-enabled: true
+
 Category: Dining
 range: Sanava
 images:

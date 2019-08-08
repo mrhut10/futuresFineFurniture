@@ -1,6 +1,6 @@
 ---
 title: Ella Package 3RR+R+R
-enabled: true
+
 Category: Lounges and Sofas
 range: Ella
 images:

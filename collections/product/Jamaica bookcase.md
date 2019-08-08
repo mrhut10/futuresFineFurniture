@@ -1,6 +1,6 @@
 ---
 title: Jamaica Bookcase
-enabled: true
+
 Category: Living
 range: Jamaica
 images:

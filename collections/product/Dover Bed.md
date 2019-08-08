@@ -1,6 +1,6 @@
 ---
 title: Dover Bed
-enabled: true
+
 Category: Bedroom
 range: Dover
 images:

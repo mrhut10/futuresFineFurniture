@@ -1,6 +1,6 @@
 ---
 title: Welling Single over Double Bunk
-enabled: true
+
 Category: Bedroom
 range: Bunk
 images:

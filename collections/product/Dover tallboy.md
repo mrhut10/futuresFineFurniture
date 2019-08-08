@@ -1,6 +1,6 @@
 ---
 title: Dover Tallboy
-enabled: true
+
 Category: Bedroom
 range: Dover
 images:

@@ -1,6 +1,6 @@
 ---
 title: Florida Entertainment Units
-enabled: true
+
 Category: Living
 range: Florida
 images:

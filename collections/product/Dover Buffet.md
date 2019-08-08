@@ -1,6 +1,6 @@
 ---
 title: Dover Buffet
-enabled: true
+
 Category: Dining
 range: Dover
 images:

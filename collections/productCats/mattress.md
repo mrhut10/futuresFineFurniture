@@ -2,7 +2,7 @@
 title: Mattress
 images:
   - /assets/proturezone.png
-enabled: true
+
 groupBy: ["range"]
 sortBy: ["price-i", "range"]
 keywords:

@@ -1,6 +1,5 @@
 ---
 title: Ashton Lamp Table
-enabled: true
 Category: Living
 range: Ashton
 images:

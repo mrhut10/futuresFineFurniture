@@ -1,6 +1,6 @@
 ---
 title: Flinders Coffee Table
-enabled: true
+
 Category: Living
 range: Flinders
 created: 2019-06-28

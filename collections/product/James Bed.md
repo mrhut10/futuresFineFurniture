@@ -1,6 +1,6 @@
 ---
 title: James Bed
-enabled: true
+
 Category: Bedroom
 range: James
 images:

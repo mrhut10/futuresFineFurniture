@@ -1,6 +1,5 @@
 ---
 title: Ashton Hall Table
-enabled: true
 Category: Dining
 range: Ashton
 images:

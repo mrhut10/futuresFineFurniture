@@ -1,6 +1,6 @@
 ---
 title: Florida Bedside
-enabled: true
+
 Category: Bedroom
 range: Florida
 images:

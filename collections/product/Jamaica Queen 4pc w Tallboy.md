@@ -1,6 +1,6 @@
 ---
 title: Jamaica 4pc Suite
-enabled: true
+
 Category: Bedroom
 range: Jamaica
 images:

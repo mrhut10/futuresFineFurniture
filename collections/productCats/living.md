@@ -1,6 +1,6 @@
 ---
 title: Living
-enabled: true
+
 images:
   - dover tv units.png
 ---

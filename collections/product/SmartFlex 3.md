@@ -1,6 +1,6 @@
 ---
 title: SmartFlex 3
-enabled: true
+
 Category: Mobility
 range: MODERN LIVING RANGE
 images:

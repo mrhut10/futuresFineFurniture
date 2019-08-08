@@ -1,6 +1,6 @@
 ---
 title: Jamaica Dining Chair
-enabled: true
+
 Category: Dining
 range: Jamaica
 images:

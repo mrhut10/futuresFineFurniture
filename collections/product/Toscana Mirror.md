@@ -1,6 +1,6 @@
 ---
 title: Toscana Mirror
-enabled: true
+
 Category: Bedroom
 range: Toscana
 images:

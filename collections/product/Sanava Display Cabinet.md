@@ -1,6 +1,6 @@
 ---
 title: Sanava Display Cabinet
-enabled: true
+
 Category: Living
 range: Sanava
 images:

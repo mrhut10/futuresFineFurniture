@@ -1,6 +1,6 @@
 ---
 title: Toscana Bedside
-enabled: true
+
 Category: Bedroom
 range: Toscana
 images:

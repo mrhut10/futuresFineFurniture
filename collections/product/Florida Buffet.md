@@ -1,6 +1,6 @@
 ---
 title: Florida Buffet
-enabled: true
+
 Category: Dining
 range: Florida
 images:

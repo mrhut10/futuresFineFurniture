@@ -1,6 +1,6 @@
 ---
 title: Pandora Tallboy
-enabled: true
+
 Category: Bedroom
 range: Pandora
 images:

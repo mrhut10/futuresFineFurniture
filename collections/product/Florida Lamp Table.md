@@ -1,6 +1,6 @@
 ---
 title: Florida Lamp Table
-enabled: true
+
 Category: Living
 range: Florida
 images:

@@ -1,6 +1,6 @@
 ---
 title: Billy Lounge sofa
-enabled: true
+
 Category: Lounges and Sofas
 range: Billy
 images:

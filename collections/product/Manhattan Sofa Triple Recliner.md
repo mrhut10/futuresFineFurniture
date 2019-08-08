@@ -1,6 +1,6 @@
 ---
 title: Manhattan Sofa Triple Recliner
-enabled: true
+
 Category: Lounges and Sofas
 range: Manhattan
 images:

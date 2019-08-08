@@ -1,6 +1,6 @@
 ---
 title: Ella Lounge 2RR
-enabled: true
+
 Category: Lounges and Sofas
 range: Ella
 images:

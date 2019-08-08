@@ -1,6 +1,6 @@
 ---
 title: Florida Hall Table
-enabled: true
+
 Category: Living
 range: Florida
 images:

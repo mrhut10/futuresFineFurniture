@@ -1,6 +1,6 @@
 ---
 title: Vara Bed
-enabled: true
+
 Category: Bedroom
 range: Valencia
 images:

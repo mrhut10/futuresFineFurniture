@@ -1,6 +1,6 @@
 ---
 title: Spinal Support Double sided Mattress
-enabled: true
+
 Category: Mattress
 range: Australian Made
 created: 2019-06-21

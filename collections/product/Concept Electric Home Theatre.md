@@ -1,6 +1,6 @@
 ---
 title: Concept Electric Home Theatre
-enabled: true
+
 Category: Lounges and Sofas
 range: Concept
 created: 2019-04-26

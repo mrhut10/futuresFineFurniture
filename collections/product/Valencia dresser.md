@@ -1,6 +1,6 @@
 ---
 title: Valencia dresser
-enabled: true
+
 Category: Bedroom
 range: Valencia
 images:

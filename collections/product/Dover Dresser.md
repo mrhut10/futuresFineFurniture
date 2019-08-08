@@ -1,6 +1,6 @@
 ---
 title: Dover Dresser
-enabled: true
+
 Category: Bedroom
 range: Dover
 images:

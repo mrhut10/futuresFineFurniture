@@ -1,6 +1,6 @@
 ---
 title: Jamaica Dining Suite
-enabled: true
+
 Category: Dining
 range: Jamaica
 images:

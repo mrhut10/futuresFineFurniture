@@ -1,6 +1,6 @@
 ---
 title: Regal Splendour
-enabled: true
+
 Category: Mattress
 range: Ridge
 created: 2019-06-21

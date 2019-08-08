@@ -1,6 +1,6 @@
 ---
 title: Modern Alex
-enabled: true
+
 Category: Lounges and Sofas
 range: Downtown
 images:

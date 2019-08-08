@@ -1,6 +1,6 @@
 ---
 title: Chateau Dresser
-enabled: true
+
 Category: Bedroom
 range: Chateau
 images:

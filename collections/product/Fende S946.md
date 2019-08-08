@@ -1,6 +1,6 @@
 ---
 title: Fende S946
-enabled: true
+
 Category: Mobility
 range: Scooter
 images:

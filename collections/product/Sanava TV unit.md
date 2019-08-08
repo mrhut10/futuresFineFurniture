@@ -1,6 +1,6 @@
 ---
 title: Sanava TV Unit
-enabled: true
+
 Category: Living
 range: Sanava
 images:

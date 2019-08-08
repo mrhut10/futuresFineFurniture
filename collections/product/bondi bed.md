@@ -1,6 +1,6 @@
 ---
 title: Bondi Bed
-enabled: true
+
 Category: Bedroom
 range: Bondi
 images:

@@ -1,6 +1,6 @@
 ---
 title: Samson Tallboy 9 draws
-enabled: true
+
 Category: Bedroom
 range: samson
 images:

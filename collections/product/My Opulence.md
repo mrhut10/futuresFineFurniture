@@ -1,6 +1,6 @@
 ---
 title: My Opulence
-enabled: true
+
 Category: Mattress
 range: Premium
 images:

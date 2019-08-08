@@ -1,6 +1,6 @@
 ---
 title: Toscana Dresser
-enabled: true
+
 Category: Bedroom
 range: Toscana
 images:

@@ -1,6 +1,6 @@
 ---
 title: Florida Tallboy
-enabled: true
+
 Category: Bedroom
 range: Florida
 images:

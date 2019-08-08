@@ -1,6 +1,6 @@
 ---
 title: Bondi Bedside
-enabled: true
+
 Category: Bedroom
 range: Bondi
 images:

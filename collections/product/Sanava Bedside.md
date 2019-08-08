@@ -1,6 +1,6 @@
 ---
 title: Sanava Bedside
-enabled: true
+
 Category: Bedroom
 range: Sanava
 images:

@@ -1,6 +1,6 @@
 ---
 title: Dover Console Table
-enabled: true
+
 Category: Living
 range: Dover
 images:

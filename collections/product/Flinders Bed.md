@@ -1,6 +1,6 @@
 ---
 title: Flinders Bed
-enabled: true
+
 Category: Bedroom
 range: Flinders
 images:

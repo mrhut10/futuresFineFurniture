@@ -1,6 +1,6 @@
 ---
 title: Brittany Blanket Box
-enabled: true
+
 Category: Bedroom
 range: Brittany
 images:

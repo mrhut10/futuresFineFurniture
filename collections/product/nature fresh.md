@@ -1,6 +1,6 @@
 ---
 title: Nature Fresh
-enabled: true
+
 Category: Mattress
 range: Entry Level
 images:

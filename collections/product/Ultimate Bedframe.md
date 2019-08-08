@@ -1,6 +1,6 @@
 ---
 title: Ultimate Bedframe
-enabled: true
+
 Category: Bedroom
 range: ' Entry'
 images:

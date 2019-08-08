@@ -1,6 +1,6 @@
 ---
 title: Manhattan Recliner Package Deals
-enabled: true
+
 Category: Lounges and Sofas
 range: Manhattan
 images:

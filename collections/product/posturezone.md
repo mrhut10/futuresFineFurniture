@@ -1,6 +1,6 @@
 ---
 title: posturezone sleeprite
-enabled: true
+
 Category: Mattress
 range: Entry Level
 images:

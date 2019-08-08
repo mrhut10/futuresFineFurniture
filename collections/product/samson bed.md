@@ -1,6 +1,6 @@
 ---
 title: Samson Bed
-enabled: true
+
 Category: Bedroom
 range: samson
 images:

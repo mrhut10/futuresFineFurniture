@@ -1,6 +1,6 @@
 ---
 title: Domino Bedside
-enabled: true
+
 Category: Bedroom
 range: Domino
 images:

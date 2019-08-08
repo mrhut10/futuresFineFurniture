@@ -1,6 +1,6 @@
 ---
 title: Eden 7pce Dining
-enabled: true
+
 Category: Outdoor
 range: Eden
 images:

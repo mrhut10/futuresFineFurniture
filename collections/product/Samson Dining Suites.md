@@ -1,6 +1,6 @@
 ---
 title: Samson Dining Suites
-enabled: true
+
 Category: Dining
 range: samson
 images:

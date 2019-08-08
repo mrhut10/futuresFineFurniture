@@ -1,6 +1,6 @@
 ---
 title: Sanava Tallboy
-enabled: true
+
 Category: Bedroom
 range: Sanava
 images:

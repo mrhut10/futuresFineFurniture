@@ -1,6 +1,6 @@
 ---
 title: Brittany Dresser
-enabled: true
+
 Category: Bedroom
 range: Brittany
 images:

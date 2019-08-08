@@ -1,6 +1,6 @@
 ---
 title: Milford Square Dining
-enabled: true
+
 Category: Outdoor
 range: Oxford
 images:

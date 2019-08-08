@@ -1,6 +1,6 @@
 ---
 title: Brittany Bed
-enabled: true
+
 Category: Bedroom
 range: Brittany
 images:

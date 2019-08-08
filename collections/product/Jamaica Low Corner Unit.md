@@ -1,6 +1,6 @@
 ---
 title: Jamaica Low Corner Unit
-enabled: true
+
 Category: Living
 range: Jamaica
 images:

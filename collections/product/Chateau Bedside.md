@@ -1,6 +1,6 @@
 ---
 title: Chateau Bedside
-enabled: true
+
 Category: Bedroom
 range: Chateau
 images:

@@ -1,6 +1,6 @@
 ---
 title: Samson Wardorbe
-enabled: true
+
 Category: Bedroom
 range: samson
 images:

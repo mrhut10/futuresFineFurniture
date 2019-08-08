@@ -1,6 +1,6 @@
 ---
 title: My Sensation
-enabled: true
+
 Category: Mattress
 range: Premium
 images:

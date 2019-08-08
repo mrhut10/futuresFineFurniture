@@ -1,6 +1,6 @@
 ---
 title: Kent Home Theatre
-enabled: true
+
 Category: Lounges and Sofas
 range: Kent
 created: 2019-04-26

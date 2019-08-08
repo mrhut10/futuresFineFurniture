@@ -1,6 +1,6 @@
 ---
 title: Roma Bedside
-enabled: true
+
 Category: Bedroom
 range: Roma
 images:

@@ -1,6 +1,6 @@
 ---
 title: Flinders Tallboy
-enabled: true
+
 Category: Bedroom
 range: Flinders
 images:

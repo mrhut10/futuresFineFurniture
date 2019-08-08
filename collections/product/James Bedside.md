@@ -1,6 +1,6 @@
 ---
 title: James Bedside
-enabled: true
+
 Category: Bedroom
 range: James
 images:

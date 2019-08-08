@@ -1,6 +1,6 @@
 ---
 title: Hi Lo Flex
-enabled: true
+
 Category: Mobility
 range: INDEPENDENT LIVING RANGE
 images:

@@ -1,6 +1,6 @@
 ---
 title: Davy Lounge Sofa Suite
-enabled: true
+
 Category: Lounges and Sofas
 range: Davy
 created: 2019-05-31

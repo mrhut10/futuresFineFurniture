@@ -1,6 +1,6 @@
 ---
 title: Florida Coffee Table
-enabled: true
+
 Category: Dining
 range: Florida
 images:

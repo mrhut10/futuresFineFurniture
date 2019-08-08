@@ -1,6 +1,6 @@
 ---
 title: Jamaica Tallboy
-enabled: true
+
 Category: Bedroom
 range: Jamaica
 images:

@@ -1,6 +1,6 @@
 ---
 title: Bondi Tallboy
-enabled: true
+
 Category: Bedroom
 range: Bondi
 images:

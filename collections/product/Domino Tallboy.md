@@ -1,6 +1,6 @@
 ---
 title: Domino Tallboy
-enabled: true
+
 Category: Bedroom
 range: Domino
 images:

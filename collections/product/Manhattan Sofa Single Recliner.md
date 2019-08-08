@@ -1,6 +1,6 @@
 ---
 title: Manhattan Sofa Single Recliner
-enabled: true
+
 Category: Lounges and Sofas
 range: Manhattan
 images:

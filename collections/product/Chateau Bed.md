@@ -1,6 +1,6 @@
 ---
 title: Chateau Bed
-enabled: true
+
 Category: Bedroom
 range: Chateau
 images:

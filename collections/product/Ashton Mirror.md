@@ -1,6 +1,5 @@
 ---
 title: Ashton Mirror
-enabled: true
 Category: Bedroom
 range: Ashton
 images:

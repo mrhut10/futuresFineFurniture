@@ -1,6 +1,6 @@
 ---
 title: Valencia Mirror
-enabled: true
+
 Category: Bedroom
 range: Valencia
 images:

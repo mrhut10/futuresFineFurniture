@@ -1,6 +1,6 @@
 ---
 title: Jamaica Wine Rack
-enabled: true
+
 Category: Dining
 range: Jamaica
 images:

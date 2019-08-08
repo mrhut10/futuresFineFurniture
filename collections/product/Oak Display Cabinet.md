@@ -1,6 +1,6 @@
 ---
 title: Oak Display Cabinet
-enabled: true
+
 Category: Living
 range: Oak
 images:

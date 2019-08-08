@@ -1,6 +1,6 @@
 ---
 title: Ella Lift Chair
-enabled: true
+
 Category: Mobility
 range: Ella
 images:

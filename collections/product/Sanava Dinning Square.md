@@ -1,6 +1,6 @@
 ---
 title: Sanava Square Dining
-enabled: true
+
 Category: Dining
 range: Sanava
 images:

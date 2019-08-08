@@ -1,6 +1,6 @@
 ---
 title: Florida Mirror
-enabled: true
+
 Category: Bedroom
 range: Florida
 images:

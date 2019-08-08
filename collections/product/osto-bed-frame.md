@@ -1,6 +1,6 @@
 ---
 title: Osto Bed Frame
-enabled: true
+
 Category: Bedroom
 range: ' Entry'
 images:

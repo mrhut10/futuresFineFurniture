@@ -1,6 +1,6 @@
 ---
 title: Hayes Single
-enabled: true
+
 Category: Bedroom
 range: Bunk
 images:

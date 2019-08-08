@@ -1,6 +1,6 @@
 ---
 title: Flinders Dining Suites
-enabled: true
+
 Category: Dining
 range: Flinders
 created: 2019-06-28

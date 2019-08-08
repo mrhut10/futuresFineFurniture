@@ -1,6 +1,6 @@
 ---
 title: Pandora Dressing table with Mirror
-enabled: true
+
 Category: Bedroom
 range: Pandora
 images:

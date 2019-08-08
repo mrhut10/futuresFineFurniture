@@ -1,6 +1,6 @@
 ---
 title: Flinders Buffet
-enabled: true
+
 Category: Dining
 range: Flinders
 created: 2019-06-28

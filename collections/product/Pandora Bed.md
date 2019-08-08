@@ -1,6 +1,6 @@
 ---
 title: Pandora Bed
-enabled: true
+
 Category: Bedroom
 range: Pandora
 images:

@@ -1,6 +1,6 @@
 ---
 title: Chateau Cheval Mirror
-enabled: true
+
 Category: Bedroom
 range: Chateau
 images:

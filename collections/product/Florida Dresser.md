@@ -1,6 +1,6 @@
 ---
 title: Florida Dresser
-enabled: true
+
 Category: Bedroom
 range: Florida
 images:

@@ -1,6 +1,6 @@
 ---
 title: Sleep Motion Queen Bed
-enabled: true
+
 Category: Mobility
 range: Lift Beds
 created: 2019-04-26

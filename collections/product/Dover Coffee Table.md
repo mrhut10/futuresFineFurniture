@@ -1,6 +1,6 @@
 ---
 title: Dover Coffee Table
-enabled: true
+
 Category: Living
 range: Dover
 images:

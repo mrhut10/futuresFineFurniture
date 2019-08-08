@@ -1,6 +1,6 @@
 ---
 title: Sanava Bookcase
-enabled: true
+
 Category: Living
 range: Sanava
 images:

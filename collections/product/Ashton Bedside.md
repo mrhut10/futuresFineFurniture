@@ -1,6 +1,6 @@
 ---
 title: Ashton Bedside
-enabled: true
+
 Category: Bedroom
 range: Ashton
 images:

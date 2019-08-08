@@ -1,6 +1,6 @@
 ---
 title: Samson Bookcase
-enabled: true
+
 Category: Living
 range: samson
 images:

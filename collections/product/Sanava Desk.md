@@ -1,6 +1,6 @@
 ---
 title: Sanava Desk
-enabled: true
+
 Category: Living
 range: Sanava
 images:

@@ -1,6 +1,6 @@
 ---
 title: Brittany Bedside 2draw
-enabled: true
+
 Category: Bedroom
 range: Brittany
 images:

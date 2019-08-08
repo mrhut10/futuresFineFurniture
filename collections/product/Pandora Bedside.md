@@ -1,6 +1,6 @@
 ---
 title: Pandora Bedside
-enabled: true
+
 Category: Bedroom
 range: Pandora
 images:

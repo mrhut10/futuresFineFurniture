@@ -1,6 +1,6 @@
 ---
 title: Leisure Flex V2 Package
-enabled: true
+
 Category: Mobility
 range: Essential Living
 images:

@@ -1,6 +1,6 @@
 ---
 title: Milford Round Dining
-enabled: true
+
 Category: Outdoor
 range: Oxford
 images:

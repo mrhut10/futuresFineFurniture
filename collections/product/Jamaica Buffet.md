@@ -1,6 +1,6 @@
 ---
 title: Jamaica Buffet
-enabled: true
+
 Category: Dining
 range: Jamaica
 images:

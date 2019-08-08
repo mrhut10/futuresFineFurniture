@@ -1,6 +1,6 @@
 ---
 title: Samson display cabinet
-enabled: true
+
 Category: Living
 range: samson
 images:

@@ -1,6 +1,6 @@
 ---
 title: Florida Bookcase
-enabled: true
+
 Category: Living
 range: Florida
 images:

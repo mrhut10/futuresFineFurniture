@@ -1,6 +1,6 @@
 ---
 title: Oxford Bar
-enabled: true
+
 Category: Outdoor
 range: Oxford
 images:

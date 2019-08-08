@@ -1,6 +1,6 @@
 ---
 title: Vito Slimline Queen Package
-enabled: true
+
 Category: Mobility
 range: Lift Beds
 created: 2019-04-26

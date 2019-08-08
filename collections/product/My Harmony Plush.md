@@ -1,6 +1,6 @@
 ---
 title: My Harmony Plush
-enabled: true
+
 Category: Mattress
 range: Premium
 images:
