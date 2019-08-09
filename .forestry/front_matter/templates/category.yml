@@ -19,3 +19,5 @@ fields:
     schema:
       format: markdown
   label: Description
+pages:
+- "\\collections\\productCats/test-category.md"
