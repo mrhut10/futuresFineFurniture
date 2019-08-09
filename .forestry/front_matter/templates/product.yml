@@ -50,12 +50,12 @@ fields:
   name: variants
   label: variants
   fields:
-  - type: number
-    name: price
-    label: price
   - type: text
     name: variantName
     label: variantName
+  - type: number
+    name: price
+    label: price
   - name: disabled
     type: boolean
     label: disabled
