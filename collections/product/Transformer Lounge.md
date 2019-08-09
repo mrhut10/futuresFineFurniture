@@ -1,6 +1,6 @@
 ---
 title: Transformer Lounge
-enabled: true
+
 Category: Lounges and Sofas
 range: Billy
 images:
@@ -8,10 +8,13 @@ images:
 variants:
   - price: 89500
     variantName: "1ER : Single Electric Recliner"
+    discount: 10000
   - price: 199500
     variantName: "3ERER : 3 Seater with Electric Recliner Ends"
+    disabled: true
   - price: 349500
     variantName: "3ERER + 2ERER + 1ER : Package Deal"
+    disabled: true
 ---
 
 Touch and elegant Prime Suede Fabric
