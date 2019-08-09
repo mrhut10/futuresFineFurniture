@@ -70,3 +70,5 @@ fields:
       min: 
       max: 
       step: 
+pages:
+- collections/product/testproduct.md
