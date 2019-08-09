@@ -1,6 +1,5 @@
 ---
 title: Outdoor
-
 images:
   - milford lounge.png
 keywords:

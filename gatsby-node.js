@@ -97,7 +97,6 @@ const queries = {
           fields {
             slug
             type
-            disabled
           }
           frontmatter{
             title

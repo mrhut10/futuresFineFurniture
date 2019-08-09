@@ -3,7 +3,6 @@ title: Bedroom
 images:
   - /assets/hunt_bedroom.png
   - /assets/bondi-bedroom.png
-
 keywords:
   - bedroom furniture
   - beds

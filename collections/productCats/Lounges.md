@@ -1,6 +1,5 @@
 ---
 title: Lounges and Sofas
-
 images:
   - /assets/ella lounge single.png
 ---
