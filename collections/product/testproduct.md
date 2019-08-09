@@ -1,6 +1,6 @@
 ---
 category: collections/productCats/living.md
-title: testProduct
+title: test
 created: 2019-08-08
 updated: 2019-08-08
 disabled: false
