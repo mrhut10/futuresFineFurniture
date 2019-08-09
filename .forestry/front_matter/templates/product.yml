@@ -1,0 +1,26 @@
+---
+label: product
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: title
+- type: text
+  name: Category
+  label: Category
+- type: text
+  name: range
+  label: range
+- type: image_gallery
+  name: images
+  label: images
+- type: field_group_list
+  name: variants
+  label: variants
+  fields:
+  - type: number
+    name: price
+    label: price
+  - type: text
+    name: variantName
+    label: variantName
