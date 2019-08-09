@@ -36,6 +36,7 @@ exports.snipcartJson = R.compose(
                           100
                       )}]`
                   ),
+                  R.filter(item => !item.disabled),
                   R.filter(item => item.price && item.price > 0)
                 )(allvariants),
                 // allvariants.map().join('|'),
@@ -50,5 +51,6 @@ exports.snipcartJson = R.compose(
       R.path(['node', 'frontmatter'])
     )
   ),
+  R.filter(R.complement(R.pathOr(false, ['node', 'frontmatter', 'disabled']))),
   R.path(['data', 'allMarkdownRemark', 'edges'])
 );
