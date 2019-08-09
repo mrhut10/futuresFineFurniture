@@ -5,6 +5,13 @@ admin_path:
 webhook_url: 
 sections:
 - type: directory
+  path: "\\collections\\productCats"
+  label: category
+  create: documents
+  match: "**/*"
+  templates:
+  - category
+- type: directory
   path: "\\collections\\product"
   label: products
   create: documents
