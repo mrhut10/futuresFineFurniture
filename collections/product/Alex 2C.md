@@ -5,15 +5,15 @@ range: Billy
 images:
 - "/assets/alex lounge 2C.PNG"
 variants:
-- price: "69500"
+- price: 69500
   variantName: Cyan
-- price: "69500"
+- price: 69500
   variantName: Charcoal
-- price: "69500"
+- price: 69500
   variantName: Khaki
-- price: "69500"
+- price: 69500
   variantName: Red
-- price: "69500"
+- price: 69500
   variantName: Orange
 
 ---

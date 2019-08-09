@@ -9,8 +9,9 @@ images:
 - images/uploads/ella lounge 3RR+R+R.png
 variants:
 - variantName: hi
-  price: '93'
+  price: 93
   disabled: false
   discount: 
 
 ---
+i'm a test product

@@ -68,10 +68,10 @@ fields:
     label: discount
     description: discount in cents
     default: 0
-    required: true
+    required: false
     config:
       min: 
       max: 
-      step: 
+      step: '1'
 pages:
 - collections/product/testproduct.md
