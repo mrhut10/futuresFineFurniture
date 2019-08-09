@@ -41,3 +41,23 @@ fields:
       min: 
       max: 
       step: 
+- name: created
+  type: datetime
+  label: created
+  description: ''
+  config:
+    required: false
+    date_format: ''
+    time_format: 
+    display_utc: false
+    export_format: YYYY-MM-DD
+- name: updated
+  type: datetime
+  label: updated
+  description: ''
+  config:
+    required: false
+    date_format: 
+    time_format: 
+    display_utc: false
+    export_format: YYYY-MM-DD
