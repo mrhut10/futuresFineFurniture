@@ -7,8 +7,10 @@ sections:
 - type: directory
   path: "\\collections\\product"
   label: products
-  create: all
+  create: documents
   match: "**/*"
+  templates:
+  - product
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
