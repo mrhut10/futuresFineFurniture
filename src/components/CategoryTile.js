@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 
-import ComingSoon from './ComingSoon';
+import NotAvaliable from './NotAvaliable';
 
 const ImageComponent = (image, maxHeight = '350px') => (
   <img
@@ -30,7 +30,7 @@ const CategoryTitle = ({
         title={hoverText}
       >
         {comingSoon ? (
-          <ComingSoon />
+          <NotAvaliable text='Coming Soon' showContact />
         ) : (
           <div className="my-auto">
             {ImageComponent(images[0], `calc(${height}-30px)`)}

@@ -25,6 +25,11 @@ exports.onCreateNode = ({ node, actions }) => {
         name: 'catName',
         value: node.frontmatter.title,
       });
+      actions.createNodeField({
+        node,
+        name: 'disabled',
+        value: node.frontmatter.disabled,
+      });
     } else if (node.fileAbsolutePath.includes('collections/productRange')) {
       // if a productRange
       actions.createNodeField({ node, name: 'type', value: `productRange` });
@@ -70,6 +75,11 @@ exports.onCreateNode = ({ node, actions }) => {
         name: 'range',
         value: node.frontmatter.range,
       });
+      actions.createNodeField({
+        node,
+        name: 'disabled',
+        value: node.frontmatter.disabled,
+      });
     }
   } else if (node.internal.type === 'gatsby-source-filesystem') {
     if (node.fileAbsolutePath.includes('/images/uploads')) {
@@ -87,6 +97,7 @@ const queries = {
           fields {
             slug
             type
+            disabled
           }
           frontmatter{
             title
@@ -120,16 +131,19 @@ const queries = {
         node {
           fields {
             slug
+            disabled
           }
           frontmatter {
             title
             Category
             range
             images
+            disabled
             variants {
               price
               variantName
               discount
+              disabled
             }
           }
         }
@@ -157,6 +171,7 @@ exports.createPages = ({ graphql, actions }) => {
           slug: node.fields.slug,
           catName: node.frontmatter.title,
           images: node.frontmatter.images,
+          disabled: node.fields.disabled,
         },
       });
     });

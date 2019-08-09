@@ -5,13 +5,14 @@ import propTypes from 'prop-types';
 import * as R from 'ramda';
 import Layout from '../components/Layout';
 import Wrapper from '../components/Wrapper';
-import ComingSoon from '../components/ComingSoon';
+import NotAvaliable from '../components/NotAvaliable';
 import SEO from '../components/SEO';
 import { BulkProducts } from '../components/BulkProducts';
 
 const categoryRoute = ({ data, pageContext }) => {
-  const post = data.cat;
+  const { disabled } = pageContext;
   const { products } = data;
+  const post = data.cat;
   const removeDiscount = item =>
     item.price - (item.discount && item.discount > 0 ? item.discount : 0);
 
@@ -30,8 +31,7 @@ const categoryRoute = ({ data, pageContext }) => {
         <h1 className="font-bold mb-4 text-2xl text-maroon-600">
           {post.frontmatter.title}
         </h1>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        {products ? (
+        {products && !disabled ? (
           <BulkProducts
             products={products.edges
               .map(({ node }) => ({
@@ -50,7 +50,15 @@ const categoryRoute = ({ data, pageContext }) => {
               .sort((a, b) => String(a.range).localeCompare(String(b.range)))}
           />
         ) : (
-          <ComingSoon />
+          <NotAvaliable
+            text={disabled ? 'Not Avaliable' : 'Coming Soon'}
+            subtext={
+              disabled
+                ? `This Category of products is no longer avaliable or has been disabled`
+                : `Check back here soon, new products added weekly`
+            }
+            showContact
+          />
         )}
       </Wrapper>
     </Layout>

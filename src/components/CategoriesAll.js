@@ -42,11 +42,12 @@ const Categories = () => (
                 title
                 images
                 order
-                enabled
+                disabled
               }
               excerpt(pruneLength: 50)
               fields {
                 slug
+                disabled
               }
             }
           }
@@ -105,7 +106,9 @@ const Categories = () => (
                     ),
                     CategoryCounts
                   )(queryData),
-                  enabled: R.pathOr(false, ['frontmatter', 'enabled'])(input),
+                  enabled: R.complement(
+                    R.pathOr(false, ['frontmatter', 'disabled'])
+                  )(input),
                 }),
                 R.pathOr({}, ['node'])
               )

@@ -9,6 +9,7 @@ import Wrapper from '../components/Wrapper';
 import { BuyArea } from '../components/Snipcart';
 import SEO from '../components/SEO';
 import { BulkProducts } from '../components/BulkProducts';
+import NotAvaliable from '../components/NotAvaliable'
 
 const details = R.compose(
   html => (
@@ -50,6 +51,7 @@ const productRoute = ({ data }) => {
     range,
     variants,
     qty,
+    disabled,
   } = data.markdownRemark.frontmatter;
   return (
     <Layout>
@@ -73,6 +75,7 @@ const productRoute = ({ data }) => {
       <Wrapper>
         <div className="mb-8 text-center">
           <h1 className="font-bold text-3xl text-maroon-600">{title}</h1>
+          {disabled ? <NotAvaliable text="No Longer Avaliable" /> : null}
           <h3>{RangeCategoryString(range, Category)}</h3>
         </div>
         <div className="flex flex-wrap">
@@ -91,6 +94,7 @@ const productRoute = ({ data }) => {
               description={undefined}
               variants={variants}
               qty={qty}
+              disabled={disabled}
             />
           </div>
         </div>
@@ -187,13 +191,14 @@ export const query = graphql`
       html
       frontmatter {
         title
-        enabled
+        disabled
         Category
         range
         variants {
           price
           variantName
           discount
+          disabled
           qty
         }
       }
@@ -214,13 +219,14 @@ export const query = graphql`
           frontmatter {
             title
             images
-            enabled
+            disabled
             Category
             range
             variants {
               variantName
               price
               discount
+              disabled
             }
           }
         }

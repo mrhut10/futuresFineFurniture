@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import propTypes from 'prop-types';
 import { Link } from 'gatsby';
 import * as R from 'ramda';
+import NotAvaliable from './NotAvaliable';
 
 import { intToPriceFormat } from '../helpers';
 
-export const BuyArea = ({ name, url, variants }) => {
+export const BuyArea = ({ name, url, variants, disabled }) => {
   const [GetProductValue, SetProductValue] = useState(
     // variants[0].variantName
     R.compose(
@@ -95,6 +96,7 @@ export const BuyArea = ({ name, url, variants }) => {
                         price={variants[0].price}
                         variants={variants}
                         value={GetProductValue}
+                        disabled={disabled}
                       >
                         Add To Cart
                       </BuyButton>
@@ -123,6 +125,7 @@ export const BuyArea = ({ name, url, variants }) => {
                           price={variants[0].price}
                           variants={variants}
                           value={GetProductValue}
+                          disabled={disabled}
                         >
                           Add To Cart
                         </BuyButton>
@@ -194,49 +197,51 @@ export const BuyButton = ({
   id,
   image,
   url,
-  // price,
   description,
   children,
+  disabled,
   variants,
   value,
-}) => (
-  <button
-    type="button"
-    className="snipcart-add-item bg-maroon-800 hover:bg-maroon-700 font-semibold inline-block leading-none px-3 py-2 rounded hover:shadow-md text-cream-200 text-sm"
-    data-item-name={name}
-    data-item-id={id}
-    data-item-image={image}
-    data-item-url={url}
-    data-item-price={`{"AUD":${(variants[0].price -
-      (variants[0].discount || 0)) /
-      100}}`}
-    description={description}
-    data-item-custom1-name={variants && variants.length > 1 ? 'Option' : ''}
-    data-item-custom1-options={
-      /*
-        variants && variants.length > 1
-        ? variants.map(vari=>`${vari.variantName}[${vari.price-variants[0].price>=0?'+':''}${(vari.price-variants[0].price)/100}]`).join('|')
-        : ''
-
-      */
-      R.compose(
+}) =>
+  disabled ||
+  R.compose(
+    R.propOr(false, 'disabled'),
+    R.find(R.propEq('variantName',value))
+  )(variants) ? (
+    <>
+      <br />
+      <NotAvaliable text="Option Not Avaliable" />
+    </>
+  ) : (
+    <button
+      type="button"
+      className="snipcart-add-item bg-maroon-800 hover:bg-maroon-700 font-semibold inline-block leading-none px-3 py-2 rounded hover:shadow-md text-cream-200 text-sm"
+      data-item-name={name}
+      data-item-id={id}
+      data-item-image={image}
+      data-item-url={url}
+      data-item-price={`{"AUD":${(variants[0].price -
+        (variants[0].discount || 0)) /
+        100}}`}
+      description={description}
+      data-item-custom1-name={variants && variants.length > 1 ? 'Option' : ''}
+      data-item-custom1-options={R.compose(
         R.join('|'),
         R.map(
           vari =>
             `${vari.variantName}[${
-              vari.price - (vari.discount || 0) - variants[0].price >= 0
-                ? '+'
+              vari.price - (vari.discount || 0) - variants[0].price >= 0                  ? '+'
                 : ''
             }${(vari.price - (vari.discount || 0) - variants[0].price) / 100}]`
         ),
+        R.filter(item => item.disabled !== true),
         R.filter(item => item.price && item.price > 0)
-      )(variants)
-    }
-    data-item-custom1-value={value}
-  >
-    {children}
-  </button>
-);
+      )(variants)}
+      data-item-custom1-value={value}
+    >
+      {children}
+    </button>
+  );
 
 BuyArea.propTypes = {
   name: propTypes.string,
@@ -245,12 +250,14 @@ BuyArea.propTypes = {
   url: propTypes.string,
   description: propTypes.string,
   variants: propTypes.any,
+  disabled: propTypes.bool,
 };
 BuyButton.propTypes = {
   name: propTypes.string,
   id: propTypes.string,
   image: propTypes.any,
   url: propTypes.string,
+  disabled: propTypes.bool,
   description: propTypes.string,
   children: propTypes.any, // arrayOf(propTypes.element),
   variants: propTypes.array,

@@ -20,7 +20,7 @@ const query = graphql`
           frontmatter {
             title
             images
-            enabled
+            disabled
             Category
             range
             variants {
