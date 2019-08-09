@@ -9,11 +9,15 @@ sections:
   label: category
   create: documents
   match: "**/*"
+  templates:
+  - category
 - type: directory
   path: collections/product
   label: products
   create: documents
   match: "**/*"
+  templates:
+  - product
 upload_dir: static/images/uploads
 public_path: images/uploads
 front_matter_path: ''
