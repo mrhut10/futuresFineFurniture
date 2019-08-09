@@ -5,6 +5,9 @@ fields:
 - type: text
   name: title
   label: title
+- name: disabled
+  type: boolean
+  label: disabled
 - type: text
   name: Category
   label: Category
@@ -24,3 +27,17 @@ fields:
   - type: text
     name: variantName
     label: variantName
+  - name: disabled
+    type: boolean
+    label: disabled
+    description: this will disable this variant
+  - name: discount
+    type: number
+    label: discount
+    description: discount in cents
+    default: 0
+    required: true
+    config:
+      min: 
+      max: 
+      step: 
