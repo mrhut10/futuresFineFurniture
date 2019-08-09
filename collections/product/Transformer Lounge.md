@@ -17,6 +17,8 @@ variants:
     disabled: true
 ---
 
+Only two single recliners still available, come get the last of the range at a hugely discounted price.
+
 Touch and elegant Prime Suede Fabric
 Dual Motor Electric Reclining Ends
 In Arm Storage
