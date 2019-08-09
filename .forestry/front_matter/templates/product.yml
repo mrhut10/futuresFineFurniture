@@ -5,12 +5,41 @@ fields:
 - type: text
   name: title
   label: title
+- name: category
+  type: select
+  default: []
+  config:
+    required: false
+    options: []
+    source:
+      type: pages
+      section: category
+      file: 
+      path: 
+  label: Category
+- name: created
+  type: datetime
+  label: created
+  description: ''
+  config:
+    required: false
+    date_format: ''
+    time_format: 
+    display_utc: false
+    export_format: YYYY-MM-DD
+- name: updated
+  type: datetime
+  label: updated
+  description: ''
+  config:
+    required: false
+    date_format: 
+    time_format: 
+    display_utc: false
+    export_format: YYYY-MM-DD
 - name: disabled
   type: boolean
   label: disabled
-- type: text
-  name: Category
-  label: Category
 - type: text
   name: range
   label: range
@@ -41,23 +70,3 @@ fields:
       min: 
       max: 
       step: 
-- name: created
-  type: datetime
-  label: created
-  description: ''
-  config:
-    required: false
-    date_format: ''
-    time_format: 
-    display_utc: false
-    export_format: YYYY-MM-DD
-- name: updated
-  type: datetime
-  label: updated
-  description: ''
-  config:
-    required: false
-    date_format: 
-    time_format: 
-    display_utc: false
-    export_format: YYYY-MM-DD
