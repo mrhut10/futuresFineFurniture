@@ -5,19 +5,15 @@ admin_path:
 webhook_url: 
 sections:
 - type: directory
-  path: "\\collections\\productCats"
+  path: collections/productCats
   label: category
   create: documents
   match: "**/*"
-  templates:
-  - category
 - type: directory
-  path: "\\collections\\product"
+  path: collections/product
   label: products
   create: documents
   match: "**/*"
-  templates:
-  - product
 upload_dir: "\\static\\images\\uploads"
 public_path: public\images\uploads
 front_matter_path: ''
