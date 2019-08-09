@@ -7,3 +7,15 @@ fields:
   config:
     required: false
   label: title
+- name: category
+  type: select
+  default: []
+  config:
+    required: false
+    options: []
+    source:
+      type: pages
+      section: category
+      file: 
+      path: 
+  label: category
