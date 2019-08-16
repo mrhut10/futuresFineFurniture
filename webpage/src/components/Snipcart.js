@@ -202,12 +202,19 @@ export const BuyButton = ({
   disabled,
   variants,
   value,
-}) =>
-  disabled ||
-  R.compose(
-    R.propOr(false, 'disabled'),
-    R.find(R.propEq('variantName', value))
-  )(variants) ? (
+}) => {
+  const variantsFiltered = variants
+    // filter out disabled variants
+    .filter(item => item.disabled !== true)
+    // filter out priceless variants
+    .filter(item => item.price && item.price - (item.discount || 0) > 0);
+
+  const NotAvaliableFlag =
+    disabled ||
+    variants.find(vari => vari.variantName === value).disabled === true ||
+    variantsFiltered.length === 0;
+
+  return NotAvaliableFlag ? (
     <>
       <br />
       <NotAvaliable text="Option Not Avaliable" />
@@ -220,34 +227,36 @@ export const BuyButton = ({
       data-item-id={id}
       data-item-image={image}
       data-item-url={url}
-      data-item-price={`{"AUD":${variants[0].price / 100}}`}
+      data-item-price={`{"AUD":${
+        (variantsFiltered.length > 1
+          ? variantsFiltered[0].price // APPLY DISCOUNT ONLY IN OPTIONS
+          : variantsFiltered[0].price - (variantsFiltered[0].discount || 0)) / // APPLY DISCOUNT AS NO OPTIONS
+          100 // DIVIDE BY 100
+      }}`}
       description={description}
       data-item-custom1-name={variants && variants.length > 1 ? 'Option' : ''}
-      data-item-custom1-options={R.compose(
-        R.join('|'),
-        R.map(
-          vari =>
-            `${vari.variantName || 'default'}[${
-              vari.price - (vari.discount || 0) - variants[0].price >= 0
-                ? '+' // spesify is positive number
-                : '' // will automatically have a negative
-            }${(vari.price - (vari.discount || 0) - variants[0].price) / 100}]`
-        ),
-        R.filter(item => item.disabled !== true),
-        R.filter(item => item.price && item.price - (item.discount || 0) > 0)
-      )(variants)}
+      data-item-custom1-options={(variantsFiltered.length <= 1
+        ? [] // ONE OR LESS OPTIONS, SO DISPLAY NO OPTIONS
+        : variantsFiltered.map(
+            (vari, index, parrentArray) =>
+              `${vari.variantName || 'default'}[${
+                vari.price - (vari.discount || 0) - parrentArray[0].price >= 0
+                  ? '+' // specify is positive number
+                  : '' // will automatically have a negative sign
+              }${(vari.price - (vari.discount || 0) - parrentArray[0].price) /
+                100}]`
+          )
+      ).join('|')}
       data-item-custom1-value={value}
     >
       {children}
     </button>
   );
+};
 
 BuyArea.propTypes = {
   name: propTypes.string,
-  id: propTypes.string,
-  image: propTypes.string,
   url: propTypes.string,
-  description: propTypes.string,
   variants: propTypes.any,
   disabled: propTypes.bool,
 };
