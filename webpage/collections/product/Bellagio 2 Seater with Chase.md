@@ -8,7 +8,7 @@ images:
 variants:
   - price: 299500
     variantName: Left Hand Chase
-  - price: 239500
+  - price: 299500
     variantName: Right Hand Chase
 ---
 
