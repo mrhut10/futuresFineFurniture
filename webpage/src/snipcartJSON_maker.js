@@ -7,9 +7,9 @@ exports.snipcartJson = ({ data }) => {
   const filterVariants = variants =>
     variants
       ? variants
-          .filter(vari => vari.price - vari.discount || 0) // priceless
+          .filter(vari => vari.price - (vari.discount || 0) > 0) // priceless
           .filter(vari => vari.disabled !== true)
-      : variants;
+      : [];
 
   const edgeToProduct = ({ node }) => ({
     name: node.frontmatter.title,
@@ -48,7 +48,6 @@ exports.snipcartJson = ({ data }) => {
           ]
         : [],
   });
-  console.log(getEdges(data).map(productToSnipcartProductDefinition));
 
   return getEdges(data)
     .map(edgeToProduct)
