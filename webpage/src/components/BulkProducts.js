@@ -51,6 +51,7 @@ BulkProducts.propTypes = {
           variantName: propTypes.string,
           price: propTypes.number,
           discount: propTypes.number,
+          disabled: propTypes.bool,
         })
       ).isRequired,
     })
