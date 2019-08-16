@@ -206,7 +206,7 @@ export const BuyButton = ({
   disabled ||
   R.compose(
     R.propOr(false, 'disabled'),
-    R.find(R.propEq('variantName',value))
+    R.find(R.propEq('variantName', value))
   )(variants) ? (
     <>
       <br />
@@ -220,22 +220,21 @@ export const BuyButton = ({
       data-item-id={id}
       data-item-image={image}
       data-item-url={url}
-      data-item-price={`{"AUD":${(variants[0].price -
-        (variants[0].discount || 0)) /
-        100}}`}
+      data-item-price={`{"AUD":${variants[0].price / 100}}`}
       description={description}
       data-item-custom1-name={variants && variants.length > 1 ? 'Option' : ''}
       data-item-custom1-options={R.compose(
         R.join('|'),
         R.map(
           vari =>
-            `${vari.variantName}[${
-              vari.price - (vari.discount || 0) - variants[0].price >= 0                  ? '+'
-                : ''
+            `${vari.variantName || 'default'}[${
+              vari.price - (vari.discount || 0) - variants[0].price >= 0
+                ? '+' // spesify is positive number
+                : '' // will automatically have a negative
             }${(vari.price - (vari.discount || 0) - variants[0].price) / 100}]`
         ),
         R.filter(item => item.disabled !== true),
-        R.filter(item => item.price && item.price > 0)
+        R.filter(item => item.price && item.price - (item.discount || 0) > 0)
       )(variants)}
       data-item-custom1-value={value}
     >
