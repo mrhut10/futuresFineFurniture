@@ -6,15 +6,15 @@ range: Budget
 images:
   - /assets/dreamtime.png
 variants:
-  - price: 15900
+  - price: 17900
     qty: 11
     variantName: Single
-  - price: 17900
-    variantName: King Single
   - price: 19900
+    variantName: King Single
+  - price: 22900
     qty: 11
     variantName: Double
-  - price: 22900
+  - price: 25900
     qty: 11
     variantName: Queen
 ---
