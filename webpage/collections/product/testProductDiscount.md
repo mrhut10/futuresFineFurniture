@@ -1,7 +1,7 @@
 ---
 title: testProductDiscount
-
 Category: test
+disabled: true
 range: test
 images:
   - /assets/dreamtime.png

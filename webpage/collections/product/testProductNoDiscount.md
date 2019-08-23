@@ -1,6 +1,6 @@
 ---
 title: testProductNoDiscount
-
+disabled: true
 Category: test
 range: test
 images:
