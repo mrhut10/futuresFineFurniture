@@ -4,7 +4,8 @@ title: Clifton Lift Chair
 Category: Mobility
 range: Promotion
 images:
-  - clifton lift chair.png
+  - clifton lifgt chair 2.png
+  # - clifton lift chair.png
 variants:
   - price: 149500
     variantName: Forest
