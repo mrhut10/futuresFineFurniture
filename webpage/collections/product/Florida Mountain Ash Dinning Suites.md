@@ -1,8 +1,8 @@
 ---
-title: Florida Dining Suites
+title: Florida Mountain Ash Dining Suites
 
 Category: Dining
-range: Florida
+range: Florida Mountain Ash
 images:
   - florida dining suites.png
 variants:

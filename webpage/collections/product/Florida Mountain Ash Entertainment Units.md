@@ -1,8 +1,8 @@
 ---
-title: Florida Entertainment Units
+title: Florida Mountain Ash Entertainment Units
 
 Category: Living
-range: Florida
+range: Florida Mountain Ash
 images:
   - Florida entertainment.png
 variants:

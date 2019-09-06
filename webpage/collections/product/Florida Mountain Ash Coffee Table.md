@@ -1,16 +1,17 @@
 ---
-title: Florida Buffet
+title: Florida Mountain Ash Coffee Table
 
 Category: Dining
-range: Florida
+range: Florida Mountain Ash
 images:
-  - florida buffet.png
+  - florida coffee table.png
 variants:
-  - price: 79500
+  - price: 49500
 ---
-4 Doors, 3 Doors
+2 draws
+
 * White washed, Brushed Mountain Ash range
 * Contemporary coastal design with generous proportions
 
 #### Dimensions
-W1580xD405xH875 mm
+W1270xD665xH400 mm

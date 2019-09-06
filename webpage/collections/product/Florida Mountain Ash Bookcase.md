@@ -1,8 +1,8 @@
 ---
-title: Florida Bookcase
+title: Florida Mountain Ash Bookcase
 
 Category: Living
-range: Florida
+range: Florida Mountain Ash
 images:
   - "florida bookcase.png"
 variants:

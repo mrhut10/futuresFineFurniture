@@ -1,16 +1,16 @@
 ---
-title: Florida Lamp Table
+title: Florida Mountain Ash Hall Table
 
 Category: Living
-range: Florida
+range: Florida Mountain Ash
 images:
-  - florida lamp table.png
+  - florida hall table.png
 variants:
   - price: 49500
 ---
-1 draw
+2 draws
 * White washed, Brushed Mountain Ash range
 * Contemporary coastal design with generous proportions
 
 #### Dimensions
-W600xD600x400 mm
+W1100xD380xH810 mm

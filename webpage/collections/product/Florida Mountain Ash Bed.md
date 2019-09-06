@@ -1,8 +1,8 @@
 ---
-title: Florida Bed
+title: Florida Mountain Ash Bed
 
 Category: Bedroom
-range: Florida
+range: Florida Mountain Ash
 images:
   - /assets/florida bed.png
 variants:

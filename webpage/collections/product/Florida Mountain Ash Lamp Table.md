@@ -1,17 +1,16 @@
 ---
-title: Florida Coffee Table
+title: Florida Mountain Ash Lamp Table
 
-Category: Dining
-range: Florida
+Category: Living
+range: Florida Mountain Ash
 images:
-  - florida coffee table.png
+  - florida lamp table.png
 variants:
   - price: 49500
 ---
-2 draws
-
+1 draw
 * White washed, Brushed Mountain Ash range
 * Contemporary coastal design with generous proportions
 
 #### Dimensions
-W1270xD665xH400 mm
+W600xD600x400 mm

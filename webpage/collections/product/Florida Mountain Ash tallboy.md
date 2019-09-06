@@ -1,14 +1,14 @@
 ---
-title: Florida Dresser
+title: Florida Mountain Ash Tallboy
 
 Category: Bedroom
-range: Florida
+range: Florida Mountain Ash
 images:
-  - /assets/florida dresser.png
+  - /assets/florida tallboy.png
 variants:
   - price: 76500
 ---
-* 6 draws
+* 5 draws ( 2 over 3 )
 * White washed, Brushed Mountain Ash range
 * Contemporary coastal design with generous proportions
 * Full extension metal runners
@@ -17,4 +17,4 @@ variants:
 
 
 #### Dimensions
-* dresser: W32xD40.5xH81.5 cm
+* tallboy: W102xD40.5xH107.3 cm

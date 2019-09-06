@@ -1,8 +1,8 @@
 ---
-title: Florida Mirror
+title: Florida Mountain Ash Mirror
 
 Category: Bedroom
-range: Florida
+range: Florida Mountain Ash
 images:
   - /assets/florida mirror.png
 variants:

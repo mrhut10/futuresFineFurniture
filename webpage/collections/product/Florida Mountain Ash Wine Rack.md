@@ -1,8 +1,8 @@
 ---
-title: Florida Wine Rack
+title: Florida Mountain Ash Wine Rack
 
 Category: Dining
-range: Florida
+range: Florida Mountain Ash
 images:
   - florida wine rack.png
 variants:

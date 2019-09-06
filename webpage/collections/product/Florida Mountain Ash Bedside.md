@@ -1,8 +1,8 @@
 ---
-title: Florida Bedside
+title: Florida Mountain Ash Bedside
 
 Category: Bedroom
-range: Florida
+range: Florida Mountain Ash
 images:
   - /assets/florida bedside.png
 variants:
