@@ -9,7 +9,7 @@ images:
 variants:
   - price: 229500
     variantName: Charcoal
-  - price: 194900
+  - price: 229500
     variantName: Truffle
 ---
 
