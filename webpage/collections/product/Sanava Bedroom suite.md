@@ -10,7 +10,7 @@ variants:
     variantName: Double + 2 x Bedsides + Tallboy
   - price: 149500
     variantName: Queen + 2 x Bedsides + Tallboy
-  - price: 1549
+  - price: 154900
     variantName: King + 2 x Bedsides + Tallboy
 ---
 Solid Acacia Timber in Drift wood finish
