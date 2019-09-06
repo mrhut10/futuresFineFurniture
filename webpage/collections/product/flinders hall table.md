@@ -9,7 +9,7 @@ images:
   - "flinders hall table.png"
 variants:
   - variantName: "Hall Table"
-    price: 46900
+    price: 47500
 ---
 
 Solid N.Z. Pine in Jarrah Colour

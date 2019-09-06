@@ -6,7 +6,7 @@ range: Flinders
 images:
   - /assets/flinders dressing table w mirror.png
 variants:
-  - price: 87500
+  - price: 79500
 ---
 Solid N.Z. Pine in Jarrah Colour.
 

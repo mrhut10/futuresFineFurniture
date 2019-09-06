@@ -9,9 +9,9 @@ images:
   - "Flinders Dining.png"
 variants:
   - variantName: "7 Pce"
-    price: 124900
+    price: 139500
   - variantName: "9 Pce"
-    price: 149500
+    price: 164900
 ---
 Solid N.Z. Pine in Jarrah Colour.
 

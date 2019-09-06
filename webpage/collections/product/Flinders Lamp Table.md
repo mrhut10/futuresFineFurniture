@@ -8,8 +8,8 @@ updated: 2019-06-28
 images:
   - "flinders lamp table.png"
 variants:
-  - variantName: "Hall Table"
-    price: 22900
+  - variantName: "Lamp Table"
+    price: 24900
 ---
 Solid N.Z. Pine in Jarrah Colour.
 
