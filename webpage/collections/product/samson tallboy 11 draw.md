@@ -6,7 +6,7 @@ range: samson
 images:
   - samson tallboy 11 draw.png
 variants:
-  - price: 64900
+  - price: 69500
 ---
 Solid N.Z. Pine in Blackwood finish
 

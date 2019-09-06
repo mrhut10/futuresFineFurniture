@@ -9,6 +9,6 @@ variants:
   - variantName: 5pce
     price: 64900
   - variantName: 7pce
-    price: 89500
+    price: 99500
 ---
 Solid N.Z. Pine in Blackwood finish
