@@ -4,7 +4,7 @@ title: Sanava Filling Cabinet
 Category: Living
 range: Sanava
 images:
-  - /assets/sanava filing cabinet.png
+  - sanava filing cabinet.png
 variants:
   - price: 29500
 ---

@@ -6,7 +6,7 @@ range: Sanava
 images:
   - /assets/sanava coffee table.png
 variants:
-  - price: 47500
+  - price: 49500
 ---
 1 Draw, 1 Niche
 

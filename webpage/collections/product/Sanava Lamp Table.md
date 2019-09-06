@@ -6,7 +6,7 @@ range: Sanava
 images:
   - /assets/sanava lamp table.png
 variants:
-  - price: 19500
+  - price: 22900
 ---
 
 1 shelf

@@ -6,14 +6,17 @@ range: Sanava
 images:
   - /assets/sanava dining long.png
 variants:
-  - price: 89500
+  - price: 114900
+    variantName: 7 pce set
+  - price: 154900
+    variantName: 9 pce set
 ---
 
-6 Sanava Dining Chairs
-with Sanava Long Dining Table
+Sanava 7pce or 9 pce Long Dining Table's
+
 
 Solid Acacia Timber in Drift wood finish
 
 #### Dimensions
-
-1800 x 1000 mm
+* 7 pce : 1800x1000 mm
+* 9 pce : 2100x1000 mm

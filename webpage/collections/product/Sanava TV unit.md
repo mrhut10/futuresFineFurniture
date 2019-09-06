@@ -6,7 +6,7 @@ range: Sanava
 images:
   - /assets/sanava tv unit.png
 variants:
-  - price: 59500
+  - price: 62900
 ---
 
 3 Draws, 3 Niche

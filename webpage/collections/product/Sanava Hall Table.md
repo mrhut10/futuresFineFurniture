@@ -6,7 +6,7 @@ range: Sanava
 images:
   - /assets/sanava hall table.png
 variants:
-  - price: 47500
+  - price: 49500
 ---
 
 3 Draw

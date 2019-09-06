@@ -6,7 +6,7 @@ range: Sanava
 images:
   - /assets/sanava square dining.png
 variants:
-  - price: 64900
+  - price: 79500
 ---
 
 4 Sanava Dining Chairs

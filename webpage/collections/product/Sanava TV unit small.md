@@ -1,16 +1,17 @@
 ---
-title: Sanava Buffet
+title: Sanava TV Unit small
 
 Category: Living
 range: Sanava
 images:
-  - /assets/sanava buffet.png
+  - sanava tv unit small.png
 variants:
-  - price: 94900
+  - price: 44900
 ---
 
+2 Draws, 1 Niche
 Solid Acacia Timber in Drift wood finish
 
 #### Dimensions
 
-L1630xD450xH880 mm
+L 1086xD 470xH 590 mm
