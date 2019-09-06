@@ -8,6 +8,10 @@ updated: 2019-06-21
 images:
   - "Classic-QS-3.jpg"
 variants:
+  - price: 36900
+    variantName: Single
+  - price: 42900
+    variantName: King Single
   - price: 49500
     variantName: Double
   - price: 59500
