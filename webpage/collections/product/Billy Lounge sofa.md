@@ -6,11 +6,11 @@ range: Billy
 images:
   - /assets/billy lounge triple.png
 variants:
-  - price: 89500
+  - price: 94900
     variantName: Cyan
-  - price: 89500
+  - price: 94900
     variantName: Charcoal
-  - price: 89500
+  - price: 94900
     variantName: Khaki
 ---
 
