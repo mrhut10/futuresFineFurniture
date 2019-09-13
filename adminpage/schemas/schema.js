@@ -7,6 +7,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 //product related imports
 import category from './category'
 import range from './range'
+import product from './product'
 
 
 
@@ -19,5 +20,6 @@ export default createSchema({
   types: schemaTypes.concat([
     category,
     range,
+    product,
   ])
 })
