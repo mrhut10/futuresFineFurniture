@@ -4,12 +4,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "package.json",
-  "author": "alistair hutten <mrhut10@protonmail.com>",
-  "license": "UNLICENSED",
+  "author": "mrhut10",
   "scripts": {
     "dev": "sanity start",
     "test": "sanity check",
-    "build": "sanity build"
+    "build": "sanity build",
+    "graphql-deploy": "sanity graphql deploy --playground"
   },
   "keywords": [
     "sanity"
