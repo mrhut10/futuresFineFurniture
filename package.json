@@ -8,6 +8,7 @@
     "dev-admin": "cd adminpage && npm run dev",
     "dev-web": "cd adminpage && npm run dev",
     "build": "lerna run build --parallel",
+    "build-admin": "cd adminPage && npm run build",
     "build-web": "cd webpage && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "lerna bootstrap"
