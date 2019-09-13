@@ -58,9 +58,11 @@ typings/
 .env
 .env.*
 
-# gatsby files
+# cache / build files
 .cache/
-public
+webpage/public
+adminPage/dist
+
 
 # Mac files
 .DS_Store
