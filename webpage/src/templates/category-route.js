@@ -45,7 +45,9 @@ const categoryRoute = ({ data, pageContext }) => {
                   R.pathOr([], ['frontmatter', 'variants'])
                 )(node),
                 range: R.pathOr([], ['frontmatter', 'range'])(node),
+                disabled: R.pathOr(false, ['frontmatter', 'disabled'])(node),
               }))
+              .filter(product => product.disabled !== true)
               .sort((a, b) => a.minPriceCents - b.minPriceCents)
               .sort((a, b) => String(a.range).localeCompare(String(b.range)))}
           />
@@ -71,6 +73,7 @@ export const query = graphql`
       html
       frontmatter {
         title
+        disabled
         variants {
           price
           variantName
@@ -104,6 +107,7 @@ export const query = graphql`
             title
             images
             range
+            disabled
             variants {
               price
               variantName
