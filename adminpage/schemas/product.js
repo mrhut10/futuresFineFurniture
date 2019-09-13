@@ -46,25 +46,7 @@ export default {
       title: 'images',
       name: 'images',
       type: 'array',
-      of: [{
-        type: 'image',
-        options: {
-          hotspot: true,
-          metadata: ['palette'],
-        },
-        fields: [
-          {
-            title: 'Caption',
-            name: 'caption',
-            type: 'string',
-          },
-          {
-            title: 'varientName',
-            name: 'varientName',
-            type: 'string',
-          }
-        ]
-      }]
+      of: [{type: 'imageObject'}]
     },
     {
       title: 'Keywords',

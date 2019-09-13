@@ -5,6 +5,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import documentCommon from './documentCommon'
+import imageObject from './imageObject'
 //product related imports
 import category from './category'
 import range from './range'
@@ -20,6 +21,7 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     documentCommon,
+    imageObject,
     category,
     range,
     product,
