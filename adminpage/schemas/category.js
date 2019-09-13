@@ -24,6 +24,13 @@ export default {
       }
     },
     {
+      title: 'Parent Category',
+      name: 'parent',
+      type: 'reference',
+      to: [{type: 'category'}],
+      description: 'a Value here will make the category a sub category of its parent category'
+    },
+    {
       title: 'Cover',
       name: 'cover',
       type: 'image',
