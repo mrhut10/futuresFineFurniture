@@ -9,7 +9,7 @@ export default {
       title: 'Name',
       name: 'name',
       type: 'string',
-      validation: Rule => Rule.required().unique(),
+      validation: Rule => Rule.required(),
     },
     {
       title: 'slug',
