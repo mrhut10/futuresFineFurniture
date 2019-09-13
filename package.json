@@ -7,7 +7,8 @@
     "dev": "lerna run dev --parallel",
     "build": "lerna run build --parallel",
     "build-web": "cd webpage && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "lerna bootstrap",
   },
   "repository": {
     "type": "git",
