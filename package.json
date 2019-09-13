@@ -5,6 +5,8 @@
   "description": "futures fine website",
   "scripts": {
     "dev": "lerna run dev --parallel",
+    "dev-admin": "cd adminpage && npm run dev",
+    "dev-web": "cd adminpage && npm run dev",
     "build": "lerna run build --parallel",
     "build-web": "cd webpage && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",

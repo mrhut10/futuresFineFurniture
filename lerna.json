@@ -1,6 +1,7 @@
 {
   "packages": [
-    "webpage"
+    "webpage",
+    "adminpage"
   ],
   "version": "0.0.0"
 }
