@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "name": "futuresfinefurniture",
+  "version": "1.0.0",
+  "description": "futures fine website",
+  "scripts": {
+    "dev": "lerna run dev --parallel",
+    "build": "lerna run build --parallel",
+    "build-web": "cd webpage && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrhut10/futuresFineFurniture.git"
+  },
+  "author": "mrhut10",
+  "bugs": {
+    "url": "https://github.com/mrhut10/futuresFineFurniture/issues"
+  },
+  "homepage": "https://github.com/mrhut10/futuresFineFurniture#readme",
+  "dependencies": {
+    "@sanity/cli": "^0.142.2",
+    "lerna": "^3.16.4"
+  }
+}
