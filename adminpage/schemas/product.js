@@ -34,6 +34,15 @@ export default {
      validation: Rule => Rule.required().min(1).unique(),
     },
     {
+      title: 'Range',
+      name: 'range',
+      type: 'array',
+      of: [{
+        type: 'reference',
+        to: [{type: 'range'}]
+      }]
+    },
+    {
       title: 'images',
       name: 'images',
       type: 'array',
