@@ -63,6 +63,9 @@ typings/
 webpage/public
 adminPage/dist
 
+# Datafiles
+adminpage/data/export/*
+adminpage/data/import/*
 
 # Mac files
 .DS_Store
