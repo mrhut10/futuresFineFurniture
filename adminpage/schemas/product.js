@@ -1,9 +1,11 @@
 import customSlugify from './customSlugify';
+import { IoMdBarcode } from 'react-icons/io'
 
 export default {
   title: 'Product',
   name: 'product',
   type: 'document',
+  icon: IoMdBarcode,
   fields: [
     {
       title: 'Name',
@@ -58,6 +60,18 @@ export default {
       title: 'Common',
       name: 'common',
       type: 'documentCommon',
+    },
+    {
+      title: 'Variants',
+      name: 'variants',
+      type: 'array',
+      of: [{type: 'productvariant'}]
+    },
+    {
+      title: 'Description',
+      name: 'description',
+      type: 'text',
+      rows: 30,
     }
   ]
 };

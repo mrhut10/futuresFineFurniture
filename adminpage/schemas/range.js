@@ -1,9 +1,11 @@
 import customSlugify from './customSlugify';
+import { IoIosBowtie } from 'react-icons/io';
 
 export default {
   title: 'Range',
   name: 'range',
   type: 'document',
+  icon: IoIosBowtie,
   fields: [
     {
       title: 'Name',

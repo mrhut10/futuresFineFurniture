@@ -1,9 +1,11 @@
 import customSlugify from './customSlugify';
+import { IoIosAlbums } from 'react-icons/io'
 
 export default {
   title: 'Category',
   name: 'category',
   type: 'document',
+  icon: IoIosAlbums,
   fields: [
     {
       title: 'Name',

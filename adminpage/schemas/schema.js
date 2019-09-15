@@ -6,10 +6,12 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import documentCommon from './documentCommon'
 import imageObject from './imageObject'
+import productVariant from './productVariant'
 //product related imports
 import category from './category'
 import range from './range'
 import product from './product'
+import productDiscount from './productDiscount'
 
 
 
@@ -22,8 +24,10 @@ export default createSchema({
   types: schemaTypes.concat([
     documentCommon,
     imageObject,
+    productVariant,
     category,
     range,
     product,
+    productDiscount,
   ])
 })

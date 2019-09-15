@@ -7,6 +7,9 @@ export default {
       title: 'Disable',
       name: 'disable',
       type: 'boolean',
+      options: {
+        layout: 'checkbox'
+      }
     }
   ]
 };
