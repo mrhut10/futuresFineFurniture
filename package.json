@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "lerna run dev --parallel",
     "dev-admin": "cd adminpage && npm run dev",
-    "dev-web": "cd adminpage && npm run dev",
+    "dev-web": "cd webpage && npm run dev",
     "build": "lerna run build --parallel",
     "build-admin": "cd adminpage && npm run build",
     "build-web": "(cd adminpage && npm run graphql-deploy) && (npm run build)",
