@@ -4,6 +4,11 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+// Load variables from `.env` as soon as possible
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV || 'development'}`
+});
+
 const fs = require('fs');
 const path = require('path');
 const slugify = require('slugify');
@@ -269,11 +274,14 @@ exports.createPages = ({ graphql, actions }) => {
     });
   });
 
-  return Promise.all([
+  const allPromisses = [
     productCategoriesPages,
     productRangePages,
     productPages,
     writesnipcartJSON,
-    writeSanityDumpFile,
-  ]);
+  ];
+  if (writeSanityDumpFile){
+    allPromisses.push(writeSanityDumpFile);
+  }
+  return Promise.all(allPromisses);
 };
