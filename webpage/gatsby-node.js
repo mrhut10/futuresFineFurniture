@@ -9,6 +9,10 @@ const path = require('path');
 const slugify = require('slugify');
 const R = require('ramda');
 const snipcartJSON = require('./src/snipcartJSON_maker.js');
+const dumpMdsToSanityFile =
+  process.env.DUMP_MDToSanity === 'TRUE'
+    ? require('./src/helpers/dumpmdtoSanityFile')
+    : null;
 
 exports.onCreateNode = ({ node, actions }) => {
   if (node.internal.type === 'MarkdownRemark') {
@@ -217,6 +221,39 @@ exports.createPages = ({ graphql, actions }) => {
 
   const productRangePages = queryProductRange.then(queryToRangePage);
   const productPages = queryProduct.then(queryToProductPages);
+  const writeSanityDumpFile = dumpMdsToSanityFile
+    ? new Promise((resolve, reject) => {
+        queryProduct.then(result => {
+          const { productArrayToSanityDump } = dumpMdsToSanityFile;
+          const products = result.data.allMarkdownRemark.edges.map(({ node }) => {
+              return {
+                name: node.frontmatter.title,
+                slug: node.fields.slug,
+                category: node.frontmatter.Category,
+                range: node.frontmatter.range,
+                variants: node.frontmatter.variants.map(variant => {
+                  return {
+                    variantName: variant.variantName,
+                    price: variant.price,
+                    disabled: variant.disabled,
+                  };
+                }),
+                disabled: node.frontmatter.disabled,
+              };
+            }
+          );
+          if (process.env.NODE_ENV === 'development') {
+            fs.writeFile(
+              './../dumpFile.txt',
+              productArrayToSanityDump(products),
+              er => (er ? reject(er) : resolve(er))
+            );
+          } else {
+            resolve();
+          }
+        });
+      })
+    : null;
   const writesnipcartJSON = new Promise((resolve, reject) => {
     queryProduct.then(result => {
       const snipcartObject = snipcartJSON.snipcartJson(result);
@@ -237,5 +274,6 @@ exports.createPages = ({ graphql, actions }) => {
     productRangePages,
     productPages,
     writesnipcartJSON,
+    writeSanityDumpFile,
   ]);
 };
