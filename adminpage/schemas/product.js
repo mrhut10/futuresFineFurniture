@@ -28,12 +28,14 @@ export default {
     {
      title: 'Category',
      name: 'category',
-     type: 'array',
-     of: [{
-       type: 'reference',
-       to: [{type: 'category'}]
-     }],
-     validation: Rule => Rule.required().min(1).unique(),
+     type: 'reference',
+     to: [{type: 'category'}],
+     //type: 'array',
+     //of: [{
+     //  type: 'reference',
+     //  to: [{type: 'category'}]
+     //}],
+     //validation: Rule => Rule.required().min(1).unique(),
     },
     {
       title: 'Range',
