@@ -45,26 +45,31 @@ export const ProductSingleRender = ({
       images={images}
       slug={slug}
       Children={
-        <div className="flex flex-col font-medium -mt-2 p-4 pt-0">
-          <p className="mb-4 text-sm">
-            {selectedVariant ? (
-              <>
-                from{' '}
-                <span className="font-bold text-xl">
-                  {priceFormat.format(selectedVariant.price)}
-                </span>
-              </>
-            ) : null}
-          </p>
-          <BuyButton>
-            name={name}
-            id={name}
-            url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
-            price={selectedVariant.price}
-            variants={variants}
-            value={selectedVariant.Name}
-          </BuyButton>
-        </div>
+        selectedVariant ? (
+          <div className="flex flex-col font-medium -mt-2 p-4 pt-0">
+            <p className="mb-4 text-sm">
+              from{' '}
+              <span className="font-bold text-xl">
+                {priceFormat.format(selectedVariant.price)}
+              </span>
+            </p>
+            <BuyButton
+              name={name}
+              id={name}
+              url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
+              price={selectedVariant.price}
+              variants={variants.map(variant => ({
+                variantName: variant.name,
+                price: variant.price * 100,
+                discount: 0,
+                disabled: variant.disable,
+              }))}
+              value={selectedVariant.name}
+            >
+              Add&nbsp;to&nbsp;Cart
+            </BuyButton>
+          </div>
+        ) : null
       }
     />
   );
