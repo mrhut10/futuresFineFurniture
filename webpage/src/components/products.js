@@ -2,6 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import { ProductTile } from './ProductTile';
+import { BuyButton } from './Snipcart';
 import CategoryTitle from './CategoryTile';
 import { priceFormat } from '../helpers/index';
 
@@ -16,7 +17,26 @@ export const ProductSingleRender = ({
   slug,
   variantLock,
 }) => {
-  let selectedVariant = variants;
+  let selectedVariant;
+  const findMinValidVariant = (acumulator, current) => {
+    /**
+     * if has vaild price && (either has
+     *  no accumilator
+     *  or current is cheaper than accumulator
+     * )
+     */
+    const bool_validCurrent = current.price && current.price > 0;
+    const bool_NoAccumulatorOrCurrentLessThanAccumulator = !acumulator || current.price < acumulator.price;
+    return bool_validCurrent && bool_NoAccumulatorOrCurrentLessThanAccumulator
+      ? current
+      : acumulator;
+  };
+  if (variantLock && variants) {
+    selectedVariant = variants.find(variant => variant.name === variantLock);
+  }
+  if (!selectedVariant && variants) {
+    selectedVariant = variants.reduce(findMinValidVariant, null);
+  }
   return (
     <CategoryTitle
       name={name + (variantLock ? ` / ${variantLock}` : '')}
@@ -25,19 +45,26 @@ export const ProductSingleRender = ({
       images={images}
       slug={slug}
       Children={
-        selectedVariant ? (
-          <div className="flex flex-col font-medium -mt-2 p-4 pt-0">
-            <p className="mb-4 text-sm">
-              from{' '}
-              <span className="font-bold text-xl">
-                {priceFormat.format(
-                  variants.find(variant => variant.name === selectedVariant)
-                    .price
-                )}
-              </span>
-            </p>
-          </div>
-        ) : null
+        <div className="flex flex-col font-medium -mt-2 p-4 pt-0">
+          <p className="mb-4 text-sm">
+            {selectedVariant ? (
+              <>
+                from{' '}
+                <span className="font-bold text-xl">
+                  {priceFormat.format(selectedVariant.price)}
+                </span>
+              </>
+            ) : null}
+          </p>
+          <BuyButton>
+            name={name}
+            id={name}
+            url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
+            price={selectedVariant.price}
+            variants={variants}
+            value={selectedVariant.Name}
+          </BuyButton>
+        </div>
       }
     />
   );
@@ -124,6 +151,7 @@ export const Products = ({ filters, perPage, pageNum }) => {
       name: node.range.name,
       slug: node.range.slug ? node.range.slug.current : '',
     },
+    variants: node.variants,
     keywords: node.keywords,
     category: node.category,
     images: node.images
