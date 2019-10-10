@@ -33,7 +33,9 @@ const CategoryTitle = ({
           <NotAvaliable text='Coming Soon' showContact />
         ) : (
           <div className="my-auto">
-            {ImageComponent(images[0], `calc(${height}-30px)`)}
+            {images && images.length > 0
+              ? ImageComponent(images[0], `calc(${height}-30px)`)
+              : null}
           </div>
         )}
         <h4 className="font-bold leading-none pt-4 text-maroon-700 group-hover:text-maroon-500 text-sm tracking-wider uppercase">

@@ -98,6 +98,16 @@ exports.onCreateNode = ({ node, actions }) => {
 };
 
 const queries = {
+  sanityCategory: `
+  {
+    allSanityCategory{
+      edges{node{
+        _id
+        slug{current}
+      }}
+    }
+  }
+  `,
   productCategory: `
   {
     allMarkdownRemark(filter: {fields: {type: {eq: "productCats"}}}) {
@@ -165,11 +175,28 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   // run query
+  const querySanityCategory = graphql(queries.sanityCategory);
   const queryProductCategory = graphql(queries.productCategory);
   const queryProductRange = graphql(queries.productRange);
   const queryProduct = graphql(queries.product);
 
   // page generator functions
+  const querySanityCategoryPage = result => {
+    result.data.allSanityCategory.edges.forEach(({ node }) => {
+      if (node.slug && node.slug.current) {
+        createPage({
+          path: `/sanity/category/${node.slug.current}`,
+          component: path.resolve('./src/templates/category-sanity.js'),
+          context: {
+            catigoryID: node._id,
+          },
+        });
+      } else {
+        console.error('no slug for Category Page', node);
+      }
+    });
+  };
+
   const queryToCategoryPage = result => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
@@ -222,8 +249,9 @@ exports.createPages = ({ graphql, actions }) => {
   };
 
   // Do work in promise
+  // // querySanityCategoryPage querySanityCategory
+  const sanityCategoryPage = querySanityCategory.then(querySanityCategoryPage);
   const productCategoriesPages = queryProductCategory.then(queryToCategoryPage);
-
   const productRangePages = queryProductRange.then(queryToRangePage);
   const productPages = queryProduct.then(queryToProductPages);
   const writeSanityDumpFile = dumpMdsToSanityFile
@@ -279,6 +307,7 @@ exports.createPages = ({ graphql, actions }) => {
     productRangePages,
     productPages,
     writesnipcartJSON,
+    sanityCategoryPage,
   ];
   if (writeSanityDumpFile){
     allPromisses.push(writeSanityDumpFile);
