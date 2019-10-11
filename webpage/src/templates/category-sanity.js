@@ -4,13 +4,14 @@ import { graphql, Link } from 'gatsby';
 import queryString from 'query-string';
 import Layout from '../components/Layout';
 import Wrapper from '../components/Wrapper';
-// import NotAvaliable from '../components/NotAvaliable';
 import SEO from '../components/SEO';
-// import { BulkProducts } from '../components/BulkProducts';
+import { changeObjectProb } from '../helpers';
+import ProductsPerPage from '../components/ProductsPerPage';
+
 import {
   Products,
   CommonFilters,
-  ProductGroupRender
+  ProductGroupRender,
 } from '../components/products';
 import NotAvaliable from '../components/NotAvaliable';
 import Paginate from '../components/paginate';
@@ -28,19 +29,14 @@ const categoryRoute = ({ data, pageContext, location }) => {
     perPage: 1000000,
     pageNum: 1,
   }).length;
-  
   const products = Products({
     filters: [
       CommonFilters.hideDisable,
       node => node.category._id === pageContext.catigoryID,
     ],
     perPage: productsPerPage,
-    pageNum: pageNum,
+    pageNum,
   });
-  const changeObjectProb = (obj, propName, newValue) => {
-    obj[propName] = newValue;
-    return obj;
-  }
   return (
     <Layout>
       <SEO
@@ -52,71 +48,17 @@ const categoryRoute = ({ data, pageContext, location }) => {
           {data.sanityCategory.name}
         </h1>
         <p>
-          Products per Page:{"  "}
-          <Link
-            to={`${location.pathname}?${queryString.stringify(
-              changeObjectProb(
-                queryString.parse(location.search),
-                'productsPerPage',
-                20
-              )
-          )}`}>
-            {"20"}
-          </Link>{"  "}
-          <Link
-            to={`${location.pathname}?${queryString.stringify(
-              changeObjectProb(
-                queryString.parse(location.search),
-                'productsPerPage',
-                50
-              )
-          )}`}>
-            {"50"}
-          </Link>{"  "}
-          <Link
-            to={`${location.pathname}?${queryString.stringify(
-              changeObjectProb(
-                queryString.parse(location.search),
-                'productsPerPage',
-                100
-              )
-          )}`}>
-            {"100"}
-          </Link>{"  "}
+          Products per Page:
+          <ProductsPerPage
+            defaultVal={10}
+            options={[10,20,50]}
+            location={location}
+          />
         </p>
         <Paginate
           currentNumber={pageNum}
           maxNumber={Math.ceil(totalProducts / productsPerPage)}
-          linkNext={
-            pageNum >= Math.ceil(totalProducts / productsPerPage) ? null : (
-              <Link
-                to={`${location.pathname}?${queryString.stringify(
-                  changeObjectProb(
-                    queryString.parse(location.search),
-                    'page',
-                    pageNum + 1
-                  )
-                )}`}
-              >
-                >> Next
-              </Link>
-            )
-          }
-          linkPrev={
-            pageNum <= 1 ? null : (
-              <Link
-                to={`${location.pathname}?${queryString.stringify(
-                  changeObjectProb(
-                    queryString.parse(location.search),
-                    'page',
-                    pageNum - 1
-                  )
-                )}`}
-              >
-                Prev {"<<"}
-              </Link>
-            )
-          }
+          location={location}
         />
         {products && !disable ? (
           <ProductGroupRender products={products} />
@@ -132,71 +74,17 @@ const categoryRoute = ({ data, pageContext, location }) => {
           />
         )}
         <p>
-          Products per Page:{"  "}
-          <Link
-            to={`${location.pathname}?${queryString.stringify(
-              changeObjectProb(
-                queryString.parse(location.search),
-                'productsPerPage',
-                20
-              )
-          )}`}>
-            {"20"}
-          </Link>{"  "}
-          <Link
-            to={`${location.pathname}?${queryString.stringify(
-              changeObjectProb(
-                queryString.parse(location.search),
-                'productsPerPage',
-                50
-              )
-          )}`}>
-            {"50"}
-          </Link>{"  "}
-          <Link
-            to={`${location.pathname}?${queryString.stringify(
-              changeObjectProb(
-                queryString.parse(location.search),
-                'productsPerPage',
-                100
-              )
-          )}`}>
-            {"100"}
-          </Link>{"  "}
+          Products per Page:
+          <ProductsPerPage
+            defaultVal={10}
+            options={[10, 20, 50]}
+            location={location}
+          />
         </p>
         <Paginate
           currentNumber={pageNum}
           maxNumber={Math.ceil(totalProducts / productsPerPage)}
-          linkNext={
-            pageNum >= Math.ceil(totalProducts / productsPerPage) ? null : (
-              <Link
-                to={`${location.pathname}?${queryString.stringify(
-                  changeObjectProb(
-                    queryString.parse(location.search),
-                    'page',
-                    pageNum + 1
-                  )
-                )}`}
-              >
-                >> Next
-              </Link>
-            )
-          }
-          linkPrev={
-            pageNum <= 1 ? null : (
-              <Link
-                to={`${location.pathname}?${queryString.stringify(
-                  changeObjectProb(
-                    queryString.parse(location.search),
-                    'page',
-                    pageNum - 1
-                  )
-                )}`}
-              >
-                Prev {"<<"}
-              </Link>
-            )
-          }
+          location={location}
         />
       </Wrapper>
     </Layout>

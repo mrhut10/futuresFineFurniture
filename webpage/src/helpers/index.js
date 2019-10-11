@@ -17,3 +17,8 @@ const intToPriceFormat = input => priceFormat.format(input / 100);
 
 exports.intToPriceFormat = intToPriceFormat;
 exports.priceFormat = priceFormat;
+
+exports.changeObjectProb = (obj, propName, newValue) => {
+  obj[propName] = newValue;
+  return obj;
+};
