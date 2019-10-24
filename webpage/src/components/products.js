@@ -16,6 +16,7 @@ export const ProductSingleRender = ({
   variants,
   slug,
   variantLock,
+  category,
 }) => {
   let selectedVariant;
   const findMinValidVariant = (acumulator, current) => {
@@ -26,7 +27,8 @@ export const ProductSingleRender = ({
      * )
      */
     const bool_validCurrent = current.price && current.price > 0;
-    const bool_NoAccumulatorOrCurrentLessThanAccumulator = !acumulator || current.price < acumulator.price;
+    const bool_NoAccumulatorOrCurrentLessThanAccumulator =
+      !acumulator || current.price < acumulator.price;
     return bool_validCurrent && bool_NoAccumulatorOrCurrentLessThanAccumulator
       ? current
       : acumulator;
@@ -94,7 +96,7 @@ export const ProductGroupRender = ({ products, _heading, _footer }) => (
             name={name}
             images={images}
             variants={variants}
-            slug={`/category/${categoryName}/${slug}`.toLowerCase()}
+            slug={`/sanity/category/${categoryName}/${slug}`.toLowerCase()}
             category={categoryName}
             variantLock
           />
@@ -110,6 +112,7 @@ export const Products = ({ filters, perPage, pageNum }) => {
       allSanityProduct {
         edges {
           node {
+            _id
             name
             slug {
               current
@@ -117,12 +120,16 @@ export const Products = ({ filters, perPage, pageNum }) => {
             category {
               _id
               name
+              slug {
+                current
+              }
             }
             range {
               name
               slug {
                 current
               }
+              _id
             }
             keywords
             common {
@@ -143,6 +150,8 @@ export const Products = ({ filters, perPage, pageNum }) => {
                 }
               }
             }
+            description
+            _id
           }
         }
       }
@@ -150,9 +159,10 @@ export const Products = ({ filters, perPage, pageNum }) => {
   `);
   const allProducts = data.allSanityProduct.edges.map(({ node }) => ({
     name: node.name,
+    id: node._id,
     slug: node && node.slug ? node.slug.current : '',
     disable: node.common ? node.common.disable : false,
-    rangeID: {
+    range: {
       name: node.range.name,
       slug: node.range.slug ? node.range.slug.current : '',
     },

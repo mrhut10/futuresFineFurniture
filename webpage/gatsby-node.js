@@ -6,7 +6,7 @@
 
 // Load variables from `.env` as soon as possible
 require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV || 'development'}`
+  path: `.env.${process.env.NODE_ENV || 'development'}`,
 });
 
 const fs = require('fs');
@@ -108,6 +108,24 @@ const queries = {
     }
   }
   `,
+  sanityProduct: `
+  {
+    allSanityProduct {
+      edges {
+        node {
+          _id
+          slug {
+            current
+          }
+          category{
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  }`,
   productCategory: `
   {
     allMarkdownRemark(filter: {fields: {type: {eq: "productCats"}}}) {
@@ -172,10 +190,11 @@ const queries = {
 };
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
 
   // run query
   const querySanityCategory = graphql(queries.sanityCategory);
+  const querySanityProduct = graphql(queries.sanityProduct);
   const queryProductCategory = graphql(queries.productCategory);
   const queryProductRange = graphql(queries.productRange);
   const queryProduct = graphql(queries.product);
@@ -184,19 +203,51 @@ exports.createPages = ({ graphql, actions }) => {
   const querySanityCategoryPage = result => {
     result.data.allSanityCategory.edges.forEach(({ node }) => {
       if (node.slug && node.slug.current) {
+        const route = `/sanity/category/${node.slug.current}`;
         createPage({
-          path: `/sanity/category/${node.slug.current}`,
+          path: route.toLowerCase(),
           component: path.resolve('./src/templates/category-sanity.js'),
           context: {
             catigoryID: node._id,
           },
+        });
+        createRedirect({
+          fromPath: route,
+          isPermanent: true,
+          toPath: route.toLowerCase(),
+          force: true,
+          redirectInBrowser: true,
         });
       } else {
         console.error('no slug for Category Page', node);
       }
     });
   };
-
+  const querySanityProductPage = result => {
+    result.data.allSanityProduct.edges.forEach(({ node }) => {
+      if (node.slug && node.slug.current) {
+        // product has slug
+        if (node.category && node.category.slug && node.category.slug.current) {
+          // has a valid category with a slug
+          const routes = [
+            `/sanity/category/${node.category.slug.current}/${node.slug.current}`,
+          ];
+          if (routes[0] !== routes[0].toLowerCase()) {
+            routes.push(routes[0].toLowerCase());
+          }
+          routes.forEach(route => {
+            createPage({
+              path: route,
+              component: path.resolve('./src/templates/product-sanity.js'),
+              context: {
+                productID: node._id,
+              },
+            });
+          });
+        }
+      }
+    });
+  };
   const queryToCategoryPage = result => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
@@ -251,6 +302,7 @@ exports.createPages = ({ graphql, actions }) => {
   // Do work in promise
   // // querySanityCategoryPage querySanityCategory
   const sanityCategoryPage = querySanityCategory.then(querySanityCategoryPage);
+  const sanityProductPage = querySanityProduct.then(querySanityProductPage);
   const productCategoriesPages = queryProductCategory.then(queryToCategoryPage);
   const productRangePages = queryProductRange.then(queryToRangePage);
   const productPages = queryProduct.then(queryToProductPages);
@@ -258,22 +310,19 @@ exports.createPages = ({ graphql, actions }) => {
     ? new Promise((resolve, reject) => {
         queryProduct.then(result => {
           const { productArrayToSanityDump } = dumpMdsToSanityFile;
-          const products = result.data.allMarkdownRemark.edges.map(({ node }) => {
-              return {
-                name: node.frontmatter.title,
-                slug: node.fields.slug,
-                category: node.frontmatter.Category,
-                range: node.frontmatter.range,
-                variants: node.frontmatter.variants.map(variant => {
-                  return {
-                    variantName: variant.variantName,
-                    price: variant.price,
-                    disabled: variant.disabled,
-                  };
-                }),
-                disabled: node.frontmatter.disabled,
-              };
-            }
+          const products = result.data.allMarkdownRemark.edges.map(
+            ({ node }) => ({
+              name: node.frontmatter.title,
+              slug: node.fields.slug,
+              category: node.frontmatter.Category,
+              range: node.frontmatter.range,
+              variants: node.frontmatter.variants.map(variant => ({
+                variantName: variant.variantName,
+                price: variant.price,
+                disabled: variant.disabled,
+              })),
+              disabled: node.frontmatter.disabled,
+            })
           );
           if (process.env.NODE_ENV === 'development') {
             fs.writeFile(
@@ -308,8 +357,9 @@ exports.createPages = ({ graphql, actions }) => {
     productPages,
     writesnipcartJSON,
     sanityCategoryPage,
+    sanityProductPage,
   ];
-  if (writeSanityDumpFile){
+  if (writeSanityDumpFile) {
     allPromisses.push(writeSanityDumpFile);
   }
   return Promise.all(allPromisses);
