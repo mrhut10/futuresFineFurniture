@@ -12,7 +12,7 @@ variants:
 ---
 
 Elegant scalloped bedhead upholstered
-Featuring casegoods with beautiful marble look top
+Featuring case goods with beautiful marble look top
 All drawers lined with black felt
 Handy jewellery storage in top drawer of dresser
 
