@@ -165,6 +165,7 @@ export const Products = ({ filters, perPage, pageNum }) => {
     ranges: node.range.map(range => ({
       name: range.name,
       slug: range.slug ? range.slug.current : '',
+      id: range._id
     })),
     variants: node.variants,
     keywords: node.keywords,

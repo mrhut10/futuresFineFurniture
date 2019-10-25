@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
 import Wrapper from '../components/Wrapper';
 import SEO from '../components/SEO';
-import { Products } from '../components/products';
+import { Products, ProductGroupRender } from '../components/products';
 import NotAvaliable from '../components/NotAvaliable';
 import Breadcrumb from '../components/breadcrumb';
 import { BuyArea } from '../components/Snipcart';
@@ -58,9 +58,23 @@ const productRoute = ({ data, pageContext, location }) => {
           </div>
         )}
         <div className="bg-white mt-12 px-4 py-12 rounded-lg shadow-md hover:shadow-lg">
-          <div className="markdown max-w-md mx-auto">{description}}</div>
+          <div className="markdown max-w-md mx-auto">{description}</div>
         </div>
       </Wrapper>
+      <div 
+        id="relatedProducts"
+        className="flex flex-col max-w-4xl mx-auto p-4 w-full"
+      >
+        <h3>Related Products</h3>
+        <ProductGroupRender products={Products({
+          filters: [
+            target => target.ranges.some(targetRange => ranges.some(range => range.id === targetRange.id)),
+            target => (target.disable || false) !== true,
+          ], 
+          pageNum: 1,
+          perPage: 3,
+        })}/>
+      </div>
     </Layout>
   );
 };
