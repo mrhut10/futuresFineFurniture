@@ -9,7 +9,7 @@ import Wrapper from '../components/Wrapper';
 import { BuyArea } from '../components/Snipcart';
 import SEO from '../components/SEO';
 import { BulkProducts } from '../components/BulkProducts';
-import NotAvaliable from '../components/NotAvaliable'
+import NotAvaliable from '../components/NotAvaliable';
 
 const details = R.compose(
   html => (
