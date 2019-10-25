@@ -168,7 +168,11 @@ export const BuyArea = ({ name, url, variants, disabled }) => {
               )
             )
           ),
-          R.find(item => item.variantName || item.name === GetProductValue)
+          R.find(
+            item =>
+              item.variantName === GetProductValue ||
+              item.name === GetProductValue
+          )
         )(variants)}
         {R.compose(
           R.ifElse(
