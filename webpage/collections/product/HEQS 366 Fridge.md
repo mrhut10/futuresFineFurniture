@@ -1,5 +1,6 @@
 ---
-title: HEQS 366 Fridge W/SS
+title: HEQS 366 Fridge WSS
+range: ""
 Category: Appliances
 images:
 - "HEQS 366 Fridge - WSS.png"

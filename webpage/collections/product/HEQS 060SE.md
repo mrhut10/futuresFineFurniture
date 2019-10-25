@@ -1,6 +1,7 @@
 ---
 title: HEQS 060SE 6kg Top Load Washing Machine
 Category: Appliances
+range: ""
 images:
 - "6kg top load.png"
 variants:
