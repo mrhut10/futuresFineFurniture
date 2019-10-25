@@ -65,6 +65,4 @@ const productRoute = ({ data, pageContext, location }) => {
   );
 };
 
-
-
 export default productRoute;

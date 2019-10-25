@@ -39,7 +39,7 @@ const sanityRange = () => (
 export default sanityRange;
 const query = graphql`
   {
-    allSanityCategory(filter: { parent: { id: { eq: null } } common: {disable: {ne: true}}}) {
+    allSanityCategory(filter: { parent: { id: { eq: null } } common: { disable: { ne: true }}}) {
       edges {
         node {
           name
