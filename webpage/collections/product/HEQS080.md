@@ -1,5 +1,5 @@
 ---
-title: HEQS080 - 8kg Top Load Washing Machine
+title: HEQS080 8kg Top Load Washing Machine
 Category: Appliances
 images:
 - "8kg topload.png"

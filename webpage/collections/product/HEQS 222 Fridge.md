@@ -1,5 +1,5 @@
 ---
-title: HEQS 222 Fridge - W/SS
+title: HEQS 222 Fridge W/SS
 Category: Appliances
 images:
 - "HEQS 222 Fridge - WSS.png"
