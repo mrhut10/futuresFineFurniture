@@ -38,28 +38,28 @@ const sanityRange = () => (
 
 export default sanityRange;
 const query = graphql`
-{
-  allSanityCategory(filter: { parent: { id: { eq: null } } common: {disable: {ne: true}}}) {
-    edges {
-      node {
-        name
-        slug {
-          current
-        }
-        cover {
-          asset {
-            fluid(maxWidth: 200) {
-              src
+  {
+    allSanityCategory(filter: { parent: { id: { eq: null } } common: {disable: {ne: true}}}) {
+      edges {
+        node {
+          name
+          slug {
+            current
+          }
+          cover {
+            asset {
+              fluid(maxWidth: 200) {
+                src
+              }
             }
           }
-        }
-        description
-        keywords
-        common {
-          disable
+          description
+          keywords
+          common {
+            disable
+          }
         }
       }
     }
   }
-}
 `;

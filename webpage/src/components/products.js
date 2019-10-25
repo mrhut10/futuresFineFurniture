@@ -162,16 +162,17 @@ export const Products = ({ filters, perPage, pageNum }) => {
     id: node._id,
     slug: node && node.slug ? node.slug.current : '',
     disable: node.common ? node.common.disable : false,
-    range: {
-      name: node.range.name,
-      slug: node.range.slug ? node.range.slug.current : '',
-    },
+    ranges: node.range.map(range => ({
+      name: range.name,
+      slug: range.slug ? range.slug.current : '',
+    })),
     variants: node.variants,
     keywords: node.keywords,
     category: node.category,
     images: node.images
       ? node.images.map(({ image }) => (image ? image.asset.fluid : null))
       : [],
+    description: node.description,
   }));
   const appliedFilters = allProducts.filter(node =>
     filters.map(filter => filter(node)).reduce((a, b) => a && b)

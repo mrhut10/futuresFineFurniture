@@ -10,7 +10,7 @@ export const BuyArea = ({ name, url, variants, disabled }) => {
   const [GetProductValue, SetProductValue] = useState(
     // variants[0].variantName
     R.compose(
-      R.prop('variantName'),
+      item => item.variantName || item.name,
       R.ifElse(R.isNil, R.always(variants[0]), R.identity),
       R.find(input => input.price && input.price > 0)
     )(variants)
@@ -36,10 +36,10 @@ export const BuyArea = ({ name, url, variants, disabled }) => {
                 >
                   {variants.map(variant => (
                     <option
-                      value={variant.variantName}
-                      key={variant.variantName}
+                      value={variant.variantName || variant.name}
+                      key={variant.variantName || variant.name}
                     >
-                      {variant.variantName}
+                      {variant.variantName || variant.name}
                     </option>
                   ))}
                 </select>
@@ -135,13 +135,15 @@ export const BuyArea = ({ name, url, variants, disabled }) => {
                       <p>
                         {variants
                           .filter(
-                            value => value.variantName === GetProductValue
+                            value =>
+                              value.variantName ||
+                              value.name === GetProductValue
                           )
                           .map(value =>
                             value.qty && value.qty > 0 ? (
                               <span
                                 className="text-red-600"
-                                key={value.variantName}
+                                key={value.variantName || value.name}
                               >
                                 {value.qty > 10
                                   ? `In Store: 10 or more units available`
@@ -151,7 +153,7 @@ export const BuyArea = ({ name, url, variants, disabled }) => {
                               <Link
                                 className="font-bold block text-center text-maroon-700 hover:text-maroon-500 text-sm hover:underline"
                                 to="/contact"
-                                key={value.variantName}
+                                key={value.variantName || value.name}
                               >
                                 *Contact us for availability
                               </Link>
@@ -166,7 +168,7 @@ export const BuyArea = ({ name, url, variants, disabled }) => {
               )
             )
           ),
-          R.find(R.propEq('variantName', GetProductValue))
+          R.find(item => item.variantName || item.name === GetProductValue)
         )(variants)}
         {R.compose(
           R.ifElse(
@@ -185,7 +187,7 @@ export const BuyArea = ({ name, url, variants, disabled }) => {
             ),
             () => ''
           ),
-          R.find(R.propEq('variantName', GetProductValue))
+          R.find(item => item.variantName || item.name === GetProductValue)
         )(variants)}
       </div>
     </div>
@@ -211,7 +213,8 @@ export const BuyButton = ({
 
   const NotAvaliableFlag =
     disabled ||
-    variants.find(vari => vari.variantName === value).disabled === true ||
+    variants.find(vari => vari.variantName === value || vari.name === value)
+      .disabled === true ||
     variantsFiltered.length === 0;
 
   return NotAvaliableFlag ? (
@@ -239,7 +242,7 @@ export const BuyButton = ({
         ? [] // ONE OR LESS OPTIONS, SO DISPLAY NO OPTIONS
         : variantsFiltered.map(
             (vari, index, parrentArray) =>
-              `${vari.variantName || 'default'}[${
+              `${vari.variantName || vari.name || 'default'}[${
                 vari.price - (vari.discount || 0) - parrentArray[0].price >= 0
                   ? '+' // specify is positive number
                   : '' // will automatically have a negative sign
