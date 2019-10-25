@@ -24,6 +24,7 @@
   "homepage": "https://github.com/mrhut10/futuresFineFurniture#readme",
   "dependencies": {
     "@sanity/cli": "^0.142.2",
-    "lerna": "^3.16.4"
+    "lerna": "^3.16.4",
+    "gatsby": "^2.13.77"
   }
 }

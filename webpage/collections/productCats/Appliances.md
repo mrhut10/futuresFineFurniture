@@ -1,8 +1,7 @@
 ---
 title: Appliances
 images:
-  - /assets/hunt_bedroom.png
-  - /assets/bondi-bedroom.png
+  - HEQS 222 Fridge - WSS.png
 keywords:
   - washing machine
   - fridges
