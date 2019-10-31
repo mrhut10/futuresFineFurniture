@@ -15,12 +15,12 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "^0.142.2",
-    "@sanity/components": "^0.142.5",
+    "@sanity/base": "^0.144.1",
+    "@sanity/components": "^0.144.2",
     "@sanity/core": "^0.142.5",
-    "@sanity/default-layout": "^0.142.5",
+    "@sanity/default-layout": "^0.144.2",
     "@sanity/default-login": "^0.142.3",
-    "@sanity/desk-tool": "^0.142.5",
+    "@sanity/desk-tool": "^0.144.2",
     "prop-types": "^15.6",
     "react": "^16.2",
     "react-dom": "^16.2",
