@@ -36,6 +36,22 @@ const categoryRoute = ({ data, pageContext, location }) => {
     ],
     perPage: productsPerPage,
     pageNum,
+    sorters: [
+      (a, b) => {
+        const findCheapVar = node =>
+          node.variants.reduce((ac, bc) => (bc.price < ac.price ? bc : ac));
+        return findCheapVar(a).price - findCheapVar(b).price;
+      },
+      (a, b) => {
+        let output = 0;
+        if (a.range && !b.range) {
+          output = a.range.id < b.range.id ? 1 : -1;
+        } else if (a.range || b.range) {
+          output = 1;
+        }
+        return output;
+      },
+    ],
   });
   return (
     <Layout>
@@ -51,7 +67,7 @@ const categoryRoute = ({ data, pageContext, location }) => {
           Products per Page:
           <ProductsPerPage
             defaultVal={10}
-            options={[10,20,50]}
+            options={[10, 20, 50]}
             location={location}
           />
         </p>
