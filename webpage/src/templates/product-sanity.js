@@ -33,13 +33,13 @@ const productRoute = ({ data, pageContext, location }) => {
             ) : null}
             <div className="flex flex-wrap">
               <div className="flex items-center justify-center mb-4 md:pr-12 object-cover text-center w-full md:w-1/2">
-                {images ? <img src={images[0].src} alt="product" /> : ''}
+                <img src={images && images[0] && images[0].src ? images[0].src : ''} alt="product" />
               </div>
               <div className="flex flex-1 w-full md:w-1/2">
                 <BuyArea
                   name={name}
                   id={name}
-                  image={undefined}
+                  image={images && images[0] && images[0].src ? images[0].src || '' : ''}
                   url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
                   description={undefined}
                   variants={variants.map(variant => ({
