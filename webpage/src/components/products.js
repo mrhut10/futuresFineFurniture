@@ -85,7 +85,7 @@ export const ProductGroupRender = ({ products, _heading, _footer }) => (
         {_heading}
       </h2>
     ) : null}
-    <div className="flex flex-wrap -mx-2 w-full">
+    <div className="flex flex-wrap  ` -mx-2 w-full">
       {products.map(product => {
         const { name, images, variants, slug } = product;
         const categoryName = product.category
@@ -94,6 +94,7 @@ export const ProductGroupRender = ({ products, _heading, _footer }) => (
         return (
           <ProductSingleRender
             name={name}
+            key={name}
             images={images}
             variants={variants}
             slug={`/sanity/category/${categoryName}/${slug}`.toLowerCase()}
@@ -106,7 +107,7 @@ export const ProductGroupRender = ({ products, _heading, _footer }) => (
   </>
 );
 
-export const Products = ({ filters, perPage, pageNum }) => {
+export const Products = ({ filters, perPage, pageNum, scales, sorters }) => {
   const data = useStaticQuery(graphql`
     {
       allSanityProduct {
@@ -165,7 +166,7 @@ export const Products = ({ filters, perPage, pageNum }) => {
     ranges: node.range.map(range => ({
       name: range.name,
       slug: range.slug ? range.slug.current : '',
-      id: range._id
+      id: range._id,
     })),
     variants: node.variants,
     keywords: node.keywords,
@@ -178,7 +179,20 @@ export const Products = ({ filters, perPage, pageNum }) => {
   const appliedFilters = allProducts.filter(node =>
     filters.map(filter => filter(node)).reduce((a, b) => a && b)
   );
-  const limitToPage = appliedFilters.filter(
+  const appliedWeight = appliedFilters.map(node => {
+    node.weight = scales
+      ? scales.map(scale => scale(node)).reduce((a, b) => a + b, 0)
+      : 0;
+    return node;
+  });
+  // sort according too sorters
+  if (sorters) {
+    sorters.forEach(sorter => {
+      console.log('time to sort');
+      appliedWeight.sort(sorter);
+    });
+  }
+  const limitToPage = appliedWeight.filter(
     (node, index) =>
       (pageNum - 1) * perPage <= index && index < pageNum * perPage
   );
