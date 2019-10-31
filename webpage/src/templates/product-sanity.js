@@ -65,15 +65,20 @@ const productRoute = ({ data, pageContext, location }) => {
         id="relatedProducts"
         className="flex flex-col max-w-4xl mx-auto p-4 w-full"
       >
-        <h3>Related Products</h3>
-        <ProductGroupRender products={Products({
-          filters: [
-            target => target.ranges.some(targetRange => ranges.some(range => range.id === targetRange.id)),
-            target => (target.disable || false) !== true,
-          ], 
-          pageNum: 1,
-          perPage: 3,
-        })}/>
+        <h3>Other Products In Range</h3>
+        <ProductGroupRender
+          products={Products({
+            filters: [
+              target =>
+                target.ranges.some(targetRange =>
+                  ranges.some(range => range.id === targetRange.id)
+                ),
+              target => (target.disable || false) !== true,
+            ],
+            pageNum: 1,
+            perPage: 3,
+          })}
+        />
       </div>
     </Layout>
   );
