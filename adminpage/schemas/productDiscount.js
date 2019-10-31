@@ -9,16 +9,11 @@ export default {
     {
       title: 'Target product/Category/Range',
       name: 'target',
-      type: 'array',
-      of: [
-        {
-          type: 'reference', 
-          to: [
-            {type:'product'},
-            {type:'range'},
-            {type:'category'},
-          ]
-        },
+      type: 'reference',
+      to: [
+        {type:'product'},
+        {type:'range'},
+        {type:'category'},
       ]
     },
     {
