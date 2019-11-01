@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
 import Wrapper from '../components/Wrapper';
 import SEO from '../components/SEO';
-import { Products, ProductGroupRender } from '../components/products';
+import { Products, ProductGroupRender, applyDiscountToPrice } from '../components/products';
 import NotAvaliable from '../components/NotAvaliable';
 import Breadcrumb from '../components/breadcrumb';
 import { BuyArea } from '../components/Snipcart';
@@ -15,7 +15,7 @@ const productRoute = ({ data, pageContext, location }) => {
     pageNum: 1,
   })[0];
 
-  const { name, variants, keywords, category, images, disable, ranges, description } = product;
+  const { name, variants, keywords, category, images, disable, ranges, description, discount } = product;
   return (
     <Layout>
       <SEO title={name} keywords={keywords} />
@@ -46,6 +46,10 @@ const productRoute = ({ data, pageContext, location }) => {
                     name: variant.name,
                     price: variant.price * 100,
                     disable: variant.disable,
+                    discount:
+                      (variant.price -
+                        applyDiscountToPrice(variant.price, discount)) *
+                      100,
                   }))}
                   disabled={disable}
                 />
