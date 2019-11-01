@@ -219,7 +219,6 @@ export const Products = ({ filters, perPage, pageNum, scales, sorters }) => {
         // const _ref, method, amount = JSON.parse(discount.node);
         const { method, amount } = discount.node;
         const { _ref } = discount.node._rawTarget;
-        console.log(`_ref is ${JSON.stringify(_ref)}`);
         return { _ref, method, amount };
       })
       .filter(
@@ -257,7 +256,6 @@ export const Products = ({ filters, perPage, pageNum, scales, sorters }) => {
   // sort according too sorters
   if (sorters) {
     sorters.forEach(sorter => {
-      console.log('time to sort');
       appliedWeight.sort(sorter);
     });
   }
