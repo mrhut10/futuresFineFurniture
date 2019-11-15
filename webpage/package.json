@@ -27,7 +27,7 @@
     "query-string": "^6.8.2",
     "ramda": "^0.26.1",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0",
+    "react-dom": "^16.4.2",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.7.0",
     "react-lazyload": "^2.6.2",
@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
+    "gatsby-cli": "^2.8.10",
     "eslint": "^6.2.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.1.0",
@@ -53,11 +54,11 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "dev": "gatsby develop --open",
+    "build": "node ./node_modules/gatsby-cli/lib/index.js build",
+    "dev": "node ./node_modules/gatsby-cli/lib/index.js develop --open",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
-    "serve": "gatsby serve",
+    "serve": "node ./node_modules/gatsby-cli/lib/index.js serve",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
