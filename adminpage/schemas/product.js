@@ -67,7 +67,7 @@ export default {
       title: 'Variants',
       name: 'variants',
       type: 'array',
-      of: [{type: 'productvariant'}]
+      of: [{type: 'productvariant'}],
     },
     {
       title: 'Description',
