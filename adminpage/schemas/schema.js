@@ -12,6 +12,7 @@ import category from './category'
 import range from './range'
 import product from './product'
 import productDiscount from './productDiscount'
+import inlineDiscount from './inlineDiscount'
 
 
 
@@ -29,5 +30,6 @@ export default createSchema({
     range,
     product,
     productDiscount,
+    inlineDiscount
   ])
 })
