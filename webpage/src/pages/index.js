@@ -39,23 +39,25 @@ const IndexPage = () => (
           </small>
         </p>
       </div>
-      <div className="mb-8 mx-auto text-lg">
-        <div className="flex flex-wrap -mx-2 mb-6">
-          <div className="flex-1 mb-6 md:mb-0 px-2 w-full md:w-1/2">
-            <div className="border border-cream-200 flex flex-col items-center bg-cream-100 p-4 rounded-lg shadow text-cream-700">
-              <h3 className="font-bold text-2xl">
-                Massive floorstock Promotion
-              </h3>
-              <hr className="bg-cream-300 mt-1" />
-              <p className="mb-2">
-                10% discount of floor stocked product's <br />
-                <small>*orders over $1000 for August 2019 Only</small>
-              </p>
+      {/*
+        <div className="mb-8 mx-auto text-lg">
+          <div className="flex flex-wrap -mx-2 mb-6">
+            <div className="flex-1 mb-6 md:mb-0 px-2 w-full md:w-1/2">
+              <div className="border border-cream-200 flex flex-col items-center bg-cream-100 p-4 rounded-lg shadow text-cream-700">
+                <h3 className="font-bold text-2xl">
+                  Massive floorstock Promotion
+                </h3>
+                <hr className="bg-cream-300 mt-1" />
+                <p className="mb-2">
+                  10% discount of floor stocked product's <br />
+                  <small>*orders over $1000 for August 2019 Only</small>
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <br />
+        <br />
+      */}
       <hr className="bg-gray-200" />
       <div className="mb-4 mx-auto w-full">
         <h2 className="font-bold mb-4 text-2xl text-maroon-600">Our Range</h2>

@@ -95,6 +95,28 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`, // To learn more, visit: https://gatsby.dev/offline // this (optional) plugin enables Progressive Web App + Offline functionality
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        output: '/sitemap.xml',
+        exclude: ["/sanity/*", '/sanity-range', '/sanity-related'],
+        createLinkInHead: true,
+        serialize: ({ site, allSitePage }) =>
+          allSitePage.edges
+            .filter(edge => {
+              const { path } = edge.node;
+              return !(
+                path.includes('/sanity/') ||
+                path.includes('/sanity-range') ||
+                path.includes('/sanity-related')
+              );
+            })
+            .map(edge => ({
+              url: site.siteMetadata.siteUrl + edge.node.path,
+              changefreq: `daily`,
+              priority: 0.7,
+            })),
+      },
+    },
   ],
 };
