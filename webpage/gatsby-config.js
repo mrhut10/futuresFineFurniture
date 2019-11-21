@@ -6,6 +6,7 @@ require('dotenv').config({
 const clientConfig = require('./client-config');
 
 const isProd = process.env.NODE_ENV === 'production';
+const siteUrl = 'https://www.futuresfinefurnitureandbedding.com';
 
 module.exports = {
   siteMetadata: {
@@ -13,7 +14,7 @@ module.exports = {
     description: `Mid North Coast Furniture & Mobility Store, Hastings & Macleay Valley`,
     author: `@ahut10`,
     snipCartApiKey: process.env.snipcart_api,
-    siteUrl: `https://www.futuresfinefurnitureandbedding.com/`,
+    siteUrl,
     address: `Centerpoint Arcade, 14 Smith Street, Kempsey, NSW 2440`,
     phone: `tel:+61265626675`,
     phoneFormatted: `(02) 6562 6675`,
@@ -112,10 +113,24 @@ module.exports = {
               );
             })
             .map(edge => ({
-              url: site.siteMetadata.siteUrl + edge.node.path,
+              url: `${siteUrl}${edge.node.path}`,
               changefreq: `daily`,
               priority: 0.7,
             })),
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: siteUrl,
+        sitemap: `${siteUrl}/sitemap.xml`,
+        policy: [
+          {
+            userAgent: '*',
+            allow: '/',
+            disallow: ['/sanity/*', '/sanity-range', '/sanity-related'],
+          },
+        ],
       },
     },
   ],
