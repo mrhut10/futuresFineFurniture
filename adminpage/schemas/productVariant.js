@@ -17,10 +17,19 @@ export default {
       validation: Rule => Rule.precision(2)
     },
     {
-      title: 'Discount',
-      name: 'discount',
-      type: 'inlineDiscount',
-      options: {collapsible: false }
+      title: 'Discount Method',
+      name: 'discount_method',
+      type: 'string',
+      options: {
+        list: ['amount','percentage'],
+        layout: 'radio',
+      },
+    },
+    {
+      title: 'Discount Amount',
+      name: 'discount_amount',
+      type: 'number',
+      validation: Rule => Rule.precision(2),
     },
     {
       title: 'Disable',
@@ -35,8 +44,8 @@ export default {
     select: {
       name: 'name',
       rrp: 'price',
-      discountType: 'discount.method',
-      discountAmount: 'discount.amount',
+      discountType: 'discount_method',
+      discountAmount: 'discount_amount',
     },
     prepare(selection) {
       const {name, rrp, discountType, discountAmount} = selection;
