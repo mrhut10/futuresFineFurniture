@@ -3,17 +3,15 @@ import { Link } from 'gatsby';
 import queryStrings from 'query-string';
 import { changeObjectProb } from "../helpers";
 
-const Paginate = ({currentNumber, maxNumber, location}) => {
+const Paginate = ({currentNumber, maxNumber, location, productsPerPage}) => {
   const LinkPrev =
     currentNumber <= 1 ? null : (
       <Link
-        to={`${location.pathname}?${queryStrings.stringify(
-          changeObjectProb(
-            queryStrings.parse(location.search),
-            'page',
-            currentNumber - 1
-          )
-        )}`}
+        to={location.pathname}
+        state={{
+          pageNum: currentNumber - 1,
+          productsPerPage,
+        }}
       >
         Prev {"<<"}
       </Link>
@@ -21,17 +19,15 @@ const Paginate = ({currentNumber, maxNumber, location}) => {
   const LinkNext =
     currentNumber >= maxNumber ? null : (
       <Link
-        to={`${location.pathname}?${queryStrings.stringify(
-          changeObjectProb(
-            queryStrings.parse(location.search),
-            'page',
-            currentNumber + 1
-          )
-        )}`}
+        to={location.pathname}
+        state={{
+          pageNum: currentNumber + 1,
+          productsPerPage,
+        }}
       >
-        {">>"} Next
+        Next {">>"}
       </Link>
-  );
+    );
   return (
     <p>
       {LinkPrev} page: {currentNumber} of {maxNumber} {LinkNext}

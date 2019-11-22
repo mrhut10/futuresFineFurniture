@@ -17,9 +17,7 @@ import NotAvaliable from '../components/NotAvaliable';
 import Paginate from '../components/paginate';
 
 const categoryRoute = ({ data, pageContext, location }) => {
-  const productsPerPage =
-    Number(queryString.parse(location.search).productsPerPage) || 10;
-  const pageNum = Number(queryString.parse(location.search).page || 1);
+  const { productsPerPage, pageNum } = location.state || {productsPerPage: 30, pageNum: 1};
   const { disable } = data.sanityCategory.common || { disable: false };
   const totalProducts = Products({
     filters:[
@@ -67,14 +65,16 @@ const categoryRoute = ({ data, pageContext, location }) => {
           Products per Page:
           <ProductsPerPage
             defaultVal={10}
-            options={[10, 20, 50]}
+            options={[30, 60, 120]}
             location={location}
+            value={productsPerPage}
           />
         </p>
         <Paginate
           currentNumber={pageNum}
           maxNumber={Math.ceil(totalProducts / productsPerPage)}
           location={location}
+          productsPerPage={productsPerPage}
         />
         {products && !disable ? (
           <ProductGroupRender products={products} />
@@ -93,14 +93,16 @@ const categoryRoute = ({ data, pageContext, location }) => {
           Products per Page:
           <ProductsPerPage
             defaultVal={10}
-            options={[10, 20, 50]}
+            options={[30, 60, 120]}
             location={location}
+            value={productsPerPage}
           />
         </p>
         <Paginate
           currentNumber={pageNum}
           maxNumber={Math.ceil(totalProducts / productsPerPage)}
           location={location}
+          productsPerPage={productsPerPage}
         />
       </Wrapper>
     </Layout>

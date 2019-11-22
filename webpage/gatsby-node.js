@@ -209,6 +209,8 @@ exports.createPages = ({ graphql, actions }) => {
           component: path.resolve('./src/templates/category-sanity.js'),
           context: {
             catigoryID: node._id,
+            pageNum: 1,
+            productsPerPage: 30,
           },
         });
         createRedirect({
