@@ -90,7 +90,7 @@ const productRoute = ({ data }) => {
               name={title}
               id={title}
               image={undefined}
-              url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
+              url="https://www.futuresfinefurnitureandbedding.com/snipcart_md.json"
               description={undefined}
               variants={variants}
               qty={qty}

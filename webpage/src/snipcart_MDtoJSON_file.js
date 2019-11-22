@@ -29,7 +29,7 @@ exports.snipcartJson = ({ data }) => {
           ? variants[0].price / 100
           : (variants[0].price - (variants[0].discount || 0)) / 100,
     },
-    URL: '/snipcart.json',
+    URL: '/snipcart_md.json',
     customFields:
       variants.length > 1
         ? [
