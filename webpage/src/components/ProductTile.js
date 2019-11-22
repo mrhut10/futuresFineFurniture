@@ -22,6 +22,7 @@ export const ProductTile = ({
   variants,
   variantLock,
   slug,
+  backend,
 }) => {
   const removeDiscount = item =>
     item.price - (item.discount && item.discount > 0 ? item.discount : 0);
@@ -88,7 +89,7 @@ export const ProductTile = ({
                   <BuyButton
                     name={name}
                     id={name}
-                    url="https://www.futuresfinefurnitureandbedding.com/snipcart.json"
+                    url="https://www.futuresfinefurnitureandbedding.com/snipcart_md.json"
                     price={variants[0].price}
                     variants={variants}
                     value={selectedVariant.variantName}

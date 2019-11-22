@@ -13,7 +13,8 @@ const fs = require('fs');
 const path = require('path');
 const slugify = require('slugify');
 const R = require('ramda');
-const snipcartJSON = require('./src/snipcartJSON_maker.js');
+const snipcart_MDtoJSON = require('./src/helpers/snipcart_MDtoJSON_file');
+const snipcart_sanityToJSON = require('./src/helpers/snipcart_sanityToJSON.js');
 const dumpMdsToSanityFile =
   process.env.DUMP_MDToSanity === 'TRUE'
     ? require('./src/helpers/dumpmdtoSanityFile')
@@ -338,15 +339,29 @@ exports.createPages = ({ graphql, actions }) => {
         });
       })
     : null;
-  const writesnipcartJSON = new Promise((resolve, reject) => {
-    queryProduct.then(result => {
-      const snipcartObject = snipcartJSON.snipcartJson(result);
+  const writesnipcart_sanitytoJSON = new Promise((resolve, reject) => {
+    querySanityProduct.then(result => {
+      const snipcartObject = snipcart_sanityToJSON.snipcartJson(result);
       const JSONObject = JSON.stringify(snipcartObject);
       if (process.env.NODE_ENV === 'development') {
-        console.log('snipcart.json not created as in development');
+        console.log('snipcart.json not created in development');
         resolve();
       } else {
         fs.writeFile('./static/snipcart.json', JSONObject, er =>
+          er ? reject(er) : resolve(er)
+        );
+      }
+    });
+  });
+  const writesnipcart_MDtoJSON = new Promise((resolve, reject) => {
+    queryProduct.then(result => {
+      const snipcartObject = snipcart_MDtoJSON.snipcartJson(result);
+      const JSONObject = JSON.stringify(snipcartObject);
+      if (process.env.NODE_ENV === 'development') {
+        console.log('snipcart_MD.json not created as in development');
+        resolve();
+      } else {
+        fs.writeFile('./static/snipcart_md.json', JSONObject, er =>
           er ? reject(er) : resolve(er)
         );
       }
@@ -357,7 +372,7 @@ exports.createPages = ({ graphql, actions }) => {
     productCategoriesPages,
     productRangePages,
     productPages,
-    writesnipcartJSON,
+    writesnipcart_MDtoJSON,
     sanityCategoryPage,
     sanityProductPage,
   ];
