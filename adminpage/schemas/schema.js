@@ -10,9 +10,9 @@ import productVariant from './productVariant'
 //product related imports
 import category from './category'
 import range from './range'
+import inlineDiscount from './inlineDiscount'
 import product from './product'
 import productDiscount from './productDiscount'
-import inlineDiscount from './inlineDiscount'
 
 
 
