@@ -13,7 +13,7 @@ const fs = require('fs');
 const path = require('path');
 const slugify = require('slugify');
 const R = require('ramda');
-const snipcart_MDtoJSON = require('./src/snipcart_MDtoJSON_file.js');
+const snipcart_MDtoJSON = require('./src/helpers/snipcart_MDtoJSON_file');
 const dumpMdsToSanityFile =
   process.env.DUMP_MDToSanity === 'TRUE'
     ? require('./src/helpers/dumpmdtoSanityFile')
