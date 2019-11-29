@@ -118,10 +118,17 @@ const queries = {
           slug {
             current
           }
-          category{
+          category {
             slug {
               current
             }
+          }
+          variants {
+            name
+            disable
+            price
+            discount_amount
+            discount_method
           }
         }
       }
