@@ -9,7 +9,7 @@ variants:
     variantName: King Single
   - price: 19500
     variantName: Double
-  - price: 245
+  - price: 24500
     variantName: Queen
 ---
 
