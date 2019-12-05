@@ -3,6 +3,7 @@ title: Pandora Bedside
 
 Category: Bedroom
 range: Pandora
+disabled: true
 images:
   - /assets/pandora bedside.png
 variants:

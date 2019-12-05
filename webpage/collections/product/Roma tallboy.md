@@ -3,6 +3,7 @@ title: Roma Tallboy
 
 Category: Bedroom
 range: Roma
+disabled: true
 images:
   - /assets/roma tallboy.PNG
 variants:
