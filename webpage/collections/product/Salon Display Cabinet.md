@@ -3,8 +3,8 @@ title: Salon Display Cabinet
 
 Category: Living
 range: Display Cabinet
-images: salon display.png
-  - 
+images: 
+  - salon display.png
 variants:
   - variantName: Small
   - variantName: Large

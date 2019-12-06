@@ -3,8 +3,8 @@ title: Mayfair Display Cabinet
 
 Category: Living
 range: Display Cabinet
-images: mayfair display.png
-  - 
+images:
+  - mayfair display.png
 variants:
   - variantName: Small
   - variantName: Large

@@ -3,8 +3,8 @@ title: Gallery Display Cabinet
 
 Category: Living
 range: Display Cabinet
-images: gallery display.png
-  - 
+images:
+  - gallery display.png
 variants:
   - variantName: Small
   - variantName: Large

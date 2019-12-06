@@ -3,8 +3,8 @@ title: Georgia Display Cabinet
 
 Category: Living
 range: Display Cabinet
-images: georgia display.png
-  - 
+images:
+  - georgia display.png
 variants:
   - variantName: Small
   - variantName: Large

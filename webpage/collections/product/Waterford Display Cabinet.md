@@ -3,8 +3,8 @@ title:  Waterford Display Cabinet
 
 Category: Living
 range: Display Cabinet
-images: waterford display.png
-  - 
+images: 
+  - waterford display.png
 variants:
   - variantName: Low Small
   - variantName: Tall Large
