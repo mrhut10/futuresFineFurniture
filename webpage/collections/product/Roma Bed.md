@@ -3,6 +3,7 @@ title: Roma Bed
 
 Category: Bedroom
 range: Roma
+disabled: true
 images:
   - /assets/Roma Bed.png
 variants:

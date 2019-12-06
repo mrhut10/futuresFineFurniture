@@ -3,6 +3,7 @@ title: Florida Pine Bedside
 
 Category: Bedroom
 range: Florida Pine
+disabled: true
 images:
   - florida pine bedside.png
 variants:

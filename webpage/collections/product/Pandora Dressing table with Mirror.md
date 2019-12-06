@@ -3,6 +3,7 @@ title: Pandora Dressing table with Mirror
 
 Category: Bedroom
 range: Pandora
+disabled: true
 images:
   - /assets/pandora dressing table.png
 variants:

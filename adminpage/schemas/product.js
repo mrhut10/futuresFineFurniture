@@ -68,6 +68,7 @@ export default {
       name: 'variants',
       type: 'array',
       of: [{type: 'productvariant'}],
+      validation: Rule => Rule.required().unique().min(1)
     },
     {
       title: 'Description',

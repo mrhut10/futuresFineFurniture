@@ -3,6 +3,7 @@ title: Roma Bedside
 
 Category: Bedroom
 range: Roma
+disabled: true
 images:
   - /assets/roma bedside.png
 variants:

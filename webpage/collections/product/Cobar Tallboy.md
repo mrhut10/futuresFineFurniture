@@ -5,6 +5,7 @@ Category: Bedroom
 range: Cobar
 created: 2019-05-31
 updated: 2019-05-31
+disabled: true
 images:
   - cobar 1.png 
 # - cobar 2.jpeg

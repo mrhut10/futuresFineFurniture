@@ -3,6 +3,7 @@ title: Florida Pine Bed
 
 Category: Bedroom
 range: Florida Pine
+disabled: true
 images:
   - florida pine bed.png
 variants:

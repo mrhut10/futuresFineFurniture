@@ -7,7 +7,7 @@ import CategoryTitle from './CategoryTile';
 import { priceFormat } from '../helpers/index';
 
 export const CommonFilters = {
-  hideDisable: node => (node.common ? node.disable : true),
+  hideDisable: node => (node.common ? node.common.disable : true),
 };
 
 export const applyDiscountToPrice = (price, discount) => {

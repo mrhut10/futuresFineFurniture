@@ -3,6 +3,7 @@ title: Pandora Tallboy
 
 Category: Bedroom
 range: Pandora
+disabled: true
 images:
   - /assets/pandora tallboy.png
 variants:
