@@ -29,7 +29,7 @@ export default {
       title: 'Discount Amount',
       name: 'discount_amount',
       type: 'number',
-      validation: Rule => Rule.precision(2),
+      validation: Rule => Rule.precision(2).min(0),
     },
     {
       title: 'Disable',
