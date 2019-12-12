@@ -115,6 +115,7 @@ const queries = {
       edges {
         node {
           _id
+          name
           slug {
             current
           }
