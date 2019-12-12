@@ -1,67 +1,54 @@
-const positive = input => `${input >= 0 ? '+' : ''}${input}`;
+/**
+ * @typedef {Object} 
+ */
 
-const applyDiscount = ({
-  price = 0,
-  discount_method = 'amount',
-  discount_amount = 0,
-}) => {
-  let discountValue = 0;
-  if (price && price > 0) {
-    if (discount_method === 'percentage' && discount_amount >= 0) {
-      discountValue = ((price * discount_amount) / 100).toFixed(2);
-    } else if (discount_method === 'amount' && discount_amount >= 0) {
-      discountValue = discount_amount.toFixed(2);
-    }
-    return price > discountValue ? price - discountValue : 0;
+const R = require('ramda');
+
+const positive = R.ifElse(R.gte(0), a => `+${a}`, R.identity);
+
+const locateEdges = R.path(['data', 'allSanityProduct', 'edges']);
+
+const edgeToProductDefinition = R.compose(
+  R.zipObj(['id', 'name', 'variants']),
+  R.juxt([
+    R.path(['node', '_id']),
+    R.path(['node', 'name']),
+    R.path(['node', 'variants']),
+  ])
+);
+
+const applyDiscountToVariant = variant => {
+  const rrp = variant.price || 0;
+  let price = rrp;
+  if ((variant.discount_method || 'percentage') === 'percentage') {
+    price *= 1 - (variant.discount_amount || 0);
+  } else {
+    price -= variant.discount_amount || 0;
   }
-  return 0;
+  return price;
 };
+const variantPricedPositive = R.compose(R.gt(0), applyDiscountToVariant);
 
-exports.snipcartJson = ({ data }) => {
-  const { edges } = data.allSanityProduct;
-  return edges.map(({ node }) => {
-    const validVariants = node.variants
-      ? node.variants.filter(
-          variant => !variant.disable && applyDiscount(variant) > 0
-        )
-      : null;
-    return !validVariants || validVariants.length <= 0
-      ? null
-      : {
-          id: node._id,
-          name: node.name,
-          price: {
-            AUD:
-              validVariants.length === 1
-                ? applyDiscount(validVariants[0])
-                : validVariants[0].price,
-          },
-          URL: '/snipcart.json',
-          customFields:
-            validVariants.length > 1
-              ? [
-                  {
-                    name: 'Option',
-                    options: validVariants
-                      .map(
-                        (
-                          { name, price, discount_method, discount_amount },
-                          i,
-                          parray
-                        ) =>
-                          `${name || 'default'}[${positive(
-                            applyDiscount({
-                              price,
-                              discount_method,
-                              discount_amount,
-                            }) - applyDiscount(parray[0])
-                          )}]`
-                      )
-                      .join('|'),
-                    type: 'dropdown',
-                  },
-                ]
-              : [],
-        };
-  });
-};
+const ProductDefinitionToSnipcartDefinition = R.compose(
+  R.zipObj(['id', 'name', 'url', 'price', 'customFields']),
+  R.juxt([
+    // id
+    R.prop('id'),
+    // name
+    R.prop('name'),
+    // url
+    R.always('/snipcart.json'),
+    // price
+    R.compose(R.objOf('AUD'), R.compose(R.always('hello'))),
+    // customFields
+  ])
+);
+
+exports.snipcartJson = R.compose(
+  R.map(
+    R.compose(ProductDefinitionToSnipcartDefinition, edgeToProductDefinition)
+  ),
+  // filter out any product that has no priced variants
+  // R.filter(R.propSatisfies(R.any(variantPricedPositive), 'variants')),
+  locateEdges
+);
