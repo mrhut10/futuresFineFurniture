@@ -119,6 +119,9 @@ const queries = {
           slug {
             current
           }
+          common {
+            disable
+          }
           category {
             slug {
               current
