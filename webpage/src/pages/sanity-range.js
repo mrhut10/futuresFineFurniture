@@ -15,20 +15,23 @@ const sanityRange = () => (
         <div className="flex flex-wrap -m-2">
           <StaticQuery
             query={query}
-            render={queryData => {
-              //return JSON.stringify(queryData);
-              return queryData.allSanityCategory.edges.map(({ node }) => (
+            render={queryData =>
+              queryData.allSanityCategory.edges.map(({ node }) => (
                 <CategoryTitle
                   key={node.name}
                   name={node.name}
-                  slug={node.slug? `/sanity/category/${node.slug.current}`.toLowerCase() : ''}
+                  slug={
+                    node.slug
+                      ? `/sanity/category/${node.slug.current}`.toLowerCase()
+                      : ''
+                  }
                   hoverText={node.description}
                   images={node.cover ? [node.cover.asset.fluid] : null}
                   comingSoon={false}
                   height={300}
                 />
-              ));
-            }}
+              ))
+            }
           />
         </div>
       </div>
@@ -39,7 +42,12 @@ const sanityRange = () => (
 export default sanityRange;
 const query = graphql`
   {
-    allSanityCategory(filter: { parent: { id: { eq: null } } common: { disable: { ne: true }}}) {
+    allSanityCategory(
+      filter: {
+        parent: { id: { eq: null } }
+        common: { disable: { ne: true }}
+      }
+    ) {
       edges {
         node {
           name
