@@ -70,10 +70,7 @@ const ProductDefinitionToSnipcartDefinition = R.compose(
 
 exports.snipcartJson = R.compose(
   R.map(
-    R.compose(
-      ProductDefinitionToSnipcartDefinition,
-      edgeToProductDefinition
-    )
+    R.compose(ProductDefinitionToSnipcartDefinition, edgeToProductDefinition)
   ),
   // remove products with no active variants
   R.filter(R.compose(R.any(activeVariant), R.pathOr([], ['node', 'variants']))),
