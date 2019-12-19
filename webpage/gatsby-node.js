@@ -99,106 +99,11 @@ exports.onCreateNode = ({ node, actions }) => {
 };
 
 const queries = {
-  sanityCategory: `
-  {
-    allSanityCategory{
-      edges{node{
-        _id
-        slug{current}
-      }}
-    }
-  }
-  `,
-  sanityProduct: `
-  {
-    allSanityProduct {
-      edges {
-        node {
-          _id
-          name
-          slug {
-            current
-          }
-          common {
-            disable
-          }
-          category {
-            slug {
-              current
-            }
-          }
-          variants {
-            name
-            disable
-            price
-            discount_amount
-            discount_method
-          }
-        }
-      }
-    }
-  }`,
-  productCategory: `
-  {
-    allMarkdownRemark(filter: {fields: {type: {eq: "productCats"}}}) {
-      edges {
-        node {
-          fields {
-            slug
-            type
-          }
-          frontmatter{
-            title
-          }
-        }
-      }
-    }
-  }`,
-  productRange: `
-  {
-    allMarkdownRemark(filter: {fields: {type: {eq: "productRange"}}}) {
-      edges {
-        node {
-          fields {
-            slug
-            type
-          }
-          frontmatter {
-            title
-            range
-          }
-        }
-      }
-    }
-  }
-  `,
-  product: `
-  {
-    allMarkdownRemark(filter: {fields: {type: {eq: "product"}}}) {
-      edges {
-        node {
-          fields {
-            slug
-            disabled
-          }
-          frontmatter {
-            title
-            Category
-            range
-            images
-            disabled
-            variants {
-              price
-              variantName
-              discount
-              disabled
-            }
-          }
-        }
-      }
-    }
-  }
-  `,
+  sanityCategory: require('./pageGenerator/sanity_product_category').query,
+  sanityProduct: require('./pageGenerator/sanity_product').query,
+  productCategory: require('./pageGenerator/md_product_category').query,
+  productRange: require('./pageGenerator/md_product_range').query,
+  product: require('./pageGenerator/md_products').query,
 };
 
 exports.createPages = ({ graphql, actions }) => {
@@ -315,8 +220,8 @@ exports.createPages = ({ graphql, actions }) => {
 
   // Do work in promise
   // // querySanityCategoryPage querySanityCategory
-  const sanityCategoryPage = querySanityCategory.then(querySanityCategoryPage);
   const sanityProductPage = querySanityProduct.then(querySanityProductPage);
+  const sanityCategoryPage = querySanityCategory.then(querySanityCategoryPage);
   const productCategoriesPages = queryProductCategory.then(queryToCategoryPage);
   const productRangePages = queryProductRange.then(queryToRangePage);
   const productPages = queryProduct.then(queryToProductPages);

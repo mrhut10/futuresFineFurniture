@@ -51,22 +51,27 @@ const ProductDefinitionToSnipcartDefinition = R.compose(
     ),
     // customFields
     R.compose(
-      R.compose(
-        R.join('|'),
-        mapIndexed(
-          (item, index, list) =>
-            `${item.name || 'default'}[${positive(
-              applyDiscountToVariant(item) - applyDiscountToVariant(list[0])
-            )}]`
+      R.of,
+      R.zipObj(['name', 'options']),
+      R.juxt([
+        // name
+        R.always('Option'),
+        // options
+        R.compose(
+          R.join('|'),
+          mapIndexed(
+            (item, index, list) =>
+              `${item.name || 'default'}[${positive(
+                applyDiscountToVariant(item) - applyDiscountToVariant(list[0])
+              )}]`
+          ),
+          R.filter(activeVariant),
+          R.prop('variants')
         ),
-        R.filter(activeVariant),
-        R.prop('variants')
-      )
+      ])
     ),
   ])
 );
-
-
 
 exports.snipcartJson = R.compose(
   R.map(
