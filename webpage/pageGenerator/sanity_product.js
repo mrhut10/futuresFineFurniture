@@ -11,6 +11,7 @@ const query = `{
           disable
         }
         category {
+          _id
           slug {
             current
           }

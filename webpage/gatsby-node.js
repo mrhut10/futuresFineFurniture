@@ -127,7 +127,7 @@ exports.createPages = ({ graphql, actions }) => {
           context: {
             catigoryID: node._id,
             pageNum: 1,
-            productsPerPage: 30,
+            productsPerPage: 60,
           },
         });
         createRedirect({
@@ -224,7 +224,56 @@ exports.createPages = ({ graphql, actions }) => {
   const sanityCategoryPage = querySanityCategory.then(querySanityCategoryPage);
   const productCategoriesPages = queryProductCategory.then(queryToCategoryPage);
   const productRangePages = queryProductRange.then(queryToRangePage);
+
+  // product and category pages
   const productPages = queryProduct.then(queryToProductPages);
+  const categoryPages = Promise.all([
+    querySanityProduct,
+    querySanityCategory,
+  ]).then(values => {
+    console.log('values is', values);
+    const [ProductsResults, CategoryResults] = values;
+    CategoryResults.data.allSanityCategory.edges.forEach(({ node }) => {
+      if (node.slug && node.slug.current) {
+        const route = `/sanity/category/${node.slug.current}`;
+        const productsPerPage = 90;
+        const productsRelivant = ProductsResults.data.allSanityProduct.edges.filter(
+          product => product.node.category._id === node._id
+        );
+        const numberOfPages = Math.ceil(
+          productsRelivant.length / productsPerPage
+        );
+        // create default page
+        createPage({
+          path: route.toLowerCase(),
+          component: path.resolve('./src/templates/category-sanity.js'),
+          context: {
+            categoryID: node._id,
+            productsPerPage,
+            pageNum: 1,
+            skip: 0,
+            totalPages: numberOfPages,
+            totalProducts: productsRelivant.length,
+          },
+        });
+        // create extra pages
+        Array.from({ length: numberOfPages }).forEach((_, i) => {
+          createPage({
+            path: `${route.toLowerCase()}/page-${i + 1}`,
+            component: path.resolve('./src/templates/category-sanity.js'),
+            context: {
+              categoryID: node._id,
+              productsPerPage,
+              pageNum: i + 1,
+              skip: productsPerPage * i,
+              totalPages: numberOfPages,
+              totalProducts: productsRelivant.length,
+            },
+          });
+        });
+      }
+    });
+  });
   const writeSanityDumpFile = dumpMdsToSanityFile
     ? new Promise((resolve, reject) => {
         queryProduct.then(result => {
@@ -288,6 +337,7 @@ exports.createPages = ({ graphql, actions }) => {
     productCategoriesPages,
     productRangePages,
     productPages,
+    categoryPages,
     writesnipcart_MDtoJSON,
     sanityCategoryPage,
     sanityProductPage,
