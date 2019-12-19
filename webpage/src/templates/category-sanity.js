@@ -110,26 +110,53 @@ const categoryRoute = ({ data, pageContext, location }) => {
 };
 
 export const query = graphql`
-  query sanity_categoryPageQuery($catigoryID: String) {
+  query sanity_categoryPageQuery(
+    $catigoryID: String
+    $skip: Int!
+    $productsPerPage: Int!
+  ) {
     sanityCategory(_id: { eq: $catigoryID }) {
       _id
       name
-      slug {current}
-      parent {id}
+      slug {
+        current
+      }
+      parent {
+        id
+      }
       description
       keywords
       common {
         disable
       }
     }
-    allSanityCategory {
+    allSanityProduct(skip: $skip, limit: $productsPerPage) {
       edges {
         node {
-          _id
           name
-          slug{current}
-          parent {id}
+          slug {
+            current
+          }
+          common {
+            disable
+          }
+          variants {
+            name
+            price
+            discount_method
+            discount_amount
+            disable
+          }
           description
+          images {
+            image {
+              asset {
+                fixed(height: 200) {
+                  src
+                }
+              }
+            }
+          }
         }
       }
     }
