@@ -1,21 +1,11 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import { graphql, Link } from 'gatsby';
-import queryString from 'query-string';
 import Layout from '../components/Layout';
 import Wrapper from '../components/Wrapper';
 import SEO from '../components/SEO';
-import { changeObjectProb } from '../helpers';
-import ProductsPerPage from '../components/ProductsPerPage';
-
-import {
-  Products,
-  CommonFilters,
-  ProductGroupRender,
-} from '../components/products';
 import NotAvaliable from '../components/NotAvaliable';
 import Paginate from '../components/paginate';
-import { product } from 'ramda';
 
 const categoryRoute = ({ data, pageContext, location }) => {
   const {
@@ -24,22 +14,34 @@ const categoryRoute = ({ data, pageContext, location }) => {
     totalPages,
     totalProducts
   } = pageContext;
-  const { name, keywords } = data.sanityCategory;
-
+  const { name, keywords, slug } = data.sanityCategory;
   const { disable } = data.sanityCategory.common || { disable: false };
+  
+  const PageNavigation = (
+    <p>
+      Total {name} products found: {totalProducts} <br />
+      <Paginate
+        pageNum={pageNum}
+        pageTotal={totalPages}
+        Back={
+          <Link to={`/sanity/category/${slug.current}/page-${pageNum - 1}`}>
+            Previous Page
+          </Link>
+        }
+        Forward={
+          <Link to={`/sanity/category/${slug.current}/page-${pageNum + 1}`}>
+            Next Page
+          </Link>
+        }
+      />
+    </p>
+  );
   return (
     <Layout>
       <SEO title={name} keywords={keywords || []} />
       <Wrapper>
         <h1 className="font-bold mb-4 text-2xl text-maroon-600">{name}</h1>
-        <p>
-          Total {name} products found: {totalProducts} <br />
-          Page {pageNum} of {Math.ceil(totalProducts / productsPerPage)} <br />
-          {pageNum > 1 ? <Link>Previous Page</Link> : null}
-          {pageNum < Math.ceil(totalProducts / productsPerPage) ? (
-            <Link>Next Page</Link>
-          ) : null}
-        </p>
+        {PageNavigation}
         {!disable ? 'hi' : (
           <NotAvaliable
             text={disable ? 'Not Avaliable' : 'Coming Soon'}
@@ -51,6 +53,7 @@ const categoryRoute = ({ data, pageContext, location }) => {
             showContact
           />
         )}
+        {PageNavigation}
       </Wrapper>
     </Layout>
   );
@@ -77,7 +80,11 @@ export const query = graphql`
         disable
       }
     }
-    allSanityProduct(skip: $skip, limit: $productsPerPage) {
+    allSanityProduct(
+      filter: { common: { disable: { ne: true } } }
+      skip: $skip
+      limit: $productsPerPage
+    ) {
       edges {
         node {
           name
