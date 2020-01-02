@@ -23,23 +23,22 @@ const categoryRoute = ({ data, pageContext }) => {
     R.map(
       R.compose(
         product => {
+          const validVariants = R.once(
+            R.compose(R.filter(activeVariant), R.prop('variants'))
+          );
+
           const selectedVarient = R.compose(
-            R.ifElse(R.isEmpty, R.empty, R.head),
-            input => {
-              console.log(JSON.stringify(input));
-              return input;
-            },
+            R.ifElse(R.isEmpty, () => undefined, R.head),
             R.sortBy(applyDiscountToVariant),
-            R.filter(activeVariant),
-            R.prop('variants')
+            validVariants
           )(product);
-          console.log('selectedVarient', selectedVarient);
+          const productLink = `/sanity/category/${slug.current}/${product.slug}`.toLowerCase();
           return (
             <CategoryTitle
               name={product.name}
               key={product.id}
               hoverText={product.name}
-              slug={`/sanity/category/${slug.current}/${product.slug}`.toLowerCase()}
+              slug={productLink}
               images={product.images}
               Children={
                 selectedVarient ? (
@@ -48,25 +47,32 @@ const categoryRoute = ({ data, pageContext }) => {
                       {selectedVarient.price -
                         applyDiscountToVariant(selectedVarient) >
                       0.01 ? (
-                        <>
-                          <span className="text-red-500 line-through">
-                            WAS {priceFormat.format(selectedVarient.price)}
-                          </span>
-                          <br />
-                          <span className="text-blue-500">
-                            NOW from{' '}
+                        <Link className="text-blue-500" to={productLink}>
+                          <p className="text-red-500 line-through">
+                            {validVariants(product).length > 1
+                              ? 'WAS FROM '
+                              : 'WAS '}
+                            {priceFormat.format(selectedVarient.price)}
+                          </p>
+                          <p className="text-blue-500">
+                            {validVariants(product).length > 1
+                              ? 'NOW FROM '
+                              : 'NOW '}
                             {priceFormat.format(
                               applyDiscountToVariant(selectedVarient)
                             )}
-                          </span>
-                        </>
+                          </p>
+                        </Link>
                       ) : (
-                        undefined
+                        <Link className="text-blue-500" to={productLink}>
+                          {validVariants(product).length > 1 ? 'FROM ' : 'NOW '}
+                          {priceFormat.format(selectedVarient.price)}
+                        </Link>
                       )}
                     </p>
                   </div>
                 ) : (
-                  'no'
+                  <Link to={productLink}>SEE MORE DETAILS</Link>
                 )
               }
             />
