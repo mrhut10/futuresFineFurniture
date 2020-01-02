@@ -1,7 +1,3 @@
-/**
- * @typedef {Object} 
- */
-
 const R = require('ramda');
 
 const positive = R.ifElse(R.gte(0), a => `+${a}`, R.identity);
@@ -86,8 +82,6 @@ exports.snipcartJson = R.compose(
   R.filter(R.complement(R.pathEq(['node', 'disable'], true))),
   locateEdges
 );
-
-
 
 exports.variantlistToSnipcartOptionsString = variantlistToSnipcartOptionsString;
 exports.applyDiscountToVariant = applyDiscountToVariant;
