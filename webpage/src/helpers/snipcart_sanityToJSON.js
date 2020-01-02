@@ -8,15 +8,24 @@ const positive = R.ifElse(R.gte(0), a => `+${a}`, R.identity);
 const mapIndexed = R.addIndex(R.map);
 
 const applyDiscountToVariant = variant => {
-  const rrp = variant.price || 0;
-  let price = rrp;
+  let price = Number(variant.price) || 0;
   if ((variant.discount_method || 'percentage') === 'percentage') {
     price *= 1 - (variant.discount_amount || 0);
   } else {
     price -= variant.discount_amount || 0;
   }
-  return price;
+  return Number(price).toFixed(2);
 };
+
+const variantlistToSnipcartOptionsString = R.compose(
+  R.join('|'),
+  mapIndexed(
+    (item, index, list) =>
+      `${item.name || 'default'}[${positive(
+        applyDiscountToVariant(item) - applyDiscountToVariant(list[0])
+      )}]`
+  )
+);
 
 const activeVariant = variant =>
   variant.disable !== true && applyDiscountToVariant(variant) > 0;
@@ -58,13 +67,7 @@ const ProductDefinitionToSnipcartDefinition = R.compose(
         R.always('Option'),
         // options
         R.compose(
-          R.join('|'),
-          mapIndexed(
-            (item, index, list) =>
-              `${item.name || 'default'}[${positive(
-                applyDiscountToVariant(item) - applyDiscountToVariant(list[0])
-              )}]`
-          ),
+          variantlistToSnipcartOptionsString,
           R.filter(activeVariant),
           R.prop('variants')
         ),
@@ -83,3 +86,9 @@ exports.snipcartJson = R.compose(
   R.filter(R.complement(R.pathEq(['node', 'disable'], true))),
   locateEdges
 );
+
+
+
+exports.variantlistToSnipcartOptionsString = variantlistToSnipcartOptionsString;
+exports.applyDiscountToVariant = applyDiscountToVariant;
+exports.activeVariant = activeVariant;

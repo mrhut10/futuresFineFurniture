@@ -56,9 +56,9 @@ export const ProductSingleRender = ({
   }
   return (
     <CategoryTitle
-      name={name + (variantLock ? ` / ${variantLock}` : '')}
+      name={name}
       hoverText={name}
-      key={name + (variantLock ? `/${variantLock}` : '')}
+      key={name}
       images={images}
       slug={slug}
       Children={
