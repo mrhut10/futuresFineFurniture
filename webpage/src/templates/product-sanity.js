@@ -4,7 +4,6 @@ import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
 import Wrapper from '../components/Wrapper';
 import SEO from '../components/SEO';
-// import { Products, ProductGroupRender, applyDiscountToPrice } from '../components/products';
 import {
   applyDiscountToVariant,
   activeVariant,
@@ -131,7 +130,13 @@ const productRoute = ({ data }) => {
           'no product data found'
         )}
         <div className="bg-white mt-12 px-4 py-12 rounded-lg shadow-md hover:shadow-lg">
-          <div className="markdown max-w-md mx-auto">{description}</div>
+          <div className="markdown max-w-md mx-auto">
+            {description.split('\n').map(line => (
+              <>
+                {line} <br />
+              </>
+            ))}
+          </div>
         </div>
       </Wrapper>
     </Layout>
