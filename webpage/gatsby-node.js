@@ -231,7 +231,6 @@ exports.createPages = ({ graphql, actions }) => {
     querySanityProduct,
     querySanityCategory,
   ]).then(values => {
-    console.log('values is', values);
     const [ProductsResults, CategoryResults] = values;
     CategoryResults.data.allSanityCategory.edges.forEach(({ node }) => {
       if (node.slug && node.slug.current) {
