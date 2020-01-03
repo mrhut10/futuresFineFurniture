@@ -1,21 +1,152 @@
 import React from 'react';
+import * as R from 'ramda';
 import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
 import Wrapper from '../components/Wrapper';
 import SEO from '../components/SEO';
-import { Products, ProductGroupRender, applyDiscountToPrice } from '../components/products';
+// import { Products, ProductGroupRender, applyDiscountToPrice } from '../components/products';
+import {
+  applyDiscountToVariant,
+  activeVariant,
+} from '../helpers/snipcart_sanityToJSON';
 import NotAvaliable from '../components/NotAvaliable';
-import Breadcrumb from '../components/breadcrumb';
-import { BuyArea } from '../components/Snipcart';
+import { NewBuyArea } from '../components/newSnipcart';
 
-const productRoute = ({ data, pageContext, location }) => {
-  const product = Products({
-    filters: [a => a.id === pageContext.productID],
-    perPage: 1,
-    pageNum: 1,
-  })[0];
+const getProductDataFromQuery = R.compose(
+  R.zipObj([
+    'id',
+    'name',
+    'disable',
+    'slug',
+    'keywords',
+    'description',
+    'variants',
+    'ranges',
+    'category',
+    'images',
+  ]),
+  R.juxt([
+    // id
+    R.prop('_id'),
+    // name
+    R.prop('name'),
+    // disable
+    R.path(['common', 'disable']),
+    // slug
+    R.path(['slug', 'current']),
+    // keywords
+    R.prop('keywords'),
+    // description
+    R.prop('description'),
+    // variants
+    R.prop('variants'),
+    // ranges
+    R.compose(
+      R.map(
+        R.zipObj(['name', 'slug', 'keywords']),
+        R.juxt([
+          R.prop('name'),
+          R.path(['slug', 'current']),
+          R.prop('keywords'),
+        ])
+      ),
+      R.prop('range')
+    ),
+    // category
+    R.compose(
+      R.map(
+        R.zipObj(['name', 'slug', 'keywords']),
+        R.juxt([
+          R.prop('name'),
+          R.path(['slug', 'current']),
+          R.prop('keywords'),
+        ])
+      ),
+      R.prop('category')
+    ),
+    // images
+    R.compose(
+      R.map(
+        R.compose(
+          R.zipObj(['src', 'srcSet']),
+          R.juxt([R.prop('src'), R.prop('srcSet')]),
+          R.path(['image', 'asset', 'fluid'])
+        )
+      ),
+      R.prop('images')
+    ),
+  ]),
+  R.prop('sanityProduct')
+);
 
-  const { name, variants, keywords, category, images, disable, ranges, description, discount } = product;
+const productRoute = ({ data }) => {
+  const productData = getProductDataFromQuery(data);
+  /* 'id', 'name', 'slug', 'keywords', 'description', 'variants', 'ranges', 'category', 'images' */
+
+  const {
+    id,
+    name,
+    disable,
+    category,
+    images,
+    variants,
+    description,
+  } = productData;
+
+  return (
+    <Layout>
+      <SEO title={name} keywords={productData.keywords} />
+      <Wrapper>
+        {productData ? (
+          <div className="mb-8 text-center">
+            <h1 className="font-bold text-3xl text-maroon-600">{name}</h1>
+            <h3>
+              <Link to={`/sanity/category/${category.slug}`.toLowerCase()}>
+                {category.name} Category
+              </Link>
+            </h3>
+            {disable ? <NotAvaliable text="No Longer Avaliable" /> : ''}
+            <div className="flex flex-wrap">
+              <div className="flex items-center justify-center mb-4 md:pr-12 object-cover text-center w-full md:w-1/2">
+                {images && images[0] ? (
+                  <img
+                    src={images[0].src}
+                    srcSet={images[0].srcSet}
+                    alt="product"
+                  />
+                ) : null}
+              </div>
+              <div className="flex flex-1 w-full md:w-1/2">
+                <NewBuyArea
+                  id={id}
+                  name={name}
+                  disable={disable}
+                  url="/snipcart.json"
+                  variants={variants}
+                />
+              </div>
+            </div>
+          </div>
+        ) : (
+          'no product data found'
+        )}
+        <div className="bg-white mt-12 px-4 py-12 rounded-lg shadow-md hover:shadow-lg">
+          <div className="markdown max-w-md mx-auto">{description}</div>
+        </div>
+      </Wrapper>
+    </Layout>
+  );
+};
+/* const productRoute = ({ data, pageContext, location }) => {
+  const product = R.compose(
+    R.zipObj(['id', 'name', 'slug', 'disable', 'variants', 'images', 'description', 'range']),
+    R.juxt(
+    ),
+    R.prop('sanityProduct')
+  )(data);
+
+  const {name, id, disable, variants, images, description, range}
+  const { name, id, variants, keywords, category, images, disable, ranges, description, discount } = product;
   return (
     <Layout>
       <SEO title={name} keywords={keywords} />
@@ -87,5 +218,53 @@ const productRoute = ({ data, pageContext, location }) => {
     </Layout>
   );
 };
+*/
 
 export default productRoute;
+export const query = graphql`
+  query MyQuery($productID: String) {
+    sanityProduct(_id: { eq: $productID }) {
+      _id
+      name
+      common {
+        disable
+      }
+      slug {
+        current
+      }
+      keywords
+      description
+      variants {
+        name
+        price
+        discount_method
+        discount_amount
+        disable
+      }
+      range {
+        name
+        slug {
+          current
+        }
+        keywords
+      }
+      category {
+        slug {
+          current
+        }
+        name
+        keywords
+      }
+      images {
+        image {
+          asset {
+            fluid(maxWidth: 1000) {
+              src
+              srcSet
+            }
+          }
+        }
+      }
+    }
+  }
+`;

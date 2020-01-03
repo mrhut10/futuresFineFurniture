@@ -1,25 +1,32 @@
 const R = require('ramda');
 
-const positive = R.ifElse(R.gte(0), a => `+${a}`, R.identity);
+const positive = a => `${a >= 0 ? '+' : ''}${a}`;
 const mapIndexed = R.addIndex(R.map);
 
 const applyDiscountToVariant = variant => {
-  let price = Number(variant.price) || 0;
-  if ((variant.discount_method || 'percentage') === 'percentage') {
-    price *= 1 - (variant.discount_amount || 0);
+  const safeVariant = variant || { price: 0 };
+  let price = Number(safeVariant.price) || 0;
+  if ((safeVariant.discount_method || 'percentage') === 'percentage') {
+    price *= 1 - (safeVariant.discount_amount || 0);
   } else {
-    price -= variant.discount_amount || 0;
+    price -= safeVariant.discount_amount || 0;
   }
   return Number(price).toFixed(2);
 };
 
 const variantlistToSnipcartOptionsString = R.compose(
-  R.join('|'),
-  mapIndexed(
-    (item, index, list) =>
-      `${item.name || 'default'}[${positive(
-        applyDiscountToVariant(item) - applyDiscountToVariant(list[0])
-      )}]`
+  R.ifElse(
+    R.compose(R.equals(1), R.length),
+    R.always(''),
+    R.compose(
+      R.join('|'),
+      mapIndexed(
+        (item, index, list) =>
+          `${item.name || 'default'}[${positive(
+            applyDiscountToVariant(item) - applyDiscountToVariant(list[0])
+          )}]`
+      )
+    )
   )
 );
 
@@ -60,14 +67,16 @@ const ProductDefinitionToSnipcartDefinition = R.compose(
       R.zipObj(['name', 'options']),
       R.juxt([
         // name
-        R.always('Option'),
-        // options
-        R.compose(
-          variantlistToSnipcartOptionsString,
-          R.filter(activeVariant),
-          R.prop('variants')
+        R.ifElse(
+          R.compose(R.equals(1), R.length),
+          R.always(''),
+          R.always('Option')
         ),
-      ])
+        // options
+        variantlistToSnipcartOptionsString,
+      ]),
+      R.filter(activeVariant),
+      R.prop('variants')
     ),
   ])
 );

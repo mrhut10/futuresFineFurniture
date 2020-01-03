@@ -60,10 +60,7 @@ export const BuyArea = ({ name, url, variants, disabled }) => {
         )}
         {R.compose(
           R.ifElse(
-            R.compose(
-              R.or(R.isNil, R.lte(R.__, 0)),
-              R.prop('price')
-            ),
+            R.compose(R.or(R.isNil, R.lte(R.__, 0)), R.prop('price')),
             () => <span style={{ color: 'red', fontSize: '0.8rem' }} />,
             R.ifElse(
               item => item.discount && item.discount > 0,
@@ -176,10 +173,7 @@ export const BuyArea = ({ name, url, variants, disabled }) => {
         )(variants)}
         {R.compose(
           R.ifElse(
-            R.compose(
-              R.isNil,
-              R.prop('price')
-            ),
+            R.compose(R.isNil, R.prop('price')),
             () => (
               <p style={{ margin: '4px' }}>
                 <span style={{ color: 'red', fontSize: '0.8rem' }}>
