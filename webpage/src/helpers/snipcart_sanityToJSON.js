@@ -63,18 +63,20 @@ const ProductDefinitionToSnipcartDefinition = R.compose(
     ),
     // customFields
     R.compose(
-      R.of,
-      R.zipObj(['name', 'options']),
-      R.juxt([
-        // name
-        R.ifElse(
-          R.compose(R.equals(1), R.length),
-          R.always(''),
-          R.always('Option')
-        ),
-        // options
-        variantlistToSnipcartOptionsString,
-      ]),
+      R.ifElse(
+        R.compose(R.equals(1), R.length),
+        R.always([]),
+        R.compose(
+          R.of,
+          R.zipObj(['name','options']),
+          R.juxt([
+            // name
+            R.always('Option'),
+            // options
+            variantlistToSnipcartOptionsString,
+          ])
+        )
+      ),
       R.filter(activeVariant),
       R.prop('variants')
     ),
