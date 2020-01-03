@@ -9,7 +9,9 @@
     "dev": "node ./node_modules/@sanity/cli/bin/sanity-cli.js start",
     "test": "node ./node_modules/@sanity/cli/bin/sanity-cli.js check",
     "build": "node ./node_modules/@sanity/cli/bin/sanity-cli.js build",
-    "graphql-deploy": "node ./node_modules/@sanity/cli/bin/sanity-cli.js graphql deploy --playground"
+    "graphql-deploy": "node ./node_modules/@sanity/cli/bin/sanity-cli.js graphql deploy --playground",
+    "deploy":"netlify deploy --dir=dist",
+    "deploy-live":"netlify deploy --dir=dist --prod"
   },
   "keywords": [
     "sanity"
