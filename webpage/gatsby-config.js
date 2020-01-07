@@ -40,36 +40,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `contentImages`,
-        path: `${__dirname}/static/images/uploads`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         name: `blog`,
         path: `${__dirname}/collections/blog`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `productCategory`,
-        path: `${__dirname}/collections/productCats`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `productRange`,
-        path: `${__dirname}/collections/productRange`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `product`,
-        path: `${__dirname}/collections/product`,
       },
     },
     `gatsby-transformer-remark`,
