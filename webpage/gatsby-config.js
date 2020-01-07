@@ -72,7 +72,7 @@ module.exports = {
       resolve: 'gatsby-plugin-sitemap',
       options: {
         output: '/sitemap.xml',
-        exclude: ["/sanity/*", '/sanity-range', '/sanity-related'],
+        exclude: ['/sanity/*', '/sanity-range', '/sanity-related'],
         createLinkInHead: true,
         serialize: ({ site, allSitePage }) =>
           allSitePage.edges
