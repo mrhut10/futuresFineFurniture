@@ -1,4 +1,5 @@
 /* eslint-disable react/no-danger */
+/*
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 import slugify from 'slugify';
@@ -240,3 +241,5 @@ productRoute.propTypes = {
 };
 
 export default productRoute;
+
+*/

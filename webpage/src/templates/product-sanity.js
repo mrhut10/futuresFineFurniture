@@ -100,7 +100,7 @@ const productRoute = ({ data }) => {
           <div className="mb-8 text-center">
             <h1 className="font-bold text-3xl text-maroon-600">{name}</h1>
             <h3>
-              <Link to={`/sanity/category/${category.slug}`.toLowerCase()}>
+              <Link to={`/category/${category.slug}`.toLowerCase()}>
                 {category.name} Category
               </Link>
             </h3>
@@ -131,11 +131,13 @@ const productRoute = ({ data }) => {
         )}
         <div className="bg-white mt-12 px-4 py-12 rounded-lg shadow-md hover:shadow-lg">
           <div className="markdown max-w-md mx-auto">
-            {description.split('\n').map(line => (
-              <>
-                {line} <br />
-              </>
-            ))}
+            {description
+              ? description.split('\n').map(line => (
+                  <>
+                    {line} <br />
+                  </>
+                ))
+              : ''}
           </div>
         </div>
       </Wrapper>

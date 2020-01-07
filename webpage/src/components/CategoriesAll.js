@@ -1,126 +1,89 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-
+import * as R from 'ramda';
 import CategoryTitle from './CategoryTile';
 
-const R = require('ramda');
-
-const CategoryCounts = R.compose(R.pathOr([], ['proCount', 'group']));
-
-const GetSourceImages = R.compose(
-  R.map(input => ({
-    relativePath: R.pathOr('', ['node', 'relativePath'])(input),
-    src: R.pathOr('', ['node', 'childImageSharp', 'fluid', 'src'])(input),
-    srcSet: R.pathOr('', ['node', 'childImageSharp', 'fluid', 'srcSet'])(input),
-  })),
-  R.pathOr([], ['allFile', 'edges'])
+const queryToCategoryData = R.compose(
+  R.map(
+    R.compose(
+      R.zipObj(['id', 'name', 'cover', 'slug']),
+      R.juxt([
+        // id
+        R.prop('id'),
+        // name
+        R.prop('name'),
+        // cover
+        R.compose(
+          R.zipObj(['src', 'srcSet']),
+          R.juxt([
+            R.path(['cover', 'asset', 'fluid', 'src']),
+            R.path(['cover', 'asset', 'fluid', 'srcSet']),
+          ])
+        ),
+        // slug
+        R.compose(R.toLower, R.path(['slug', 'current'])),
+      ]),
+      R.prop('node')
+    )
+  ),
+  R.path(['allSanityCategory', 'edges'])
 );
 
-const findImage = R.compose(
-  R.last,
-  R.split('/'),
-  input => String(input),
-  R.prop('images')
-);
-
-const Categories = () => (
-  <StaticQuery
-    query={graphql`
-      {
-        proCount: allMarkdownRemark(
-          filter: { fields: { type: { eq: "product" } } }
-        ) {
-          group(field: frontmatter___Category) {
-            totalCount
-            fieldValue
-          }
-        }
-        allMarkdownRemark(filter: { fields: { type: { eq: "productCats" } } }) {
-          edges {
-            node {
-              frontmatter {
-                title
-                images
-                order
-                disabled
-              }
-              excerpt(pruneLength: 50)
-              fields {
-                slug
-                disabled
-              }
+const Categories = () => {
+  return (
+    <StaticQuery
+      query={graphql`
+        {
+          allSanityCategory(
+            filter: {
+              common: { disable: { ne: true } }
+              parent: { id: { eq: null } }
             }
-          }
-        }
-        allFile(filter: { sourceInstanceName: { eq: "contentImages" } }) {
-          edges {
-            node {
-              relativePath
-              childImageSharp {
-                fluid(maxWidth: 400) {
-                  src
-                  srcSet
+          ) {
+            edges {
+              node {
+                id
+                name
+                slug {
+                  current
+                }
+                cover {
+                  asset {
+                    fluid(maxWidth: 200) {
+                      src
+                      srcSet
+                    }
+                  }
                 }
               }
             }
           }
         }
+      `}
+      render={queryData =>
+        R.compose(
+          categoryData => (
+            <div className="flex flex-wrap justify-center mx-auto w-full">
+              <div className="flex flex-wrap -m-2">
+                {categoryData.map(input => (
+                  <CategoryTitle
+                    key={input.id}
+                    name={input.name}
+                    slug={`/category/${input.slug}`}
+                    hoverText={input.name}
+                    images={[input.cover]}
+                    comingSoon={false}
+                    height={300}
+                  />
+                ))}
+              </div>
+            </div>
+          ),
+          queryToCategoryData
+        )(queryData)
       }
-    `}
-    render={queryData => (
-      <div className="flex flex-wrap justify-center mx-auto w-full">
-        <div className="flex flex-wrap -m-2">
-          {R.compose(
-            R.map(input => (
-              <CategoryTitle
-                key={input.title}
-                name={input.title}
-                slug={input.slug}
-                hoverText={input.excerpt}
-                images={[
-                  R.compose(
-                    R.find(R.propEq('relativePath', findImage(input))),
-                    GetSourceImages
-                  )(queryData),
-                ]}
-                comingSoon={!(input.count && input.count > 0)}
-                height={300}
-              />
-            )),
-            R.sort((a, b) => b.count - a.count),
-            R.filter(R.allPass([R.propOr(false, 'enabled')])),
-            R.map(
-              R.compose(
-                input => ({
-                  title: R.pathOr('', ['frontmatter', 'title'], input),
-                  slug: R.pathOr('/404', ['fields', 'slug'], input),
-                  excerpt: R.pathOr('', ['excerpt'], input),
-                  images: R.pathOr([], ['frontmatter', 'images'], input),
-                  count: R.compose(
-                    R.propOr(0, 'totalCount'),
-                    R.find(
-                      R.propEq(
-                        'fieldValue',
-                        R.pathOr('', ['frontmatter', 'title'])(input)
-                      )
-                    ),
-                    CategoryCounts
-                  )(queryData),
-                  enabled: R.complement(
-                    R.pathOr(false, ['frontmatter', 'disabled'])
-                  )(input),
-                }),
-                R.pathOr({}, ['node'])
-              )
-            ),
-            R.pathOr([], ['allMarkdownRemark', 'edges'])
-          )(queryData)}
-        </div>
-      </div>
-    )}
-  />
-);
-
-Categories.propTypes = {};
+    />
+  );
+};
 
 export default Categories;

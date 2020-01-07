@@ -1,4 +1,5 @@
 /* eslint-disable react/no-danger */
+/*
 import React from 'react';
 import { graphql } from 'gatsby';
 import propTypes from 'prop-types';
@@ -35,3 +36,4 @@ rangeRoute.propTypes = {
 };
 
 export default rangeRoute;
+*/

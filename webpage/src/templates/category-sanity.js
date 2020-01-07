@@ -32,7 +32,7 @@ const categoryRoute = ({ data, pageContext }) => {
             R.sortBy(applyDiscountToVariant),
             validVariants
           )(product);
-          const productLink = `/sanity/category/${slug.current}/${product.slug}`.toLowerCase();
+          const productLink = `/category/${slug.current}/${product.slug}`.toLowerCase();
           return (
             <CategoryTitle
               name={product.name}
@@ -109,12 +109,12 @@ const categoryRoute = ({ data, pageContext }) => {
         pageNum={pageNum}
         pageTotal={totalPages}
         Back={
-          <Link to={`/sanity/category/${slug.current}/page-${pageNum - 1}`}>
+          <Link to={`/category/${slug.current}/page-${pageNum - 1}`}>
             Previous Page
           </Link>
         }
         Forward={
-          <Link to={`/sanity/category/${slug.current}/page-${pageNum + 1}`}>
+          <Link to={`/category/${slug.current}/page-${pageNum + 1}`}>
             Next Page
           </Link>
         }

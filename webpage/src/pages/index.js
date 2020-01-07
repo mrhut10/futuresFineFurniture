@@ -32,10 +32,11 @@ const IndexPage = () => (
             >
               Flexible Payments
             </Link>
-          }{' '}<br /> 
+          }{' '}
+          <br />
           <small>
             The widest range of Furniture, Mattresses and Mobility Solutions
-            within the Macleay Valley. 
+            within the Macleay Valley.
           </small>
         </p>
       </div>
