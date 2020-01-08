@@ -62,8 +62,8 @@
     "serve": "node ./node_modules/gatsby-cli/lib/index.js serve",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "deploy":"netlify deploy --dir=public",
-    "deploy-live":"netlify deploy --dir=public --prod"
+    "deploy": "netlify deploy --dir=public",
+    "deploy-live": "netlify deploy --dir=public --prod"
   },
   "repository": {
     "type": "git",
