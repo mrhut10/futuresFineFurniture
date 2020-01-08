@@ -1,12 +1,39 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, graphql, Link } from 'gatsby';
 import * as R from 'ramda';
 import CategoryTitle from './CategoryTile';
-// import CategoryTitle from './CategoryTile';
+import { applyDiscountToVariant } from '../helpers/snipcart_sanityToJSON';
+import { priceFormat } from '../helpers';
 
 const queryToProductData = R.compose(
+  R.take(3),
+  R.sortBy(
+    product =>
+      (product.selectedVariant.price -
+        applyDiscountToVariant(product.selectedVariant)) /
+      product.selectedVariant.price
+  ),
+  R.flatten,
   R.map(
     R.compose(
+      // map to many copies with each selected variant
+      product => {
+        const output = [];
+        const { id, name, images, slug, variants, category } = product;
+
+        product.variants.forEach(variant => {
+          output.push({
+            id,
+            name,
+            images,
+            slug,
+            variants,
+            category,
+            selectedVariant: variant,
+          });
+        });
+        return output;
+      },
       R.zipObj(['id', 'name', 'images', 'slug', 'variants', 'category']),
       R.juxt([
         // id
@@ -28,6 +55,9 @@ const queryToProductData = R.compose(
         R.compose(R.toLower, R.path(['slug', 'current'])),
         // variants (discounted)
         R.compose(
+          // first unquie by sell price
+          R.uniqBy(applyDiscountToVariant),
+          // filters out non discounted variants
           R.filter(
             variant => variant.discount_amount > 0 && variant.disable !== false
           ),
@@ -58,7 +88,7 @@ const DiscountedProducts = () => {
               common: { disable: { ne: true } }
               slug: { current: { ne: "" } }
             }
-            limit: 3
+            limit: 9
             sort: { fields: _updatedAt }
           ) {
             nodes {
@@ -98,17 +128,46 @@ const DiscountedProducts = () => {
           productData => (
             <div className="flex flex-wrap justify-center mx-auto w-full">
               <div className="flex flex-wrap -m-2">
-                {productData.map(input => (
-                  <CategoryTitle
-                    key={input.id}
-                    name={input.name}
-                    slug={`/category/${input.category.slug}/${input.slug}`}
-                    hoverText={input.name}
-                    images={input.images}
-                    comingSoon={false}
-                    height={300}
-                  />
-                ))}
+                {productData.map(input => {
+                  const slug = `/category/${input.category.slug}/${input.slug}`;
+                  return (
+                    <CategoryTitle
+                      key={input.id}
+                      name={`${input.name} ${
+                        input.selectedVariant.name
+                          ? `(${input.selectedVariant.name})`
+                          : ''
+                      }`}
+                      slug={`/category/${input.category.slug}/${input.slug}`}
+                      hoverText={input.name}
+                      images={input.images}
+                      comingSoon={false}
+                      height={300}
+                      Children={
+                        <Link to={slug}>
+                          {/*
+                            <div className="text-red-500 line-through">
+                              WAS FROM {priceFormat.format(input.selectedVariant.price)}
+                            </div>
+                          */}
+                          <div className="text-blue-500">
+                            NOW{' '}
+                            {priceFormat.format(
+                              applyDiscountToVariant(input.selectedVariant)
+                            )}
+                          </div>
+                          <div className="text-gray-500">
+                            SAVINGS OF{' '}
+                            {priceFormat.format(
+                              input.selectedVariant.price -
+                                applyDiscountToVariant(input.selectedVariant)
+                            )}
+                          </div>
+                        </Link>
+                      }
+                    />
+                  );
+                })}
               </div>
             </div>
           ),
