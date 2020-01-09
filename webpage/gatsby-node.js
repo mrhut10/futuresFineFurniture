@@ -47,20 +47,10 @@ exports.createPages = ({ graphql, actions }) => {
         // product has slug
         if (node.category && node.category.slug && node.category.slug.current) {
           // has a valid category with a slug
-          const routes = [
-            `/category/${node.category.slug.current}/${node.slug.current}`,
-          ];
-          if (routes[0] !== routes[0].toLowerCase()) {
-            routes.push(routes[0].toLowerCase());
-          }
-          routes.forEach(route => {
-            createPage({
-              path: route,
-              component: path.resolve('./src/templates/product-sanity.js'),
-              context: {
-                productID: node._id,
-              },
-            });
+          createPage({
+            path: `/category/${node.category.slug.current}/${node.slug.current}`.toLowerCase(),
+            component: path.resolve('./src/templates/product-sanity.js'),
+            context: { productID: node._id },
           });
         }
       }
@@ -141,7 +131,7 @@ exports.createPages = ({ graphql, actions }) => {
     CategoryResults.data.allSanityCategory.edges.forEach(({ node }) => {
       if (node.slug && node.slug.current) {
         const route = `/category/${node.slug.current}`;
-        const productsPerPage = 90;
+        const productsPerPage = 45;
         const productsRelivant = ProductsResults.data.allSanityProduct.edges.filter(
           product => product.node.category._id === node._id
         );
