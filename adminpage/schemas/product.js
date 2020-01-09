@@ -21,7 +21,7 @@ export default {
       options: {
         readOnly: true,
         source: 'name',
-        description: 'url safe name',
+        description: 'url safe name, make lower case please',
         slugify: customSlugify
       }
     },
@@ -50,7 +50,8 @@ export default {
       title: 'images',
       name: 'images',
       type: 'array',
-      of: [{type: 'imageObject'}]
+      of: [{type: 'imageObject'}],
+      validation: Rule => Rule.required().min(1)
     },
     {
       title: 'Keywords',
