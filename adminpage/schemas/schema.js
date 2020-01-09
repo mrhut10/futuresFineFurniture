@@ -11,9 +11,7 @@ import productVariant from './productVariant'
 import category from './category'
 import range from './range'
 import product from './product'
-import productDiscount from './productDiscount'
-
-
+import monthlyPromotion from './monthlyPromotion'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -28,6 +26,6 @@ export default createSchema({
     category,
     range,
     product,
-    productDiscount,
+    monthlyPromotion,
   ])
 })
