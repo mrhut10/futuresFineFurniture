@@ -1,16 +1,17 @@
 import React from 'react';
 import * as R from 'ramda';
 import { graphql, Link } from 'gatsby';
+import Img from 'gatsby-image';
 import Layout from '../components/Layout';
 import Wrapper from '../components/Wrapper';
 import SEO from '../components/SEO';
-import Img from 'gatsby-image';
 import {
   applyDiscountToVariant,
   activeVariant,
 } from '../helpers/snipcart_sanityToJSON';
 import NotAvaliable from '../components/NotAvaliable';
 import { NewBuyArea } from '../components/newSnipcart';
+import CategoryTitle from '../components/CategoryTile';
 
 const getProductDataFromQuery = R.compose(
   R.zipObj([
@@ -24,22 +25,24 @@ const getProductDataFromQuery = R.compose(
     'ranges',
     'category',
     'images',
+    'relatedByRange',
+    'relatedByCategory',
   ]),
   R.juxt([
     // id
-    R.prop('_id'),
+    R.path(['sanityProduct', '_id']),
     // name
-    R.prop('name'),
+    R.path(['sanityProduct', 'name']),
     // disable
-    R.path(['common', 'disable']),
+    R.path(['sanityProduct', 'common', 'disable']),
     // slug
-    R.path(['slug', 'current']),
+    R.path(['sanityProduct', 'slug', 'current']),
     // keywords
-    R.prop('keywords'),
+    R.path(['sanityProduct', 'keywords']),
     // description
-    R.prop('description'),
+    R.path(['sanityProduct', 'description']),
     // variants
-    R.prop('variants'),
+    R.path(['sanityProduct', 'variants']),
     // ranges
     R.compose(
       R.map(
@@ -50,7 +53,7 @@ const getProductDataFromQuery = R.compose(
           R.prop('keywords'),
         ])
       ),
-      R.prop('range')
+      R.path(['sanityProduct', 'range'])
     ),
     // category
     R.compose(
@@ -62,12 +65,18 @@ const getProductDataFromQuery = R.compose(
           R.prop('keywords'),
         ])
       ),
-      R.prop('category')
+      R.path(['sanityProduct', 'category'])
     ),
     // images
-    R.compose(R.map(R.path(['image', 'asset'])), R.prop('images')),
-  ]),
-  R.prop('sanityProduct')
+    R.compose(
+      R.map(R.path(['image', 'asset'])),
+      R.path(['sanityProduct', 'images'])
+    ),
+    // 'relatedByRange',
+    R.path(['relatedByRange', 'nodes']),
+    // 'relatedByCategory',
+    R.path(['relatedByCategory', 'nodes']),
+  ])
 );
 
 const productRoute = ({ data }) => {
@@ -82,7 +91,16 @@ const productRoute = ({ data }) => {
     images,
     variants,
     description,
+    relatedByRange,
+    relatedByCategory,
   } = productData;
+
+  //const allRelated = R.union(relatedByRange, relatedByCategory);
+  const selectedRelated = R.compose(
+    R.take(3),
+    R.apply(R.union)
+  )([relatedByRange, relatedByCategory]);
+
 
   return (
     <Layout>
@@ -130,13 +148,32 @@ const productRoute = ({ data }) => {
           </div>
         </div>
       </Wrapper>
+      <div className="flex flex-col max-w-4xl mx-auto p-4 w-full">
+        <hr />
+        <h2 className="font-bold mb-4 mt-6 text-2xl text-maroon-600">
+          Related Products
+        </h2>
+        <div className="flex flex-wrap -mx-2 w-full">
+          {selectedRelated.map(relatedProduct => (
+            <CategoryTitle
+              name={relatedProduct.name}
+              hoverText={relatedProduct.name}
+              key={relatedProduct._id}
+              images={relatedProduct.images.map(
+                image => image.image.asset.fluid
+              )}
+              slug={`/category/${relatedProduct.category.slug.current}/${relatedProduct.slug.current}`.toLowerCase()}
+            />
+          ))}
+        </div>
+      </div>
     </Layout>
   );
 };
 
 export default productRoute;
 export const query = graphql`
-  query MyQuery($productID: String) {
+  query MyQuery($productID: String, $categoryID: String, $rangeIDs: [String]) {
     sanityProduct(_id: { eq: $productID }) {
       _id
       name
@@ -156,6 +193,7 @@ export const query = graphql`
         disable
       }
       range {
+        _id
         name
         slug {
           current
@@ -163,6 +201,7 @@ export const query = graphql`
         keywords
       }
       category {
+        _id
         slug {
           current
         }
@@ -174,6 +213,108 @@ export const query = graphql`
           asset {
             fluid(maxWidth: 700) {
               ...GatsbySanityImageFluid
+            }
+          }
+        }
+      }
+    }
+    relatedByRange: allSanityProduct(
+      filter: {
+        range: { elemMatch: { _id: { in: $rangeIDs } } }
+        _id: { ne: $productID }
+      }
+    ) {
+      nodes {
+        _id
+        name
+        common {
+          disable
+        }
+        slug {
+          current
+        }
+        keywords
+        description
+        variants {
+          name
+          price
+          discount_method
+          discount_amount
+          disable
+        }
+        range {
+          _id
+          name
+          slug {
+            current
+          }
+          keywords
+        }
+        category {
+          _id
+          slug {
+            current
+          }
+          name
+          keywords
+        }
+        images {
+          image {
+            asset {
+              fluid(maxWidth: 300) {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
+        }
+      }
+    }
+    relatedByCategory: allSanityProduct(
+      filter: {
+        _id: { ne: $productID }
+        category: { _id: { eq: $categoryID } }
+      }
+    ) {
+      nodes {
+        _id
+        name
+        common {
+          disable
+        }
+        slug {
+          current
+        }
+        keywords
+        description
+        variants {
+          name
+          price
+          discount_method
+          discount_amount
+          disable
+        }
+        range {
+          _id
+          name
+          slug {
+            current
+          }
+          keywords
+        }
+        category {
+          _id
+          slug {
+            current
+          }
+          name
+          keywords
+        }
+        images {
+          image {
+            asset {
+              fluid(maxWidth: 300) {
+                ...GatsbySanityImageFluid
+              }
             }
           }
         }

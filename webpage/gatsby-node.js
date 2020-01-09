@@ -50,7 +50,11 @@ exports.createPages = ({ graphql, actions }) => {
           createPage({
             path: `/category/${node.category.slug.current}/${node.slug.current}`.toLowerCase(),
             component: path.resolve('./src/templates/product-sanity.js'),
-            context: { productID: node._id },
+            context: {
+              productID: node._id,
+              categoryID: node.category._id,
+              rangeIDs: node.range.map(i => i._id),
+            },
           });
         }
       }

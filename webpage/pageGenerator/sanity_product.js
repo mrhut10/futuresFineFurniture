@@ -10,6 +10,9 @@ const query = `{
         common {
           disable
         }
+        range {
+          _id
+        }
         category {
           _id
           slug {
