@@ -21,11 +21,19 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-gtag',
+      options: {
+        trackingId: 'UA-131726943-1',
+      },
+    },
+    /*
+    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: 'UA-131726943-1',
       },
     },
+     */
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
