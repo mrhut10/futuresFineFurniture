@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/mrhut10/futuresFineFurniture#readme",
   "dependencies": {
-    "lerna": "^3.18.4"
+    "lerna": "^3.20.2"
   }
 }
