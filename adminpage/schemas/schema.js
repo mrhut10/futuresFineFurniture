@@ -12,6 +12,12 @@ import category from './category'
 import range from './range'
 import product from './product'
 import monthlyPromotion from './monthlyPromotion'
+import postAuthor from './postAuthor'
+import postGeneric from './postGeneric'
+import postNews from './postNews'
+import postBlog from './postBlog'
+import postPromotion from './postPromotion'
+
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -27,5 +33,10 @@ export default createSchema({
     range,
     product,
     monthlyPromotion,
+    postAuthor,
+    postGeneric,
+    postNews,
+    postBlog,
+    postPromotion,
   ])
 })
