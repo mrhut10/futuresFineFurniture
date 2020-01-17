@@ -16,11 +16,11 @@ export default {
       title: 'Slug',
       name: 'slug',
       type: 'slug',
-      validation: Rule => Rule.required().lowercase(),
+      validation: Rule => Rule.required(), // .lowercase(),
       options: {
         readOnly: true,
         source: 'name',
-        description: 'url safe name, make lower case please',
+        description: 'url safe name',
         slugify: customSlugify
       }
     },

@@ -20,5 +20,10 @@ export default {
       name: 'datePromotionEnd',
       type: 'datetime'
     },
+    {
+      title: 'Banner Image',
+      name: 'bannerImage',
+      type: 'image',
+    }
   ]
 }
