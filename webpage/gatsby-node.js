@@ -61,63 +61,6 @@ exports.createPages = ({ graphql, actions }) => {
     });
   };
 
-  /* 
-  const queryToCategoryPage = result => {
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      createPage({
-        path: node.fields.slug,
-        component: path.resolve(`./src/templates/category-route.js`),
-        context: {
-          slug: node.fields.slug,
-          catName: node.frontmatter.title,
-          images: node.frontmatter.images,
-          disabled: node.fields.disabled,
-        },
-      });
-    });
-  };
-  */
-  /*
-  
-  const queryToRangePage = result => {
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      createPage({
-        path: node.fields.slug,
-        component: path.resolve(`./src/templates/range-route.js`),
-        context: {
-          slug: node.fields.slug,
-        },
-      });
-    });
-  };
-  */
-
-  /*
-  const queryToProductPages = result => {
-    const nodeToImageList = R.compose(
-      R.lift(
-        R.compose(
-          R.last,
-          R.split('/')
-        )
-      ),
-      R.pathOr([], ['frontmatter', 'images'])
-    );
-
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      // create main page from category
-      createPage({
-        path: node.fields.slug,
-        component: path.resolve(`./src/templates/product-route.js`),
-        context: {
-          productName: slugify(node.frontmatter.title),
-          range: node.frontmatter.range,
-          images: nodeToImageList(node),
-        },
-      });
-    });
-  };
-*/
   // Do work in promise
   // // querySanityCategoryPage querySanityCategory
   const sanityProductPage = querySanityProduct.then(querySanityProductPage);

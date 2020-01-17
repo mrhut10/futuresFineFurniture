@@ -43,6 +43,14 @@ export default {
         dateFormat: 'YYYY-MM-DD',
         calendarTodayLabel: 'Today',
       }
+    }, 
+    {
+      title: 'body',
+      name: 'body',
+      type: 'array',
+      of: [
+        {type: 'block'},
+      ]
     },
     {
       title: 'Keywords',
