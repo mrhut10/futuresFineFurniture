@@ -22,3 +22,12 @@ exports.changeObjectProb = (obj, propName, newValue) => {
   obj[propName] = newValue;
   return obj;
 };
+
+exports.arrayMinMax = values =>
+  values.reduce(
+    (acc, next) =>
+      acc
+        ? [acc[0] < next ? acc[0] : next, acc[0] > next ? acc[0] : next]
+        : [next, next],
+    undefined
+  );
