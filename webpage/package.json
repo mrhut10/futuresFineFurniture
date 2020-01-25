@@ -24,6 +24,7 @@
     "gatsby-transformer-remark": "^2.6.18",
     "gatsby-transformer-sharp": "^2.2.10",
     "libreact": "^2.13.1",
+    "moment": "^2.24.0",
     "path": "^0.12.7",
     "postcss-import": "^12.0.1",
     "prop-types": "^15.7.2",
