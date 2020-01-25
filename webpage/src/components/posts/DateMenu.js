@@ -1,10 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const _DateMenu = ({ children }) => (
-  <div>{children && Array.isArray(children) ? 'worked' : "didn't"}</div>
-);
-
 class _DateMenuItem extends React.Component {
   render(){
     const { date } = this.props;
@@ -16,10 +12,14 @@ class _DateMenuItem extends React.Component {
     );
   }
 }
+
+const _DateMenu = ({ children }) => (
+  <div>{children && Array.isArray(children) ? 'worked' : "didn't"}</div>
+);
 // const DateMenuItem = ({ children, date }) => <div>empty</div>;
 
 _DateMenu.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.instanceOf(DateMenuItem)),
+  children: PropTypes.arrayOf(PropTypes.instanceOf(_DateMenuItem)),
   // children: PropTypes.arrayOf(PropTypes.instanceOf(DateMenuItem)),
 };
 _DateMenuItem.propTypes = {
@@ -27,5 +27,5 @@ _DateMenuItem.propTypes = {
   date: PropTypes.string,
 };
 
-export const DateMenu = _DateMenu;
 export const DateMenuItem = _DateMenuItem;
+export const DateMenu = _DateMenu;

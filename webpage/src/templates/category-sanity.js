@@ -165,9 +165,6 @@ export const query = graphql`
       slug {
         current
       }
-      parentCategory {
-        id
-      }
       description
       keywords
       common {
