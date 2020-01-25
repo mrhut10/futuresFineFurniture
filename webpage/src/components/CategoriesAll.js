@@ -37,7 +37,7 @@ const Categories = () => {
           allSanityCategory(
             filter: {
               common: { disable: { ne: true } }
-              parent: { id: { eq: null } }
+              parentCategory: { id: { eq: null } }
             }
           ) {
             edges {
