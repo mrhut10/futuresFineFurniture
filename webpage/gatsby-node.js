@@ -11,7 +11,18 @@ require('dotenv').config({
 });
 
 const { GenerateProductPages } = require('./pageGenerator/_sanityProductPages');
-const { GeneratePostPages } = require('./pageGenerator/_sanityPostPages');
+const {
+  GeneratePostPages,
+  SetupPostNodes,
+} = require('./pageGenerator/_sanityPostPages');
+
+exports.onCreateNode = ({ node, actions }) => {
+  // set up nodes for Post
+  SetupPostNodes({ node, actions });
+  // const { createNode, createNodeField } = actions;
+  // Transform the new node here and create a new node or
+  // create a new node field.
+};
 
 exports.createPages = ({ graphql, actions }) => {
   // generate product related Pages

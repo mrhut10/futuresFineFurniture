@@ -1,5 +1,6 @@
 const path = require('path');
 const slugify = require('slugify');
+const { arrayMinMax } = require('../src/helpers');
 
 const pageDefinitions = {
   author: {
@@ -23,9 +24,81 @@ const pageDefinitions = {
       });
     },
   },
+  blog: {
+    query: `
+    {
+      allSanityPostBlog(filter: {generic: {disable: {ne: true}}}, sort: {order: ASC, fields: generic___dateRelease}) {
+        nodes {
+          _id
+          generic {
+            dateReleaseYear : dateRelease(formatString: "YYYY")
+            dateReleaseMonth : dateRelease(formatString: "MM")
+            dateRelease
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+    `,
+    generator: actions => ({ data }) => {
+      const dateRange = {};
+      [dateRange.dateMin, dateRange.dateMax] = arrayMinMax(
+        data.allSanityPostBlog.nodes.map(node => node.generic.dateRelease)
+      );
+
+      // create a page for each blog post
+      data.allSanityPostBlog.nodes.forEach(node => {
+        const {
+          dateReleaseYear: year,
+          dateReleaseMonth: month,
+          slug,
+        } = node.generic;
+        const route = `/posts/blog/${year}-${month}/${slug.current}`;
+        actions.createPage({
+          path: route,
+          component: path.resolve('./src/templates/postBlogPage.js'),
+          context: { _id: node._id, dateRange },
+        });
+      });
+    },
+  },
+  news: {
+    query: `
+      {
+        allSanityPostNews(filter: {generic: {disable: {ne: true}}}) {
+          nodes {
+            _id
+            generic {
+              dateRelease(formatString: "YYYY-MMM-DD")
+              slug {
+                current
+              }
+            }
+          }
+        }
+      }
+    `,
+    generator: actions => ({ data }) => {
+      const dateRange = {};
+      [dateRange.dateMin, dateRange.dateMax] = arrayMinMax(
+        data.allSanityPostNews.nodes.map(node => node.generic.dateRelease)
+      );
+      data.allSanityPostNews.nodes.forEach(node => {
+        const { dateRelease: date, slug } = node.generic;
+        const route = `/posts/news/${date}/${slug.current}`;
+        actions.createPage({
+          path: route,
+          component: path.resolve('./src/templates/postNewsPage.js'),
+          context: { _id: node._id, dateRange },
+        });
+      });
+    },
+  },
 };
 
-exports.GeneratePostPages = ({ graphql, actions }) =>
+const GeneratePostPages = ({ graphql, actions }) =>
   Object.keys(pageDefinitions).reduce(
     // reduce to object with same keys which values are promise's of pages
     (acc, next) => {
@@ -40,3 +113,8 @@ exports.GeneratePostPages = ({ graphql, actions }) =>
     // initial blank object
     {}
   );
+
+const SetupPostNodes = ({ node, actions }) => {};
+
+exports.GeneratePostPages = GeneratePostPages;
+exports.SetupPostNodes = SetupPostNodes;

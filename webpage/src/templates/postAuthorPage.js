@@ -1,16 +1,14 @@
 import React from 'react';
-import {useStaticQuery, graphql, Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+// import Img from 'gatsby-image';
+// import SEO from '../components/SEO';
 
-const PostAuthorPage = ({ data }) => {
-  return (
-    <Layout>
-      <div>{JSON.stringify(data)}</div>
-    </Layout>
-  );
-};
+const PostAuthorPage = ({ data }) => (
+  <Layout>
+    <div>{JSON.stringify(data)}</div>
+  </Layout>
+);
 
 export default PostAuthorPage;
 export const query = graphql`
