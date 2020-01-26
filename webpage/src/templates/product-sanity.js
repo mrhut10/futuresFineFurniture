@@ -95,12 +95,11 @@ const productRoute = ({ data }) => {
     relatedByCategory,
   } = productData;
 
-  //const allRelated = R.union(relatedByRange, relatedByCategory);
+  // const allRelated = R.union(relatedByRange, relatedByCategory);
   const selectedRelated = R.compose(
     R.take(3),
     R.apply(R.union)
   )([relatedByRange, relatedByCategory]);
-
 
   return (
     <Layout>

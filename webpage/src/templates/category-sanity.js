@@ -16,7 +16,7 @@ import {
 import { NewBuyButton } from '../components/newSnipcart';
 
 const categoryRoute = ({ data, pageContext }) => {
-  const { productsPerPage, pageNum, totalPages, totalProducts } = pageContext;
+  const { productsPerPage, pageNum, totalPages, totalProducts, categoryID } = pageContext;
   const { name, keywords, slug } = data.sanityCategory;
   const { disable } = data.sanityCategory.common || { disable: false };
   const Products = R.compose(
@@ -154,8 +154,8 @@ const categoryRoute = ({ data, pageContext }) => {
 };
 
 export const query = graphql`
-  query sanity_categoryPageQuery(
-    $categoryID: String
+  query sanity_categoryPageQuery (
+    $categoryID: String!
     $skip: Int!
     $productsPerPage: Int!
   ) {

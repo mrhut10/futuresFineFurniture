@@ -32,7 +32,7 @@ export default createSchema({
     category,
     range,
     product,
-    monthlyPromotion,
+    // monthlyPromotion,
     postAuthor,
     postGeneric,
     postNews,
