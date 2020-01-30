@@ -108,11 +108,7 @@ const DiscountedProducts = () => {
                 current
               }
               variants {
-                disable
-                discount_amount
-                discount_method
-                name
-                price
+                ...fieldsProductVariant
               }
               category {
                 slug {

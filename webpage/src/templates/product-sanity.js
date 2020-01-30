@@ -185,11 +185,7 @@ export const query = graphql`
       keywords
       description
       variants {
-        name
-        price
-        discount_method
-        discount_amount
-        disable
+        ...fieldsProductVariant
       }
       range {
         _id
@@ -235,11 +231,7 @@ export const query = graphql`
         keywords
         description
         variants {
-          name
-          price
-          discount_method
-          discount_amount
-          disable
+          ...fieldsProductVariant
         }
         range {
           _id
@@ -286,11 +278,7 @@ export const query = graphql`
         keywords
         description
         variants {
-          name
-          price
-          discount_method
-          discount_amount
-          disable
+          ...fieldsProductVariant
         }
         range {
           _id

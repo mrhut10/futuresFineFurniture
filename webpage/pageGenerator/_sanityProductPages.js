@@ -28,11 +28,7 @@ const queries = {
             }
           }
           variants {
-            name
-            disable
-            price
-            discount_amount
-            discount_method
+            ...fieldsProductVariant
           }
         }
       }

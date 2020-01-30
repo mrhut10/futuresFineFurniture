@@ -154,7 +154,7 @@ const categoryRoute = ({ data, pageContext }) => {
 };
 
 export const query = graphql`
-  query sanity_categoryPageQuery (
+  query sanity_categoryPageQuery(
     $categoryID: String!
     $skip: Int!
     $productsPerPage: Int!
@@ -190,17 +190,13 @@ export const query = graphql`
             disable
           }
           variants {
-            name
-            price
-            discount_method
-            discount_amount
-            disable
+            ...fieldsProductVariant
           }
           description
           images {
             image {
               asset {
-                fluid(maxWidth: 300) {
+                fluid(maxWidth: 200) {
                   src
                   srcSet
                 }

@@ -57,7 +57,7 @@ const query = graphql`
           cover {
             asset {
               fluid(maxWidth: 200) {
-                src
+                ...GatsbySanityImageFluid
               }
             }
           }
