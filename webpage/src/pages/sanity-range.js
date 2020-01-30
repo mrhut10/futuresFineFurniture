@@ -26,7 +26,7 @@ const sanityRange = () => (
                       : ''
                   }
                   hoverText={node.description}
-                  images={node.cover ? [node.cover.asset.fluid] : null}
+                  images={node.cover ? [node.cover.asset.fixed_sml] : null}
                   comingSoon={false}
                   height={300}
                 />
@@ -50,22 +50,7 @@ const query = graphql`
     ) {
       edges {
         node {
-          name
-          slug {
-            current
-          }
-          cover {
-            asset {
-              fluid(maxWidth: 200) {
-                ...GatsbySanityImageFluid
-              }
-            }
-          }
-          description
-          keywords
-          common {
-            disable
-          }
+          ...fieldsSanityCategory
         }
       }
     }
