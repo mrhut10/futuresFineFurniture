@@ -64,15 +64,21 @@ const queries = {
 };
 
 const PageGenerators = {
-  product: actions => result => {
+  product: actions => async result => {
     try {
       const snipcartObject = snipcart_sanityToJSON.snipcartJson(result);
       const JSONObject = JSON.stringify(snipcartObject);
-      fs.writeFile('./static/snipcart.json', JSONObject, er => {
-        if (er) {
-          throw er;
-        }
+      const exists = [
+        fs.existsSync('./public/snipcart.json'),
+        fs.existsSync('./static/snipcart.json'),
+      ];
+      exists.forEach((value, index) => {
+        if (value)
+          fs.unlinkSync(
+            index === 0 ? './public/snipcart.json' : './static/snipcart.json'
+          );
       });
+      fs.writeFileSync('./static/snipcart.json', JSONObject);
     } catch (error) {
       console.log('error writing snipcart file', error);
     }
