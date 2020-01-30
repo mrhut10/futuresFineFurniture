@@ -36,28 +36,10 @@ export const query = graphql`
       nodes {
         _id
         author {
-          name
+          ...fieldsPostAuthor
         }
         generic {
-          title
-          slug {
-            current
-          }
-          disable
-          dateRelease
-          tags
-          body {
-            _key
-            _type
-            sanityChildren {
-              _key
-              _type
-              marks
-              text
-            }
-            style
-            list
-          }
+          ...fieldsPostGeneric
         }
       }
     }
