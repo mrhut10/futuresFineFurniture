@@ -196,12 +196,7 @@ export const query = graphql`
         keywords
       }
       category {
-        _id
-        slug {
-          current
-        }
-        name
-        keywords
+        ...fieldsSanityCategory
       }
       images {
         image {
@@ -242,12 +237,7 @@ export const query = graphql`
           keywords
         }
         category {
-          _id
-          slug {
-            current
-          }
-          name
-          keywords
+          ...fieldsSanityCategory
         }
         images {
           image {
@@ -289,12 +279,7 @@ export const query = graphql`
           keywords
         }
         category {
-          _id
-          slug {
-            current
-          }
-          name
-          keywords
+          ...fieldsSanityCategory
         }
         images {
           image {
