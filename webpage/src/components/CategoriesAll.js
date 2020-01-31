@@ -13,13 +13,7 @@ const queryToCategoryData = R.compose(
         // name
         R.prop('name'),
         // cover
-        R.compose(
-          R.zipObj(['src', 'srcSet']),
-          R.juxt([
-            R.path(['cover', 'asset', 'fluid', 'src']),
-            R.path(['cover', 'asset', 'fluid', 'srcSet']),
-          ])
-        ),
+        R.path(['cover', 'asset', 'fluid_mid']),
         // slug
         R.compose(R.toLower, R.path(['slug', 'current'])),
       ]),
@@ -42,19 +36,7 @@ const Categories = () => {
           ) {
             edges {
               node {
-                id
-                name
-                slug {
-                  current
-                }
-                cover {
-                  asset {
-                    fluid(maxWidth: 200) {
-                      src
-                      srcSet
-                    }
-                  }
-                }
+                ...fieldsSanityCategory
               }
             }
           }
@@ -71,7 +53,7 @@ const Categories = () => {
                     name={input.name}
                     slug={`/category/${input.slug}`}
                     hoverText={input.name}
-                    images={[input.cover]}
+                    images={[{ fluid: input.cover }]}
                     comingSoon={false}
                     height={300}
                   />

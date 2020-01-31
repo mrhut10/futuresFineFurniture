@@ -39,7 +39,7 @@ const categoryRoute = ({ data, pageContext }) => {
               key={product.id}
               hoverText={product.name}
               slug={productLink}
-              images={product.images}
+              images={product.images.map(i => ({ fluid: i.fluid_mid }))}
               Children={
                 selectedVarient ? (
                   <div className="flex flex-col font-medium -mt-2 p-4 pt-0">
@@ -92,7 +92,7 @@ const categoryRoute = ({ data, pageContext }) => {
           R.prop('variants'),
           // images
           R.compose(
-            R.map(R.compose(R.path(['image', 'asset', 'fluid']))),
+            R.map(R.compose(R.path(['image', 'asset']))),
             R.prop('images')
           ),
         ]),
@@ -154,22 +154,13 @@ const categoryRoute = ({ data, pageContext }) => {
 };
 
 export const query = graphql`
-  query sanity_categoryPageQuery (
+  query sanity_categoryPageQuery(
     $categoryID: String!
     $skip: Int!
     $productsPerPage: Int!
   ) {
     sanityCategory(_id: { eq: $categoryID }) {
-      _id
-      name
-      slug {
-        current
-      }
-      description
-      keywords
-      common {
-        disable
-      }
+      ...fieldsSanityCategory
     }
     allSanityProduct(
       filter: {
@@ -181,32 +172,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          _id
-          name
-          slug {
-            current
-          }
-          common {
-            disable
-          }
-          variants {
-            name
-            price
-            discount_method
-            discount_amount
-            disable
-          }
-          description
-          images {
-            image {
-              asset {
-                fluid(maxWidth: 300) {
-                  src
-                  srcSet
-                }
-              }
-            }
-          }
+          ...fieldsSanityProduct
         }
       }
     }

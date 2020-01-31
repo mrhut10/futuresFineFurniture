@@ -114,7 +114,4 @@ const GeneratePostPages = ({ graphql, actions }) =>
     {}
   );
 
-const SetupPostNodes = ({ node, actions }) => {};
-
 exports.GeneratePostPages = GeneratePostPages;
-exports.SetupPostNodes = SetupPostNodes;

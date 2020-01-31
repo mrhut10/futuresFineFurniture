@@ -32,25 +32,7 @@ export const query = graphql`
         }
       }
       generic {
-        title
-        slug {
-          current
-        }
-        disable
-        dateRelease(formatString: "YYYY-MMM-DD")
-        tags
-        body {
-          _key
-          _type
-          sanityChildren {
-            _key
-            _type
-            marks
-            text
-          }
-          style
-          list
-        }
+        ...fieldsPostGeneric
       }
     }
   }

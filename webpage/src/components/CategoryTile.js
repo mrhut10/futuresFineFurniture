@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
 
 import NotAvaliable from './NotAvaliable';
 
@@ -32,11 +33,19 @@ const CategoryTitle = ({
         {comingSoon ? (
           <NotAvaliable text='Coming Soon' showContact />
         ) : (
-          <div className="my-auto">
-            {images && images.length > 0
-              ? ImageComponent(images[0], `calc(${height}-30px)`)
-              : null}
-          </div>
+          <Img className="my-auto" 
+            alt="product"
+            fixed={
+              images && images[0] && images[0].fixed
+                ? images[0].fixed
+                : { src: '' }
+            }
+            fluid={
+              images && images[0] && images[0].fluid
+                ? images[0].fluid
+                : { src: '' }
+            }
+          />
         )}
         <h4 className="font-bold leading-none pt-4 text-maroon-700 group-hover:text-maroon-500 text-sm tracking-wider uppercase">
           {name}

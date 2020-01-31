@@ -12,21 +12,9 @@ const PostAuthorPage = ({ data }) => (
 
 export default PostAuthorPage;
 export const query = graphql`
-  query AuthorByID($_id : String) {
+  query AuthorByID($_id: String) {
     sanityPostAuthor(_id: { eq: $_id }) {
-      name
-      body {
-        _key
-        _type
-        style
-        list
-        sanityChildren {
-          _key
-          _type
-          marks
-          text
-        }
-      }
+      ...fieldsPostAuthor
     }
   }
 `;
