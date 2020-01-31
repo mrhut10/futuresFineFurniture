@@ -27,9 +27,6 @@ const queries = {
               current
             }
           }
-          variants {
-            ...fieldsProductVariant
-          }
         }
       }
     }
