@@ -162,9 +162,9 @@ const productRoute = ({ data }) => {
               name={relatedProduct.name}
               hoverText={relatedProduct.name}
               key={relatedProduct._id}
-              images={relatedProduct.images.map(
-                image => image.image.asset.fluid
-              )}
+              images={relatedProduct.images.map(image => ({
+                fluid: image.image.asset.fluid_mid,
+              }))}
               slug={`/category/${relatedProduct.category.slug.current}/${relatedProduct.slug.current}`.toLowerCase()}
             />
           ))}
@@ -187,39 +187,7 @@ export const query = graphql`
       }
     ) {
       nodes {
-        _id
-        name
-        common {
-          disable
-        }
-        slug {
-          current
-        }
-        keywords
-        description
-        variants {
-          ...fieldsProductVariant
-        }
-        range {
-          _id
-          name
-          slug {
-            current
-          }
-          keywords
-        }
-        category {
-          ...fieldsSanityCategory
-        }
-        images {
-          image {
-            asset {
-              fluid(maxWidth: 300) {
-                ...GatsbySanityImageFluid
-              }
-            }
-          }
-        }
+        ...fieldsSanityProduct
       }
     }
     relatedByCategory: allSanityProduct(
@@ -229,39 +197,7 @@ export const query = graphql`
       }
     ) {
       nodes {
-        _id
-        name
-        common {
-          disable
-        }
-        slug {
-          current
-        }
-        keywords
-        description
-        variants {
-          ...fieldsProductVariant
-        }
-        range {
-          _id
-          name
-          slug {
-            current
-          }
-          keywords
-        }
-        category {
-          ...fieldsSanityCategory
-        }
-        images {
-          image {
-            asset {
-              fluid(maxWidth: 300) {
-                ...GatsbySanityImageFluid
-              }
-            }
-          }
-        }
+        ...fieldsSanityProduct
       }
     }
   }
