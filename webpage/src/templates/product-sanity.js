@@ -117,8 +117,12 @@ const productRoute = ({ data }) => {
             <div className="flex flex-wrap">
               <div className="items-center justify-center mb-4 md:pr-12 object-cover text-center w-full md:w-1/2">
                 <Img
-                  fluid={images && images[0] ? images[0].fluid : undefined}
                   alt="product"
+                  fluid={
+                    images
+                      ? images.map(i => i.fluid_lrg).find(() => true)
+                      : 'Hi No Image Here'
+                  }
                 />
               </div>
               <div className="flex flex-1 w-full md:w-1/2">
@@ -174,39 +178,7 @@ export default productRoute;
 export const query = graphql`
   query MyQuery($productID: String, $categoryID: String, $rangeIDs: [String]) {
     sanityProduct(_id: { eq: $productID }) {
-      _id
-      name
-      common {
-        disable
-      }
-      slug {
-        current
-      }
-      keywords
-      description
-      variants {
-        ...fieldsProductVariant
-      }
-      range {
-        _id
-        name
-        slug {
-          current
-        }
-        keywords
-      }
-      category {
-        ...fieldsSanityCategory
-      }
-      images {
-        image {
-          asset {
-            fluid(maxWidth: 700) {
-              ...GatsbySanityImageFluid
-            }
-          }
-        }
-      }
+      ...fieldsSanityProduct
     }
     relatedByRange: allSanityProduct(
       filter: {
