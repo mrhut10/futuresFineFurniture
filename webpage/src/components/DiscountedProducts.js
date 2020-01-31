@@ -41,16 +41,7 @@ const queryToProductData = R.compose(
         // name
         R.prop('name'),
         // images
-        R.compose(
-          R.map(
-            R.compose(
-              R.zipObj(['src', 'srcSet']),
-              R.juxt([R.prop('src'), R.prop('srcSet')]),
-              R.path(['image', 'asset', 'fluid'])
-            )
-          ),
-          R.prop('images')
-        ),
+        R.compose(R.map(R.path(['image', 'asset'])), R.prop('images')),
         // slug
         R.compose(R.toLower, R.path(['slug', 'current'])),
         // variants (discounted)
@@ -92,29 +83,7 @@ const DiscountedProducts = () => {
             sort: { fields: _updatedAt }
           ) {
             nodes {
-              id
-              name
-              images {
-                image {
-                  asset {
-                    fluid(maxWidth: 200) {
-                      src
-                      srcSet
-                    }
-                  }
-                }
-              }
-              slug {
-                current
-              }
-              variants {
-                ...fieldsProductVariant
-              }
-              category {
-                slug {
-                  current
-                }
-              }
+              ...fieldsSanityProduct
             }
           }
         }
@@ -136,7 +105,7 @@ const DiscountedProducts = () => {
                       }`}
                       slug={`/category/${input.category.slug}/${input.slug}`}
                       hoverText={input.name}
-                      images={input.images}
+                      images={input.images.map(i => ({ fluid: i.fluid_mid }))}
                       comingSoon={false}
                       height={300}
                       Children={
