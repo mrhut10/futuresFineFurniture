@@ -35,8 +35,18 @@ export const fieldsPostAuthor = graphql`
   }
 `;
 
-const fieldsPostBlogNews = typeName => graphql`
-  fragment fieldsPost${typeName} on SanityPost${typeName} {
+export const fieldsPostNews = graphql`
+  fragment fieldsPostNews on SanityPostNews {
+    _id
+    _createdAt
+    _updatedAt
+    generic {
+      ...fieldsPostGeneric
+    }
+  }
+`;
+export const fieldsPostBlog = graphql`
+  fragment fieldsPostBlog on SanityPostBlog {
     _id
     _createdAt
     _updatedAt
@@ -48,6 +58,3 @@ const fieldsPostBlogNews = typeName => graphql`
     }
   }
 `;
-
-export const fieldsPostNews = fieldsPostBlogNews('News');
-export const fieldsPostBlog = fieldsPostBlogNews('Blog');
