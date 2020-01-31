@@ -20,6 +20,9 @@ export const fieldsImageStdSize = graphql(`
     fluid_lrg: fluid(maxWidth: 600) {
       ...GatsbySanityImageFluid
     }
+    fluid_xlg: fluid(maxWidth: 900) {
+      ...GatsbySanityImageFluid
+    }
   }
 `)
 
@@ -87,9 +90,11 @@ export const fieldsSanityProduct = graphql`
     }
     range {
       _id
+      name
       slug {
         current
       }
+      keywords
     }
     images {
       image {
