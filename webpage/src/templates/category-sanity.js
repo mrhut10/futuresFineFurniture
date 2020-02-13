@@ -20,64 +20,79 @@ const categoryRoute = ({ data, pageContext }) => {
   const { name, keywords, slug } = data.sanityCategory;
   const { disable } = data.sanityCategory.common || { disable: false };
   const Products = R.compose(
+    R.map(product => {
+      const validVariants = R.once(
+        R.compose(R.filter(activeVariant), R.prop('variants'))
+      );
+
+      const selectedVarient = R.compose(
+        R.ifElse(R.isEmpty, () => undefined, R.head),
+        R.sortBy(applyDiscountToVariant),
+        validVariants
+      )(product);
+      const productLink = `/category/${slug.current}/${product.slug}`.toLowerCase();
+      return (
+        <CategoryTitle
+          name={product.name}
+          key={product.id}
+          hoverText={product.name}
+          slug={productLink}
+          images={product.images.map(i => ({ fluid: i.fluid_mid }))}
+          Children={
+            selectedVarient ? (
+              <div className="flex flex-col font-medium -mt-2 p-4 pt-0">
+                <p className="mb-4 text-sm">
+                  {selectedVarient.price -
+                    applyDiscountToVariant(selectedVarient) >
+                  0.01 ? (
+                    <Link className="text-blue-500" to={productLink}>
+                      <p className="text-red-500 line-through">
+                        {validVariants(product).length > 1
+                          ? 'WAS FROM '
+                          : 'WAS '}
+                        {priceFormat.format(selectedVarient.price)}
+                      </p>
+                      <p className="text-blue-500">
+                        {validVariants(product).length > 1
+                          ? 'NOW FROM '
+                          : 'NOW '}
+                        {priceFormat.format(
+                          applyDiscountToVariant(selectedVarient)
+                        )}
+                      </p>
+                    </Link>
+                  ) : (
+                    <Link className="text-blue-500" to={productLink}>
+                      {validVariants(product).length > 1 ? 'FROM ' : 'NOW '}
+                      {priceFormat.format(selectedVarient.price)}
+                    </Link>
+                  )}
+                </p>
+              </div>
+            ) : (
+              <Link to={productLink}>SEE MORE DETAILS</Link>
+            )
+          }
+        />
+      );
+    }),
+    R.ifElse(
+      () => name.toLowerCase() === 'bedroom',
+      R.identity,
+      R.sort((a, b) => {
+        const findCheapestPrice = R.compose(
+          // R.ifElse(R.isEmpty, R.always(0), R.head),
+          applyDiscountToVariant,
+          R.head,
+          R.sortBy(applyDiscountToVariant),
+          R.filter(activeVariant),
+          R.prop('variants')
+        );
+        return findCheapestPrice(a) - findCheapestPrice(b);
+      })
+    ),
     R.map(
       R.compose(
-        product => {
-          const validVariants = R.once(
-            R.compose(R.filter(activeVariant), R.prop('variants'))
-          );
-
-          const selectedVarient = R.compose(
-            R.ifElse(R.isEmpty, () => undefined, R.head),
-            R.sortBy(applyDiscountToVariant),
-            validVariants
-          )(product);
-          const productLink = `/category/${slug.current}/${product.slug}`.toLowerCase();
-          return (
-            <CategoryTitle
-              name={product.name}
-              key={product.id}
-              hoverText={product.name}
-              slug={productLink}
-              images={product.images.map(i => ({ fluid: i.fluid_mid }))}
-              Children={
-                selectedVarient ? (
-                  <div className="flex flex-col font-medium -mt-2 p-4 pt-0">
-                    <p className="mb-4 text-sm">
-                      {selectedVarient.price -
-                        applyDiscountToVariant(selectedVarient) >
-                      0.01 ? (
-                        <Link className="text-blue-500" to={productLink}>
-                          <p className="text-red-500 line-through">
-                            {validVariants(product).length > 1
-                              ? 'WAS FROM '
-                              : 'WAS '}
-                            {priceFormat.format(selectedVarient.price)}
-                          </p>
-                          <p className="text-blue-500">
-                            {validVariants(product).length > 1
-                              ? 'NOW FROM '
-                              : 'NOW '}
-                            {priceFormat.format(
-                              applyDiscountToVariant(selectedVarient)
-                            )}
-                          </p>
-                        </Link>
-                      ) : (
-                        <Link className="text-blue-500" to={productLink}>
-                          {validVariants(product).length > 1 ? 'FROM ' : 'NOW '}
-                          {priceFormat.format(selectedVarient.price)}
-                        </Link>
-                      )}
-                    </p>
-                  </div>
-                ) : (
-                  <Link to={productLink}>SEE MORE DETAILS</Link>
-                )
-              }
-            />
-          );
-        },
         R.zipObj(['name', 'id', 'slug', 'disable', 'variants', 'images']),
         R.juxt([
           // name
