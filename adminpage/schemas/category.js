@@ -27,7 +27,7 @@ export default {
     },
     {
       title: 'Parent Category',
-      name: 'parentCategory',
+      name: 'categoryParent',
       type: 'reference',
       to: [{type: 'category'}],
       description: 'a Value here will make the category a sub category of its parent category'
