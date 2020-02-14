@@ -100,10 +100,23 @@ const pagedefs = ({ graphql, actions }) => ({
               totalProducts: productsRelivant.length,
             },
           });
+          // create all page
+          actions.createPage({
+            path: `${route}/all`,
+            component: path.resolve('./src/templates/category-sanity.js'),
+            context: {
+              categoryID: node._id,
+              productsPerPage: 10000,
+              pageNum: 1,
+              skip: 0,
+              totalPages: 1,
+              totalProducts: productsRelivant.length,
+            },
+          });
           // create extra pages
           Array.from({ length: numberOfPages }).forEach((_, i) => {
             actions.createPage({
-              path: `${route.toLowerCase()}/page-${i + 1}`,
+              path: `${route}/page-${i + 1}`,
               component: path.resolve('./src/templates/category-sanity.js'),
               context: {
                 categoryID: node._id,

@@ -44,7 +44,7 @@ const query = graphql`
   {
     allSanityCategory(
       filter: {
-        # parentCategory: { id: { eq: null } }
+        categoryParent: { _id: { eq: null } }
         common: { disable: { ne: true } }
       }
     ) {
