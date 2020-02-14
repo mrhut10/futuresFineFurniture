@@ -33,6 +33,34 @@ const variantlistToSnipcartOptionsString = R.compose(
 const activeVariant = variant =>
   variant.disable !== true && applyDiscountToVariant(variant) > 0;
 
+const reduce = R.curry((fn, _default, obj) => obj.reduce(fn, _default));
+
+const cheapestVariantinVariants = R.compose(
+  reduce(
+    (acc, next) =>
+      acc && applyDiscountToVariant(acc) < applyDiscountToVariant(next)
+        ? acc
+        : next,
+    undefined
+  ),
+  R.filter(activeVariant)
+);
+
+const cheapestVariantInProduct = R.compose(
+  cheapestVariantinVariants,
+  R.prop('variants')
+);
+
+const cheapestProductInArray = reduce(
+  (acc, next) =>
+    acc &&
+    applyDiscountToVariant(cheapestVariantInProduct(acc)) <
+      applyDiscountToVariant(cheapestVariantInProduct(next))
+      ? acc
+      : next,
+  undefined
+);
+
 const locateEdges = R.path(['data', 'allSanityProduct', 'edges']);
 
 const edgeToProductDefinition = R.compose(
@@ -97,3 +125,5 @@ exports.snipcartJson = R.compose(
 exports.variantlistToSnipcartOptionsString = variantlistToSnipcartOptionsString;
 exports.applyDiscountToVariant = applyDiscountToVariant;
 exports.activeVariant = activeVariant;
+exports.cheapestProductInArray = cheapestProductInArray;
+exports.cheapestVariantInProduct = cheapestVariantInProduct;

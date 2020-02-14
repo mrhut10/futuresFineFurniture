@@ -12,6 +12,8 @@ import CategoryTitle from '../components/CategoryTile';
 import {
   applyDiscountToVariant,
   activeVariant,
+  cheapestProductInArray,
+  cheapestVariantInProduct,
 } from '../helpers/snipcart_sanityToJSON';
 import { NewBuyButton } from '../components/newSnipcart';
 
@@ -76,6 +78,7 @@ const categoryRoute = ({ data, pageContext }) => {
         />
       );
     }),
+    /*
     R.ifElse(
       () => name.toLowerCase() === 'bedroom',
       R.identity,
@@ -91,9 +94,47 @@ const categoryRoute = ({ data, pageContext }) => {
         return findCheapestPrice(a) - findCheapestPrice(b);
       })
     ),
+    */
+    R.flatten,
+    R.sortWith([
+      // sort by cheapest group
+      (gA, gB) => {
+        const [pA, pB] = [gA, gB]
+          .map(
+            // adjust to cheapest priced product
+            g =>
+              applyDiscountToVariant(
+                cheapestVariantInProduct(cheapestProductInArray(g))
+              )
+          )
+          .map(
+            // handle zero price event
+            p => (p < 0.01 ? 1000000 : p)
+          );
+        return pA - pB;
+      },
+      // if group cheapest was zero price then make expensive
+    ]),
+    // group products if within same range
+    R.groupWith((x, y) =>
+      x.ranges.reduce(
+        (acc, next) =>
+          acc ? true : y.ranges.findIndex(range => range._id === next._id) >= 0,
+        false
+      )
+    ),
+    // define a product datatype
     R.map(
       R.compose(
-        R.zipObj(['name', 'id', 'slug', 'disable', 'variants', 'images']),
+        R.zipObj([
+          'name',
+          'id',
+          'slug',
+          'disable',
+          'variants',
+          'images',
+          'ranges',
+        ]),
         R.juxt([
           // name
           R.prop('name'),
@@ -110,6 +151,8 @@ const categoryRoute = ({ data, pageContext }) => {
             R.map(R.compose(R.path(['image', 'asset']))),
             R.prop('images')
           ),
+          // ranges
+          R.prop('range'),
         ]),
         R.prop('node')
       )
