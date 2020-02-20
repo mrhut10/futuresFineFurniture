@@ -49,6 +49,9 @@ export const fieldsSanityCategory = graphql`
   }
   fragment fieldsSanityCategory on SanityCategory {
     _id
+    categoryParent {
+      _id
+    }
     name
     slug {
       current
