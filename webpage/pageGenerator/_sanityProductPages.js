@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const snipcart_sanityToJSON = require('../src/helpers/snipcart_sanityToJSON');
+const { getAllParentNodes, getAllChildNodes } = require('../src/helpers/index');
 
 const CategoryProductsPerPage = 45;
 
@@ -76,13 +77,32 @@ const pagedefs = ({ graphql, actions }) => ({
   },
   category: {
     generator: ({ data }) => {
-      data.allSanityCategory.edges.forEach(({ node }) => {
+      data.allSanityCategory.edges.forEach(({ node }, _, _allCategories) => {
+        const allCategoriesNodes = _allCategories.map(
+          ({ node: mapCat }) => mapCat
+        );
+        const getChildConfig = {
+          fnGetParentNode: x => (x ? x.categoryParent : null),
+          fnGetIdFromNode: x => (x ? x._id : null),
+          fnGetDisabledFromNode: x => (x && x.common ? x.common.disable : null),
+        };
+        const childCategories = getAllChildNodes(
+          getChildConfig,
+          allCategoriesNodes,
+          node
+        );
+        const childCategoriesIds = childCategories
+          ? childCategories.map(childNode =>
+              getChildConfig.fnGetIdFromNode(childNode)
+            )
+          : [];
         if (node.slug && node.slug.current) {
           const route = `/category/${node.slug.current}`.toLowerCase();
           const productsRelivant = data.allSanityProduct.edges.filter(
             product =>
-              product.node.category._id === node._id &&
-              (node.common || {}).disable !== true
+              (node.common || {}).disable !== true &&
+              (product.node.category._id === node._id ||
+                childCategoriesIds.includes(product.node.category._id))
           );
           const numberOfPages = Math.ceil(
             productsRelivant.length / CategoryProductsPerPage
@@ -98,6 +118,7 @@ const pagedefs = ({ graphql, actions }) => ({
               skip: 0,
               totalPages: numberOfPages,
               totalProducts: productsRelivant.length,
+              categoriesToInclude: [node._id, ...childCategoriesIds],
             },
           });
           // create all page
@@ -111,6 +132,7 @@ const pagedefs = ({ graphql, actions }) => ({
               skip: 0,
               totalPages: 1,
               totalProducts: productsRelivant.length,
+              categoriesToInclude: [node._id, ...childCategoriesIds],
             },
           });
           // create extra pages
@@ -125,6 +147,7 @@ const pagedefs = ({ graphql, actions }) => ({
                 skip: CategoryProductsPerPage * i,
                 totalPages: numberOfPages,
                 totalProducts: productsRelivant.length,
+                categoriesToInclude: [node._id, ...childCategoriesIds],
               },
             });
           });
@@ -139,6 +162,9 @@ const pagedefs = ({ graphql, actions }) => ({
           edges {
             node {
               _id
+              categoryParent {
+                _id
+              }
               slug {
                 current
               }
