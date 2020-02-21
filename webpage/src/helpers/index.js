@@ -31,3 +31,52 @@ exports.arrayMinMax = values =>
         : [next, next],
     undefined
   );
+
+function getAllParentNodes(
+  { fnGetParentNode, fnGetIdFromNode },
+  Nodes,
+  target
+) {
+  const GetParentId = fnGetIdFromNode(fnGetParentNode(target));
+  const parent = GetParentId
+    ? Nodes.find(x => fnGetIdFromNode(x) === GetParentId)
+    : undefined;
+  return parent
+    ? [
+        parent,
+        ...getAllParentNodes(
+          { fnGetParentNode, fnGetIdFromNode },
+          Nodes,
+          parent
+        ),
+      ]
+    : [];
+}
+
+function getAllChildNodes(
+  { fnGetParentNode, fnGetIdFromNode, fnGetDisabledFromNode },
+  Nodes,
+  target
+) {
+  // const getDisableFieldValue = (node, ...paths) => paths ? 
+  // if disabledField is set will stop recursion, this will prevent getting products from a disabled parent category
+  return Nodes.filter(node =>
+    // get all nodes parents
+    getAllParentNodes({ fnGetParentNode, fnGetIdFromNode }, Nodes, node)
+      // dont include a disabled child or any of its child or its childrens children, etc
+      .reduce((acc, next, i) => {
+        // skip pushing next if skiped a previous next
+        if (acc.length === i) {
+          // if no disabledField or if next isn't disabled then push next into acc
+          if (!fnGetDisabledFromNode || fnGetDisabledFromNode(next) !== true)
+            acc.push(next);
+        }
+        return acc;
+      }, [])
+      // try find a parent that is our target
+      .find(parent => fnGetIdFromNode(parent) === fnGetIdFromNode(target))
+  );
+}
+
+exports.getAllParentNodes = getAllParentNodes;
+exports.getAllChildNodes = getAllChildNodes;
