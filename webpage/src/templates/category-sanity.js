@@ -19,8 +19,8 @@ import { NewBuyButton } from '../components/newSnipcart';
 
 const categoryRoute = ({ data, pageContext }) => {
   const { productsPerPage, pageNum, totalPages, totalProducts, categoryID } = pageContext;
-  const { name, keywords, slug } = data.sanityCategory;
-  const { disable } = data.sanityCategory.common || { disable: false };
+  const { name, keywords, slug } = data.Category;
+  const { disable } = data.Category.common || { disable: false };
   const Products = R.compose(
     R.map(product => {
       const validVariants = R.once(
@@ -216,13 +216,21 @@ export const query = graphql`
     $categoryID: String!
     $skip: Int!
     $productsPerPage: Int!
+    $categoriesToInclude: [String]!
   ) {
-    sanityCategory(_id: { eq: $categoryID }) {
+    Category: sanityCategory(_id: { eq: $categoryID }) {
       ...fieldsSanityCategory
+    }
+    IncludedCategories: allSanityCategory(
+      filter: { _id: { in: $categoriesToInclude } }
+    ) {
+      nodes {
+        ...fieldsSanityCategory
+      }
     }
     allSanityProduct(
       filter: {
-        category: { _id: { eq: $categoryID } }
+        category: { _id: { in: $categoriesToInclude } }
         common: { disable: { ne: true } }
       }
       skip: $skip
