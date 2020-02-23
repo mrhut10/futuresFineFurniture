@@ -37,20 +37,12 @@ function getAllParentNodes(
   Nodes,
   target
 ) {
+  const config = { fnGetParentNode, fnGetIdFromNode };
   const GetParentId = fnGetIdFromNode(fnGetParentNode(target));
   const parent = GetParentId
     ? Nodes.find(x => fnGetIdFromNode(x) === GetParentId)
     : undefined;
-  return parent
-    ? [
-        parent,
-        ...getAllParentNodes(
-          { fnGetParentNode, fnGetIdFromNode },
-          Nodes,
-          parent
-        ),
-      ]
-    : [];
+  return parent ? [parent, ...getAllParentNodes(config, Nodes, parent)] : [];
 }
 
 function getAllChildNodes(
@@ -58,22 +50,16 @@ function getAllChildNodes(
   Nodes,
   target
 ) {
-  // const getDisableFieldValue = (node, ...paths) => paths ? 
-  // if disabledField is set will stop recursion, this will prevent getting products from a disabled parent category
+  const nodeEnabled = next =>
+    !fnGetDisabledFromNode || fnGetDisabledFromNode(next) !== true; //  || fnGetDisabledFromNode(next) !== true;
   return Nodes.filter(node =>
-    // get all nodes parents
     getAllParentNodes({ fnGetParentNode, fnGetIdFromNode }, Nodes, node)
-      // dont include a disabled child or any of its child or its childrens children, etc
-      .reduce((acc, next, i) => {
-        // skip pushing next if skiped a previous next
-        if (acc.length === i) {
-          // if no disabledField or if next isn't disabled then push next into acc
-          if (!fnGetDisabledFromNode || fnGetDisabledFromNode(next) !== true)
-            acc.push(next);
-        }
+      // starting from each root node, don't include if node disabled or if previous parent was skipped
+      .reduceRight((acc, next, i) => {
+        if (acc.length === i && nodeEnabled(next)) acc.push(next);
         return acc;
       }, [])
-      // try find a parent that is our target
+      // will provide truthy value to outside filter if target node is found list of parents of node
       .find(parent => fnGetIdFromNode(parent) === fnGetIdFromNode(target))
   );
 }
