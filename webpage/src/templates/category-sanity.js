@@ -20,7 +20,7 @@ import { NewBuyButton } from '../components/newSnipcart';
 const categoryRoute = ({ data, pageContext }) => {
   const { productsPerPage, pageNum, totalPages, totalProducts, categoryID } = pageContext;
   const { name, keywords, slug } = data.Category;
-  const { disable } = data.Category.common || { disable: false };
+  const { disable } = data.Category.common ?? { disable: false };
   const Products = R.compose(
     R.map(product => {
       const validVariants = R.once(
@@ -32,7 +32,7 @@ const categoryRoute = ({ data, pageContext }) => {
         R.sortBy(applyDiscountToVariant),
         validVariants
       )(product);
-      const productLink = `/category/${slug.current}/${product.slug}`.toLowerCase();
+      const productLink = `/category/${product.category.slug.current}/${product.slug}`.toLowerCase();
       return (
         <CategoryTitle
           name={product.name}
@@ -134,6 +134,7 @@ const categoryRoute = ({ data, pageContext }) => {
           'variants',
           'images',
           'ranges',
+          'category',
         ]),
         R.juxt([
           // name
@@ -153,6 +154,8 @@ const categoryRoute = ({ data, pageContext }) => {
           ),
           // ranges
           R.prop('range'),
+          // category
+          R.prop('category')
         ]),
         R.prop('node')
       )
@@ -189,6 +192,33 @@ const categoryRoute = ({ data, pageContext }) => {
           // JSON.stringify(products)
         }
         {PageNavigation}
+        <div>
+          Filter further by subcategory <br />
+          <div
+            style={{
+              marginLeft: '-10px',
+              display: 'flex',
+              flexWrap: 'wrap',
+            }}
+          >
+            {data.IncludedCategories.nodes
+              .filter(
+                x => x.categoryParent && x.categoryParent._id === categoryID
+              )
+              .map(x => (
+                <Link
+                  style={{
+                    marginLeft: '10px',
+                    display: 'block',
+                    padding: '0 4px',
+                  }}
+                  to={`/category/${x.slug.current}`}
+                >
+                  {x.name}
+                </Link>
+              ))}
+          </div>
+        </div>
         {!disable ? (
           <>
             <hr />
