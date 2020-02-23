@@ -1,16 +1,15 @@
 import React from 'react';
 
-const Paginate = ({pageNum, pageTotal, Back, Forward}) => {
-  
-  return (
-    <p>
-      Page {pageNum} of {pageTotal} <br/>
-      {pageNum > 1 ? (
-        <>{Back}<span className="m-2" /></> 
-      ) : null}
-      {pageNum < pageTotal ? Forward : null}
-    </p>
-  );
-};
+const Paginate = ({ pageNum, pageTotal, Back, Forward }) => (
+  <div>
+    Page {pageNum} of {pageTotal}{' '}
+    {pageNum > 1 ? (
+      <span className="underline cream-600 m-2">{Back} </span>
+    ) : null}
+    {pageNum < pageTotal ? (
+      <span className="cream-600 underline m-2">{Forward}</span>
+    ) : null}
+  </div>
+);
 
 export default Paginate;

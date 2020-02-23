@@ -77,33 +77,38 @@ const pagedefs = ({ graphql, actions }) => ({
   },
   category: {
     generator: ({ data }) => {
-      data.allSanityCategory.edges.forEach(({ node }, _, _allCategories) => {
-        const allCategoriesNodes = _allCategories.map(
-          ({ node: mapCat }) => mapCat
-        );
+      const categoryNodes = data.allSanityCategory.edges.map(
+        ({ node }) => node
+      );
+      const productNodes = data.allSanityProduct.edges.map(({ node }) => node);
+
+      categoryNodes.forEach(node => {
         const getChildConfig = {
           fnGetParentNode: x => (x ? x.categoryParent : null),
           fnGetIdFromNode: x => (x ? x._id : null),
           fnGetDisabledFromNode: x => (x && x.common ? x.common.disable : null),
         };
-        const childCategories = getAllChildNodes(
+        const childCategoriesIds = getAllChildNodes(
           getChildConfig,
-          allCategoriesNodes,
+          categoryNodes,
           node
-        );
-        const childCategoriesIds = childCategories
-          ? childCategories.map(childNode =>
-              getChildConfig.fnGetIdFromNode(childNode)
-            )
-          : [];
+        ).map(child => getChildConfig.fnGetIdFromNode(child));
+
+        const categoriesToInclude = [node._id, ...childCategoriesIds];
+        const categoriesParents = getAllParentNodes(
+          getChildConfig,
+          categoryNodes,
+          node
+        ).map(x => x._id);
+
         if (node.slug && node.slug.current) {
           const route = `/category/${node.slug.current}`.toLowerCase();
-          const productsRelivant = data.allSanityProduct.edges.filter(
-            product =>
-              product.node.common.disable !== true &&
-              product.node.slug.current &&
-              (product.node.category._id === node._id ||
-                childCategoriesIds.includes(product.node.category._id))
+          const productsRelivant = productNodes.filter(
+            productNode =>
+              (productNode.common || {}).disable !== true &&
+              (productNode.slug || {}).current &&
+              (productNode.category._id === node._id ||
+                childCategoriesIds.includes(productNode.category._id))
           );
           const numberOfPages = Math.ceil(
             productsRelivant.length / CategoryProductsPerPage
@@ -119,7 +124,8 @@ const pagedefs = ({ graphql, actions }) => ({
               skip: 0,
               totalPages: numberOfPages,
               totalProducts: productsRelivant.length,
-              categoriesToInclude: [node._id, ...childCategoriesIds],
+              categoriesToInclude,
+              categoriesParents,
             },
           });
           // create all page
@@ -133,7 +139,8 @@ const pagedefs = ({ graphql, actions }) => ({
               skip: 0,
               totalPages: 1,
               totalProducts: productsRelivant.length,
-              categoriesToInclude: [node._id, ...childCategoriesIds],
+              categoriesToInclude,
+              categoriesParents,
             },
           });
           // create extra pages
@@ -148,7 +155,8 @@ const pagedefs = ({ graphql, actions }) => ({
                 skip: CategoryProductsPerPage * i,
                 totalPages: numberOfPages,
                 totalProducts: productsRelivant.length,
-                categoriesToInclude: [node._id, ...childCategoriesIds],
+                categoriesToInclude,
+                categoriesParents,
               },
             });
           });
@@ -176,6 +184,12 @@ const pagedefs = ({ graphql, actions }) => ({
           edges {
             node {
               _id
+              common {
+                disable
+              }
+              slug {
+                current
+              }
               category {
                 _id
               }

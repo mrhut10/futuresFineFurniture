@@ -15,6 +15,7 @@ import {
   cheapestProductInArray,
   cheapestVariantInProduct,
 } from '../helpers/snipcart_sanityToJSON';
+import { getAllParentNodes } from '../helpers/index';
 import { NewBuyButton } from '../components/newSnipcart';
 
 const categoryRoute = ({ data, pageContext }) => {
@@ -187,37 +188,66 @@ const categoryRoute = ({ data, pageContext }) => {
     <Layout>
       <SEO title={name} keywords={keywords || []} />
       <Wrapper>
-        <h1 className="font-bold mb-4 text-2xl text-maroon-600">{name}</h1>
+        <h1 className="font-bold mb-4 text-2xl text-maroon-600">
+          {[
+            data.Category,
+            ...getAllParentNodes(
+              {
+                fnGetParentNode: x => x.categoryParent,
+                fnGetIdFromNode: x => (x ? x._id : null),
+              },
+              data.ParentCategories.nodes,
+              data.Category,
+            ),
+          ].reduceRight((acc, next, i, allNodes) => {
+            acc.push(
+              <span>
+                {allNodes.length === 0 || allNodes.length - 1 === i
+                  ? ''
+                  : ' \\ '}
+                <Link to={`/category/${next.slug.current}`}>{next.name}</Link>
+              </span>
+            );
+            return acc;
+          }, [])}
+        </h1>
         {
           // JSON.stringify(products)
         }
         {PageNavigation}
         <div>
-          Filter further by subcategory <br />
-          <div
-            style={{
-              marginLeft: '-10px',
-              display: 'flex',
-              flexWrap: 'wrap',
-            }}
-          >
-            {data.IncludedCategories.nodes
-              .filter(
-                x => x.categoryParent && x.categoryParent._id === categoryID
-              )
-              .map(x => (
-                <Link
-                  style={{
-                    marginLeft: '10px',
-                    display: 'block',
-                    padding: '0 4px',
-                  }}
-                  to={`/category/${x.slug.current}`}
-                >
-                  {x.name}
-                </Link>
-              ))}
-          </div>
+          {data.IncludedCategories.nodes.filter(
+            x => x.categoryParent && x.categoryParent._id === categoryID
+          ).length > 0 ? (
+            <>
+              <span className="font-bold">Further Filter:</span>
+              <div
+                style={{
+                  marginLeft: '-10px',
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                }}
+              >
+                {data.IncludedCategories.nodes
+                  .filter(
+                    x => x.categoryParent && x.categoryParent._id === categoryID
+                  )
+                  .map(x => (
+                    <Link
+                      className="cream-600 underline"
+                      style={{
+                        marginLeft: '10px',
+                        display: 'block',
+                        padding: '0 4px',
+                      }}
+                      to={`/category/${x.slug.current}`}
+                    >
+                      {x.name}
+                    </Link>
+                  ))}
+              </div>
+            </>
+          ) : null}
         </div>
         {!disable ? (
           <>
@@ -247,12 +277,20 @@ export const query = graphql`
     $skip: Int!
     $productsPerPage: Int!
     $categoriesToInclude: [String]!
+    $categoriesParents: [String]!
   ) {
     Category: sanityCategory(_id: { eq: $categoryID }) {
       ...fieldsSanityCategory
     }
     IncludedCategories: allSanityCategory(
       filter: { _id: { in: $categoriesToInclude } }
+    ) {
+      nodes {
+        ...fieldsSanityCategory
+      }
+    }
+    ParentCategories: allSanityCategory(
+      filter: { _id: { in: $categoriesParents } }
     ) {
       nodes {
         ...fieldsSanityCategory
