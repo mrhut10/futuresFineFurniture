@@ -61,7 +61,7 @@
     "build": "node ./node_modules/gatsby-cli/lib/index.js build",
     "dev": "node ./node_modules/gatsby-cli/lib/index.js develop --open",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
+    "start": "npm run dev",
     "serve": "node ./node_modules/gatsby-cli/lib/index.js serve",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
