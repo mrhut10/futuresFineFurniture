@@ -100,7 +100,8 @@ const pagedefs = ({ graphql, actions }) => ({
           const route = `/category/${node.slug.current}`.toLowerCase();
           const productsRelivant = data.allSanityProduct.edges.filter(
             product =>
-              (node.common || {}).disable !== true &&
+              product.node.common.disable !== true &&
+              product.node.slug.current &&
               (product.node.category._id === node._id ||
                 childCategoriesIds.includes(product.node.category._id))
           );
