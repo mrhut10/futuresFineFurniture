@@ -184,36 +184,47 @@ const categoryRoute = ({ data, pageContext }) => {
     </p>
   );
 
+  const categoryCrumbs = [
+    data.Category,
+    ...getAllParentNodes(
+      {
+        fnGetParentNode: x => x.categoryParent,
+        fnGetIdFromNode: x => (x ? x._id : null),
+      },
+      data.ParentCategories.nodes,
+      data.Category,
+    ),
+  ].reduceRight((acc, next, i, allNodes) => {
+    if (i === allNodes.length - 1)
+      acc.push(
+        <span>
+          <Link className="cream-600 font-bold" to="/range">
+            ...
+          </Link>
+        </span>
+      );
+    acc.push(
+      <span>
+        {' \\ '}
+        <Link
+          className="cream-600 font-bold"
+          to={`/category/${next.slug.current}`}
+        >
+          {next.name}
+        </Link>
+      </span>
+    );
+    return acc;
+  }, []);
+
   return (
     <Layout>
       <SEO title={name} keywords={keywords || []} />
       <Wrapper>
         <h1 className="font-bold mb-4 text-2xl text-maroon-600">
-          {[
-            data.Category,
-            ...getAllParentNodes(
-              {
-                fnGetParentNode: x => x.categoryParent,
-                fnGetIdFromNode: x => (x ? x._id : null),
-              },
-              data.ParentCategories.nodes,
-              data.Category,
-            ),
-          ].reduceRight((acc, next, i, allNodes) => {
-            acc.push(
-              <span>
-                {allNodes.length === 0 || allNodes.length - 1 === i
-                  ? ''
-                  : ' \\ '}
-                <Link to={`/category/${next.slug.current}`}>{next.name}</Link>
-              </span>
-            );
-            return acc;
-          }, [])}
+          {data.Category.name}
         </h1>
-        {
-          // JSON.stringify(products)
-        }
+        <div className="m-2">{categoryCrumbs}</div>
         {PageNavigation}
         <div>
           {data.IncludedCategories.nodes.filter(
