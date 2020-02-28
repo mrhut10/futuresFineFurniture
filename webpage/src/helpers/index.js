@@ -55,8 +55,9 @@ function getAllChildNodes(
   return Nodes.filter(node =>
     getAllParentNodes({ fnGetParentNode, fnGetIdFromNode }, Nodes, node)
       // starting from each root node, don't include if node disabled or if previous parent was skipped
-      .reduceRight((acc, next, i) => {
-        if (acc.length === i && nodeEnabled(next)) acc.push(next);
+      .reduceRight((acc, next, i, fullarray) => {
+        if (acc.length + i + 1 === fullarray.length && nodeEnabled(next))
+          acc.push(next);
         return acc;
       }, [])
       // will provide truthy value to outside filter if target node is found list of parents of node

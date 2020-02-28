@@ -287,7 +287,7 @@ export const query = graphql`
     $categoryID: String!
     $skip: Int!
     $productsPerPage: Int!
-    $categoriesToInclude: [String]!
+    $categoriesToInclude: [String!]!
     $categoriesParents: [String]!
   ) {
     Category: sanityCategory(_id: { eq: $categoryID }) {

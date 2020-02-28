@@ -88,11 +88,12 @@ const pagedefs = ({ graphql, actions }) => ({
           fnGetIdFromNode: x => (x ? x._id : null),
           fnGetDisabledFromNode: x => (x && x.common ? x.common.disable : null),
         };
-        const childCategoriesIds = getAllChildNodes(
+        const childCategories = getAllChildNodes(
           getChildConfig,
           categoryNodes,
           node
-        ).map(child => getChildConfig.fnGetIdFromNode(child));
+        );
+        const childCategoriesIds = childCategories.map(({ _id }) => _id);
 
         const categoriesToInclude = [node._id, ...childCategoriesIds];
         const categoriesParents = getAllParentNodes(
@@ -107,8 +108,7 @@ const pagedefs = ({ graphql, actions }) => ({
             productNode =>
               (productNode.common || {}).disable !== true &&
               (productNode.slug || {}).current &&
-              (productNode.category._id === node._id ||
-                childCategoriesIds.includes(productNode.category._id))
+              categoriesToInclude.includes(productNode.category._id)
           );
           const numberOfPages = Math.ceil(
             productsRelivant.length / CategoryProductsPerPage
@@ -171,6 +171,7 @@ const pagedefs = ({ graphql, actions }) => ({
           edges {
             node {
               _id
+              name
               categoryParent {
                 _id
               }
