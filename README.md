@@ -63,4 +63,4 @@ it will create production files in adminpage/dist
 
 # Contributions
 Would love to see Contributions
-already I owe a huge thank you to [lukebennett88](https://github.com/lukebennett88) [luke_bennett_](https://twitter.com/luke_bennett_) did the bulk of the migration to [tailwindcss](https://tailwindcss.com/) for styling and also did a lot of styling the site
+already I owe a huge thank you to [lukebennett88](https://github.com/lukebennett88) twitter [@luke_bennett_](https://twitter.com/luke_bennett_) who did the bulk of the migration to [tailwindcss](https://tailwindcss.com/) for styling and also did a lot of styling the site
