@@ -1,8 +1,3 @@
-<p align="center">
-  <a href="https://futuresfinefurniture.netlify.com">
-    <img alt="Futures Fine Furniture Hero Image" src="src\images\heroLogo.svg" width="300px"/>
-  </a>
-</p>
 <h1 align="center">
   Futures Fine Furniture & Bedding Frontend Website
 </h1>
