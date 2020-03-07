@@ -19,10 +19,10 @@
 # Quick Start
 
 environment variables
-  SANITY_READ_TOKEN           required
-  snipcart_api                should build without but ecom shopping cart wont work
-  GATSBY_SANITY_PROJECT_ID    Defaults to "rwvwe1aj"
-  GATSBY_SANITY_DATASET       Defaults to "production"
+  - SANITY_READ_TOKEN           required
+  - snipcart_api                should build without but ecom shopping cart wont work
+  - GATSBY_SANITY_PROJECT_ID    Defaults to "rwvwe1aj"
+  - GATSBY_SANITY_DATASET       Defaults to "production"
 
 
 # Set up Dev Environment
