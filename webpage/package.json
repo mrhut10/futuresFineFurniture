@@ -68,7 +68,7 @@
   "license": "MIT",
   "scripts": {
     "build-ts-node": "tsc -p ts_node/tsconfig.json",
-    "dev-ts-node": "tsc -p ts_node/tsconfig.json -w",
+    "dev-ts-node": "tsc -p ts_node/tsconfig.json",
     "build": "npm run build-ts-node && node ./node_modules/gatsby-cli/lib/index.js build",
     "dev": "npm run dev-ts-node && node ./node_modules/gatsby-cli/lib/index.js develop --open",
     "format": "prettier --write src/**/*.{js,jsx}",
