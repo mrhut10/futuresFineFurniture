@@ -11,7 +11,7 @@
     "checkJs": true,
     "jsx": "preserve",
     "declaration": true,
-    "outDir": "../..",
+    "outDir": "../",
     "rootDirs": ["./ts_node"],
     // "noEmit": true,
     "isolatedModules": true,
