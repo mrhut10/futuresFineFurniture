@@ -58,15 +58,18 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.0",
     "gatsby-cli": "^2.10.9",
-    "prettier": "^1.18.0"
+    "prettier": "^1.18.0",
+    "typescript": "^3.8.3"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
   "scripts": {
-    "build": "node ./node_modules/gatsby-cli/lib/index.js build",
-    "dev": "node ./node_modules/gatsby-cli/lib/index.js develop --open",
+    "build-ts-node": "tsc -p ts_node/tsconfig.json",
+    "dev-ts-node": "tsc -p ts_node/tsconfig.json -w",
+    "build": "npm run build-ts-node && node ./node_modules/gatsby-cli/lib/index.js build",
+    "dev": "npm run dev-ts-node && node ./node_modules/gatsby-cli/lib/index.js develop --open",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run dev",
     "serve": "node ./node_modules/gatsby-cli/lib/index.js serve",

@@ -10,8 +10,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV || 'development'}`,
 });
 
-const { GenerateProductPages } = require('./pageGenerator/_sanityProductPages');
-const { GeneratePostPages } = require('./pageGenerator/_sanityPostPages');
+const { GenerateProductPages } = require('../pageGenerator/_sanityProductPages');
+const { GeneratePostPages } = require('../pageGenerator/_sanityPostPages');
 
 exports.createPages = ({ graphql, actions }) => {
   // generate product related Pages
