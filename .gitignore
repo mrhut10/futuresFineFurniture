@@ -61,8 +61,8 @@ typings/
 
 # cache / build files
 .cache/
-webpage/public
 adminPage/dist
+webpage/public
 webpage/*.js
 webpage/*.d.ts
 
