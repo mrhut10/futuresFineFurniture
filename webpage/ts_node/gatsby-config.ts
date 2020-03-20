@@ -1,5 +1,8 @@
 // Load variables from `.env` as soon as possible
-require('dotenv').config({
+
+import dotenv from 'dotenv';
+
+dotenv.config({
   path: `.env.${process.env.NODE_ENV || 'development'}`,
 });
 
@@ -81,17 +84,9 @@ module.exports = {
         output: '/sitemap.xml',
         exclude: ['/sanity/*', '/sanity-range', '/sanity-related'],
         createLinkInHead: true,
-        serialize: ({ site, allSitePage }) =>
+        serialize: ({ site, allSitePage} : {site: any, allSitePage: any }) =>
           allSitePage.edges
-            .filter(edge => {
-              const { path } = edge.node;
-              return !(
-                path.includes('/sanity/') ||
-                path.includes('/sanity-range') ||
-                path.includes('/sanity-related')
-              );
-            })
-            .map(edge => ({
+            .map((edge:any) => ({
               url: `${siteUrl}${edge.node.path}`,
               changefreq: `daily`,
               priority: 0.7,
