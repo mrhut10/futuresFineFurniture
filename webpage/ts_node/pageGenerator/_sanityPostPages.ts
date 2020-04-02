@@ -1,10 +1,13 @@
-const path = require('path');
-const slugify = require('slugify');
-const { arrayMinMax } = require('../src/helpers');
+import path from 'path'
+import slugify from 'slugify'
+import { arrayMinMax } from '../helpers';
+import { pageDefinitionsObject } from './pageGeneratorTypes';
+import { graphql } from 'gatsby';
 
-const pageDefinitions = {
+
+const pageDefinitions : pageDefinitionsObject = {
   author: {
-    query: `
+    query: graphql`
     {
       allSanityPostAuthor {
         nodes{
@@ -25,7 +28,7 @@ const pageDefinitions = {
     },
   },
   blog: {
-    query: `
+    query: graphql`
     {
       allSanityPostBlog(filter: {generic: {disable: {ne: true}}}, sort: {order: ASC, fields: generic___dateRelease}) {
         nodes {
@@ -65,7 +68,7 @@ const pageDefinitions = {
     },
   },
   news: {
-    query: `
+    query: graphql`
       {
         allSanityPostNews(filter: {generic: {disable: {ne: true}}}) {
           nodes {

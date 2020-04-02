@@ -1,4 +1,5 @@
 // Load variables from `.env` as soon as possible
+import { GatsbyConfig } from 'gatsby'
 
 import dotenv from 'dotenv';
 
@@ -11,7 +12,7 @@ const clientConfig = require('./client-config');
 const isProd = process.env.NODE_ENV === 'production';
 const siteUrl = 'https://www.futuresfinefurnitureandbedding.com';
 
-module.exports = {
+const config : GatsbyConfig = {
   siteMetadata: {
     title: `Futures Fine Furniture and Bedding`,
     description: `Mid North Coast Furniture & Mobility Store, Hastings & Macleay Valley`,
@@ -109,3 +110,5 @@ module.exports = {
     },
   ],
 };
+
+export { config };
