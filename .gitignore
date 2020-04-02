@@ -65,6 +65,10 @@ adminPage/dist
 webpage/public
 webpage/*.js
 webpage/*.d.ts
+webpage/pageGenerator/*.js
+webpage/pageGenerator/*.d.ts
+webpage/helpers/*.js
+webpage/helpers/*.d.ts
 
 # Datafiles
 adminpage/data/export/*
