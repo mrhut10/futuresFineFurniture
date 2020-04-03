@@ -63,6 +63,9 @@ typings/
 .cache/
 webpage/public
 adminPage/dist
+webpage/helpers/
+webpage/pageGenerator/
+*.d.ts
 
 # Datafiles
 adminpage/data/export/*
