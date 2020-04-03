@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
+import TermsPopup from './termsPopup';
 
 import Head from './Head';
 import Nav from './Nav';
@@ -42,6 +43,7 @@ const Layout = ({ children, showHero }) => {
             — a passionate JAMstack developer
           </div>
         </footer>
+        <TermsPopup />
       </div>
     </>
   );
