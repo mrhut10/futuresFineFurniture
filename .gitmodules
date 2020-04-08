@@ -1,0 +1,3 @@
+[submodule "webpage/src/hooks/react-use-idb"]
+	path = webpage/src/hooks/react-use-idb
+	url = https://github.com/mrhut10/react-use-idb.git
