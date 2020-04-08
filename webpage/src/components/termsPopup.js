@@ -3,7 +3,7 @@ import moment from 'moment';
 import { animated, useTransition } from 'react-spring';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 import { MdClose } from 'react-icons/md';
-import { useIdb } from 'react-use-idb';
+import { useIdb } from '../hooks/react-use-idb'; // 'react-use-idb';
 
 const AnimatedDialogOverlay = animated(DialogOverlay);
 const AnimatedDialogContent = animated(DialogContent);
