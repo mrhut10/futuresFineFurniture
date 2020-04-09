@@ -10,6 +10,7 @@ const pagedefs = ({ graphql, actions }) => ({
     generator: result => {
       try {
         const snipcartObject = snipcart_sanityToJSON.snipcartJson(result);
+        console.log(snipcartObject);
         const JSONObject = JSON.stringify(snipcartObject);
         const exists = [
           fs.existsSync('./public/snipcart.json'),
