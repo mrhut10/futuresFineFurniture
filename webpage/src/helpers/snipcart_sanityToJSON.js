@@ -96,7 +96,7 @@ const ProductDefinitionToSnipcartDefinition = R.compose(
         R.always([]),
         R.compose(
           R.of,
-          R.zipObj(['name','options']),
+          R.zipObj(['name', 'options']),
           R.juxt([
             // name
             R.always('Option'),
