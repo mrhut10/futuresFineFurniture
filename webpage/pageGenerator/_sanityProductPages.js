@@ -24,8 +24,9 @@ const pagedefs = ({ graphql, actions }) => ({
         fs.writeFileSync('./static/snipcart.json', JSONObject);
       } catch (error) {
         console.log('error writing snipcart file', error);
+        actions.reporter.error('error writing snipcart file');
       }
-      result.data.allSanityProduct.edges.forEach(({ node }) => {
+      result.data.allSanityProduct.nodes.forEach(node => {
         if (node.slug && node.slug.current) {
           // product has slug
           if (
@@ -50,25 +51,30 @@ const pagedefs = ({ graphql, actions }) => ({
     query: graphql(`
       {
         allSanityProduct {
-          edges {
-            node {
+          nodes {
+            _id
+            name
+            slug {
+              current
+            }
+            common {
+              disable
+            }
+            range {
               _id
-              name
+            }
+            category {
+              _id
               slug {
                 current
               }
-              common {
-                disable
-              }
-              range {
-                _id
-              }
-              category {
-                _id
-                slug {
-                  current
-                }
-              }
+            }
+            variants {
+              name
+              price
+              discount_method
+              discount_amount
+              disable
             }
           }
         }

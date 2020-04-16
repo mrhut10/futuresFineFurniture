@@ -61,15 +61,11 @@ const cheapestProductInArray = reduce(
   undefined
 );
 
-const locateEdges = R.path(['data', 'allSanityProduct', 'edges']);
+const locateNodes = R.path(['data', 'allSanityProduct', 'nodes']);
 
 const edgeToProductDefinition = R.compose(
   R.zipObj(['id', 'name', 'variants']),
-  R.juxt([
-    R.path(['node', '_id']),
-    R.path(['node', 'name']),
-    R.path(['node', 'variants']),
-  ])
+  R.juxt([R.prop('_id'), R.prop('name'), R.prop('variants')])
 );
 
 const ProductDefinitionToSnipcartDefinition = R.compose(
@@ -116,10 +112,10 @@ exports.snipcartJson = R.compose(
     R.compose(ProductDefinitionToSnipcartDefinition, edgeToProductDefinition)
   ),
   // remove products with no active variants
-  R.filter(R.compose(R.any(activeVariant), R.pathOr([], ['node', 'variants']))),
+  R.filter(R.compose(R.any(activeVariant), R.propOr([], 'variants'))),
   // remove disabled products
-  R.filter(R.complement(R.pathEq(['node', 'disable'], true))),
-  locateEdges
+  R.filter(R.complement(R.propEq('disable', true))),
+  locateNodes
 );
 
 exports.variantlistToSnipcartOptionsString = variantlistToSnipcartOptionsString;
