@@ -79,17 +79,13 @@ module.exports = {
       resolve: 'gatsby-plugin-sitemap',
       options: {
         output: '/sitemap.xml',
-        exclude: ['/sanity/*', '/sanity-range', '/sanity-related'],
+        exclude: [],
         createLinkInHead: true,
         serialize: ({ site, allSitePage }) =>
           allSitePage.edges
             .filter(edge => {
               const { path } = edge.node;
-              return !(
-                path.includes('/sanity/') ||
-                path.includes('/sanity-range') ||
-                path.includes('/sanity-related')
-              );
+              return true;
             })
             .map(edge => ({
               url: `${siteUrl}${edge.node.path}`,
@@ -107,7 +103,7 @@ module.exports = {
           {
             userAgent: '*',
             allow: '/',
-            disallow: ['/sanity/*', '/sanity-range', '/sanity-related'],
+            disallow: [],
           },
         ],
       },
