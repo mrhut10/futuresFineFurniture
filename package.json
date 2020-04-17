@@ -3,6 +3,7 @@
   "name": "futuresfinefurniture",
   "version": "1.0.0",
   "description": "futures fine website",
+  "engines": {"node": ">=10.13.0"},
   "scripts": {
     "dev": "lerna run dev --parallel",
     "dev-admin": "cd adminpage && npm run dev",
