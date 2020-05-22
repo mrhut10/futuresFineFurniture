@@ -5,68 +5,68 @@ import CategoryTitle from './CategoryTile';
 import { applyDiscountToVariant } from '../helpers/snipcart_sanityToJSON';
 import { priceFormat } from '../helpers';
 
-const queryToProductData = R.compose(
-  R.take(3),
-  /* R.sortBy(
+const queryToProductData = quanity =>
+  R.compose(
+    R.take(quanity),
+    /* R.sortBy(
     product =>
       (product.selectedVariant.price -
         applyDiscountToVariant(product.selectedVariant)) /
       product.selectedVariant.price
   ), */
-  R.flatten,
-  R.map(
-    R.compose(
-      // map to many copies with each selected variant
-      product => {
-        const output = [];
-        const { id, name, images, slug, variants, category } = product;
-
-        product.variants.forEach(variant => {
-          output.push({
-            id,
-            name,
-            images,
-            slug,
-            variants,
-            category,
-            selectedVariant: variant,
+    R.flatten,
+    R.map(
+      R.compose(
+        // map to many copies with each selected variant
+        product => {
+          const output = [];
+          const { id, name, images, slug, variants, category } = product;
+          product.variants.forEach(variant => {
+            output.push({
+              id,
+              name,
+              images,
+              slug,
+              variants,
+              category,
+              selectedVariant: variant,
+            });
           });
-        });
-        return output;
-      },
-      R.zipObj(['id', 'name', 'images', 'slug', 'variants', 'category']),
-      R.juxt([
-        // id
-        R.prop('id'),
-        // name
-        R.prop('name'),
-        // images
-        R.compose(R.map(R.path(['image', 'asset'])), R.prop('images')),
-        // slug
-        R.compose(R.toLower, R.path(['slug', 'current'])),
-        // variants (discounted)
-        R.compose(
-          // first unquie by sell price
-          R.uniqBy(applyDiscountToVariant),
-          // filters out non discounted variants
-          R.filter(
-            variant => variant.discount_amount >= 0 && variant.disable !== false
+          return output;
+        },
+        R.zipObj(['id', 'name', 'images', 'slug', 'variants', 'category']),
+        R.juxt([
+          // id
+          R.prop('id'),
+          // name
+          R.prop('name'),
+          // images
+          R.compose(R.map(R.path(['image', 'asset'])), R.prop('images')),
+          // slug
+          R.compose(R.toLower, R.path(['slug', 'current'])),
+          // variants (discounted)
+          R.compose(
+            // first unquie by sell price
+            R.uniqBy(applyDiscountToVariant),
+            // filters out non discounted variants
+            R.filter(
+              variant => variant.discount_amount >= 0 && variant.disable !== false
+            ),
+            R.prop('variants')
           ),
-          R.prop('variants')
-        ),
-        // category
-        R.compose(
-          R.objOf('slug'),
-          R.toLower,
-          R.path(['category', 'slug', 'current'])
-        ),
-      ])
-    )
-  ),
-  R.path(['allSanityProduct', 'nodes'])
-);
+          // category
+          R.compose(
+            R.objOf('slug'),
+            R.toLower,
+            R.path(['category', 'slug', 'current'])
+          ),
+        ])
+      )
+    ),
+    R.path(['allSanityProduct', 'nodes'])
+  );
 
-const DiscountedProducts = () => {
+const ProductsRecentlyModified = ({ quanity }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -139,11 +139,11 @@ const DiscountedProducts = () => {
               </div>
             </div>
           ),
-          queryToProductData
+          queryToProductData(quanity)
         )(queryData)
       }
     />
   );
 };
 
-export default DiscountedProducts;
+export default ProductsRecentlyModified;
