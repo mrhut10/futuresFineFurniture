@@ -5,7 +5,8 @@ import SEO from '../components/SEO';
 
 import Logo from '../images/slimLogo.svg';
 import CategoriesAll from '../components/CategoriesAll';
-import DiscountedProducts from '../components/DiscountedProducts';
+import ProductsRecentlyModified from '../components/ProductsRecentlyModified';
+// import DiscountedProducts from '../components/DiscountedProducts';
 
 const IndexPage = () => (
   <Layout showHero>
@@ -62,8 +63,16 @@ const IndexPage = () => (
       */}
       <hr className="bg-gray-200" />
       <div className="mb-4 mx-auto w-full">
-        <h2 className="font-bold mb-4 text-2xl text-maroon-600">Latest Specials</h2>
-        <DiscountedProducts />
+        {/*
+          <h2 className="font-bold mb-4 text-2xl text-maroon-600">Latest Specials</h2>
+          <DiscountedProducts />
+        */}
+        <h2 className="font-bold mb-4 text-2xl text-maroon-600">
+          {/* <Link to="/new"> */}
+          New Products
+          {/* </Link> */}
+        </h2>
+        <ProductsRecentlyModified quanity={3} />
       </div>
       <div className="mb-4 mx-auto w-full">
         <h2 className="font-bold mb-4 text-2xl text-maroon-600">Our Full Range</h2>
