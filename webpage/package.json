@@ -24,6 +24,7 @@
     "gatsby-plugin-robots-txt": "^1.5.1",
     "gatsby-plugin-sharp": "^2.5.5",
     "gatsby-plugin-sitemap": "^2.3.3",
+    "gatsby-plugin-snipcart": "^1.1.2",
     "gatsby-plugin-typescript": "^2.3.2",
     "gatsby-source-filesystem": "^2.2.3",
     "gatsby-source-sanity": "^5.0.6",
