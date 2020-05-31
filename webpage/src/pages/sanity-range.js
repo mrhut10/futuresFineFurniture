@@ -7,11 +7,11 @@ import CategoryTitle from '../components/CategoryTile';
 const sanityRange = () => (
   <Layout>
     <SEO title="Product Range" />
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <h1 className="font-bold mb-4 text-2xl text-maroon-600">
+    <div className="max-w-4xl px-4 py-12 mx-auto">
+      <h1 className="mb-4 text-2xl font-bold text-maroon-600">
         Pick a Category
       </h1>
-      <div className="flex flex-wrap justify-center mx-auto w-full">
+      <div className="flex flex-wrap justify-center w-full mx-auto">
         <div className="flex flex-wrap -m-2">
           <StaticQuery
             query={query}

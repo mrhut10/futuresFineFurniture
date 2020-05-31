@@ -7,12 +7,12 @@ import HeroImageBig from '../images/heroLogo.svg';
 import HeroImageSlim from '../images/slimLogo.svg';
 
 const HeroBig = ({ data }) => (
-  <div className="bg-black flex justify-center relative">
+  <div className="relative flex justify-center bg-black">
     <Image
-      className="h-full opacity-75 w-full"
+      className="w-full h-full opacity-75"
       fluid={data.hero.childImageSharp.fluid}
     />
-    <div className="absolute flex inset-0 items-center justify-center max-w-xl mx-auto object-center p-4 w-full">
+    <div className="absolute inset-0 flex items-center justify-center object-center w-full max-w-xl p-4 mx-auto">
       <img
         className="w-full"
         src={HeroImageBig}
@@ -51,7 +51,7 @@ const Hero = ({ showHero = false }) => {
   `);
 
   return (
-    <header className="bg-maroon-800 max-w-5xl mx-auto overflow-hidden relative sm:rounded-t-lg w-full">
+    <header className="relative w-full max-w-5xl mx-auto overflow-hidden bg-maroon-800 sm:rounded-t-lg">
       <h1>
         <Link to="/">
           {showHero ? <HeroBig data={data} /> : <HeroSlim data={data} />}

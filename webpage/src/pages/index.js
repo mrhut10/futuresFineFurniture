@@ -20,16 +20,16 @@ const IndexPage = () => (
         `macksville`,
       ]}
     />
-    <div className="max-w-4xl mx-auto px-4 py-12 w-full">
-      <div className="mx-auto w-full">
+    <div className="w-full max-w-4xl px-4 py-12 mx-auto">
+      <div className="w-full mx-auto">
         <img src={Logo} alt="" />
       </div>
-      <div className="my-8 mx-auto text-center text-xl w-full">
+      <div className="w-full mx-auto my-8 text-xl text-center">
         <p className="mb-16">
           Highest Quality, Lowest Prices,{' '}
           {
             <Link
-              className="font-bold hover:text-cream-600 underline"
+              className="font-bold underline hover:text-cream-600"
               to="/payment"
             >
               Flexible Payments
@@ -43,14 +43,14 @@ const IndexPage = () => (
         </p>
       </div>
       {/*
-        <div className="mb-8 mx-auto text-lg">
-          <div className="flex flex-wrap -mx-2 mb-6">
-            <div className="flex-1 mb-6 md:mb-0 px-2 w-full md:w-1/2">
-              <div className="border border-cream-200 flex flex-col items-center bg-cream-100 p-4 rounded-lg shadow text-cream-700">
-                <h3 className="font-bold text-2xl">
+        <div className="mx-auto mb-8 text-lg">
+          <div className="flex flex-wrap mb-6 -mx-2">
+            <div className="flex-1 w-full px-2 mb-6 md:mb-0 md:w-1/2">
+              <div className="flex flex-col items-center p-4 border rounded-lg shadow border-cream-200 bg-cream-100 text-cream-700">
+                <h3 className="text-2xl font-bold">
                   Massive floorstock Promotion
                 </h3>
-                <hr className="bg-cream-300 mt-1" />
+                <hr className="mt-1 bg-cream-300" />
                 <p className="mb-2">
                   10% discount of floor stocked product's <br />
                   <small>*orders over $1000 for August 2019 Only</small>
@@ -62,20 +62,22 @@ const IndexPage = () => (
         <br />
       */}
       <hr className="bg-gray-200" />
-      <div className="mb-4 mx-auto w-full">
+      <div className="w-full mx-auto mb-4">
         {/*
-          <h2 className="font-bold mb-4 text-2xl text-maroon-600">Latest Specials</h2>
+          <h2 className="mb-4 text-2xl font-bold text-maroon-600">Latest Specials</h2>
           <DiscountedProducts />
         */}
-        <h2 className="font-bold mb-4 text-2xl text-maroon-600">
+        <h2 className="mb-4 text-2xl font-bold text-maroon-600">
           {/* <Link to="/new"> */}
           New Products
           {/* </Link> */}
         </h2>
         <ProductsRecentlyModified quanity={3} />
       </div>
-      <div className="mb-4 mx-auto w-full">
-        <h2 className="font-bold mb-4 text-2xl text-maroon-600">Our Full Range</h2>
+      <div className="w-full mx-auto mb-4">
+        <h2 className="mb-4 text-2xl font-bold text-maroon-600">
+          Our Full Range
+        </h2>
         <CategoriesAll />
       </div>
     </div>

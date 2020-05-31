@@ -13,7 +13,7 @@ const PaymentPage = () => (
   <Layout>
     <SEO title="Payment" />
     <Wrapper>
-      <h1 className="font-bold mb-4 text-2xl text-maroon-600">
+      <h1 className="mb-4 text-2xl font-bold text-maroon-600">
         Innovative Payment Options
       </h1>
       <p>
@@ -31,15 +31,15 @@ const PaymentPage = () => (
 );
 
 const CheckMark = ({ title, img }) => (
-  <li className="mb-8 px-4 w-full sm:w-1/2 md:w-1/3">
-    <div className="bg-white p-4 relative rounded-lg shadow-md w-full">
+  <li className="w-full px-4 mb-8 sm:w-1/2 md:w-1/3">
+    <div className="relative w-full p-4 bg-white rounded-lg shadow-md">
       <MdCheckCircle className="absolute bottom-0 left-0 mb-4 ml-4 rounded-full text-maroon-600" />
       <img
-        className="h-56 object-cover object-center w-full"
+        className="object-cover object-center w-full h-56"
         src={img}
         alt=""
       />
-      <h4 className="font-bold mt-4 text-center text-maroon-700 text-sm tracking-wider uppercase">
+      <h4 className="mt-4 text-sm font-bold tracking-wider text-center uppercase text-maroon-700">
         {title}
       </h4>
     </div>

@@ -22,15 +22,15 @@ const Layout = ({ children, showHero }) => {
   return (
     <>
       <Head data={data} />
-      <div className="bg-maroon-900 flex flex-col font-sans min-h-screen sm:px-4 sm:pt-4 text-base text-gray-700">
-        <div className="flex flex-col max-w-5xl m-auto relative rounded-lg shadow-2xl w-full">
+      <div className="flex flex-col min-h-screen font-sans text-base text-gray-700 bg-maroon-900 sm:px-4 sm:pt-4">
+        <div className="relative flex flex-col w-full max-w-5xl m-auto rounded-lg shadow-2xl">
           <Hero showHero={showHero} />
           <Nav />
-          <main className="flex flex-col bg-gray-100 rounded-b-lg w-full">
+          <main className="flex flex-col w-full bg-gray-100 rounded-b-lg">
             {children}
           </main>
         </div>
-        <footer className="flex flex-1 flex-col font-medium p-4 text-center text-white">
+        <footer className="flex flex-col flex-1 p-4 font-medium text-center text-white">
           <div className="mt-auto">
             Built for Futures Fine Furniture and Bedding Pty Ltd ©{' '}
             {new Date().getFullYear()} by{' '}
