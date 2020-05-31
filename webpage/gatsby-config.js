@@ -1,12 +1,13 @@
-// Load variables from `.env` as soon as possible
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV || 'development'}`,
-});
-
+const dotenv = require('dotenv');
 const clientConfig = require('./client-config');
 
 const isProd = process.env.NODE_ENV === 'production';
 const siteUrl = 'https://www.futuresfinefurnitureandbedding.com';
+
+// Load variables from '.env' as soon as possible
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV || 'development'}`,
+});
 
 module.exports = {
   siteMetadata: {
