@@ -35,16 +35,8 @@ const CategoryTitle = ({
         ) : (
           <Img className="my-auto" 
             alt="product"
-            fixed={
-              images && images[0] && images[0].fixed
-                ? images[0].fixed
-                : { src: '' }
-            }
-            fluid={
-              images && images[0] && images[0].fluid
-                ? images[0].fluid
-                : { src: '' }
-            }
+            fixed={images?.[0]?.fixed ? images[0].fixed : null}
+            fluid={images?.[0]?.fluid ? images[0].fluid : null}
           />
         )}
         <h4 className="font-bold leading-none pt-4 text-maroon-700 group-hover:text-maroon-500 text-sm tracking-wider uppercase">
