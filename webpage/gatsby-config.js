@@ -93,12 +93,16 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: 'gatsby-plugin-snipcart',
       options: {
-        host: siteUrl,
-        sitemap: `${siteUrl}/sitemap.xml`,
-        policy: [
-          {
+        apiKey:
+          'ZWQ5YjMwNmEtMjE1OS00MmMyLWEzOWUtNDJjY2M4NTgyNTgzNjM2NzY2ODMyMDY2NzQzNzg2',
+        autopop: true,
+        js: 'https://cdn.snipcart.com/scripts/2.0/snipcart.js',
+        jquery: 'https://code.jquery.com/jquery-3.4.1.min.js',
+        styles: 'https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css',
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
