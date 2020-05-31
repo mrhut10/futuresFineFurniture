@@ -58,13 +58,6 @@ module.exports = {
     },
     'gatsby-plugin-offline', // To learn more, visit: https://gatsby.dev/offline // this (optional) plugin enables Progressive Web App + Offline functionality
     {
-      resolve: 'gatsby-plugin-purgecss',
-      options: {
-        tailwind: true,
-        purgeOnly: ['src/css/tailwind.css'],
-      },
-    },
-    {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
         host: siteUrl,

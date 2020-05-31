@@ -19,7 +19,6 @@
     "gatsby-plugin-manifest": "^2.3.4",
     "gatsby-plugin-offline": "^2.2.9",
     "gatsby-plugin-postcss": "^2.2.2",
-    "gatsby-plugin-purgecss": "^4.0.0",
     "gatsby-plugin-react-helmet": "^3.2.3",
     "gatsby-plugin-robots-txt": "^1.5.1",
     "gatsby-plugin-sharp": "^2.5.5",
@@ -45,6 +44,7 @@
     "react-spring": "^8.0.27",
     "react-use-idb": "^1.0.2",
     "slugify": "^1.4.0",
+    "tailwindcss": "^1.4.6",
     "tailwindcss": "^1.2.0"
   },
   "devDependencies": {
