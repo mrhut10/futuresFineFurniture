@@ -23,7 +23,7 @@ _DateMenu.propTypes = {
   // children: PropTypes.arrayOf(PropTypes.instanceOf(DateMenuItem)),
 };
 _DateMenuItem.propTypes = {
-  children: PropTypes.element,
+  // children: PropTypes.element,
   date: PropTypes.string,
 };
 
