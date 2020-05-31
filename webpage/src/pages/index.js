@@ -72,7 +72,7 @@ const IndexPage = () => (
           New Products
           {/* </Link> */}
         </h2>
-        <ProductsRecentlyModified quanity={3} />
+        <ProductsRecentlyModified quantity={3} />
       </div>
       <div className="w-full mx-auto mb-4">
         <h2 className="mb-4 text-2xl font-bold text-maroon-600">
