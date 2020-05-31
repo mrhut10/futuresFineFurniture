@@ -5,14 +5,14 @@ import Img from 'gatsby-image';
 
 import NotAvaliable from './NotAvaliable';
 
-const ImageComponent = (image, maxHeight = '350px') => (
-  <img
-    style={{ maxHeight }}
-    alt="product"
-    src={image.src}
-    srcSet={image.srcSet}
-  />
-);
+// const ImageComponent = (image, maxHeight = '350px') => (
+//   <img
+//     style={{ maxHeight }}
+//     alt="product"
+//     src={image.src}
+//     srcSet={image.srcSet}
+//   />
+// );
 
 const CategoryTitle = ({
   children,
@@ -21,25 +21,26 @@ const CategoryTitle = ({
   slug,
   images,
   comingSoon,
-  height = 350,
+  // height = 350,
 }) => (
-  <div className="flex flex-col p-2 w-full sm:w-1/2 md:w-1/3">
-    <div className="bg-white flex flex-1 flex-col no-underline overflow-hidden rounded-lg shadow hover:shadow-lg text-center">
+  <div className="flex flex-col w-full p-2 sm:w-1/2 md:w-1/3">
+    <div className="flex flex-col flex-1 overflow-hidden text-center no-underline bg-white rounded-lg shadow hover:shadow-lg">
       <Link
-        className="flex flex-1 flex-col group p-4"
+        className="flex flex-col flex-1 p-4 group"
         to={slug || '/'}
         title={hoverText}
       >
         {comingSoon ? (
-          <NotAvaliable text='Coming Soon' showContact />
+          <NotAvaliable text="Coming Soon" showContact />
         ) : (
-          <Img className="my-auto" 
+          <Img
+            className="my-auto"
             alt="product"
             fixed={images?.[0]?.fixed ? images[0].fixed : null}
             fluid={images?.[0]?.fluid ? images[0].fluid : null}
           />
         )}
-        <h4 className="font-bold leading-none pt-4 text-maroon-700 group-hover:text-maroon-500 text-sm tracking-wider uppercase">
+        <h4 className="pt-4 text-sm font-bold leading-none tracking-wider uppercase text-maroon-700 group-hover:text-maroon-500">
           {name}
         </h4>
       </Link>
@@ -54,6 +55,7 @@ CategoryTitle.propTypes = {
   slug: PropTypes.string,
   images: PropTypes.arrayOf(PropTypes.object),
   comingSoon: PropTypes.bool,
+  // height: PropTypes.number,
   children: PropTypes.any,
 };
 
