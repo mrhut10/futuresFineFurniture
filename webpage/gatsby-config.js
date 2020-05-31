@@ -11,88 +11,52 @@ dotenv.config({
 
 module.exports = {
   siteMetadata: {
-    title: `Futures Fine Furniture and Bedding`,
-    description: `Mid North Coast Furniture & Mobility Store, Hastings & Macleay Valley`,
-    author: `@ahut10`,
+    title: 'Futures Fine Furniture and Bedding',
+    description:
+      'Mid North Coast Furniture & Mobility Store, Hastings & Macleay Valley',
+    author: '@ahut10',
     snipCartApiKey: process.env.snipcart_api,
     siteUrl,
-    address: `Centerpoint Arcade, 14 Smith Street, Kempsey, NSW 2440`,
-    phone: `tel:+61265626675`,
-    phoneFormatted: `(02) 6562 6675`,
+    address: 'Centerpoint Arcade, 14 Smith Street, Kempsey, NSW 2440',
+    phone: 'tel:+61265626675',
+    phoneFormatted: '(02) 6562 6675',
   },
   plugins: [
+    'gatsby-plugin-postcss',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-remark',
+    'gatsby-transformer-sharp',
+    // {
+    //   resolve: 'gatsby-plugin-google-analytics',
+    //   options: {
+    //     trackingId: 'UA-131726943-1',
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-gtag',
       options: {
         trackingId: 'UA-131726943-1',
       },
     },
-    /*
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        trackingId: 'UA-131726943-1',
+        name: 'Futures Fine Furniture and Bedding',
+        short_name: 'Futures Fine Furniture',
+        start_url: '/',
+        background_color: fullConfig.theme.colors.maroon['800'],
+        theme_color: fullConfig.theme.colors.cream['200'],
+        display: 'minimal-ui',
+        icon: 'src/images/icon.png', // This path is relative to the root of the site.
       },
     },
-     */
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-offline', // To learn more, visit: https://gatsby.dev/offline // this (optional) plugin enables Progressive Web App + Offline functionality
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-sanity',
-      options: {
-        ...clientConfig.sanity,
-        token: process.env.SANITY_READ_TOKEN,
-        watchMode: !isProd,
-        overlayDrafts: !isProd,
-      },
-    },
-    `gatsby-transformer-remark`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Futures Fine Furniture and Bedding`,
-        short_name: `Futures Fine Furniture`,
-        start_url: `/`,
-        background_color: `#522224`,
-        theme_color: `#FEF7C4`,
-        display: `minimal-ui`,
-        icon: `src/images/icon.png`, // This path is relative to the root of the site.
-      },
-    },
-    `gatsby-plugin-postcss`,
-    {
-      resolve: `gatsby-plugin-purgecss`,
+      resolve: 'gatsby-plugin-purgecss',
       options: {
         tailwind: true,
-        purgeOnly: [`src/css/tailwind.css`],
-      },
-    },
-    `gatsby-plugin-offline`, // To learn more, visit: https://gatsby.dev/offline // this (optional) plugin enables Progressive Web App + Offline functionality
-    {
-      resolve: 'gatsby-plugin-sitemap',
-      options: {
-        output: '/sitemap.xml',
-        exclude: [],
-        createLinkInHead: true,
-        serialize: ({ site, allSitePage }) =>
-          allSitePage.edges
-            .filter(edge => {
-              const { path } = edge.node;
-              return true;
-            })
-            .map(edge => ({
-              url: `${siteUrl}${edge.node.path}`,
-              changefreq: `daily`,
-              priority: 0.7,
-            })),
+        purgeOnly: ['src/css/tailwind.css'],
       },
     },
     {
@@ -107,6 +71,48 @@ module.exports = {
             disallow: [],
           },
         ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        output: '/sitemap.xml',
+        exclude: [],
+        createLinkInHead: true,
+        serialize: ({ site, allSitePage }) =>
+          allSitePage.edges
+            .filter(edge => {
+              const { path } = edge.node;
+              return true;
+            })
+            .map(edge => ({
+              url: `${siteUrl}${edge.node.path}`,
+              changefreq: 'daily',
+              priority: 0.7,
+            })),
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: siteUrl,
+        sitemap: `${siteUrl}/sitemap.xml`,
+        policy: [
+          {
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: 'src/images',
+      },
+    },
+    {
+      resolve: 'gatsby-source-sanity',
+      options: {
+        ...clientConfig.sanity,
+        token: process.env.SANITY_READ_TOKEN,
+        watchMode: !isProd,
+        overlayDrafts: !isProd,
       },
     },
   ],
