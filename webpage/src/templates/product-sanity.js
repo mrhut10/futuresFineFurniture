@@ -5,10 +5,9 @@ import Img from 'gatsby-image';
 import Layout from '../components/Layout';
 import Wrapper from '../components/Wrapper';
 import SEO from '../components/SEO';
-import {
-  applyDiscountToVariant,
-  activeVariant,
-} from '../helpers/snipcart_sanityToJSON';
+import // applyDiscountToVariant,
+// activeVariant,
+'../helpers/snipcart_sanityToJSON';
 import NotAvaliable from '../components/NotAvaliable';
 import { NewBuyArea } from '../components/newSnipcart';
 import CategoryTitle from '../components/CategoryTile';
