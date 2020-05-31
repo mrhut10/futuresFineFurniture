@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class _DateMenuItem extends React.Component {
-  render(){
+  render() {
     const { date } = this.props;
     return (
       <div>

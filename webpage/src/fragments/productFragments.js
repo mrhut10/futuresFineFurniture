@@ -24,7 +24,7 @@ export const fieldsImageStdSize = graphql(`
       ...GatsbySanityImageFluid
     }
   }
-`)
+`);
 
 export const fieldsSanityCategory = graphql`
   fragment fieldsImageStdSize on SanityImageAsset {

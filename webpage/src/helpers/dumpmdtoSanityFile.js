@@ -50,8 +50,8 @@ const last = a => a[a.length - 1];
 /** @type {String} @param {String}[categoryName] */
 const categoryNameToRefNumber = categoryName =>
   categories.find(a => {
-    console.log({"name":categoryName});
-    a.name.trim().toLowerCase() === categoryName.toLowerCase()
+    console.log({ name: categoryName });
+    a.name.trim().toLowerCase() === categoryName.toLowerCase();
   });
 
 /** @type {string} @param {String}[oldSlug] */
