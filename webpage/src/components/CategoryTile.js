@@ -15,7 +15,7 @@ const ImageComponent = (image, maxHeight = '350px') => (
 );
 
 const CategoryTitle = ({
-  Children,
+  children,
   name,
   hoverText,
   slug,
@@ -43,7 +43,7 @@ const CategoryTitle = ({
           {name}
         </h4>
       </Link>
-      {Children}
+      {children}
     </div>
   </div>
 );
@@ -54,8 +54,7 @@ CategoryTitle.propTypes = {
   slug: PropTypes.string,
   images: PropTypes.arrayOf(PropTypes.object),
   comingSoon: PropTypes.bool,
-  height: PropTypes.number,
-  Children: PropTypes.any,
+  children: PropTypes.any,
 };
 
 export default CategoryTitle;
