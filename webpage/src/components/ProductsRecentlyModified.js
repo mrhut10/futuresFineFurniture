@@ -1,6 +1,8 @@
 import React from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
 import * as R from 'ramda';
+import PropTypes from 'prop-types';
+
 import CategoryTitle from './CategoryTile';
 import { applyDiscountToVariant } from '../helpers/snipcart_sanityToJSON';
 import { priceFormat } from '../helpers';
@@ -145,6 +147,10 @@ const ProductsRecentlyModified = ({ quantity }) => {
       }
     />
   );
+};
+
+ProductsRecentlyModified.propTypes = {
+  quantity: PropTypes.number.isRequired,
 };
 
 export default ProductsRecentlyModified;
