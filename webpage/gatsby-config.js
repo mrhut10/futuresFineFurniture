@@ -1,5 +1,10 @@
 const dotenv = require('dotenv');
+const resolveConfig = require('tailwindcss/resolveConfig');
 const clientConfig = require('./client-config');
+const tailwindConfig = require('./tailwind.config.js');
+
+// Get colours for manifest directly from Tailwind
+const fullConfig = resolveConfig(tailwindConfig);
 
 const isProd = process.env.NODE_ENV === 'production';
 const siteUrl = 'https://www.futuresfinefurnitureandbedding.com';
