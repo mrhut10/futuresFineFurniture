@@ -4,6 +4,23 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import CategoryTitle from '../components/CategoryTile';
 
+const query = graphql`
+  {
+    allSanityCategory(
+      filter: {
+        categoryParent: { _id: { eq: null } }
+        common: { disable: { ne: true } }
+      }
+    ) {
+      edges {
+        node {
+          ...fieldsSanityCategory
+        }
+      }
+    }
+  }
+`;
+
 const sanityRange = () => (
   <Layout>
     <SEO title="Product Range" />
@@ -40,19 +57,3 @@ const sanityRange = () => (
 );
 
 export default sanityRange;
-const query = graphql`
-  {
-    allSanityCategory(
-      filter: {
-        categoryParent: { _id: { eq: null } }
-        common: { disable: { ne: true } }
-      }
-    ) {
-      edges {
-        node {
-          ...fieldsSanityCategory
-        }
-      }
-    }
-  }
-`;
