@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import * as R from 'ramda';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
@@ -141,10 +141,10 @@ const productRoute = ({ data }) => {
         <div className="bg-white mt-12 px-4 py-12 rounded-lg shadow-md hover:shadow-lg">
           <div className="markdown max-w-md mx-auto">
             {description
-              ? description.split('\n').map(line => (
-                  <>
+              ? description.split('\n').map((line, index) => (
+                  <Fragment key={index}>
                     {line} <br />
-                  </>
+                  </Fragment>
                 ))
               : ''}
           </div>
