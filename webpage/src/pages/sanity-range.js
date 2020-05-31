@@ -29,7 +29,7 @@ const sanityRange = () => (
         Pick a Category
       </h1>
       <div className="flex flex-wrap justify-center w-full mx-auto">
-        <div className="flex flex-wrap -m-2">
+        <div className="flex flex-wrap w-full -m-2">
           <StaticQuery
             query={query}
             render={queryData =>

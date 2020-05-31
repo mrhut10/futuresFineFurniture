@@ -93,7 +93,7 @@ const ProductsRecentlyModified = ({ quantity }) => {
         R.compose(
           productData => (
             <div className="flex flex-wrap justify-center w-full mx-auto">
-              <div className="flex flex-wrap -m-2">
+              <div className="flex flex-wrap w-full -m-2">
                 {productData.map((input, index) => {
                   const slug = `/category/${input.category.slug}/${input.slug}`;
                   return (

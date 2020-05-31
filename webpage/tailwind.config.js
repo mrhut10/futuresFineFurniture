@@ -1,5 +1,11 @@
+const tailwindcssAspectRatio = require('tailwindcss-aspect-ratio');
+
 module.exports = {
+  purge: ['./src/**/*.js'],
   theme: {
+    aspectRatio: {
+      square: [1, 1],
+    },
     extend: {
       colors: {
         gray: {
@@ -42,5 +48,5 @@ module.exports = {
     backgroundColor: ['responsive', 'hover', 'group-hover', 'focus'],
     textColor: ['responsive', 'hover', 'group-hover', 'focus'],
   },
-  plugins: [],
+  plugins: [tailwindcssAspectRatio],
 };

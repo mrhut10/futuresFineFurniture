@@ -46,7 +46,7 @@ const Categories = () => {
         R.compose(
           categoryData => (
             <div className="flex flex-wrap justify-center w-full mx-auto">
-              <div className="flex flex-wrap -m-2">
+              <div className="flex flex-wrap w-full -m-2">
                 {categoryData.map((input, index) => (
                   <CategoryTitle
                     key={index}

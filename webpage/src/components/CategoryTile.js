@@ -33,12 +33,17 @@ const CategoryTitle = ({
         {comingSoon ? (
           <NotAvaliable text="Coming Soon" showContact />
         ) : (
-          <Img
-            className="my-auto"
-            alt="product"
-            fixed={images?.[0]?.fixed ? images[0].fixed : null}
-            fluid={images?.[0]?.fluid ? images[0].fluid : null}
-          />
+          <div className="relative w-full h-0 aspect-ratio-square">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Img
+                alt="product"
+                fixed={images?.[0]?.fixed ? images[0].fixed : null}
+                fluid={images?.[0]?.fluid ? images[0].fluid : null}
+                imgStyle={{ objectFit: 'contain' }}
+                className="w-full h-full"
+              />
+            </div>
+          </div>
         )}
         <h4 className="pt-4 text-sm font-bold leading-none tracking-wider uppercase text-maroon-700 group-hover:text-maroon-500">
           {name}

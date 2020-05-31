@@ -45,7 +45,7 @@
     "react-use-idb": "^1.0.2",
     "slugify": "^1.4.0",
     "tailwindcss": "^1.4.6",
-    "tailwindcss": "^1.2.0"
+    "tailwindcss-aspect-ratio": "^3.0.0"
   },
   "devDependencies": {
     "@types/node": "^13.11.1",
