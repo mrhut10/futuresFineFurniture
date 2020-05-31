@@ -45,11 +45,11 @@ const Categories = () => {
       render={queryData =>
         R.compose(
           categoryData => (
-            <div className="flex flex-wrap justify-center mx-auto w-full">
+            <div className="flex flex-wrap justify-center w-full mx-auto">
               <div className="flex flex-wrap -m-2">
-                {categoryData.map(input => (
+                {categoryData.map((input, index) => (
                   <CategoryTitle
-                    key={input.id}
+                    key={index}
                     name={input.name}
                     slug={`/category/${input.slug}`}
                     hoverText={input.name}

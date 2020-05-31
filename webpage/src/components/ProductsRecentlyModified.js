@@ -5,9 +5,9 @@ import CategoryTitle from './CategoryTile';
 import { applyDiscountToVariant } from '../helpers/snipcart_sanityToJSON';
 import { priceFormat } from '../helpers';
 
-const queryToProductData = quanity =>
+const queryToProductData = quantity =>
   R.compose(
-    R.take(quanity),
+    R.take(quantity),
     /* R.sortBy(
     product =>
       (product.selectedVariant.price -
@@ -50,7 +50,8 @@ const queryToProductData = quanity =>
             R.uniqBy(applyDiscountToVariant),
             // filters out non discounted variants
             R.filter(
-              variant => variant.discount_amount >= 0 && variant.disable !== false
+              variant =>
+                variant.discount_amount >= 0 && variant.disable !== false
             ),
             R.prop('variants')
           ),
@@ -66,7 +67,7 @@ const queryToProductData = quanity =>
     R.path(['allSanityProduct', 'nodes'])
   );
 
-const ProductsRecentlyModified = ({ quanity }) => {
+const ProductsRecentlyModified = ({ quantity }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -78,7 +79,7 @@ const ProductsRecentlyModified = ({ quanity }) => {
               slug: { current: { ne: "" } }
             }
             limit: 100
-            sort: {fields: _createdAt order: DESC}
+            sort: { fields: _createdAt, order: DESC }
           ) {
             nodes {
               ...fieldsSanityProduct
@@ -89,13 +90,13 @@ const ProductsRecentlyModified = ({ quanity }) => {
       render={queryData =>
         R.compose(
           productData => (
-            <div className="flex flex-wrap justify-center mx-auto w-full">
+            <div className="flex flex-wrap justify-center w-full mx-auto">
               <div className="flex flex-wrap -m-2">
-                {productData.map(input => {
+                {productData.map((input, index) => {
                   const slug = `/category/${input.category.slug}/${input.slug}`;
                   return (
                     <CategoryTitle
-                      key={input.id}
+                      key={index}
                       name={`${input.name} ${
                         input.selectedVariant.name
                           ? `(${input.selectedVariant.name})`
@@ -139,7 +140,7 @@ const ProductsRecentlyModified = ({ quanity }) => {
               </div>
             </div>
           ),
-          queryToProductData(quanity)
+          queryToProductData(quantity)
         )(queryData)
       }
     />
