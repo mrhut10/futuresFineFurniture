@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class _DateMenuItem extends React.Component {
-  render(){
+  render() {
     const { date } = this.props;
     return (
       <div>
@@ -23,7 +23,7 @@ _DateMenu.propTypes = {
   // children: PropTypes.arrayOf(PropTypes.instanceOf(DateMenuItem)),
 };
 _DateMenuItem.propTypes = {
-  children: PropTypes.element,
+  // children: PropTypes.element,
   date: PropTypes.string,
 };
 

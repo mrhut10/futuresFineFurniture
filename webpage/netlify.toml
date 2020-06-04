@@ -1,0 +1,5 @@
+[build]
+  publish = "webpage/public/"
+
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"

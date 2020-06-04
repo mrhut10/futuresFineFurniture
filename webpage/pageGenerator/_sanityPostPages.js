@@ -14,7 +14,7 @@ const pageDefinitions = {
       }
     }`,
     generator: actions => ({ data }) => {
-      // create a author page for each author
+      // create an author page for each author
       data.allSanityPostAuthor.nodes.forEach(node => {
         actions.createPage({
           path: `/posts/authors/${slugify(node.name, { lower: true })}`,
@@ -104,7 +104,7 @@ const GeneratePostPages = ({ graphql, actions }) =>
     (acc, next) => {
       // map each query to a promisedReturnedData
       const pageDefinition = pageDefinitions[next];
-      // map value to prmised data then to a promised pages
+      // map value to promised data then to a promised pages
       acc[next] = graphql(pageDefinition.query).then(
         pageDefinition.generator(actions)
       );

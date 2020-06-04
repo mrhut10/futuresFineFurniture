@@ -16,21 +16,21 @@ export const BuyArea = ({ name, url, variants, disabled }) => {
     )(variants)
   );
   return (
-    <div className="bg-white flex flex-col my-auto px-4 py-8 rounded-lg shadow-md hover:shadow-lg w-full">
-      <div className="max-w-xs mx-auto w-full">
-        <h6 className="font-bold mb-4 text-center text-sm tracking-wider uppercase">{`${name}${
+    <div className="flex flex-col w-full px-4 py-8 my-auto bg-white rounded-lg shadow-md hover:shadow-lg">
+      <div className="w-full max-w-xs mx-auto">
+        <h6 className="mb-4 text-sm font-bold tracking-wider text-center uppercase">{`${name}${
           GetProductValue ? ` (${GetProductValue})` : ''
         }`}</h6>
         {variants.length > 1 ? (
           <div className="mb-4">
             <label htmlFor="pickVar">
-              <span className="block font-bold mb-2 text-xs uppercase">
+              <span className="block mb-2 text-xs font-bold uppercase">
                 Choose an Option:
               </span>
-              <div className="inline-block relative w-full">
+              <div className="relative inline-block w-full">
                 <select
                   id="pickVar"
-                  className="appearance-none bg-white block border border-gray-200 hover:border-gray-300 leading-tight focus:outline-none px-4 py-2 pr-8 rounded shadow focus:shadow-outline w-full"
+                  className="block w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-200 rounded shadow appearance-none hover:border-gray-300 focus:outline-none focus:shadow-outline"
                   value={GetProductValue}
                   onChange={e => SetProductValue(e.target.value)}
                 >
@@ -43,9 +43,9 @@ export const BuyArea = ({ name, url, variants, disabled }) => {
                     </option>
                   ))}
                 </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <div className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
                   <svg
-                    className="fill-current h-4 w-4"
+                    className="w-4 h-4 fill-current"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                   >
@@ -71,13 +71,13 @@ export const BuyArea = ({ name, url, variants, disabled }) => {
                       style={{
                         transform: `rotate(-3deg)`,
                       }}
-                      className="font-bold m-0 relative text-red text-base"
+                      className="relative m-0 text-base font-bold text-red"
                     >
                       Special Offer
                     </h6>
                     <div className="flex items-end justify-between">
                       <div>
-                        <span className="font-base line-through text-gray-600">
+                        <span className="text-gray-600 line-through font-base">
                           RRP : {intToPriceFormat(item.price)}
                         </span>
                         <br />
@@ -106,10 +106,10 @@ export const BuyArea = ({ name, url, variants, disabled }) => {
                   <>
                     <div className="flex items-baseline justify-between mb-6">
                       <div className="flex items-baseline">
-                        <span className="block font-bold mb-2 text-xs uppercase">
+                        <span className="block mb-2 text-xs font-bold uppercase">
                           Price:{' '}
                         </span>
-                        <span className="font-bold ml-1 text-maroon-700">
+                        <span className="ml-1 font-bold text-maroon-700">
                           {input}
                         </span>
                       </div>
@@ -148,7 +148,7 @@ export const BuyArea = ({ name, url, variants, disabled }) => {
                               </span>
                             ) : (
                               <Link
-                                className="font-bold block text-center text-maroon-700 hover:text-maroon-500 text-sm hover:underline"
+                                className="block text-sm font-bold text-center text-maroon-700 hover:text-maroon-500 hover:underline"
                                 to="/contact"
                                 key={value.variantName || value.name}
                               >
@@ -223,7 +223,7 @@ export const BuyButton = ({
   ) : (
     <button
       type="button"
-      className="snipcart-add-item bg-maroon-800 hover:bg-maroon-700 font-semibold inline-block leading-none px-3 py-2 rounded hover:shadow-md text-cream-200 text-sm"
+      className="inline-block px-3 py-2 text-sm font-semibold leading-none rounded snipcart-add-item bg-maroon-800 hover:bg-maroon-700 hover:shadow-md text-cream-200"
       data-item-name={name}
       data-item-id={id}
       data-item-image={image}

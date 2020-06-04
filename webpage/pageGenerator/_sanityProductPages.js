@@ -1,15 +1,15 @@
 const fs = require('fs');
 const path = require('path');
-const snipcart_sanityToJSON = require('../src/helpers/snipcart_sanityToJSON');
+const snipcartSanityToJSON = require('../src/helpers/snipcart_sanityToJSON');
 const { getAllParentNodes, getAllChildNodes } = require('../src/helpers/index');
 
 const CategoryProductsPerPage = 45;
 
-const pagedefs = ({ graphql, actions }) => ({
+const pageDefs = ({ graphql, actions }) => ({
   product: {
     generator: result => {
       try {
-        const snipcartObject = snipcart_sanityToJSON.snipcartJson(result);
+        const snipcartObject = snipcartSanityToJSON.snipcartJson(result);
         const JSONObject = JSON.stringify(snipcartObject);
         const exists = [
           fs.existsSync('./public/snipcart.json'),
@@ -209,8 +209,8 @@ const pagedefs = ({ graphql, actions }) => ({
 });
 
 exports.GenerateProductPages = ({ graphql, actions }) => {
-  // fire off promases to get data
-  const pageData = pagedefs({ graphql, actions });
+  // fire off promises to get data
+  const pageData = pageDefs({ graphql, actions });
   return Object.keys(pageData).reduce((acc, next) => {
     const { query, generator } = pageData[next];
     acc[next] = query.then(generator);

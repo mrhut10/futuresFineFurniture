@@ -5,7 +5,7 @@ import * as R from 'ramda';
 import Layout from '../components/Layout';
 import Wrapper from '../components/Wrapper';
 import SEO from '../components/SEO';
-import { priceFormat } from '../helpers/index';
+import { priceFormat, getAllParentNodes } from '../helpers/index';
 import NotAvaliable from '../components/NotAvaliable';
 import Paginate from '../components/paginate';
 import CategoryTitle from '../components/CategoryTile';
@@ -15,11 +15,17 @@ import {
   cheapestProductInArray,
   cheapestVariantInProduct,
 } from '../helpers/snipcart_sanityToJSON';
-import { getAllParentNodes } from '../helpers/index';
+
 import { NewBuyButton } from '../components/newSnipcart';
 
 const categoryRoute = ({ data, pageContext }) => {
-  const { productsPerPage, pageNum, totalPages, totalProducts, categoryID } = pageContext;
+  const {
+    productsPerPage,
+    pageNum,
+    totalPages,
+    totalProducts,
+    categoryID,
+  } = pageContext;
   const { name, keywords, slug } = data.Category;
   const { disable } = data.Category.common ?? { disable: false };
   const Products = R.compose(
@@ -43,7 +49,7 @@ const categoryRoute = ({ data, pageContext }) => {
           images={product.images.map(i => ({ fluid: i.fluid_mid }))}
           Children={
             selectedVarient ? (
-              <div className="flex flex-col font-medium -mt-2 p-4 pt-0">
+              <div className="flex flex-col p-4 pt-0 -mt-2 font-medium">
                 <p className="mb-4 text-sm">
                   {selectedVarient.price -
                     applyDiscountToVariant(selectedVarient) >
@@ -156,7 +162,7 @@ const categoryRoute = ({ data, pageContext }) => {
           // ranges
           R.prop('range'),
           // category
-          R.prop('category')
+          R.prop('category'),
         ]),
         R.prop('node')
       )
@@ -192,13 +198,13 @@ const categoryRoute = ({ data, pageContext }) => {
         fnGetIdFromNode: x => (x ? x._id : null),
       },
       data.ParentCategories.nodes,
-      data.Category,
+      data.Category
     ),
   ].reduceRight((acc, next, i, allNodes) => {
     if (i === allNodes.length - 1)
       acc.push(
         <span>
-          <Link className="cream-600 font-bold" to="/range">
+          <Link className="font-bold cream-600" to="/range">
             ...
           </Link>
         </span>
@@ -207,7 +213,7 @@ const categoryRoute = ({ data, pageContext }) => {
       <span>
         {' \\ '}
         <Link
-          className="cream-600 font-bold"
+          className="font-bold cream-600"
           to={`/category/${next.slug.current}`}
         >
           {next.name}
@@ -221,7 +227,7 @@ const categoryRoute = ({ data, pageContext }) => {
     <Layout>
       <SEO title={name} keywords={keywords || []} />
       <Wrapper>
-        <h1 className="font-bold mb-4 text-2xl text-maroon-600">
+        <h1 className="mb-4 text-2xl font-bold text-maroon-600">
           {data.Category.name}
         </h1>
         <div className="m-2">{categoryCrumbs}</div>
@@ -245,7 +251,7 @@ const categoryRoute = ({ data, pageContext }) => {
                   )
                   .map(x => (
                     <Link
-                      className="cream-600 underline"
+                      className="underline cream-600"
                       style={{
                         marginLeft: '10px',
                         display: 'block',
